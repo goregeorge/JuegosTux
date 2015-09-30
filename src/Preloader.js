@@ -12,6 +12,10 @@ TuxGame.Preloader.prototype = {
 		// load images
 		this.load.image('background', 'img/background.png');
 		this.load.image('sea-bg', 'img/block2/sea-bg.png');
+		this.load.image('fish1', 'img/block2/fish1.png');
+		this.load.image('fish2', 'img/block2/fish2.png');
+		this.load.image('fish3', 'img/block2/fish3.png');
+		this.load.image('fish4', 'img/block2/fish4.png');
 		// this.load.image('floor', 'img/floor.png');
 		this.load.image('monster-cover', 'img/monster-cover.png');
 		this.load.image('title', 'img/title.png');
