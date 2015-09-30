@@ -1,13 +1,13 @@
 TuxGame.Block2Welcome = function(game){
   // define needed variables for Candy.Game
-  this._player = null;
-  this._candyGroup = null;
-  this._spawnCandyTimer = 0;
-  this._fontStyle = null;
+  // this._player = null;
+  // this._candyGroup = null;
+  // this._spawnCandyTimer = 0;
+  // this._fontStyle = null;
   // define Candy variables to reuse them in Candy.item functions
-  TuxGame._scoreText = null;
-  TuxGame._score = 0;
-  TuxGame._health = 0;
+  // TuxGame._scoreText = null;
+  // TuxGame._score = 0;
+  // TuxGame._health = 0;
 };
 TuxGame.Block2Welcome.prototype = {
   create: function(){
