@@ -19,7 +19,7 @@ TuxGame.Block2Game1.prototype = {
 		// display images: background, floor and score
 		// this.add.sprite(0, 0, 'background');
 		this.add.sprite(0, 0, 'sea-bg');
-		sprite = this.add.sprite(100, 200, 'fish3');
+		sprite = this.add.sprite(100, 200, 'fish9');
 		sprite.scale.setTo(0.25, 0.25);
 		sprite = this.add.sprite(300, 200, 'fish4');
 		sprite.scale.setTo(0.25, 0.25);

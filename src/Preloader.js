@@ -11,12 +11,12 @@ TuxGame.Preloader.prototype = {
 		this.load.setPreloadSprite(this.preloadBar);
 		// load images
 		this.load.image('background', 'img/background.png');
-		this.load.image('sea-bg', 'img/block2/sea-bg.png');
-		this.load.image('fish3', 'img/block2/fish3.png');
-		this.load.image('fish4', 'img/block2/fish4.png');
-		this.load.image('fish5', 'img/block2/fish5.png');
-		this.load.image('fish6', 'img/block2/fish6.png');
-		this.load.image('fish7', 'img/block2/fish7.png');
+		this.load.image('sea-bg', 'img/block2/game1/sea-bg.png');
+		this.load.image('fish9', 'img/block2/game1/fish9.png');
+		this.load.image('fish4', 'img/block2/game1/fish4.png');
+		this.load.image('fish5', 'img/block2/game1/fish5.png');
+		this.load.image('fish6', 'img/block2/game1/fish6.png');
+		this.load.image('fish7', 'img/block2/game1/fish7.png');
 		// this.load.image('floor', 'img/floor.png');
 		this.load.image('monster-cover', 'img/monster-cover.png');
 		this.load.image('title', 'img/title.png');
