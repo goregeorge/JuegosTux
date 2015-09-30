@@ -11,6 +11,7 @@ TuxGame.Game = function(game){
 };
 TuxGame.Game.prototype = {
 	create: function(){
+		var sprite;
 		// start the physics engine
 		this.physics.startSystem(Phaser.Physics.ARCADE);
 		// set the global gravity
@@ -18,6 +19,12 @@ TuxGame.Game.prototype = {
 		// display images: background, floor and score
 		// this.add.sprite(0, 0, 'background');
 		this.add.sprite(0, 0, 'sea-bg');
+		sprite = this.add.sprite(100, 200, 'fish3');
+		sprite.scale.setTo(0.25, 0.25);
+		sprite = this.add.sprite(300, 200, 'fish4');
+		sprite.scale.setTo(0.25, 0.25);
+		sprite = this.add.sprite(500, 200, 'fish5');
+		sprite.scale.setTo(0.25, 0.25);
 		// this.add.sprite(-30, Candy.GAME_HEIGHT-160, 'floor');
 		// this.add.sprite(10, 5, 'score-bg');
 		// add pause button
