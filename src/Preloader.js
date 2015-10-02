@@ -9,7 +9,15 @@ TuxGame.Preloader.prototype = {
 		this.stage.backgroundColor = '#B4D9E7';
 		this.preloadBar = this.add.sprite((TuxGame.GAME_WIDTH-311)/2, (TuxGame.GAME_HEIGHT-27)/2, 'preloaderBar');
 		this.load.setPreloadSprite(this.preloadBar);
-		// load images
+		// Loading Images
+		/**************************************
+		* Block 2
+		***************************************/
+		// Block 2 Welcome
+		this.load.image('welcome-bg', 'img/block2/welcome/background.png');
+		this.load.image('welcome-boat', 'img/block2/welcome/boat.png');
+		this.load.image('welcome-male-tux', 'img/block2/welcome/male-tux.png');
+		// Block 2 game 1
 		this.load.image('background', 'img/background.png');
 		this.load.image('sea-bg', 'img/block2/game1/sea-bg.png');
 		this.load.image('fish9', 'img/block2/game1/fish9.png');
@@ -17,6 +25,7 @@ TuxGame.Preloader.prototype = {
 		this.load.image('fish5', 'img/block2/game1/fish5.png');
 		this.load.image('fish6', 'img/block2/game1/fish6.png');
 		this.load.image('fish7', 'img/block2/game1/fish7.png');
+
 		// this.load.image('floor', 'img/floor.png');
 		this.load.image('monster-cover', 'img/monster-cover.png');
 		this.load.image('title', 'img/title.png');
