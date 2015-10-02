@@ -1,29 +1,22 @@
-Candy.Preloader = function(game){
+TuxGame.Preloader = function(game){
 	// define width and height of the game
-	Candy.GAME_WIDTH = 640;
-	Candy.GAME_HEIGHT = 960;
+	TuxGame.GAME_WIDTH = 800;
+	TuxGame.GAME_HEIGHT = 600;
 };
-Candy.Preloader.prototype = {
+TuxGame.Preloader.prototype = {
 	preload: function(){
 		// set background color and preload image
 		this.stage.backgroundColor = '#B4D9E7';
-		this.preloadBar = this.add.sprite((Candy.GAME_WIDTH-311)/2, (Candy.GAME_HEIGHT-27)/2, 'preloaderBar');
+		this.preloadBar = this.add.sprite((TuxGame.GAME_WIDTH-311)/2, (TuxGame.GAME_HEIGHT-27)/2, 'preloaderBar');
 		this.load.setPreloadSprite(this.preloadBar);
 		// load images
-		this.load.image('background', 'img/background.png');
-		this.load.image('floor', 'img/floor.png');
-		this.load.image('monster-cover', 'img/monster-cover.png');
-		this.load.image('title', 'img/title.png');
-		this.load.image('game-over', 'img/gameover.png');
-		this.load.image('score-bg', 'img/score-bg.png');
-		this.load.image('button-pause', 'img/button-pause.png');
-		// load spritesheets
-		this.load.spritesheet('candy', 'img/candy.png', 82, 98);
-		this.load.spritesheet('monster-idle', 'img/monster-idle.png', 103, 131);
-		this.load.spritesheet('button-start', 'img/button-start.png', 401, 143);
+		this.load.image('beach-bg', 'img/block1/game1/beach-bg.png');
+		this.load.image('avatar', 'img/block1/game1/avatar.png');
+		this.load.image('cannon', 'img/block1/game1/cannon.png');
+		this.load.image('pirate_boat', 'img/block1/game1/pirate_boat.png');
 	},
 	create: function(){
 		// start the MainMenu state
-		this.state.start('MainMenu');
+		this.state.start('Block1Game1');
 	}
 };
