@@ -20,6 +20,7 @@ TuxGame.Block2Game1.prototype = {
     this.physics.startSystem(Phaser.Physics.ARCADE);
     // display background
     this.add.sprite(0, 0, 'sea-bg');
+    this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
 
     // Displaying Numbers 
     number0 = this.add.sprite(30, 10, 'number0');
@@ -33,11 +34,16 @@ TuxGame.Block2Game1.prototype = {
     number8 = this.add.sprite(670, 10, 'number8');
     number9 = this.add.sprite(750, 10, 'number9');
 
-    fishes = this.getRandomFishes(3);
     // Display fishes
+    fishes = this.getRandomFishes(3);
     fishLeft = this.add.sprite(100, 200, fishes[0]);
     fishCenter = this.add.sprite(300, 200, fishes[1]);
     fishRight = this.add.sprite(500, 200, fishes[2]);
+
+    // Display Instructions
+    this.fishToChoice   = this.getFishToChoice();
+    this.numberToChoice = this.getRandomNaturalNumber();
+    instructionText = this.add.text(100, 320, "Seleciona el Pez de color "+ this.fishToChoice +"\nY colócalo en el número " + this.numberToChoice, this._fontStyle);
 
     // Scaling Assets
     number0.scale.setTo(0.08, 0.08);
@@ -54,7 +60,7 @@ TuxGame.Block2Game1.prototype = {
     fishCenter.scale.setTo(0.25, 0.25);
     fishRight.scale.setTo(0.25, 0.25);
 
-    // Enabling Physics
+    // numberToChoice Physics
     this.physics.arcade.enable(number0);
     this.physics.arcade.enable(number1);
     this.physics.arcade.enable(number2);
@@ -93,8 +99,6 @@ TuxGame.Block2Game1.prototype = {
       this.stopDrag(currentSprite, number0);
     },this);
     
-    this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
-
   },
   stopDrag: function(currentSprite, endSprite){
     if (!this.game.physics.arcade.overlap(currentSprite, endSprite, function() {
@@ -116,10 +120,16 @@ TuxGame.Block2Game1.prototype = {
         fishName = this.fishesNames[randomNumber];
         selectedIndexes.push(randomNumber);
         randomFishes[i] = this.fishes[fishName];
+        if (i === 0) {
+          this.fishToChoice = fishName;
+        }
         i++;
       }
     }
     return randomFishes;
+  },
+  getFishToChoice: function () {
+    return this.fishToChoice;
   },
   existsInArray: function (array, element) {
     var exists = false;
@@ -130,6 +140,10 @@ TuxGame.Block2Game1.prototype = {
       }
     }
     return exists;
+  },
+  getRandomNaturalNumber: function () {
+    // Returns a Number between 0 and 9
+    return Math.floor(Math.random()*10);
   },
   update: function(){
     // update timer every frame
