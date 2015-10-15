@@ -4,6 +4,7 @@ TuxGame.Block2Game1 = function(game){
   this._candyGroup = null;
   this._spawnCandyTimer = 0;
   this._fontStyle = null;
+  this.game = game;
   // define Candy variables to reuse them in Candy.item functions
   TuxGame._scoreText = null;
   TuxGame._score = 0;
@@ -11,21 +12,62 @@ TuxGame.Block2Game1 = function(game){
 };
 TuxGame.Block2Game1.prototype = {
   create: function(){
-    var sprite;
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
-    // set the global gravity
-    this.physics.arcade.gravity.y = 200;
     // display background
     this.add.sprite(0, 0, 'sea-bg');
 
-    // Display fishes fishes
+    // Displaying Numbers 
+    number0 = this.add.sprite(30, 10, 'number0');
+    number1 = this.add.sprite(110, 10, 'number1');
+    number2 = this.add.sprite(170, 10, 'number2');
+    number3 = this.add.sprite(270, 10, 'number3');
+    n4      = this.add.sprite(350, 10, 'n4');
+    number5 = this.add.sprite(430, 10, 'number5');
+    number6 = this.add.sprite(510, 10, 'number6');
+    number7 = this.add.sprite(590, 10, 'number7');
+    number8 = this.add.sprite(670, 10, 'number8');
+    number9 = this.add.sprite(750, 10, 'number9');
+
+    // Display fishes
     fishLeft = this.add.sprite(100, 200, 'fish9');
-    fishLeft.scale.setTo(0.25, 0.25);
     fishCenter = this.add.sprite(300, 200, 'fish4');
-    fishCenter.scale.setTo(0.25, 0.25);
     fishRight = this.add.sprite(500, 200, 'fish5');
+
+    // Scaling Assets
+    number0.scale.setTo(0.08, 0.08);
+    number1.scale.setTo(0.08, 0.08);
+    number2.scale.setTo(0.08, 0.08);
+    number3.scale.setTo(0.08, 0.08);
+    n4.scale.setTo(0.08, 0.08);
+    number5.scale.setTo(0.08, 0.08);
+    number6.scale.setTo(0.08, 0.08);
+    number7.scale.setTo(0.08, 0.08);
+    number8.scale.setTo(0.08, 0.08);
+    number9.scale.setTo(0.08, 0.08);
+    fishLeft.scale.setTo(0.25, 0.25);
+    fishCenter.scale.setTo(0.25, 0.25);
     fishRight.scale.setTo(0.25, 0.25);
+
+    // Enabling Physics
+    this.physics.arcade.enable(number0);
+    this.physics.arcade.enable(number1);
+    this.physics.arcade.enable(number2);
+    this.physics.arcade.enable(number3);
+    this.physics.arcade.enable(n4);
+    this.physics.arcade.enable(number5);
+    this.physics.arcade.enable(number6);
+    this.physics.arcade.enable(number7);
+    this.physics.arcade.enable(number8);
+    this.physics.arcade.enable(number9);
+    this.physics.arcade.enable(fishLeft);
+    this.physics.arcade.enable(fishCenter);
+    this.physics.arcade.enable(fishRight);
+
+    // Cloning Position for Fishes
+    fishLeft.originalPosition = fishLeft.position.clone();
+    fishCenter.originalPosition = fishCenter.position.clone();
+    fishRight.originalPosition = fishRight.position.clone();
 
     // Enable drag & drop on fishes
     fishLeft.inputEnabled = true;
@@ -35,21 +77,36 @@ TuxGame.Block2Game1.prototype = {
     fishRight.inputEnabled = true;
     fishRight.input.enableDrag(true);
 
+    // Add onDragStopEvents
+    fishLeft.events.onDragStop.add(function(currentSprite){
+      this.stopDrag(currentSprite, number0);
+    },this);
+    fishCenter.events.onDragStop.add(function(currentSprite){
+      this.stopDrag(currentSprite, number0);
+    },this);
+    fishRight.events.onDragStop.add(function(currentSprite){
+      this.stopDrag(currentSprite, number0);
+    },this);
+    
     this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
 
   },
-  managePause: function(){
-    // pause the game
-    this.game.paused = true;
-    // add proper informational text
-    var pausedText = this.add.text(100, 250, "Game paused.\nTap anywhere to continue.", this._fontStyle);
-    // set event listener for the user's click/tap the screen
-    this.input.onDown.add(function(){
-      // remove the pause text
-      pausedText.destroy();
-      // unpause the game
-      this.game.paused = false;
-    }, this);
+  stopDrag: function(currentSprite, endSprite){
+    console.log(currentSprite.key);
+    console.log(endSprite.key);
+    cosa = !this.game.physics.arcade.overlap(currentSprite, endSprite, function() {
+      currentSprite.input.draggable = false;
+      currentSprite.position.copyFrom(endSprite.position); 
+      currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
+    });
+    console.log(cosa);
+    if (!this.game.physics.arcade.overlap(currentSprite, endSprite, function() {
+      currentSprite.input.draggable = false;
+      currentSprite.position.copyFrom(endSprite.position); 
+      currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
+    })){
+     currentSprite.position.copyFrom(currentSprite.originalPosition);
+    }
   },
   update: function(){
     // update timer every frame
