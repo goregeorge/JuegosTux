@@ -68,9 +68,8 @@ TuxGame.Block2Game1.prototype = {
     this.fishToChoice = this.fishesColors[this.fishToChoiceSprite.key];
     
     // Display Instructions
-    instructionText = this.add.text(100, 320, "Seleciona el Pez de color "+ this.fishToChoice +"\nY colócalo en el número " + this.numberToChoice, this._fontStyle);
-    console.log(this.numberToChoiceSprite.key);
-    console.log(this.fishToChoiceSprite.key);
+    this.instructionText = this.add.text(100, 320, "Seleciona el Pez de color "+ this.fishToChoice +"\nY colócalo en el número " + this.numberToChoice, this._fontStyle);
+
     // Scaling Assets
     number0.scale.setTo(0.08, 0.08);
     number1.scale.setTo(0.08, 0.08);
@@ -114,15 +113,18 @@ TuxGame.Block2Game1.prototype = {
     fishRight.inputEnabled = true;
     fishRight.input.enableDrag(true);
 
-    // Add onDragStopEvents
-    fishLeft.events.onDragStop.add(function(currentSprite){
-      this.stopDrag(currentSprite, number0);
-    },this);
-    fishCenter.events.onDragStop.add(function(currentSprite){
-      this.stopDrag(currentSprite, number0);
-    },this);
-    fishRight.events.onDragStop.add(function(currentSprite){
-      this.stopDrag(currentSprite, number0);
+    // Add onDragStopEvents for NO correct Fishes
+    for (var i = 0; i < fishSprites.length; i++){
+      if (fishSprites[i] !== this.fishToChoiceSprite) {
+        fishSprites[i].events.onDragStop.add(function(currentSprite){
+          this.stopDragIncorrect(currentSprite);
+        },this);
+      }
+    }
+
+    // Add onDragStopEvents for correct Fish
+    this.fishToChoiceSprite.events.onDragStop.add(function(currentSprite){
+      this.stopDrag(currentSprite, this.numberToChoiceSprite);
     },this);
   },
   stopDrag: function(currentSprite, endSprite){
@@ -130,9 +132,13 @@ TuxGame.Block2Game1.prototype = {
       currentSprite.input.draggable = false;
       currentSprite.position.copyFrom(endSprite.position); 
       currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
+      console.log("Correcto");
     })){
-     currentSprite.position.copyFrom(currentSprite.originalPosition);
+      currentSprite.position.copyFrom(currentSprite.originalPosition);
     }
+  },
+  stopDragIncorrect: function (currentSprite) {
+     currentSprite.position.copyFrom(currentSprite.originalPosition);
   },
   getRandomFishes: function (numberOfFishes) {
     var selectedIndexes = [];
@@ -163,6 +169,10 @@ TuxGame.Block2Game1.prototype = {
   getRandomNaturalNumber: function () {
     // Returns a Number between 0 and 9
     return Math.floor(Math.random()*10);
+  },
+  isCorrectChoice: function(fishSprite, numberSprite) {
+    return this.fishToChoiceSprite == fishSprite &&
+    this.numberToChoiceSprite == numberSprite; 
   },
   update: function(){
     // update timer every frame
