@@ -1,10 +1,14 @@
 TuxGame.Block2Game1 = function(game){
   // define needed variables for Candy.Game
-  this._player = null;
-  this._candyGroup = null;
-  this._spawnCandyTimer = 0;
-  this._fontStyle = null;
   this.game = game;
+  this.fishesNames = ['naranja','rojo','verde','morado','azul'];
+  this.fishes = {
+    'naranja': 'fish4',
+    'rojo':    'fish5',
+    'verde':   'fish6',
+    'morado':  'fish7',
+    'azul':    'fish9',
+  };
   // define Candy variables to reuse them in Candy.item functions
   TuxGame._scoreText = null;
   TuxGame._score = 0;
@@ -29,10 +33,11 @@ TuxGame.Block2Game1.prototype = {
     number8 = this.add.sprite(670, 10, 'number8');
     number9 = this.add.sprite(750, 10, 'number9');
 
+    fishes = this.getRandomFishes(3);
     // Display fishes
-    fishLeft = this.add.sprite(100, 200, 'fish9');
-    fishCenter = this.add.sprite(300, 200, 'fish4');
-    fishRight = this.add.sprite(500, 200, 'fish5');
+    fishLeft = this.add.sprite(100, 200, fishes[0]);
+    fishCenter = this.add.sprite(300, 200, fishes[1]);
+    fishRight = this.add.sprite(500, 200, fishes[2]);
 
     // Scaling Assets
     number0.scale.setTo(0.08, 0.08);
@@ -92,14 +97,6 @@ TuxGame.Block2Game1.prototype = {
 
   },
   stopDrag: function(currentSprite, endSprite){
-    console.log(currentSprite.key);
-    console.log(endSprite.key);
-    cosa = !this.game.physics.arcade.overlap(currentSprite, endSprite, function() {
-      currentSprite.input.draggable = false;
-      currentSprite.position.copyFrom(endSprite.position); 
-      currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
-    });
-    console.log(cosa);
     if (!this.game.physics.arcade.overlap(currentSprite, endSprite, function() {
       currentSprite.input.draggable = false;
       currentSprite.position.copyFrom(endSprite.position); 
@@ -107,6 +104,32 @@ TuxGame.Block2Game1.prototype = {
     })){
      currentSprite.position.copyFrom(currentSprite.originalPosition);
     }
+  },
+  getRandomFishes: function (numberOfFishes) {
+    var selectedIndexes = [];
+    var randomFishes = [];
+    var i = 0;
+
+    while (i < numberOfFishes) {
+      randomNumber = Math.floor(Math.random()*this.fishesNames.length);
+      if (!this.existsInArray(selectedIndexes, randomNumber)) {
+        fishName = this.fishesNames[randomNumber];
+        selectedIndexes.push(randomNumber);
+        randomFishes[i] = this.fishes[fishName];
+        i++;
+      }
+    }
+    return randomFishes;
+  },
+  existsInArray: function (array, element) {
+    var exists = false;
+    var arrayLength = array.length;
+    for (var i = 0; i < arrayLength; i++) {
+      if (array.indexOf(element) > -1) {
+        exists = true;
+      }
+    }
+    return exists;
   },
   update: function(){
     // update timer every frame
