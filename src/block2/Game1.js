@@ -139,7 +139,7 @@ TuxGame.Block2Game1.prototype = {
       var that = this;
       setTimeout(function () {
         that.state.start('Block2Game1');
-      }, 1500);
+      }, 1200);
     }
   },
   stopDragIncorrect: function (currentSprite) {
