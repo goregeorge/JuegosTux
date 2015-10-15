@@ -25,7 +25,7 @@ TuxGame.Block2Welcome.prototype = {
     this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
   },
   goGame1: function(){
-    this.state.start('Block2Game1');
+    this.state.start('Block2Welcome');
   },
   update: function(){
   }
