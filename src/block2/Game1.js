@@ -1,13 +1,13 @@
 TuxGame.Block2Game1 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
-  this.fishesNames = ['naranja','rojo','verde','morado','azul'];
-  this.fishes = {
-    'naranja': 'fish4',
-    'rojo':    'fish5',
-    'verde':   'fish6',
-    'morado':  'fish7',
-    'azul':    'fish9',
+  this.fishesKeys = ['fish4','fish5','fish6','fish7','fish9'];
+  this.fishesColors = {
+    'fish4': 'naranja',
+    'fish5': 'rojo',
+    'fish6': 'verde',
+    'fish7': 'morado',
+    'fish9': 'azul',
   };
   // define Candy variables to reuse them in Candy.item functions
   TuxGame._scoreText = null;
@@ -40,11 +40,37 @@ TuxGame.Block2Game1.prototype = {
     fishCenter = this.add.sprite(300, 200, fishes[1]);
     fishRight = this.add.sprite(500, 200, fishes[2]);
 
-    // Display Instructions
-    this.fishToChoice   = this.getFishToChoice();
-    this.numberToChoice = this.getRandomNaturalNumber();
-    instructionText = this.add.text(100, 320, "Seleciona el Pez de color "+ this.fishToChoice +"\nY colócalo en el número " + this.numberToChoice, this._fontStyle);
+    //Create Arrays of Sprites
+    numberSprites = [number0, 
+        number1, 
+        number2, 
+        number3,
+        n4,
+        number5,
+        number6,
+        number7,
+        number8,
+        number9
+      ];
 
+    fishSprites = [
+      fishLeft,
+      fishCenter,
+      fishRight
+    ];
+
+    // Getting Random Number to Choice
+    this.numberToChoice = this.getRandomNaturalNumber();
+    this.numberToChoiceSprite = numberSprites[this.numberToChoice];
+
+    // Getting Random Fish to choice
+    this.fishToChoiceSprite = fishSprites[Math.floor(Math.random()*fishSprites.length)];
+    this.fishToChoice = this.fishesColors[this.fishToChoiceSprite.key];
+    
+    // Display Instructions
+    instructionText = this.add.text(100, 320, "Seleciona el Pez de color "+ this.fishToChoice +"\nY colócalo en el número " + this.numberToChoice, this._fontStyle);
+    console.log(this.numberToChoiceSprite.key);
+    console.log(this.fishToChoiceSprite.key);
     // Scaling Assets
     number0.scale.setTo(0.08, 0.08);
     number1.scale.setTo(0.08, 0.08);
@@ -98,7 +124,6 @@ TuxGame.Block2Game1.prototype = {
     fishRight.events.onDragStop.add(function(currentSprite){
       this.stopDrag(currentSprite, number0);
     },this);
-    
   },
   stopDrag: function(currentSprite, endSprite){
     if (!this.game.physics.arcade.overlap(currentSprite, endSprite, function() {
@@ -115,21 +140,15 @@ TuxGame.Block2Game1.prototype = {
     var i = 0;
 
     while (i < numberOfFishes) {
-      randomNumber = Math.floor(Math.random()*this.fishesNames.length);
+      randomNumber = Math.floor(Math.random()*this.fishesKeys.length);
       if (!this.existsInArray(selectedIndexes, randomNumber)) {
-        fishName = this.fishesNames[randomNumber];
+        fishKey = this.fishesKeys[randomNumber];
         selectedIndexes.push(randomNumber);
-        randomFishes[i] = this.fishes[fishName];
-        if (i === 0) {
-          this.fishToChoice = fishName;
-        }
+        randomFishes[i] = fishKey;
         i++;
       }
     }
     return randomFishes;
-  },
-  getFishToChoice: function () {
-    return this.fishToChoice;
   },
   existsInArray: function (array, element) {
     var exists = false;
