@@ -132,9 +132,14 @@ TuxGame.Block2Game1.prototype = {
       currentSprite.input.draggable = false;
       currentSprite.position.copyFrom(endSprite.position); 
       currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); 
-      console.log("Correcto");
     })){
       currentSprite.position.copyFrom(currentSprite.originalPosition);
+    } else {
+      this.resultText = this.add.text(300, 150, "¡Correcto!", this._fontStyle);
+      var that = this;
+      setTimeout(function () {
+        that.state.start('Block2Game1');
+      }, 1500);
     }
   },
   stopDragIncorrect: function (currentSprite) {
