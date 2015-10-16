@@ -35,7 +35,13 @@ TuxGame.Block2Game1.prototype = {
     fishRight.inputEnabled = true;
     fishRight.input.enableDrag(true);
 
-    this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+
+    var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center" };
+    //  The Text is positioned at (X, Y, "", {})
+    text = this.add.text(240, 100, "Texto", style);
+    text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+
+    // this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
 
   },
   managePause: function(){
