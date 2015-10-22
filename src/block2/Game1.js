@@ -23,35 +23,41 @@ TuxGame.Block2Game1.prototype = {
     this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
 
     // Displaying Numbers
-    number0 = this.add.sprite(30, 10, 'number0');
+    number0 = this.add.sprite(30,  10, 'number0');
     number1 = this.add.sprite(110, 10, 'number1');
     number2 = this.add.sprite(170, 10, 'number2');
     number3 = this.add.sprite(270, 10, 'number3');
-    n4      = this.add.sprite(350, 10, 'n4');
+    number4 = this.add.sprite(350, 10, 'number4');
     number5 = this.add.sprite(430, 10, 'number5');
     number6 = this.add.sprite(510, 10, 'number6');
     number7 = this.add.sprite(590, 10, 'number7');
     number8 = this.add.sprite(670, 10, 'number8');
     number9 = this.add.sprite(750, 10, 'number9');
 
+    console.log(this.twoIntegersSumOperationInRange(1,10));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(1,10));
+    console.log(this.twoFloatsSumOperationInRange(1,10));
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(1,10));
+
     // Display fishes
-    fishes = this.getRandomFishes(3);
-    fishLeft = this.add.sprite(100, 200, fishes[0]);
+    fishes =     this.getRandomFishes(3);
+    fishLeft =   this.add.sprite(100, 200, fishes[0]);
     fishCenter = this.add.sprite(300, 200, fishes[1]);
-    fishRight = this.add.sprite(500, 200, fishes[2]);
+    fishRight =  this.add.sprite(500, 200, fishes[2]);
 
     //Create Arrays of Sprites
-    numberSprites = [number0,
+    numberSprites = [
+        number0,
         number1,
         number2,
         number3,
-        n4,
+        number4,
         number5,
         number6,
         number7,
         number8,
         number9
-      ];
+    ];
 
     fishSprites = [
       fishLeft,
@@ -75,7 +81,7 @@ TuxGame.Block2Game1.prototype = {
     number1.scale.setTo(0.08, 0.08);
     number2.scale.setTo(0.08, 0.08);
     number3.scale.setTo(0.08, 0.08);
-    n4.scale.setTo(0.08, 0.08);
+    number4.scale.setTo(0.08, 0.08);
     number5.scale.setTo(0.08, 0.08);
     number6.scale.setTo(0.08, 0.08);
     number7.scale.setTo(0.08, 0.08);
@@ -90,7 +96,7 @@ TuxGame.Block2Game1.prototype = {
     this.physics.arcade.enable(number1);
     this.physics.arcade.enable(number2);
     this.physics.arcade.enable(number3);
-    this.physics.arcade.enable(n4);
+    this.physics.arcade.enable(number4);
     this.physics.arcade.enable(number5);
     this.physics.arcade.enable(number6);
     this.physics.arcade.enable(number7);
@@ -200,52 +206,100 @@ TuxGame.Block2Game1.prototype = {
     // 	// pause the game
     // 	this.game.paused = true;
     // }
-  }
-};
+  },
 
-// Candy.item = {
-// 	spawnCandy: function(game){
-// 		// calculate drop position (from 0 to game width) on the x axis
-// 		var dropPos = Math.floor(Math.random()*Candy.GAME_WIDTH);
-// 		// define the offset for every candy
-// 		var dropOffset = [-27,-36,-36,-38,-48];
-// 		// randomize candy type
-// 		var candyType = Math.floor(Math.random()*5);
-// 		// create new candy
-// 		var candy = game.add.sprite(dropPos, dropOffset[candyType], 'candy');
-// 		// add new animation frame
-// 		candy.animations.add('anim', [candyType], 10, true);
-// 		// play the newly created animation
-// 		candy.animations.play('anim');
-// 		// enable candy body for physic engine
-// 		game.physics.enable(candy, Phaser.Physics.ARCADE);
-// 		// enable candy to be clicked/tapped
-// 		candy.inputEnabled = true;
-// 		// add event listener to click/tap
-// 		candy.events.onInputDown.add(this.clickCandy, this);
-// 		// be sure that the candy will fire an event when it goes out of the screen
-// 		candy.checkWorldBounds = true;
-// 		// reset candy when it goes out of screen
-// 		candy.events.onOutOfBounds.add(this.removeCandy, this);
-// 		// set the anchor (for rotation, position etc) to the middle of the candy
-// 		candy.anchor.setTo(0.5, 0.5);
-// 		// set the random rotation value
-// 		candy.rotateMe = (Math.random()*4)-2;
-// 		// add candy to the group
-// 		game._candyGroup.add(candy);
-// 	},
-// 	clickCandy: function(candy){
-// 		// kill the candy when it's clicked
-// 		candy.kill();
-// 		// add points to the score
-// 		Candy._score += 1;
-// 		// update score text
-// 		Candy._scoreText.setText(Candy._score);
-// 	},
-// 	removeCandy: function(candy){
-// 		// kill the candy
-// 		candy.kill();
-// 		// decrease player's health
-// 		Candy._health -= 10;
-// 	}
-// };
+  // twoIntegersSumOperationInRange(1, 10)
+  // => ["Suma 1 + 9", 10]
+  // @return Array with 2 elements.
+  //          - First Element: The text to be displayen in the game
+  //          - Second Element: The Answer of the operation
+  twoIntegersSumOperationInRange: function(min, max){
+    answer = null;
+    while(answer > max || answer < min) {
+      randomNumber1 = (Math.random() * (max - min)) + min;
+      randomNumber2 = (Math.random() * (max - min)) + min;
+      randomNumber1 = parseInt(randomNumber1);
+      randomNumber2 = parseInt(randomNumber2);
+
+      answer = randomNumber1 + randomNumber2;
+    }
+
+    return [
+      ("Suma " + randomNumber1 + " y " + randomNumber2),
+      answer
+    ];
+  },
+
+  // twoFloatsSumOperationInRange(1, 10)
+  // => ["Suma 1.5 + 5.5", 7]
+  // @return Array with 2 elements.
+  //          - First Element: The text to be displayen in the game
+  //          - Second Element: The Answer of the operation
+  twoFloatsSumOperationInRange: function(min, max){
+    answer = null;
+    while(answer > max || answer < min) {
+      randomNumber1 = (Math.random() * ((max*2) - min)) + min;
+      randomNumber2 = (Math.random() * ((max*2) - min)) + min;
+      randomNumber1 = parseInt(randomNumber1) / 2;
+      randomNumber2 = parseInt(randomNumber2) / 2;
+
+      answer = randomNumber1 + randomNumber2;
+    }
+
+    return [
+      ("Suma " + randomNumber1 + " y " + randomNumber2),
+      answer
+    ];
+  },
+
+  // threeIntegersOperationWithSumAndRestInRange(1, 10)
+  // => ["1 + 10 - 5", 6]
+  // @return Array with 2 elements.
+  //          - First Element: The text to be displayen in the game
+  //          - Second Element: The Answer of the operation
+  threeIntegersOperationWithSumAndRestInRange: function(min, max){
+    answer = null;
+    while(answer > max || answer < min) {
+      randomNumber1 = (Math.random() * (max - min)) + min;
+      randomNumber2 = (Math.random() * (max - min)) + min;
+      randomNumber3 = (Math.random() * (max - min)) + min;
+
+      randomNumber1 = parseInt(randomNumber1);
+      randomNumber2 = parseInt(randomNumber2);
+      randomNumber3 = parseInt(randomNumber3);
+
+      answer = randomNumber1 + randomNumber2 - randomNumber3;
+    }
+
+    return [
+      (randomNumber1 + " + " + randomNumber2 + " - " + randomNumber3),
+      answer,
+    ];
+  },
+
+  // threeFloatsOperationWithSumAndRestInRange(1, 10)
+  // => ["1.5 + 2 - .5", 3]
+  // @return Array with 2 elements.
+  //          - First Element: The text to be displayen in the game
+  //          - Second Element: The Answer of the operation
+  threeFloatsOperationWithSumAndRestInRange: function(min, max){
+    answer = null;
+    while(answer > max || answer < min) {
+      randomNumber1 = (Math.random() * ((max*2) - min)) + min;
+      randomNumber2 = (Math.random() * ((max*2) - min)) + min;
+      randomNumber3 = (Math.random() * ((max*2) - min)) + min;
+
+      randomNumber1 = parseInt(randomNumber1) / 2;
+      randomNumber2 = parseInt(randomNumber2) / 2;
+      randomNumber3 = parseInt(randomNumber3) / 2;
+
+      answer = randomNumber1 + randomNumber2 - randomNumber3;
+    }
+
+    return [
+      (randomNumber1 + " + " + randomNumber2 + " - " + randomNumber3),
+      answer,
+    ];
+  }
+
+};
