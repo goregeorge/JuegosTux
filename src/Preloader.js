@@ -22,9 +22,9 @@ TuxGame.Preloader.prototype = {
     this.load.image('sea-bg', 'img/block2/game1/sea-bg.png');
     this.load.image('fish9', 'img/block2/game1/fish9.png');
     this.load.image('fish4', 'img/block2/game1/fish4.png');
-    this.load.image('fish5', 'img/block2/game1/fish5.png');
-    this.load.image('fish6', 'img/block2/game1/fish6.png');
-    this.load.image('fish7', 'img/block2/game1/fish7.png');
+    this.load.image('fish5', 'img/block2/game1/fish5.png?c');
+    this.load.image('fish6', 'img/block2/game1/fish6.png?b');
+    this.load.image('fish7', 'img/block2/game1/fish7.png?a');
 
     // Number assets
     this.load.image('number0', 'img/block2/game1/number_0.png?vc');
@@ -38,8 +38,8 @@ TuxGame.Preloader.prototype = {
     this.load.image('number8', 'img/block2/game1/number_8.png?vc');
     this.load.image('number9', 'img/block2/game1/number_9.png?vc');
     this.load.image('numberDot', 'img/block2/game1/number_dot.jpg');
-    this.load.image('fishHook', 'img/block2/game1/fish_hook.png?v49');
-    this.load.image('line', 'img/block2/game1/line.png?122');
+    this.load.image('fishHook', 'img/block2/game1/fish_hook.png?vc');
+    this.load.image('line', 'img/block2/game1/line.png?vc');
 
     this.load.image('monster-cover', 'img/monster-cover.png');
     this.load.image('title', 'img/title.png');
