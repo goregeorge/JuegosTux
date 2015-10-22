@@ -11,6 +11,6 @@ TuxGame.MainMenu.prototype = {
 	},
 	startGame: function() {
 		// start the Game state
-		this.state.start('Block2Game1');
+		this.state.start('Block2Welcome');
 	}
 };

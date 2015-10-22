@@ -23,6 +23,7 @@ TuxGame.Block2Welcome.prototype = {
     // this.add.button(((TuxGame.GAME_WIDTH)/4), TuxGame.GAME_HEIGHT/4, 'button-start', this.goGame1, this, 1, 0, 2);
 
     this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+    this.add.button(350, 450, 'button-start', this.goGame1, this, 1, 0, 2);
   },
   goGame1: function(){
     this.state.start('Block2Game1');

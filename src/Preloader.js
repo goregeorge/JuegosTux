@@ -25,6 +25,16 @@ TuxGame.Preloader.prototype = {
     this.load.image('fish5', 'img/block2/game1/fish5.png');
     this.load.image('fish6', 'img/block2/game1/fish6.png');
     this.load.image('fish7', 'img/block2/game1/fish7.png');
+    this.load.image('number0', 'img/block2/game1/number0.png');
+    this.load.image('number1', 'img/block2/game1/number1.png');
+    this.load.image('number2', 'img/block2/game1/number2.png');
+    this.load.image('number3', 'img/block2/game1/number3.png');
+    this.load.image('n4', 'img/block2/game1/n4.png');
+    this.load.image('number5', 'img/block2/game1/number5.png');
+    this.load.image('number6', 'img/block2/game1/number6.png');
+    this.load.image('number7', 'img/block2/game1/number7.png');
+    this.load.image('number8', 'img/block2/game1/number8.png');
+    this.load.image('number9', 'img/block2/game1/number9.png');
 
     // Number assets
     this.load.image('number0', 'img/block2/game1/number_0.jpg');
