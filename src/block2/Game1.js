@@ -164,7 +164,7 @@ TuxGame.Block2Game1.prototype = {
     })){
       currentSprite.position.copyFrom(currentSprite.originalPosition);
     } else {
-      this.resultText = this.add.text(300, 150, "¡Correcto!", this._fontStyle);
+      this.add.sprite(300, 100, 'happy');
       var that = this;
       setTimeout(function () {
         that.state.start('Block2Game1');

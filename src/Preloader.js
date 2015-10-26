@@ -25,6 +25,9 @@ TuxGame.Preloader.prototype = {
     this.load.image('fish5', 'img/block2/game1/fish5.png?c');
     this.load.image('fish6', 'img/block2/game1/fish6.png?b');
     this.load.image('fish7', 'img/block2/game1/fish7.png?a');
+    // Block 2 Wrong
+    this.load.image('happy', 'img/block2/game1/happy.png?a');
+    this.load.image('wrong', 'img/block2/game1/wrong.png?a');
 
     // Number assets
     this.load.image('number0', 'img/block2/game1/number_0.png?vb');
