@@ -163,6 +163,10 @@ TuxGame.Block2Game1.prototype = {
       currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y);
     })){
       currentSprite.position.copyFrom(currentSprite.originalPosition);
+      wrong = this.add.sprite(300, 100, 'wrong');
+      setTimeout(function () {
+        wrong.destroy(true); 
+      }, 1200);
     } else {
       this.add.sprite(300, 100, 'happy');
       var that = this;
@@ -173,6 +177,10 @@ TuxGame.Block2Game1.prototype = {
   },
   stopDragIncorrect: function (currentSprite) {
      currentSprite.position.copyFrom(currentSprite.originalPosition);
+     wrong = this.add.sprite(300, 100, 'wrong');
+      setTimeout(function () {
+        wrong.destroy(true); 
+      }, 1200);
   },
   getRandomFishes: function (numberOfFishes) {
     var selectedIndexes = [];
