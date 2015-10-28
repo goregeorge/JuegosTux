@@ -1,4 +1,4 @@
-TuxGame.Block2Game1 = function(game){
+TuxGame.Block2Game1L2 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
   this.fishesKeys = ['fish4','fish5','fish6','fish7','fish9'];
@@ -14,7 +14,7 @@ TuxGame.Block2Game1 = function(game){
   TuxGame._score = 0;
   TuxGame._health = 0;
 };
-TuxGame.Block2Game1.prototype = {
+TuxGame.Block2Game1L2.prototype = {
   create: function(){
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -155,9 +155,15 @@ TuxGame.Block2Game1.prototype = {
     this.fishToChoiceSprite.events.onDragStop.add(function(currentSprite){
       this.stopDrag(currentSprite, this.numberToChoiceSprite);
     },this);
+
+    // Add Timer
+    this.time.events.add(Phaser.Timer.SECOND * 20, this.timeOver, this);
+  },
+  timeOver : function () {
+    this.state.start('Block2Game1L2');
   },
   stopDrag: function(currentSprite, endSprite){
-    if (!this.game.physics.arcade.overlap(currentSprite, endSprite, function() {
+    if (!this.physics.arcade.overlap(currentSprite, endSprite, function() {
       currentSprite.input.draggable = false;
       currentSprite.position.copyFrom(endSprite.position);
       currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y);
@@ -171,7 +177,7 @@ TuxGame.Block2Game1.prototype = {
       this.add.sprite(300, 100, 'happy');
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game1L2');
+        that.state.start('Block2Game1');
       }, 1200);
     }
   },
@@ -216,27 +222,10 @@ TuxGame.Block2Game1.prototype = {
     this.numberToChoiceSprite == numberSprite;
   },
   update: function(){
-    // update timer every frame
-    // this._spawnCandyTimer += this.time.elapsed;
-    // // if spawn timer reach one second (1000 miliseconds)
-    // if(this._spawnCandyTimer > 1000) {
-    // 	// reset it
-    // 	this._spawnCandyTimer = 0;
-    // 	// and spawn new candy
-    // 	Candy.item.spawnCandy(this);
-    // }
-    // // loop through all candy on the screen
-    // this._candyGroup.forEach(function(candy){
-    // 	// to rotate them accordingly
-    // 	candy.angle += candy.rotateMe;
-    // });
-    // // if the health of the player drops to 0, the player dies = game over
-    // if(!Candy._health) {
-    // 	// show the game over message
-    // 	this.add.sprite((Candy.GAME_WIDTH-594)/2, (Candy.GAME_HEIGHT-271)/2, 'game-over');
-    // 	// pause the game
-    // 	this.game.paused = true;
-    // }
+    timeText = this.add.text(50, 50, "Tiempo: " + this.time.events.duration, this._fontStyle);
+  },
+  render: function () {
+    // this.debug.text("Tiempo: " + this.time.events.duration, 32, 32);
   },
 
   // twoIntegersSumOperationInRange(1, 10)
