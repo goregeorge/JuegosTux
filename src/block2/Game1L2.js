@@ -9,6 +9,10 @@ TuxGame.Block2Game1L2 = function(game){
     'fish7': 'morado',
     'fish9': 'azul',
   };
+  this.textStyle = { font: '64px Desyrel', align: 'center'};
+  this.milliseconds = 0;
+  this.seconds = 0;
+  this.minutes = 0;
 };
 TuxGame.Block2Game1L2.prototype = {
   create: function(){
@@ -17,6 +21,7 @@ TuxGame.Block2Game1L2.prototype = {
     // display background
     this.add.sprite(0, 0, 'sea-bg');
     this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+    this.timer = this.game.add.bitmapText(150, 420, 'desyrel', 'Tiempo', 34);
 
     line = this.add.sprite(0, 10, 'line');
 
@@ -92,7 +97,7 @@ TuxGame.Block2Game1L2.prototype = {
     this.fishToChoice = this.fishesColors[this.fishToChoiceSprite.key];
 
     // Display Instructions
-    this.instructionText = this.add.text(100, 320, "Seleciona el Pez de color "+ this.fishToChoice +"\nY colócalo en el número " + this.numberToChoice, this._fontStyle);
+    this.instructionText = this.add.text(100, 320, "Arrastra el Pez de color "+ this.fishToChoice +"\nen el número " + this.numberToChoice, this._fontStyle);
 
     // Scaling Assets
     line.scale.setTo(1.25, 1);
@@ -153,10 +158,14 @@ TuxGame.Block2Game1L2.prototype = {
     },this);
 
     // Add Timer
-    this.time.events.add(Phaser.Timer.SECOND * 20, this.timeOver, this);
+    this.time.events.add(Phaser.Timer.SECOND * 10, this.timeOver, this);
   },
   timeOver : function () {
-    this.state.start('Block2Game1L2');
+    wrong = this.add.sprite(300, 100, 'wrong');
+    that = this;
+    setTimeout(function () {
+      that.state.start('Block2Game1L2');
+    }, 1200);
   },
   stopDrag: function(currentSprite, endSprite){
     if (!this.physics.arcade.overlap(currentSprite, endSprite, function() {
@@ -173,7 +182,7 @@ TuxGame.Block2Game1L2.prototype = {
       this.add.sprite(300, 100, 'happy');
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game1');
+        that.state.start('Block2Game1L3');
       }, 1200);
     }
   },
@@ -218,10 +227,23 @@ TuxGame.Block2Game1L2.prototype = {
     this.numberToChoiceSprite == numberSprite;
   },
   update: function(){
-    timeText = this.add.text(50, 50, "Tiempo: " + this.time.events.duration, this._fontStyle);
+    this.minutes = Math.floor(this.game.time.events.duration / 60000) % 60;
+    this.seconds = Math.floor(this.game.time.events.duration / 1000) % 60;
+    this.milliseconds = Math.floor(this.game.time.events.duration) % 100;
+    //If any of the digits becomes a single digit number, pad it with a zero
+    if (this.milliseconds < 10)
+        this.milliseconds = '0' + this.milliseconds;
+ 
+    if (this.seconds < 10)
+        this.seconds = '0' + this.seconds;
+ 
+    if (this.minutes < 10)
+        this.minutes = '0' + this.minutes;
+ 
+    this.timer.setText("Tiempo Restante: "+ this.seconds + " segundos");
   },
   render: function () {
-    this.game.debug.text("Tiempo: " + this.game.time.events.duration, 32, 32);
+    // this.game.debug.text("Tiempo: " + this.game.time.events.duration, 32, 32);
   },
 
   // twoIntegersSumOperationInRange(1, 10)

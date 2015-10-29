@@ -9,6 +9,8 @@ TuxGame.Preloader.prototype = {
     this.stage.backgroundColor = '#B4D9E7';
     this.preloadBar = this.add.sprite((TuxGame.GAME_WIDTH-311)/2, (TuxGame.GAME_HEIGHT-27)/2, 'preloaderBar');
     this.load.setPreloadSprite(this.preloadBar);
+    //Commons
+    this.load.bitmapFont('desyrel', '/src/commons/desyrel.png', '/src/commons/desyrel.xml');
     // Loading Images
     /**************************************
     * Block 2

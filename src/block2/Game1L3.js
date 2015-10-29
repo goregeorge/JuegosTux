@@ -1,4 +1,4 @@
-TuxGame.Block2Game1 = function(game){
+TuxGame.Block2Game1L3 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
   this.fishesKeys = ['fish4','fish5','fish6','fish7','fish9'];
@@ -9,18 +9,19 @@ TuxGame.Block2Game1 = function(game){
     'fish7': 'morado',
     'fish9': 'azul',
   };
-  // define Candy variables to reuse them in Candy.item functions
-  TuxGame._scoreText = null;
-  TuxGame._score = 0;
-  TuxGame._health = 0;
+  this.textStyle = { font: '64px Desyrel', align: 'center'};
+  this.milliseconds = 0;
+  this.seconds = 0;
+  this.minutes = 0;
 };
-TuxGame.Block2Game1.prototype = {
+TuxGame.Block2Game1L3.prototype = {
   create: function(){
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
     // display background
     this.add.sprite(0, 0, 'sea-bg');
-    this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+    this._fontStyle = { font: "35px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+    this.timer = this.game.add.bitmapText(150, 420, 'desyrel', 'Tiempo', 34);
 
     line = this.add.sprite(0, 10, 'line');
 
@@ -88,15 +89,21 @@ TuxGame.Block2Game1.prototype = {
     ];
 
     // Getting Random Number to Choice
-    this.numberToChoice = this.getRandomNaturalNumber();
-    this.numberToChoiceSprite = numberSprites[this.numberToChoice];
+    this.randomResult = this.twoIntegersSumOperationInRange(1,10);
+    // Since i dont want to modify this code just keep getting random numbers until the answer is different to 10
+    while(this.randomResult[1] == 10){
+      this.randomResult = this.twoIntegersSumOperationInRange(1,10);
+    }
 
+    this.numberToChoice = this.randomResult[1];
+    this.numberToChoiceSprite = numberSprites[this.numberToChoice];
+    this.operation = this.randomResult[0];
     // Getting Random Fish to choice
     this.fishToChoiceSprite = fishSprites[Math.floor(Math.random()*fishSprites.length)];
     this.fishToChoice = this.fishesColors[this.fishToChoiceSprite.key];
 
     // Display Instructions
-    this.instructionText = this.add.text(100, 320, "Arrastra el Pez de color "+ this.fishToChoice +"\nAl número " + this.numberToChoice, this._fontStyle);
+    this.instructionText = this.add.text(100, 320, "Arrastra el Pez de color "+ this.fishToChoice +"\nAl resultado de esta operación " + this.operation, this._fontStyle);
 
     // Scaling Assets
     line.scale.setTo(1.25, 1);
@@ -155,9 +162,19 @@ TuxGame.Block2Game1.prototype = {
     this.fishToChoiceSprite.events.onDragStop.add(function(currentSprite){
       this.stopDrag(currentSprite, this.numberToChoiceSprite);
     },this);
+
+    // Add Timer
+    this.time.events.add(Phaser.Timer.SECOND * 10, this.timeOver, this);
+  },
+  timeOver : function () {
+    wrong = this.add.sprite(300, 100, 'wrong');
+    that = this;
+    setTimeout(function () {
+      that.state.start('Block2Game1L3');
+    }, 1200);
   },
   stopDrag: function(currentSprite, endSprite){
-    if (!this.game.physics.arcade.overlap(currentSprite, endSprite, function() {
+    if (!this.physics.arcade.overlap(currentSprite, endSprite, function() {
       currentSprite.input.draggable = false;
       currentSprite.position.copyFrom(endSprite.position);
       currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y);
@@ -171,7 +188,7 @@ TuxGame.Block2Game1.prototype = {
       this.add.sprite(300, 100, 'happy');
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game1L2');
+        that.state.start('Block2Game1L4');
       }, 1200);
     }
   },
@@ -216,27 +233,23 @@ TuxGame.Block2Game1.prototype = {
     this.numberToChoiceSprite == numberSprite;
   },
   update: function(){
-    // update timer every frame
-    // this._spawnCandyTimer += this.time.elapsed;
-    // // if spawn timer reach one second (1000 miliseconds)
-    // if(this._spawnCandyTimer > 1000) {
-    // 	// reset it
-    // 	this._spawnCandyTimer = 0;
-    // 	// and spawn new candy
-    // 	Candy.item.spawnCandy(this);
-    // }
-    // // loop through all candy on the screen
-    // this._candyGroup.forEach(function(candy){
-    // 	// to rotate them accordingly
-    // 	candy.angle += candy.rotateMe;
-    // });
-    // // if the health of the player drops to 0, the player dies = game over
-    // if(!Candy._health) {
-    // 	// show the game over message
-    // 	this.add.sprite((Candy.GAME_WIDTH-594)/2, (Candy.GAME_HEIGHT-271)/2, 'game-over');
-    // 	// pause the game
-    // 	this.game.paused = true;
-    // }
+    this.minutes = Math.floor(this.game.time.events.duration / 60000) % 60;
+    this.seconds = Math.floor(this.game.time.events.duration / 1000) % 60;
+    this.milliseconds = Math.floor(this.game.time.events.duration) % 100;
+    //If any of the digits becomes a single digit number, pad it with a zero
+    if (this.milliseconds < 10)
+        this.milliseconds = '0' + this.milliseconds;
+ 
+    if (this.seconds < 10)
+        this.seconds = '0' + this.seconds;
+ 
+    if (this.minutes < 10)
+        this.minutes = '0' + this.minutes;
+ 
+    this.timer.setText("Tiempo Restante: "+ this.seconds + " segundos");
+  },
+  render: function () {
+    // this.game.debug.text("Tiempo: " + this.game.time.events.duration, 32, 32);
   },
 
   // twoIntegersSumOperationInRange(1, 10)
@@ -256,7 +269,7 @@ TuxGame.Block2Game1.prototype = {
     }
 
     return [
-      ("Suma " + randomNumber1 + " y " + randomNumber2),
+      ( randomNumber1 + " + " + randomNumber2),
       answer
     ];
   },
@@ -278,7 +291,7 @@ TuxGame.Block2Game1.prototype = {
     }
 
     return [
-      ("Suma " + randomNumber1 + " y " + randomNumber2),
+      ("Suma A" + randomNumber1 + " y " + randomNumber2),
       answer
     ];
   },
