@@ -9,10 +9,6 @@ TuxGame.Block2Game1L2 = function(game){
     'fish7': 'morado',
     'fish9': 'azul',
   };
-  // define Candy variables to reuse them in Candy.item functions
-  TuxGame._scoreText = null;
-  TuxGame._score = 0;
-  TuxGame._health = 0;
 };
 TuxGame.Block2Game1L2.prototype = {
   create: function(){
@@ -225,7 +221,7 @@ TuxGame.Block2Game1L2.prototype = {
     timeText = this.add.text(50, 50, "Tiempo: " + this.time.events.duration, this._fontStyle);
   },
   render: function () {
-    // this.debug.text("Tiempo: " + this.time.events.duration, 32, 32);
+    this.game.debug.text("Time until event: " + game.time.events.duration, 32, 32);
   },
 
   // twoIntegersSumOperationInRange(1, 10)
