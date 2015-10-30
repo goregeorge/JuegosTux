@@ -5,10 +5,10 @@ var reaction = 0;
 var score = 30;
 var number1, number2, number3;
 var image, image2, image3;
-var operations = ["2+3", "1+1", "4*2", "6*5", "8-4", "9-3", "3*4", "9+9", "8-5"];
-var results = ["5", "2", "8", "30", "4", "6", "12", "18", "3"];
+var operations = ["25+17", "125+5+10", "38+10", "22-10+2-3", "18-3-6+2", "34+4-8", "45-15+10", "8+2-3+6-1", "10+8-3+9-2", "17+3-5-2+1", "19+0+10-1", "33+2+3-28", "22+10", "17+2+5-14", "1+15-2", "40+5-30", "45+5-25-5", "60-30-15", "50-25-15", "24-14+5"];
+var results = ["42", "140", "48", "11", "11", "30", "40", "12", "22", "14", "28", "10", "32", "10", "14", "15", "20", "15", "10", "15"];
 // Between 0 and 2
-var randomNumber1 = Math.floor((Math.random() * 9));
+var randomNumber1 = Math.floor((Math.random() * 20));
 // Another number between 0 and 2
 var randomNumber2 = Math.floor((Math.random() * 3));
 // Between 1 and 2
@@ -138,7 +138,7 @@ TuxGame.Block1Game1.prototype = {
 	},
 	changeQuestion: function(){
 		// Between 0 and 2
-		randomNumber1 = Math.floor((Math.random() * 9));
+		randomNumber1 = Math.floor((Math.random() * 20));
 		// Another number between 0 and 2
 		randomNumber2 = Math.floor((Math.random() * 3));
 		// Between 1 and 2
