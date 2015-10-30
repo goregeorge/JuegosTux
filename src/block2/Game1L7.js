@@ -160,7 +160,7 @@ TuxGame.Block2Game1L7.prototype = {
     },this);
 
     // Add Timer
-    this.time.events.add(Phaser.Timer.SECOND * 10, this.timeOver, this);
+    this.time.events.add(Phaser.Timer.SECOND * 20, this.timeOver, this);
   },
   timeOver : function () {
     wrong = this.add.sprite(300, 100, 'wrong');
