@@ -29,7 +29,7 @@ TuxGame.Preloader.prototype = {
 		this.load.image('happy_penguin_face', 'img/block1/game1/happy_penguin_face.png');
 		this.load.image('sad_penguin_face', 'img/block1/game1/sad_penguin_face.png');
 		// load sounds
-		this.load.audio('intro', 'sound/block1/game1/intro.m4a');
+		this.load.audio('intro', ['sound/block1/game1/intro.m4a', 'sound/block1/game1/intro.ogg']);
 	},
 	create: function(){
 		// start the MainMenu state
