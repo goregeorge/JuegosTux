@@ -300,7 +300,7 @@ TuxGame.Block2Game1L13.prototype = {
     }
 
     return [
-      ("Suma A" + randomNumber1 + " y " + randomNumber2),
+      (randomNumber1 + " + " + randomNumber2),
       answer
     ];
   },
