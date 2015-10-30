@@ -54,6 +54,6 @@ TuxGame.Preloader.prototype = {
   },
   create: function(){
     // start the MainMenu state
-    this.state.start('MainMenu');
+    this.state.start('Block2Welcome');
   }
 };

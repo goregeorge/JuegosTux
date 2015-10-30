@@ -1,4 +1,4 @@
-TuxGame.Block2Game1L11 = function(game){
+TuxGame.Block2Game1L12 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
   this.fishesKeys = ['fish4','fish5','fish6','fish7','fish9'];
@@ -14,7 +14,7 @@ TuxGame.Block2Game1L11 = function(game){
   this.seconds = 0;
   this.minutes = 0;
 };
-TuxGame.Block2Game1L11.prototype = {
+TuxGame.Block2Game1L12.prototype = {
   create: function(){
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -165,7 +165,7 @@ TuxGame.Block2Game1L11.prototype = {
     wrong = this.add.sprite(300, 100, 'wrong');
     that = this;
     setTimeout(function () {
-      that.state.start('Block2Game1L11');
+      that.state.start('Block2Game1L12');
     }, 1200);
   },
   stopDrag: function(currentSprite, endSprite){
@@ -183,7 +183,7 @@ TuxGame.Block2Game1L11.prototype = {
       this.add.sprite(300, 100, 'happy');
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game1L12');
+        that.state.start('Block2Game1L13');
       }, 1200);
     }
   },
