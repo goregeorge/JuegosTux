@@ -65,9 +65,9 @@ TuxGame.Block1Game1.prototype = {
 	    bubble2.inputEnabled = true;
 	    bubble3.inputEnabled = true;
 
-		//music = this.add.audio('intro');
+		music = this.add.audio('intro');
 
-		//music.play();
+		music.play();
 
 		message = this.add.text(50, 120, '', { font:'bold 40pt French Script MT', fill: '#000000' });
 	    scoreText = this.add.text(715, 0, '30', { font:'bold 40pt French Script MT', fill: '#000000' });
