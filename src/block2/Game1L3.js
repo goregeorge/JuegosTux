@@ -9,7 +9,6 @@ TuxGame.Block2Game1L3 = function(game){
     'fish7': 'morado',
     'fish9': 'azul',
   };
-  this.textStyle = { font: '64px Desyrel', align: 'center'};
   this.milliseconds = 0;
   this.seconds = 0;
   this.minutes = 0;
@@ -21,46 +20,37 @@ TuxGame.Block2Game1L3.prototype = {
     // display background
     this.add.sprite(0, 0, 'sea-bg');
     this._fontStyle = { font: "35px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
-    this.timer = this.game.add.bitmapText(150, 420, 'desyrel', 'Tiempo', 34);
+    this._fontStyle2 = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
 
-    line = this.add.sprite(0, 10, 'line');
+    line = this.add.sprite(0, 60, 'line');
+
+     // Level Info
+    point = this.add.sprite(0, 0, 'point');
+    levelText = this.add.text(50, 10, "Nivel 3", this._fontStyle2);
+
+    goods = this.add.sprite(180, 10, 'good-s');
+    goods.scale.setTo(0.7, 0.7);
+    goodsText = this.add.text(230, 10, TuxGame._correct +" aciertos", this._fontStyle2);
+
+    wrongs = this.add.sprite(380, 10, 'wrong-s');
+    wrongs.scale.setTo(0.7, 0.7);
+    wrongsText = this.add.text(430, 10, TuxGame._incorrect +" fallos", this._fontStyle2);
+
+    clock  = this.add.sprite(550, 8, 'clock');
+    clock.scale.setTo(0.8, 0.8);
+    this.timer = this.game.add.bitmapText(600, 10, 'desyrel', 'Tiempo', 30);
 
     // Displaying Numbers
-    number0 = this.add.sprite(30,  10, 'number0');
-    fishHook0 = this.add.sprite(30, 50, 'fishHook');
-
-    number1 = this.add.sprite(110, 10, 'number1');
-    fishHook1 = this.add.sprite(110, 50, 'fishHook');
-
-    number2 = this.add.sprite(190, 10, 'number2');
-    fishHook2 = this.add.sprite(190, 50, 'fishHook');
-
-    number3 = this.add.sprite(270, 10, 'number3');
-    fishHook3 = this.add.sprite(270, 50, 'fishHook');
-
-    number4 = this.add.sprite(350, 10, 'number4');
-    fishHook4 = this.add.sprite(350, 50, 'fishHook');
-
-    number5 = this.add.sprite(430, 10, 'number5');
-    fishHook5 = this.add.sprite(430, 50, 'fishHook');
-
-    number6 = this.add.sprite(510, 10, 'number6');
-    fishHook6 = this.add.sprite(510, 50, 'fishHook');
-
-    number7 = this.add.sprite(590, 10, 'number7');
-    fishHook7 = this.add.sprite(590, 50, 'fishHook');
-
-    number8 = this.add.sprite(670, 10, 'number8');
-    fishHook8 = this.add.sprite(670, 50, 'fishHook');
-
-    number9 = this.add.sprite(740, 10, 'number9');
-    fishHook9 = this.add.sprite(740, 50, 'fishHook');
-
-
-    console.log(this.twoIntegersSumOperationInRange(1,10));
-    console.log(this.threeIntegersOperationWithSumAndRestInRange(1,10));
-    console.log(this.twoFloatsSumOperationInRange(1,10));
-    console.log(this.threeFloatsOperationWithSumAndRestInRange(1,10));
+    number0 = this.add.sprite(30,  60, 'number0');
+    number1 = this.add.sprite(110, 60, 'number1');
+    number2 = this.add.sprite(190, 60, 'number2');
+    number3 = this.add.sprite(270, 60, 'number3');
+    number4 = this.add.sprite(350, 60, 'number4');
+    number5 = this.add.sprite(430, 60, 'number5');
+    number6 = this.add.sprite(510, 60, 'number6');
+    number7 = this.add.sprite(590, 60, 'number7');
+    number8 = this.add.sprite(670, 60, 'number8');
+    number9 = this.add.sprite(740, 60, 'number9');
 
     // Display fishes
     fishes =     this.getRandomFishes(3);
@@ -168,6 +158,7 @@ TuxGame.Block2Game1L3.prototype = {
   },
   timeOver : function () {
     wrong = this.add.sprite(300, 100, 'wrong');
+    TuxGame._incorrect += 1;
     that = this;
     setTimeout(function () {
       that.state.start('Block2Game1L3');
@@ -181,19 +172,24 @@ TuxGame.Block2Game1L3.prototype = {
     })){
       currentSprite.position.copyFrom(currentSprite.originalPosition);
       wrong = this.add.sprite(300, 100, 'wrong');
+      TuxGame._incorrect += 1;
+      wrongsText.setText(TuxGame._incorrect +" fallos");
       setTimeout(function () {
         wrong.destroy(true); 
       }, 1200);
     } else {
       this.add.sprite(300, 100, 'happy');
       var that = this;
+      TuxGame._correct += 1;
       setTimeout(function () {
-        that.state.start('Block2Game1L4');
+        that.state.start('Block2Game1L5');
       }, 1200);
     }
   },
   stopDragIncorrect: function (currentSprite) {
      currentSprite.position.copyFrom(currentSprite.originalPosition);
+     TuxGame._incorrect += 1;
+     wrongsText.setText(TuxGame._incorrect +" fallos");
      wrong = this.add.sprite(300, 100, 'wrong');
       setTimeout(function () {
         wrong.destroy(true); 
@@ -246,7 +242,7 @@ TuxGame.Block2Game1L3.prototype = {
     if (this.minutes < 10)
         this.minutes = '0' + this.minutes;
  
-    this.timer.setText("Tiempo Restante: "+ this.seconds + " segundos");
+    this.timer.setText(this.seconds + " segundos");
   },
   render: function () {
     // this.game.debug.text("Tiempo: " + this.game.time.events.duration, 32, 32);
