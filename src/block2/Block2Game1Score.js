@@ -23,11 +23,11 @@ TuxGame.Block2Game1Score.prototype = {
 
     goods = this.add.sprite(40, 155, 'good-s');
     goods.scale.setTo(0.7, 0.7);
-    goodsText = this.add.text(90, 155, TuxGame._correct +" aciertos", this._fontStyle2);
+    goodsText = this.add.text(90, 155, TuxGame._correct +" Aciertos", this._fontStyle2);
 
     wrongs = this.add.sprite(40, 220, 'wrong-s');
     wrongs.scale.setTo(0.7, 0.7);
-    wrongsText = this.add.text(90, 225, TuxGame._incorrect +" fallos", this._fontStyle2);
+    wrongsText = this.add.text(90, 225, TuxGame._incorrect +" Fallos", this._fontStyle2);
 
     this.add.button(280, 460, 'button-start', this.goGame1, this, 1, 0, 2);
     this.add.text(370, 495, "Volver a Jugar", this._fontStyle);

@@ -30,11 +30,11 @@ TuxGame.Block2Game1L2.prototype = {
 
     goods = this.add.sprite(180, 10, 'good-s');
     goods.scale.setTo(0.7, 0.7);
-    goodsText = this.add.text(230, 10, TuxGame._correct +" aciertos", this._fontStyle2);
+    goodsText = this.add.text(230, 10, TuxGame._correct +" Aciertos", this._fontStyle2);
 
     wrongs = this.add.sprite(380, 10, 'wrong-s');
     wrongs.scale.setTo(0.7, 0.7);
-    wrongsText = this.add.text(430, 10, TuxGame._incorrect +" fallos", this._fontStyle2);
+    wrongsText = this.add.text(430, 10, TuxGame._incorrect +" Fallos", this._fontStyle2);
 
     clock  = this.add.sprite(550, 8, 'clock');
     clock.scale.setTo(0.8, 0.8);
@@ -86,7 +86,7 @@ TuxGame.Block2Game1L2.prototype = {
     this.fishToChoice = this.fishesColors[this.fishToChoiceSprite.key];
 
     // Display Instructions
-    this.instructionText = this.add.text(100, 320, "Arrastra el Pez de color "+ this.fishToChoice +"\nen el número " + this.numberToChoice, this._fontStyle);
+    this.instructionText = this.add.text(100, 320, "Arrastra el pez de color "+ this.fishToChoice +"\nal número " + this.numberToChoice, this._fontStyle);
 
     // Scaling Assets
     line.scale.setTo(1.25, 1);
@@ -166,7 +166,7 @@ TuxGame.Block2Game1L2.prototype = {
       currentSprite.position.copyFrom(currentSprite.originalPosition);
       wrong = this.add.sprite(300, 100, 'wrong');
       TuxGame._incorrect += 1;
-      wrongsText.setText(TuxGame._incorrect +" fallos");
+      wrongsText.setText(TuxGame._incorrect +" Fallos");
       setTimeout(function () {
         wrong.destroy(true); 
       }, 1200);
@@ -182,7 +182,7 @@ TuxGame.Block2Game1L2.prototype = {
   stopDragIncorrect: function (currentSprite) {
      currentSprite.position.copyFrom(currentSprite.originalPosition);
      TuxGame._incorrect += 1;
-     wrongsText.setText(TuxGame._incorrect +" fallos");
+     wrongsText.setText(TuxGame._incorrect +" Fallos");
      wrong = this.add.sprite(300, 100, 'wrong');
       setTimeout(function () {
         wrong.destroy(true); 
