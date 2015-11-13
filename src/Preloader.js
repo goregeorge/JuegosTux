@@ -22,11 +22,11 @@ TuxGame.Preloader.prototype = {
     // Block 2 game 1
     this.load.image('background', 'img/background.png');
     this.load.image('sea-bg', 'img/block2/game1/sea-bg.png');
-    this.load.image('fish9', 'img/block2/game1/fish9.png?1');
-    this.load.image('fish4', 'img/block2/game1/fish4.png?2');
-    this.load.image('fish5', 'img/block2/game1/fish5.png?3');
-    this.load.image('fish6', 'img/block2/game1/fish6.png?4');
-    this.load.image('fish7', 'img/block2/game1/fish7.png?5');
+    this.load.image('fish9', 'img/block2/game1/fish9.png?2');
+    this.load.image('fish4', 'img/block2/game1/fish4.png?3');
+    this.load.image('fish5', 'img/block2/game1/fish5.png?4');
+    this.load.image('fish6', 'img/block2/game1/fish6.png?5');
+    this.load.image('fish7', 'img/block2/game1/fish7.png?6');
     // Block 2 Wrong
     this.load.image('happy', 'img/block2/game1/happy.png?v=2');
     this.load.image('wrong', 'img/block2/game1/wrong.png?a');
