@@ -29,7 +29,7 @@ TuxGame.Block2Welcome.prototype = {
     this.add.text(390, 495, "Jugar Ahora", this._fontStyle2);
   },
   goGame1: function(){
-    this.state.start('Block2Game1');
+    this.state.start('Block2Game1L13');
   },
   update: function(){
   }

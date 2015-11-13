@@ -72,13 +72,13 @@ TuxGame.Block2Game1.prototype = {
     point = this.add.sprite(0, 0, 'point');
     levelText = this.add.text(50, 10, "Nivel 1", this._fontStyle2);
 
-    goods = this.add.sprite(180, 10, 'good-s');
+    this.add.sprite(680, 175, 'score-half');
+    goods = this.add.sprite(700, 200, 'good-s');
     goods.scale.setTo(0.7, 0.7);
-    goodsText = this.add.text(230, 10, TuxGame._correct +" Aciertos", this._fontStyle2);
-
-    wrongs = this.add.sprite(380, 10, 'wrong-s');
+    goodsText = this.add.text(770, 200, TuxGame._correct, this._fontStyle2);
+    wrongs = this.add.sprite(700, 260, 'wrong-s');
     wrongs.scale.setTo(0.7, 0.7);
-    wrongsText = this.add.text(430, 10, TuxGame._incorrect +" Fallos", this._fontStyle2);
+    wrongsText = this.add.text(770, 260, TuxGame._incorrect, this._fontStyle2);
 
     // Displaying Numbers
     number0 = this.add.sprite(60,  60, 'number0');
@@ -196,7 +196,7 @@ TuxGame.Block2Game1.prototype = {
       currentSprite.position.copyFrom(currentSprite.originalPosition);
       wrong = this.add.sprite(300, 100, 'wrong');
       TuxGame._incorrect += 1;
-      wrongsText.setText(TuxGame._incorrect +" Fallos");
+      wrongsText.setText(TuxGame._incorrect);
       setTimeout(function () {
         wrong.destroy(true);
       }, 1200);
@@ -212,7 +212,7 @@ TuxGame.Block2Game1.prototype = {
   stopDragIncorrect: function (currentSprite) {
      currentSprite.position.copyFrom(currentSprite.originalPosition);
      TuxGame._incorrect += 1;
-     wrongsText.setText(TuxGame._incorrect +" Fallos");
+     wrongsText.setText(TuxGame._incorrect);
      wrong = this.add.sprite(300, 100, 'wrong');
       setTimeout(function () {
         wrong.destroy(true);

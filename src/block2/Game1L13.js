@@ -1,4 +1,4 @@
-TuxGame.Block2Game1L11 = function(game){
+TuxGame.Block2Game1L13 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
   this.fishesKeys = ['fish4','fish5','fish6','fish7','fish9'];
@@ -13,7 +13,7 @@ TuxGame.Block2Game1L11 = function(game){
   this.seconds = 0;
   this.minutes = 0;
 };
-TuxGame.Block2Game1L11.prototype = {
+TuxGame.Block2Game1L13.prototype = {
   create: function(){
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -26,7 +26,7 @@ TuxGame.Block2Game1L11.prototype = {
 
      // Level Info
     point = this.add.sprite(0, 0, 'point');
-    levelText = this.add.text(50, 10, "Nivel 7", this._fontStyle2);
+    levelText = this.add.text(50, 10, "Nivel 8", this._fontStyle2);
 
     this.add.sprite(680, 175, 'score-half');
     goods = this.add.sprite(700, 200, 'good-s');
@@ -42,15 +42,16 @@ TuxGame.Block2Game1L11.prototype = {
 
     // Displaying Numbers
     number0 = this.add.sprite(60,  60, 'number0');
-    number1 = this.add.sprite(132, 60, 'number1');
-    number2 = this.add.sprite(204, 60, 'number2');
-    number3 = this.add.sprite(276, 60, 'number3');
-    number4 = this.add.sprite(348, 60, 'number4');
-    number5 = this.add.sprite(420, 60, 'number5');
-    number6 = this.add.sprite(492, 60, 'number6');
-    number7 = this.add.sprite(564, 60, 'number7');
-    number8 = this.add.sprite(636, 60, 'number8');
-    number9 = this.add.sprite(708, 60, 'number9');
+    number1 = this.add.sprite(116, 60, 'number0,5');
+    number2 = this.add.sprite(190, 60, 'number1');
+    number3 = this.add.sprite(237, 60, 'number1,5');
+    number4 = this.add.sprite(320, 60, 'number2');
+    number5 = this.add.sprite(379, 60, 'number2,5');
+    number6 = this.add.sprite(450, 60, 'number3');
+    number7 = this.add.sprite(505, 60, 'number3,5');
+    number8 = this.add.sprite(580, 60, 'number4');
+    number9 = this.add.sprite(636, 60, 'number4,5');
+    number10 = this.add.sprite(710, 60, 'number5');
 
     // Display fishes
     fishes =     this.getRandomFishes(3);
@@ -69,7 +70,8 @@ TuxGame.Block2Game1L11.prototype = {
         number6,
         number7,
         number8,
-        number9
+        number9,
+        number10,
     ];
 
     fishSprites = [
@@ -94,15 +96,16 @@ TuxGame.Block2Game1L11.prototype = {
     // Scaling Assets
     line.scale.setTo(1.25, 1);
     number0.scale.setTo(0.08, 0.08);
-    number1.scale.setTo(0.08, 0.08);
+    number1.scale.setTo(0.12, 0.12);
     number2.scale.setTo(0.08, 0.08);
-    number3.scale.setTo(0.08, 0.08);
+    number3.scale.setTo(0.12, 0.12);
     number4.scale.setTo(0.08, 0.08);
-    number5.scale.setTo(0.08, 0.08);
+    number5.scale.setTo(0.12, 0.12);
     number6.scale.setTo(0.08, 0.08);
-    number7.scale.setTo(0.08, 0.08);
+    number7.scale.setTo(0.12, 0.12);
     number8.scale.setTo(0.08, 0.08);
-    number9.scale.setTo(0.08, 0.08);
+    number9.scale.setTo(0.12, 0.12);
+    number10.scale.setTo(0.08, 0.08);
     fishLeft.scale.setTo(0.25, 0.25);
     fishCenter.scale.setTo(0.25, 0.25);
     fishRight.scale.setTo(0.25, 0.25);
@@ -157,7 +160,7 @@ TuxGame.Block2Game1L11.prototype = {
     TuxGame._incorrect += 1;
     that = this;
     setTimeout(function () {
-      that.state.start('Block2Game1L11');
+      that.state.start('Block2Game1L13');
     }, 1200);
   },
   stopDrag: function(currentSprite, endSprite){
@@ -178,7 +181,7 @@ TuxGame.Block2Game1L11.prototype = {
       TuxGame._correct += 1;
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game1L13');
+        that.state.start('Block2Game1Score');
       }, 1200);
     }
   },
