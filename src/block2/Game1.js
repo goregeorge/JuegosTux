@@ -16,6 +16,47 @@ TuxGame.Block2Game1 = function(game){
 };
 TuxGame.Block2Game1.prototype = {
   create: function(){
+    console.log(this.twoIntegersSumOperationInRange(0,2));
+
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+    console.log(this.twoFloatsSumOperationInRange(0,2));
+
+    console.log('--------------------------');
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+    console.log(this.threeIntegersOperationWithSumAndRestInRange(0,2));
+
+    console.log('--------------------------');
+
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(0, 9));
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(0, 9));
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(0, 9));
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(0, 9));
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(0, 9));
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(0, 9));
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(0, 9));
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(0, 9));
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(0, 9));
+    console.log(this.threeFloatsOperationWithSumAndRestInRange(0, 9));
+
     TuxGame._correct = 0;
     TuxGame._incorrect = 0;
     // start the physics engine
@@ -157,7 +198,7 @@ TuxGame.Block2Game1.prototype = {
       TuxGame._incorrect += 1;
       wrongsText.setText(TuxGame._incorrect +" Fallos");
       setTimeout(function () {
-        wrong.destroy(true); 
+        wrong.destroy(true);
       }, 1200);
     } else {
       this.add.sprite(300, 100, 'happy');
@@ -174,7 +215,7 @@ TuxGame.Block2Game1.prototype = {
      wrongsText.setText(TuxGame._incorrect +" Fallos");
      wrong = this.add.sprite(300, 100, 'wrong');
       setTimeout(function () {
-        wrong.destroy(true); 
+        wrong.destroy(true);
       }, 1200);
   },
   getRandomFishes: function (numberOfFishes) {
@@ -219,7 +260,8 @@ TuxGame.Block2Game1.prototype = {
   //          - First Element: The text to be displayen in the game
   //          - Second Element: The Answer of the operation
   twoIntegersSumOperationInRange: function(min, max){
-    answer = null;
+    // Force it to enter loop
+    answer = min - 1;
     while(answer > max || answer < min) {
       randomNumber1 = (Math.random() * (max - min)) + min;
       randomNumber2 = (Math.random() * (max - min)) + min;
@@ -237,16 +279,23 @@ TuxGame.Block2Game1.prototype = {
 
   // twoFloatsSumOperationInRange(1, 10)
   // => ["Suma 1.5 + 5.5", 7]
+  // In the example given answer >= 1.5 && answer <= 9.5 && (answer % 0.5 == 0)
   // @return Array with 2 elements.
   //          - First Element: The text to be displayen in the game
   //          - Second Element: The Answer of the operation
   twoFloatsSumOperationInRange: function(min, max){
-    answer = null;
-    while(answer > max || answer < min) {
-      randomNumber1 = (Math.random() * ((max*2) - min)) + min;
-      randomNumber2 = (Math.random() * ((max*2) - min)) + min;
-      randomNumber1 = parseInt(randomNumber1) / 2;
-      randomNumber2 = parseInt(randomNumber2) / 2;
+    // Force it to enter loop
+    answer = min - 1;
+    while((answer + .5 > max) || (answer - .5) < min) { // answer out of bounds
+      randomNumber1 = this._round(
+        (Math.random() * (max) - min) + min,
+        0.5
+      );
+      randomNumber2 = this._round(
+        (Math.random() * (max) - min) + min,
+        0.5
+      );
+
 
       answer = randomNumber1 + randomNumber2;
     }
@@ -263,7 +312,8 @@ TuxGame.Block2Game1.prototype = {
   //          - First Element: The text to be displayen in the game
   //          - Second Element: The Answer of the operation
   threeIntegersOperationWithSumAndRestInRange: function(min, max){
-    answer = null;
+    // Force it to enter loop
+    answer = min - 1;
     while(answer > max || answer < min) {
       randomNumber1 = (Math.random() * (max - min)) + min;
       randomNumber2 = (Math.random() * (max - min)) + min;
@@ -284,19 +334,27 @@ TuxGame.Block2Game1.prototype = {
 
   // threeFloatsOperationWithSumAndRestInRange(1, 10)
   // => ["1.5 + 2 - .5", 3]
+  // In the example given answer >= 1.5 && answer <= 9.5 && (answer % 0.5 == 0)
   // @return Array with 2 elements.
   //          - First Element: The text to be displayen in the game
   //          - Second Element: The Answer of the operation
   threeFloatsOperationWithSumAndRestInRange: function(min, max){
-    answer = null;
-    while(answer > max || answer < min) {
-      randomNumber1 = (Math.random() * ((max*2) - min)) + min;
-      randomNumber2 = (Math.random() * ((max*2) - min)) + min;
-      randomNumber3 = (Math.random() * ((max*2) - min)) + min;
+    // Force it to enter loop
+    answer = min - 1;
+    while((answer + .5 > max) || (answer - .5) < min) { // answer out of bounds
 
-      randomNumber1 = parseInt(randomNumber1) / 2;
-      randomNumber2 = parseInt(randomNumber2) / 2;
-      randomNumber3 = parseInt(randomNumber3) / 2;
+      randomNumber1 = this._round(
+        (Math.random() * (max) - min) + min,
+        0.5
+      );
+      randomNumber2 = this._round(
+        (Math.random() * (max + 1) - min) + min,
+        0.5
+      );
+      randomNumber3 = this._round(
+        (Math.random() * (max) - min) + min,
+        0.5
+      );
 
       answer = randomNumber1 + randomNumber2 - randomNumber3;
     }
@@ -305,6 +363,15 @@ TuxGame.Block2Game1.prototype = {
       (randomNumber1 + " + " + randomNumber2 + " - " + randomNumber3),
       answer,
     ];
+  },
+
+  _round: function(number, numberToRound) {
+    var rest = number%numberToRound;
+    if (rest <= (numberToRound/2)) {
+      return number-rest;
+    } else {
+      return number+numberToRound-rest;
+    }
   }
 
 };
