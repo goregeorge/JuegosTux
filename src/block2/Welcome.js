@@ -1,12 +1,4 @@
 TuxGame.Block2Welcome = function(game){
-  // this._player = null;
-  // this._candyGroup = null;
-  // this._spawnCandyTimer = 0;
-  // this._fontStyle = null;
-  // define Candy variables to reuse them in Candy.item functions
-  // TuxGame._scoreText = null;
-  // TuxGame._score = 0;
-  // TuxGame._health = 0;
 };
 TuxGame.Block2Welcome.prototype = {
   create: function(){
@@ -20,7 +12,7 @@ TuxGame.Block2Welcome.prototype = {
 
     globo = this.add.sprite(170, 70, 'globo-text');
     globo.scale.setTo(0.4, 0.4);
-    this.add.text(180, 85, "Ayúdame a capturar\nlos peces ubicándolos\nen la recta númerica", this._fontStyle);
+    this.add.text(190, 95, "Ayúdame a capturar\nlos peces ubicándolos\nen la recta númerica", this._fontStyle);
     sprite = this.add.sprite(280, 230, 'welcome-male-tux');
     sprite.scale.setTo(0.25, 0.25);
 
@@ -29,7 +21,7 @@ TuxGame.Block2Welcome.prototype = {
     this.add.text(390, 495, "Jugar Ahora", this._fontStyle2);
   },
   goGame1: function(){
-    this.state.start('Block2Game1L13');
+    this.state.start('Block2Game1');
   },
   update: function(){
   }

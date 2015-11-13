@@ -60,19 +60,19 @@ TuxGame.Block2Game1L13.prototype = {
     fishRight =  this.add.sprite(540, 200, fishes[2]);
 
     //Create Arrays of Sprites
-    numberSprites = [
-        number0,
-        number1,
-        number2,
-        number3,
-        number4,
-        number5,
-        number6,
-        number7,
-        number8,
-        number9,
-        number10,
-    ];
+    numberSprites = {
+        '0'   : number0,
+        '0.5' : number1,
+        '1'   : number2,
+        '1.5' : number3,
+        '2'   : number4,
+        '2.5' : number5,
+        '3'   : number6,
+        '3.5' : number7,
+        '4'   : number8,
+        '4.5' : number9,
+        '5'   : number10,
+    };
 
     fishSprites = [
       fishLeft,
@@ -81,9 +81,9 @@ TuxGame.Block2Game1L13.prototype = {
     ];
 
     // Getting Random Number to Choice
-    this.randomResult = this.threeIntegersOperationWithSumAndDif();
+    this.randomResult = this.twoFloatsSumOperationInRange(0,5);
 
-    this.numberToChoice = this.randomResult[1];
+    this.numberToChoice = this.randomResult[1].toString();
     this.numberToChoiceSprite = numberSprites[this.numberToChoice];
     this.operation = this.randomResult[0];
     // Getting Random Fish to choice
@@ -181,7 +181,7 @@ TuxGame.Block2Game1L13.prototype = {
       TuxGame._correct += 1;
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game1Score');
+        that.state.start('Block2Game1L15');
       }, 1200);
     }
   },
@@ -247,123 +247,36 @@ TuxGame.Block2Game1L13.prototype = {
     // this.game.debug.text("Tiempo: " + this.game.time.events.duration, 32, 32);
   },
 
-  // twoIntegersSumOperationInRange(1, 10)
-  // => ["Suma 1 + 9", 10]
-  // @return Array with 2 elements.
-  //          - First Element: The text to be displayen in the game
-  //          - Second Element: The Answer of the operation
-  twoIntegersSumOperationInRange: function(min, max){
-    answer = null;
-    while(answer > max || answer < min) {
-      randomNumber1 = (Math.random() * (max - min)) + min;
-      randomNumber2 = (Math.random() * (max - min)) + min;
-      randomNumber1 = parseInt(randomNumber1);
-      randomNumber2 = parseInt(randomNumber2);
-
-      answer = randomNumber1 + randomNumber2;
-    }
-
-    return [
-      ( randomNumber1 + " + " + randomNumber2),
-      answer
-    ];
-  },
-  twoIntegersDifOperationInRange: function(){
-    answer = null;
-    answer = this.getRandomNaturalNumber();
-    if(answer > 5) {
-      randomNumber1 = 10;
-      randomNumber2 = 10 - answer;
-    } else {
-      randomNumber1 = 10 - answer;
-      randomNumber2 = randomNumber1 - answer;
-    }
-    return [
-      ( randomNumber1 + " - " + randomNumber2),
-      answer
-    ];
-  },
-  // twoFloatsSumOperationInRange(1, 10)
-  // => ["Suma 1.5 + 5.5", 7]
-  // @return Array with 2 elements.
-  //          - First Element: The text to be displayen in the game
-  //          - Second Element: The Answer of the operation
   twoFloatsSumOperationInRange: function(min, max){
-    answer = null;
-    while(answer > max || answer < min) {
-      randomNumber1 = (Math.random() * ((max*2) - min)) + min;
-      randomNumber2 = (Math.random() * ((max*2) - min)) + min;
-      randomNumber1 = parseInt(randomNumber1) / 2;
-      randomNumber2 = parseInt(randomNumber2) / 2;
+    // Force it to enter loop
+    answer = min - 1;
+    while((answer + .5 > max) || (answer - .5) < min) { // answer out of bounds
+      randomNumber1 = this._round(
+        (Math.random() * (max) - min) + min,
+        0.5
+      );
+      randomNumber2 = this._round(
+        (Math.random() * (max) - min) + min,
+        0.5
+      );
+
 
       answer = randomNumber1 + randomNumber2;
     }
 
     return [
-      ("Suma A" + randomNumber1 + " y " + randomNumber2),
+      (randomNumber1 + " + " + randomNumber2),
       answer
     ];
   },
 
-  // threeIntegersOperationWithSumAndRestInRange(1, 10)
-  // => ["1 + 10 - 5", 6]
-  // @return Array with 2 elements.
-  //          - First Element: The text to be displayen in the game
-  //          - Second Element: The Answer of the operation
-  threeIntegersOperationWithSumAndDif: function(){
-    randomNumber1 = 4;
-    randomNumber2 = Math.floor(Math.random()*6);
-    randomNumber3 = Math.floor(Math.random()*5);
-    answer = randomNumber1 + randomNumber2 - randomNumber3;
-    return [
-      (randomNumber1 + " + " + randomNumber2 + " - " + randomNumber3),
-      answer,
-    ];
-  },
-  threeIntegersSumInRange: function(){
-    randomNumber1 = Math.floor(Math.random()*4);
-    randomNumber2 = Math.floor(Math.random()*4);
-    randomNumber3 = Math.floor(Math.random()*4);
-    answer = randomNumber1 + randomNumber2 + randomNumber3;
-    return [
-      (randomNumber1 + " + " + randomNumber2 + " + " + randomNumber3),
-      answer,
-    ];
-  },
-  threeIntegersDif: function(){
-    randomNumber1 = 10;
-    randomNumber2 = Math.floor(Math.random()*6);
-    randomNumber3 = Math.floor(Math.random()*6);
-    answer = randomNumber1 - randomNumber2 - randomNumber3;
-    return [
-      (randomNumber1 + " - " + randomNumber2 + " - " + randomNumber3),
-      answer,
-    ];
-  },
-
-  // threeFloatsOperationWithSumAndRestInRange(1, 10)
-  // => ["1.5 + 2 - .5", 3]
-  // @return Array with 2 elements.
-  //          - First Element: The text to be displayen in the game
-  //          - Second Element: The Answer of the operation
-  threeFloatsOperationWithSumAndRestInRange: function(min, max){
-    answer = null;
-    while(answer > max || answer < min) {
-      randomNumber1 = (Math.random() * ((max*2) - min)) + min;
-      randomNumber2 = (Math.random() * ((max*2) - min)) + min;
-      randomNumber3 = (Math.random() * ((max*2) - min)) + min;
-
-      randomNumber1 = parseInt(randomNumber1) / 2;
-      randomNumber2 = parseInt(randomNumber2) / 2;
-      randomNumber3 = parseInt(randomNumber3) / 2;
-
-      answer = randomNumber1 + randomNumber2 - randomNumber3;
+  _round: function(number, numberToRound) {
+    var rest = number%numberToRound;
+    if (rest <= (numberToRound/2)) {
+      return number-rest;
+    } else {
+      return number+numberToRound-rest;
     }
-
-    return [
-      (randomNumber1 + " + " + randomNumber2 + " - " + randomNumber3),
-      answer,
-    ];
   }
 
 };

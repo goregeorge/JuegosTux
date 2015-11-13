@@ -9,22 +9,43 @@
 	<script src="src/Preloader.js"></script>
 	<script src="src/MainMenu.js"></script>
 	<script src="src/block2/Welcome.js"></script>
-	<!-- Sólo Arrastra  -->
+
+	<!-- Sólo Arrastra  Nivel 1-->
 	<script src="src/block2/Game1.js"></script>
-	<!-- Arrastra con tiempo -->
+
+	<!-- Arrastra con tiempo Nivel 2 -->
 	<script src="src/block2/Game1L2.js"></script>
-	<!-- Arrastra con suma x + y -->
+
+	<!-- Arrastra con suma x + y Nivel 3-->
 	<script src="src/block2/Game1L3.js"></script>
-	<!-- Arrastra con suma x - y -->
+
+	<!-- Arrastra con suma x - y Nivel 4-->
 	<script src="src/block2/Game1L5.js"></script>
-	<!-- Arrastra con resta x + y + z -->
+
+	<!-- Arrastra con resta x + y + z Nivel 5-->
 	<script src="src/block2/Game1L7.js"></script>
-	<!-- Arrastra con resta x - y -z -->
+
+	<!-- Arrastra con resta x - y -z Nivel 6-->
 	<script src="src/block2/Game1L9.js"></script>
-	<!-- Arrastra con resta x + y -z -->
+
+	<!-- Arrastra con resta x + y -z Nivel 7-->
 	<script src="src/block2/Game1L11.js"></script>
-	<!-- Decimal (0 to 5) Arrastra X -->
+
+	<!-- Decimal (0 to 5) Arrastra X + Y Nivel 8-->
 	<script src="src/block2/Game1L13.js"></script>
+
+	<!-- Decimal (4 to 9) Arrastra X + Y Nivel 9-->
+	<script src="src/block2/Game1L15.js"></script>
+
+	<!-- Decimal (0 to 5) Arrastra X - Y Nivel 10-->
+	<script src="src/block2/Game1L17.js"></script>
+
+	<!-- Decimal (4 to 9) Arrastra X - Y Nivel 11-->
+	<script src="src/block2/Game1L19.js"></script>
+
+	<!-- Decimal (0 to 5) Arrastra X + Y -Z Nivel 12-->
+	<script src="src/block2/Game1L21.js"></script>
+
 	<!-- Block2Game1Score -->
 	<script src="src/block2/Block2Game1Score.js"></script>
 </head>
@@ -46,6 +67,10 @@
 	game.state.add('Block2Game1L9', TuxGame.Block2Game1L9);
 	game.state.add('Block2Game1L11', TuxGame.Block2Game1L11);
 	game.state.add('Block2Game1L13', TuxGame.Block2Game1L13);
+	game.state.add('Block2Game1L15', TuxGame.Block2Game1L15);
+	game.state.add('Block2Game1L17', TuxGame.Block2Game1L17);
+	game.state.add('Block2Game1L19', TuxGame.Block2Game1L19);
+	game.state.add('Block2Game1L21', TuxGame.Block2Game1L21);
 	game.state.add('Block2Game1Score', TuxGame.Block2Game1Score);
 	// start the Boot state
 	game.state.start('Boot');
