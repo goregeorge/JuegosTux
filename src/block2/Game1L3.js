@@ -41,22 +41,22 @@ TuxGame.Block2Game1L3.prototype = {
     this.timer = this.game.add.bitmapText(600, 10, 'desyrel', 'Tiempo', 30);
 
     // Displaying Numbers
-    number0 = this.add.sprite(30,  60, 'number0');
-    number1 = this.add.sprite(110, 60, 'number1');
-    number2 = this.add.sprite(190, 60, 'number2');
-    number3 = this.add.sprite(270, 60, 'number3');
-    number4 = this.add.sprite(350, 60, 'number4');
-    number5 = this.add.sprite(430, 60, 'number5');
-    number6 = this.add.sprite(510, 60, 'number6');
-    number7 = this.add.sprite(590, 60, 'number7');
-    number8 = this.add.sprite(670, 60, 'number8');
-    number9 = this.add.sprite(740, 60, 'number9');
+    number0 = this.add.sprite(60,  60, 'number0');
+    number1 = this.add.sprite(132, 60, 'number1');
+    number2 = this.add.sprite(204, 60, 'number2');
+    number3 = this.add.sprite(276, 60, 'number3');
+    number4 = this.add.sprite(348, 60, 'number4');
+    number5 = this.add.sprite(420, 60, 'number5');
+    number6 = this.add.sprite(492, 60, 'number6');
+    number7 = this.add.sprite(564, 60, 'number7');
+    number8 = this.add.sprite(636, 60, 'number8');
+    number9 = this.add.sprite(708, 60, 'number9');
 
     // Display fishes
     fishes =     this.getRandomFishes(3);
-    fishLeft =   this.add.sprite(100, 200, fishes[0]);
-    fishCenter = this.add.sprite(300, 200, fishes[1]);
-    fishRight =  this.add.sprite(500, 200, fishes[2]);
+    fishLeft =   this.add.sprite(140, 200, fishes[0]);
+    fishCenter = this.add.sprite(340, 200, fishes[1]);
+    fishRight =  this.add.sprite(540, 200, fishes[2]);
 
     //Create Arrays of Sprites
     numberSprites = [
