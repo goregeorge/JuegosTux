@@ -2,6 +2,8 @@ TuxGame.Block2Game1 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
   this.fishesKeys = ['fish4','fish5','fish6','fish7','fish9'];
+  this.game1Commons = new Game1Commons();
+
   this.fishesColors = {
     'fish4': 'naranja',
     'fish5': 'rojo',
@@ -40,36 +42,13 @@ TuxGame.Block2Game1.prototype = {
     wrongsText = this.add.text(770, 260, TuxGame._incorrect, this._fontStyle2);
 
     // Displaying Numbers
-    number0 = this.add.sprite(60,  60, 'number0');
-    number1 = this.add.sprite(132, 60, 'number1');
-    number2 = this.add.sprite(204, 60, 'number2');
-    number3 = this.add.sprite(276, 60, 'number3');
-    number4 = this.add.sprite(348, 60, 'number4');
-    number5 = this.add.sprite(420, 60, 'number5');
-    number6 = this.add.sprite(492, 60, 'number6');
-    number7 = this.add.sprite(564, 60, 'number7');
-    number8 = this.add.sprite(636, 60, 'number8');
-    number9 = this.add.sprite(708, 60, 'number9');
-
+    numberSprites = this.game1Commons.displayNumbers(this);
+    
     // Display fishes
     fishes =     this.getRandomFishes(3);
     fishLeft =   this.add.sprite(140, 200, fishes[0]);
     fishCenter = this.add.sprite(340, 200, fishes[1]);
     fishRight =  this.add.sprite(540, 200, fishes[2]);
-
-    //Create Arrays of Sprites
-    numberSprites = [
-        number0,
-        number1,
-        number2,
-        number3,
-        number4,
-        number5,
-        number6,
-        number7,
-        number8,
-        number9
-    ];
 
     fishSprites = [
       fishLeft,
@@ -90,31 +69,11 @@ TuxGame.Block2Game1.prototype = {
 
     // Scaling Assets
     line.scale.setTo(1.25, 1);
-    number0.scale.setTo(0.08, 0.08);
-    number1.scale.setTo(0.08, 0.08);
-    number2.scale.setTo(0.08, 0.08);
-    number3.scale.setTo(0.08, 0.08);
-    number4.scale.setTo(0.08, 0.08);
-    number5.scale.setTo(0.08, 0.08);
-    number6.scale.setTo(0.08, 0.08);
-    number7.scale.setTo(0.08, 0.08);
-    number8.scale.setTo(0.08, 0.08);
-    number9.scale.setTo(0.08, 0.08);
     fishLeft.scale.setTo(0.25, 0.25);
     fishCenter.scale.setTo(0.25, 0.25);
     fishRight.scale.setTo(0.25, 0.25);
 
     // numberToChoice Physics
-    this.physics.arcade.enable(number0);
-    this.physics.arcade.enable(number1);
-    this.physics.arcade.enable(number2);
-    this.physics.arcade.enable(number3);
-    this.physics.arcade.enable(number4);
-    this.physics.arcade.enable(number5);
-    this.physics.arcade.enable(number6);
-    this.physics.arcade.enable(number7);
-    this.physics.arcade.enable(number8);
-    this.physics.arcade.enable(number9);
     this.physics.arcade.enable(fishLeft);
     this.physics.arcade.enable(fishCenter);
     this.physics.arcade.enable(fishRight);
