@@ -51,72 +51,15 @@ TuxGame.Block2Game1.prototype = {
     for (var i = 0; i < fishSprites.length; i++){
       if (fishSprites[i] !== this.fishToChoiceSprite) {
         fishSprites[i].events.onDragStop.add(function(currentSprite){
-          this.stopDragIncorrect(currentSprite);
+          this.game1Commons.stopDragIncorrect(this, currentSprite);
         },this);
       }
     }
 
     // Add onDragStopEvents for correct Fish
     this.fishToChoiceSprite.events.onDragStop.add(function(currentSprite){
-      this.stopDrag(currentSprite, this.numberToChoiceSprite);
+      this.game1Commons.stopDrag(this, currentSprite, this.numberToChoiceSprite);
     },this);
-  },
-  stopDrag: function(currentSprite, endSprite){
-    // Check if is the correct sprite
-    isOverlapped = this.checkOverlap(currentSprite, endSprite);
-    if (isOverlapped) {
-      currentSprite.position.x = endSprite.position.x - 30;
-      this.add.sprite(300, 100, 'happy');
-      var that = this;
-      TuxGame._correct += 1;
-      setTimeout(function () {
-        that.state.start('Block2Game1L2');
-      }, 1200);
-      return;
-    }
-
-    var isOverlapped = false;
-    for ( i = 0; i < numberSprites.length; i++) {
-      console.log(endSprite.key);
-      console.log(numberSprites[i].key);
-      if (numberSprites[i].key != endSprite.key) {
-        isOverlapped = this.checkOverlap(currentSprite, numberSprites[i]);
-        if (isOverlapped) {
-          wrongsText.setText(TuxGame._incorrect);
-          TuxGame._incorrect += 1;
-          wrong = this.add.sprite(300, 100, 'wrong');
-          setTimeout(function () {
-            wrong.destroy(true);
-          }, 1200);
-          break;
-        }
-      }
-    }
-    currentSprite.position.copyFrom(currentSprite.originalPosition);
-  },
-  stopDragIncorrect: function (currentSprite) {
-    var isOverlapped = false;
-    for (var i = 0; i < numberSprites.length; i++) {
-      isOverlapped = this.checkOverlap(currentSprite, numberSprites[i]);
-      if (isOverlapped) {
-        wrongsText.setText(TuxGame._incorrect);
-        TuxGame._incorrect += 1;
-        wrong = this.add.sprite(300, 100, 'wrong');
-        setTimeout(function () {
-          wrong.destroy(true);
-        }, 1200);
-        break;
-      }
-    }
-    currentSprite.position.copyFrom(currentSprite.originalPosition);
-  },
-  checkOverlap: function(spriteA, spriteB) {
-
-    var boundsA = spriteA.getBounds();
-    var boundsB = spriteB.getBounds();
-
-    return Phaser.Rectangle.intersects(boundsA, boundsB);
-
   },
   getRandomFishes: function (numberOfFishes) {
     var selectedIndexes = [];
@@ -146,10 +89,6 @@ TuxGame.Block2Game1.prototype = {
   getRandomNaturalNumber: function () {
     // Returns a Number between 0 and 9
     return Math.floor(Math.random()*10);
-  },
-  isCorrectChoice: function(fishSprite, numberSprite) {
-    return this.fishToChoiceSprite == fishSprite &&
-    this.numberToChoiceSprite == numberSprite;
   },
   update: function(){
   },
