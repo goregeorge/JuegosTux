@@ -1,6 +1,7 @@
 LevelTemplate = function(strategies){
     this.initializer     = strategies.initializer;
     this.infoDisplayer   = strategies.infoDisplayer;
+    this.numberGenerator = strategies.numberGenerator;
 
     this.numberDisplayer = new IntegersDisplayer();
     this.fishesDisplayer = new FishesDisplayer();
@@ -19,8 +20,8 @@ LevelTemplate.prototype = {
   displayLevelInfo: function (context, name) {
     return this.infoDisplayer.displayInfo(context, name);
   },
-  getRandomNumberToChoice: function (numberGenerator) {
-    return numberGenerator.getRandomNaturalNumber();
+  getRandomNumberToChoice: function (context) {
+    return this.numberGenerator.getRandomNumberToChoice(context);
   }
 
 };

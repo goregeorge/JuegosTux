@@ -47,8 +47,8 @@ Game1Engine.prototype = {
   displayLevelInfo: function (context) {
     return this.strategy.displayLevelInfo(context, this.name);
   },
-  getRandomNumberToChoice: function () {
-    return this.strategy.getRandomNumberToChoice(this.numberGenerator);
+  getRandomNumberToChoice: function (context) {
+    return this.strategy.getRandomNumberToChoice(context);
   },
   stopDragIncorrect: function (context,currentSprite) {
     var isOverlapped = false;

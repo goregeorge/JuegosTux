@@ -2,8 +2,9 @@ TuxGame.Block2Game1 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
   strategies = {
-    'initializer'  : new NormalInitializer(),
-    'infoDisplayer': new NormalLevelDisplayer()
+    'initializer'    : new NormalInitializer(),
+    'infoDisplayer'  : new NormalLevelDisplayer(),
+    'numberGenerator': new NaturalNumber()
   };
   this.gameEngine = new Game1Engine(strategies,'Block2Game1', 'Block2Game1L2','01');
 };

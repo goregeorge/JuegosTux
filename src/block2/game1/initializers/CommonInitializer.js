@@ -29,7 +29,9 @@ CommonInitializer.prototype = {
     context.fishSprites = context.gameEngine.displayFishes(context);
 
     // Getting Random Number to Choice
-    context.numberToChoice = context.gameEngine.getRandomNumberToChoice();
+    context.randomResult = context.gameEngine.getRandomNumberToChoice(context);
+    context.operation = context.randomResult[0];
+    context.numberToChoice = context.randomResult[1];
     context.numberToChoiceSprite = numberSprites[context.numberToChoice];
 
     // Getting Random Fish to choice
@@ -37,7 +39,13 @@ CommonInitializer.prototype = {
     context.fishToChoice = context.fishesColors[context.fishToChoiceSprite.key];
 
     // Display Instructions
-    context.instructionText = context.add.text(100, 320, "Arrastra el pez de color "+ context.fishToChoice +"\nal número " + context.numberToChoice, context._fontStyle);
+    if (context.operation === '') {
+      context.instructionText = context.add.text(100, 320, "Arrastra el pez de color "+ context.fishToChoice +"\nal número " + context.numberToChoice, context._fontStyle);
+    } else {
+      context.instructionText = context.add.text(100, 320, "Arrastra el pez de color "+ context.fishToChoice +"\nal resultado de esta operación " + context.operation, context._fontStyle);
+    }
+    
+    // Events
     context.gameEngine.addDragEvents(context);
   }
 
