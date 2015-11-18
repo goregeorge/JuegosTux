@@ -2,7 +2,7 @@ TuxGame.Block2Game1 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
   this.fishesKeys = ['fish4','fish5','fish6','fish7','fish9'];
-  this.game1Commons = new Game1Commons();
+  this.game1Commons = new Game1Commons(new Game1Level1());
 
   this.fishesColors = {
     'fish4': 'naranja',
@@ -27,37 +27,17 @@ TuxGame.Block2Game1.prototype = {
     this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle2 = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
 
-    line = this.add.sprite(0, 60, 'line');
-
     // Level Info
-    point = this.add.sprite(0, 0, 'point');
-    levelText = this.add.text(50, 10, "Nivel 1", this._fontStyle2);
-
-    this.add.sprite(680, 175, 'score-half');
-    goods = this.add.sprite(700, 200, 'good-s');
-    goods.scale.setTo(0.7, 0.7);
-    goodsText = this.add.text(770, 200, TuxGame._correct, this._fontStyle2);
-    wrongs = this.add.sprite(700, 260, 'wrong-s');
-    wrongs.scale.setTo(0.7, 0.7);
-    wrongsText = this.add.text(770, 260, TuxGame._incorrect, this._fontStyle2);
+    wrongsText = this.game1Commons.displayLevelInfo(this);
 
     // Displaying Numbers
     numberSprites = this.game1Commons.displayNumbers(this);
     
     // Display fishes
-    fishes =     this.getRandomFishes(3);
-    fishLeft =   this.add.sprite(140, 200, fishes[0]);
-    fishCenter = this.add.sprite(340, 200, fishes[1]);
-    fishRight =  this.add.sprite(540, 200, fishes[2]);
-
-    fishSprites = [
-      fishLeft,
-      fishCenter,
-      fishRight
-    ];
+    fishSprites = this.game1Commons.displayFishes(this);
 
     // Getting Random Number to Choice
-    this.numberToChoice = this.getRandomNaturalNumber();
+    this.numberToChoice = this.game1Commons.getRandomNumberToChoice(this);
     this.numberToChoiceSprite = numberSprites[this.numberToChoice];
 
     // Getting Random Fish to choice
@@ -66,30 +46,6 @@ TuxGame.Block2Game1.prototype = {
 
     // Display Instructions
     this.instructionText = this.add.text(100, 320, "Arrastra el pez de color "+ this.fishToChoice +"\nal número " + this.numberToChoice, this._fontStyle);
-
-    // Scaling Assets
-    line.scale.setTo(1.25, 1);
-    fishLeft.scale.setTo(0.25, 0.25);
-    fishCenter.scale.setTo(0.25, 0.25);
-    fishRight.scale.setTo(0.25, 0.25);
-
-    // numberToChoice Physics
-    this.physics.arcade.enable(fishLeft);
-    this.physics.arcade.enable(fishCenter);
-    this.physics.arcade.enable(fishRight);
-
-    // Cloning Position for Fishes
-    fishLeft.originalPosition = fishLeft.position.clone();
-    fishCenter.originalPosition = fishCenter.position.clone();
-    fishRight.originalPosition = fishRight.position.clone();
-
-    // Enable drag & drop on fishes
-    fishLeft.inputEnabled = true;
-    fishLeft.input.enableDrag(true);
-    fishCenter.inputEnabled = true;
-    fishCenter.input.enableDrag(true);
-    fishRight.inputEnabled = true;
-    fishRight.input.enableDrag(true);
 
     // Add onDragStopEvents for NO correct Fishes
     for (var i = 0; i < fishSprites.length; i++){
@@ -106,35 +62,61 @@ TuxGame.Block2Game1.prototype = {
     },this);
   },
   stopDrag: function(currentSprite, endSprite){
-    if (!this.game.physics.arcade.overlap(currentSprite, endSprite, function() {
-      currentSprite.input.draggable = false;
-      currentSprite.position.copyFrom(endSprite.position);
-      currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y);
-    })){
-      currentSprite.position.copyFrom(currentSprite.originalPosition);
-      wrong = this.add.sprite(300, 100, 'wrong');
-      TuxGame._incorrect += 1;
-      wrongsText.setText(TuxGame._incorrect);
-      setTimeout(function () {
-        wrong.destroy(true);
-      }, 1200);
-    } else {
+    // Check if is the correct sprite
+    isOverlapped = this.checkOverlap(currentSprite, endSprite);
+    if (isOverlapped) {
+      currentSprite.position.x = endSprite.position.x - 30;
       this.add.sprite(300, 100, 'happy');
       var that = this;
       TuxGame._correct += 1;
       setTimeout(function () {
         that.state.start('Block2Game1L2');
       }, 1200);
+      return;
     }
+
+    var isOverlapped = false;
+    for ( i = 0; i < numberSprites.length; i++) {
+      console.log(endSprite.key);
+      console.log(numberSprites[i].key);
+      if (numberSprites[i].key != endSprite.key) {
+        isOverlapped = this.checkOverlap(currentSprite, numberSprites[i]);
+        if (isOverlapped) {
+          wrongsText.setText(TuxGame._incorrect);
+          TuxGame._incorrect += 1;
+          wrong = this.add.sprite(300, 100, 'wrong');
+          setTimeout(function () {
+            wrong.destroy(true);
+          }, 1200);
+          break;
+        }
+      }
+    }
+    currentSprite.position.copyFrom(currentSprite.originalPosition);
   },
   stopDragIncorrect: function (currentSprite) {
-     currentSprite.position.copyFrom(currentSprite.originalPosition);
-     TuxGame._incorrect += 1;
-     wrongsText.setText(TuxGame._incorrect);
-     wrong = this.add.sprite(300, 100, 'wrong');
-      setTimeout(function () {
-        wrong.destroy(true);
-      }, 1200);
+    var isOverlapped = false;
+    for (var i = 0; i < numberSprites.length; i++) {
+      isOverlapped = this.checkOverlap(currentSprite, numberSprites[i]);
+      if (isOverlapped) {
+        wrongsText.setText(TuxGame._incorrect);
+        TuxGame._incorrect += 1;
+        wrong = this.add.sprite(300, 100, 'wrong');
+        setTimeout(function () {
+          wrong.destroy(true);
+        }, 1200);
+        break;
+      }
+    }
+    currentSprite.position.copyFrom(currentSprite.originalPosition);
+  },
+  checkOverlap: function(spriteA, spriteB) {
+
+    var boundsA = spriteA.getBounds();
+    var boundsB = spriteB.getBounds();
+
+    return Phaser.Rectangle.intersects(boundsA, boundsB);
+
   },
   getRandomFishes: function (numberOfFishes) {
     var selectedIndexes = [];
