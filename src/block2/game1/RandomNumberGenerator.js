@@ -62,4 +62,14 @@ RandomNumberGenerator.prototype = {
       answer,
     ];
   },
+  threeIntegersOperationWithSumAndDif: function(){
+    randomNumber1 = 4;
+    randomNumber2 = Math.floor(Math.random()*6);
+    randomNumber3 = Math.floor(Math.random()*5);
+    answer = randomNumber1 + randomNumber2 - randomNumber3;
+    return [
+      (randomNumber1 + " + " + randomNumber2 + " - " + randomNumber3),
+      answer,
+    ];
+  },
 };
