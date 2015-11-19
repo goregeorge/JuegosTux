@@ -41,5 +41,25 @@ RandomNumberGenerator.prototype = {
       ( randomNumber1 + " - " + randomNumber2),
       answer
     ];
-  }
+  },
+  threeIntegersSumInRange: function(){
+    randomNumber1 = Math.floor(Math.random()*4);
+    randomNumber2 = Math.floor(Math.random()*4);
+    randomNumber3 = Math.floor(Math.random()*4);
+    answer = randomNumber1 + randomNumber2 + randomNumber3;
+    return [
+      (randomNumber1 + " + " + randomNumber2 + " + " + randomNumber3),
+      answer,
+    ];
+  },
+  threeIntegersDiff: function(){
+    randomNumber1 = 10;
+    randomNumber2 = Math.floor(Math.random()*6);
+    randomNumber3 = Math.floor(Math.random()*6);
+    answer = randomNumber1 - randomNumber2 - randomNumber3;
+    return [
+      (randomNumber1 + " - " + randomNumber2 + " - " + randomNumber3),
+      answer,
+    ];
+  },
 };
