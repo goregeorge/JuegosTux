@@ -11,8 +11,8 @@ CommonInfoDisplayer.prototype = {
     goods.scale.setTo(0.7, 0.7);
     wrongs = context.add.sprite(700, 260, 'wrong-s');
     wrongs.scale.setTo(0.7, 0.7);
-    context.add.text(770, 200, TuxGame._correct, context._fontStyle2);
-    wrongsText = context.add.text(770, 260, TuxGame._incorrect, context._fontStyle2);
+    context.add.text(760, 200, TuxGame._correct, context._fontStyle2);
+    wrongsText = context.add.text(760, 260, TuxGame._incorrect, context._fontStyle2);
 
     return wrongsText;
   }
