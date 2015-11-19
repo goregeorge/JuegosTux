@@ -25,5 +25,21 @@ RandomNumberGenerator.prototype = {
       ( randomNumber1 + " + " + randomNumber2),
       answer
     ];
+  },
+  twoIntegersDiffOperationInRange: function (min, max) {
+    answer = null;
+    answer = this.getRandomNaturalNumber()[1];
+    console.log(this.getRandomNaturalNumber()[1]);
+    if(answer > 5) {
+      randomNumber1 = 10;
+      randomNumber2 = 10 - answer;
+    } else {
+      randomNumber1 = 10 - answer;
+      randomNumber2 = randomNumber1 - answer;
+    }
+    return [
+      ( randomNumber1 + " - " + randomNumber2),
+      answer
+    ];
   }
 };
