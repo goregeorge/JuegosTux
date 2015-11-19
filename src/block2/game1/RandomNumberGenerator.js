@@ -72,4 +72,32 @@ RandomNumberGenerator.prototype = {
       answer,
     ];
   },
+  twoFloatsSumOperationInRange: function(min, max){
+    // Force it to enter loop
+    answer = min - 1;
+    while((answer + 0.5 > max) || (answer - 0.5) < min) { // answer out of bounds
+      randomNumber1 = this._round(
+        (Math.random() * (max) - min) + min,
+        0.5
+      );
+      randomNumber2 = this._round(
+        (Math.random() * (max) - min) + min,
+        0.5
+      );
+      answer = randomNumber1 + randomNumber2;
+    }
+
+    return [
+      (randomNumber1 + " + " + randomNumber2),
+      answer
+    ];
+  },
+  _round: function(number, numberToRound) {
+    var rest = number%numberToRound;
+    if (rest <= (numberToRound/2)) {
+      return number-rest;
+    } else {
+      return number+numberToRound-rest;
+    }
+  }
 };

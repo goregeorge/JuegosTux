@@ -4,7 +4,8 @@ TuxGame.Block2Game1L3 = function(game){
   strategies = {
     'initializer'    : new TimeInitializer(),
     'infoDisplayer'  : new TimeLevelDisplayer(),
-    'numberGenerator': new TwoIntegerSum()
+    'numberGenerator': new TwoIntegerSum(),
+    'levelDisplayer' : new IntegersDisplayer()
   };
   this.gameEngine = new Game1Engine(strategies,'Block2Game1L3', 'Block2Game1L5','03');
 };

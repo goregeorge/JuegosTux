@@ -39,18 +39,18 @@ IntegersDisplayer.prototype = {
     context.physics.arcade.enable(number8);
     context.physics.arcade.enable(number9);
 
-    numberSprites = [
-        number0,
-        number1,
-        number2,
-        number3,
-        number4,
-        number5,
-        number6,
-        number7,
-        number8,
-        number9
-    ];
+    numberSprites = {
+        '0' : number0,
+        '1' : number1,
+        '2' : number2,
+        '3' : number3,
+        '4' : number4,
+        '5' : number5,
+        '6' : number6,
+        '7' : number7,
+        '8' : number8,
+        '9' : number9,
+    };
 
     return numberSprites;
   }

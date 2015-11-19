@@ -3,7 +3,7 @@ LevelTemplate = function(strategies){
     this.infoDisplayer   = strategies.infoDisplayer;
     this.numberGenerator = strategies.numberGenerator;
 
-    this.numberDisplayer = new IntegersDisplayer();
+    this.numberDisplayer = strategies.levelDisplayer;
     this.fishesDisplayer = new FishesDisplayer();
 };
 
