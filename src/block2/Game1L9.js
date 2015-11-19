@@ -4,7 +4,8 @@ TuxGame.Block2Game1L9 = function(game){
   strategies = {
     'initializer'    : new TimeInitializer(),
     'infoDisplayer'  : new TimeLevelDisplayer(),
-    'numberGenerator': new ThreeIntegersDiff()
+    'numberGenerator': new ThreeIntegersDiff(),
+    'levelDisplayer' : new IntegersDisplayer()
   };
   this.gameEngine = new Game1Engine(strategies,'Block2Game1L9', 'Block2Game1L11','06');
 };
