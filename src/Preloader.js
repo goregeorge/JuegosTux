@@ -56,6 +56,25 @@ TuxGame.Preloader.prototype = {
     this.load.image('number7,5', 'img/block2/game1/number_7,5.png?v=2');
     this.load.image('number8,5', 'img/block2/game1/number_8,5.png?v=2');
     this.load.image('numberDot', 'img/block2/game1/number_dot.jpg');
+
+    this.load.image('number2,2', 'img/block2/game1/number_2,2.png?v=2');
+    this.load.image('number2,4', 'img/block2/game1/number_2,4.png?v=2');
+    this.load.image('number2,6', 'img/block2/game1/number_2,6.png?v=2');
+    this.load.image('number2,8', 'img/block2/game1/number_2,8.png?v=2');
+    this.load.image('number3,2', 'img/block2/game1/number_3,2.png?v=2');
+    this.load.image('number3,4', 'img/block2/game1/number_3,4.png?v=2');
+    this.load.image('number3,6', 'img/block2/game1/number_3,6.png?v=2');
+    this.load.image('number3,8', 'img/block2/game1/number_3,8.png?v=2');
+    
+    this.load.image('number6,2', 'img/block2/game1/number_6,2.png?v=2');
+    this.load.image('number6,4', 'img/block2/game1/number_6,4.png?v=2');
+    this.load.image('number6,6', 'img/block2/game1/number_6,6.png?v=2');
+    this.load.image('number6,8', 'img/block2/game1/number_6,8.png?v=2');
+    this.load.image('number7,2', 'img/block2/game1/number_7,2.png?v=2');
+    this.load.image('number7,4', 'img/block2/game1/number_7,4.png?v=2');
+    this.load.image('number7,6', 'img/block2/game1/number_7,6.png?v=2');
+    this.load.image('number7,8', 'img/block2/game1/number_7,8.png?v=2');
+
     // Hooks
     this.load.image('fishHook', 'img/block2/game1/fish_hook.png?vc');
     this.load.image('fishHook0', 'img/block2/game1/fish_hook.png?vc');
