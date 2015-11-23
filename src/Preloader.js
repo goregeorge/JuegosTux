@@ -19,6 +19,7 @@ TuxGame.Preloader.prototype = {
     this.load.image('welcome-bg', 'img/block2/welcome/background.png');
     this.load.image('welcome-boat', 'img/block2/welcome/boat.png');
     this.load.image('welcome-male-tux', 'img/block2/welcome/male-tux.png?v=1');
+    this.load.audio('welcome-block2-game1','img/block2/game1/welcome-game1.mp3');
     // Block 2 game 1
     this.load.image('background', 'img/background.png');
     this.load.image('sea-bg', 'img/block2/game1/sea-bg.png');

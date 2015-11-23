@@ -104,6 +104,31 @@ RandomNumberGenerator.prototype = {
       3.4
     ];
   },
+  threeFloatsOperation: function (min, max) {
+    answer = min - 1;
+    while((answer + .5 > max) || (answer - .5) < min) { // answer out of bounds
+
+      randomNumber1 = this._round(
+        (Math.random() * (max) - min) + min,
+        0.5
+      );
+      randomNumber2 = this._round(
+        (Math.random() * (max + 1) - min) + min,
+        0.5
+      );
+      randomNumber3 = this._round(
+        (Math.random() * (max) - min) + min,
+        0.5
+      );
+
+      answer = randomNumber1 + randomNumber2 - randomNumber3;
+    }
+
+    return [
+      (randomNumber1 + " + " + randomNumber2 + " - " + randomNumber3),
+      answer,
+    ];
+  },
   _round: function(number, numberToRound) {
     var rest = number%numberToRound;
     if (rest <= (numberToRound/2)) {
