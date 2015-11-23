@@ -52,6 +52,8 @@ IntegersDisplayer.prototype = {
         '9' : number9,
     };
 
+    context.numberSprites = numberSprites;
+
     return numberSprites;
   }
 

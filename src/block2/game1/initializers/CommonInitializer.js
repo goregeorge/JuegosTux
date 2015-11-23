@@ -24,7 +24,7 @@ CommonInitializer.prototype = {
 
     // Displaying Numbers
     context.numberSprites = context.gameEngine.displayNumbers(context);
-    
+    console.log(context.numberSprites);
     // Display fishes
     context.fishSprites = context.gameEngine.displayFishes(context);
 

@@ -98,6 +98,12 @@ RandomNumberGenerator.prototype = {
       6.4
     ];
   },
+  operation24 : function () {
+    return [
+      ("9.2 -  5.8"),
+      3.4
+    ];
+  },
   _round: function(number, numberToRound) {
     var rest = number%numberToRound;
     if (rest <= (numberToRound/2)) {
