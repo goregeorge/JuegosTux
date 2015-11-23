@@ -75,18 +75,6 @@ TuxGame.Preloader.prototype = {
     this.load.image('number7,6', 'img/block2/game1/number_7,6.png?v=2');
     this.load.image('number7,8', 'img/block2/game1/number_7,8.png?v=2');
 
-    // Hooks
-    this.load.image('fishHook', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook0', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook1', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook2', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook3', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook4', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook5', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook6', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook7', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook8', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook9', 'img/block2/game1/fish_hook.png?vc');
     this.load.image('line', 'img/block2/game1/line.png?v=1');
 
     // Other Assets
@@ -101,6 +89,21 @@ TuxGame.Preloader.prototype = {
 
     // load spritesheets
     this.load.image('button-start', 'img/block2/game1/button_green_over.png?v=2');
+
+    // Block 2 game 2
+    this.load.image('sea-bg-2',   'img/block2/game2/fondo3.png?v=2');
+    this.load.image('fish_body',  'img/block2/game2/fish_body.png?v=2');
+    this.load.image('square_blue','img/block2/game2/square_blue.png?v=2');
+    this.load.image('square_green','img/block2/game2/square_green.png?v=2');
+    this.load.image('square_orange','img/block2/game2/square_orange.png?v=2');
+    this.load.image('square_pistache','img/block2/game2/square_pistache.png?v=2');
+    this.load.image('square_purple','img/block2/game2/square_purple.png?v=2');
+    this.load.image('square_teal','img/block2/game2/square_teal.png?v=2');
+    this.load.image('square_violet','img/block2/game2/square_violet.png?v=2');
+    this.load.image('square_white','img/block2/game2/square_white.png?v=2');
+    this.load.image('square_yellow','img/block2/game2/square_yellow.png?v=2');
+    this.load.image('palette','img/block2/game2/palette.png?v=2');
+    this.load.image('block2-game2-next','img/block2/game2/next.png?v=2');
   },
   create: function(){
     // start the MainMenu state

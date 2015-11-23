@@ -86,6 +86,11 @@
 
 	<!-- Block2Game1Score -->
 	<script src="src/block2/Block2Game1Score.js"></script>
+
+	<!-- Game 2 Block 2 -->
+	<script src="src/block2/game2/levels/Game2Welcome.js"></script>
+	<script src="src/block2/game2/levels/Game2Level1.js"></script>
+
 </head>
 <body>
 <script>
@@ -96,6 +101,7 @@
 	game.state.add('Boot', TuxGame.Boot);
 	game.state.add('Preloader', TuxGame.Preloader);
 	game.state.add('MainMenu', TuxGame.MainMenu);
+	// Block 2 Game 1
 	game.state.add('Block2Welcome', TuxGame.Block2Welcome);
 	game.state.add('Block2Game1', TuxGame.Block2Game1);
 	game.state.add('Block2Game1L2', TuxGame.Block2Game1L2);
@@ -110,6 +116,9 @@
 	game.state.add('Block2Game1L19', TuxGame.Block2Game1L19);
 	game.state.add('Block2Game1L21', TuxGame.Block2Game1L21);
 	game.state.add('Block2Game1Score', TuxGame.Block2Game1Score);
+	// Block 2 Game 2
+	game.state.add('Block2Game2Welcome', TuxGame.Block2Game2Welcome);
+	game.state.add('Block2Game2L1', TuxGame.Block2Game2L1);
 	// start the Boot state
 	game.state.start('Boot');
 })();
