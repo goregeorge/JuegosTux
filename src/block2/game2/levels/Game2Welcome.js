@@ -13,7 +13,7 @@ TuxGame.Block2Game2Welcome.prototype = {
     globo = this.add.sprite(170, 70, 'globo-text');
     globo.scale.setTo(0.4, 0.4);
     this.add.text(190, 95, "Ayúdame a colorear\nlos peces según\nla fracción indicada", this._fontStyle);
-    sprite = this.add.sprite(280, 230, 'welcome-male-tux');
+    sprite = this.add.sprite(280, 230, 'welcome-male-tux-brush');
     sprite.scale.setTo(0.25, 0.25);
 
     this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };

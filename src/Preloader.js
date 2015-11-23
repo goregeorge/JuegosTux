@@ -92,6 +92,7 @@ TuxGame.Preloader.prototype = {
     this.load.image('button-start', 'img/block2/game1/button_green_over.png?v=2');
 
     // Block 2 game 2
+    this.load.image('welcome-male-tux-brush', 'img/block2/game2/male-tux-brush.png?v=1');
     this.load.image('sea-bg-2',   'img/block2/game2/fondo3.png?v=2');
     this.load.image('fish_body',  'img/block2/game2/fish_body.png?v=2');
     this.load.image('square_blue','img/block2/game2/square_blue.png?v=2');
