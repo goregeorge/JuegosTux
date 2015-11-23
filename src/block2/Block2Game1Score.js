@@ -30,10 +30,10 @@ TuxGame.Block2Game1Score.prototype = {
     wrongsText = this.add.text(90, 225, TuxGame._incorrect +" Fallos", this._fontStyle2);
 
     this.add.button(280, 460, 'button-start', this.goGame1, this, 1, 0, 2);
-    this.add.text(370, 495, "Volver a Jugar", this._fontStyle);
+    this.add.text(370, 495, "Continuar", this._fontStyle);
   },
   goGame1: function(){
-    this.state.start('Block2Game1');
+    this.state.start('Block2Game2Welcome');
   },
   update: function(){
   }

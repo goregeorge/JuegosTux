@@ -50,18 +50,20 @@ Game1Engine.prototype = {
   getRandomNumberToChoice: function (context) {
     return this.strategy.getRandomNumberToChoice(context);
   },
-  stopDragIncorrect: function (context,currentSprite) {
+  stopDragIncorrect: function (context, currentSprite) {
     var isOverlapped = false;
-    for (var i = 0; i < numberSprites.length; i++) {
-      isOverlapped = this.checkOverlap(currentSprite, numberSprites[i]);
-      if (isOverlapped) {
-        TuxGame._incorrect += 1;
-        wrongsText.setText(TuxGame._incorrect);
-        wrong = context.add.sprite(300, 100, 'wrong');
-        setTimeout(function () {
-          wrong.destroy(true);
-        }, 1200);
-        break;
+    for (var key in context.numberSprites) {
+       if (context.numberSprites.hasOwnProperty(key)) {
+          isOverlapped = this.checkOverlap(currentSprite, numberSprites[key]);
+          if (isOverlapped) {
+            TuxGame._incorrect += 1;
+            wrongsText.setText(TuxGame._incorrect);
+            wrong = context.add.sprite(300, 100, 'wrong');
+            setTimeout(function () {
+              wrong.destroy(true);
+            }, 1200);
+            break;
+        }
       }
     }
     currentSprite.position.copyFrom(currentSprite.originalPosition);
@@ -83,16 +85,18 @@ Game1Engine.prototype = {
     }
 
     var isOverlapped = false;
-    for ( i = 0; i < numberSprites.length; i++) {
-      isOverlapped = this.checkOverlap(currentSprite, numberSprites[i]);
-      if (isOverlapped) {
-        TuxGame._incorrect += 1;
-        wrongsText.setText(TuxGame._incorrect);
-        wrong = context.add.sprite(300, 100, 'wrong');
-        setTimeout(function () {
-          wrong.destroy(true);
-        }, 1200);
-        break;
+    for (var key in context.numberSprites) {
+       if (context.numberSprites.hasOwnProperty(key)) {
+          isOverlapped = this.checkOverlap(currentSprite, numberSprites[key]);
+          if (isOverlapped) {
+            TuxGame._incorrect += 1;
+            wrongsText.setText(TuxGame._incorrect);
+            wrong = context.add.sprite(300, 100, 'wrong');
+            setTimeout(function () {
+              wrong.destroy(true);
+            }, 1200);
+            break;
+        }
       }
     }
     currentSprite.position.copyFrom(currentSprite.originalPosition);

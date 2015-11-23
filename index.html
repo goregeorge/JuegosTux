@@ -25,6 +25,8 @@
 	<script src="src/block2/game1/displayers/IntegersDisplayer.js"></script>
 	<script src="src/block2/game1/displayers/FirstDecimalDisplayer.js"></script>
 	<script src="src/block2/game1/displayers/SecondDecimalDisplayer.js"></script>
+	<script src="src/block2/game1/displayers/DecimalDisplayer68.js"></script>
+	<script src="src/block2/game1/displayers/DecimalDisplayer24.js"></script>
 	<script src="src/block2/game1/displayers/NormalLevelDisplayer.js"></script>
 	<script src="src/block2/game1/displayers/TimeDisplayer.js"></script>
 	<script src="src/block2/game1/displayers/TimeLevelDisplayer.js"></script>
@@ -35,9 +37,12 @@
 	<script src="src/block2/game1/number-generators/TwoIntegersDiff.js"></script>
 	<script src="src/block2/game1/number-generators/ThreeIntegersSum.js"></script>
 	<script src="src/block2/game1/number-generators/ThreeIntegersDiff.js"></script>
+	<script src="src/block2/game1/number-generators/ThreeFloatsOperation.js"></script>
 	<script src="src/block2/game1/number-generators/ThreeIntegersOperation.js"></script>
 	<script src="src/block2/game1/number-generators/TwoFloatsSum.js"></script>
 	<script src="src/block2/game1/number-generators/TwoFloatsDSum.js"></script>
+	<script src="src/block2/game1/number-generators/Operation68.js"></script>
+	<script src="src/block2/game1/number-generators/Operation24.js"></script>
 
 	<!-- Factory -->
 	<script src="src/block2/game1/factories/LevelFactory.js"></script>
@@ -71,12 +76,10 @@
 	<!-- Decimal (4 to 9) Arrastra X + Y Nivel 9-->
 	<script src="src/block2/Game1L15.js"></script>
 
-	<!-- Decimal (0 to 5) Arrastra X - Y Nivel 10-->
-	<!-- (Proximamente) Decimal (2 to 4) Arrastra a algo harcodeado -->
+	<!-- Decimal (2 to 4) Arrastra a algo harcodeado -->
 	<script src="src/block2/Game1L17.js"></script>
 
-	<!-- Decimal (2 to 4) Arrastra a algo harcodeado -->
-	<!-- (Proximamente) Decimal (6 to 8) Arrastra a algo harcodeado -->
+	<!-- Decimal (6 to 8) Arrastra a algo harcodeado -->
 	<script src="src/block2/Game1L19.js"></script>
 
 	<!-- Decimal (0 to 5) Arrastra X + Y -Z Nivel 12-->
@@ -84,6 +87,11 @@
 
 	<!-- Block2Game1Score -->
 	<script src="src/block2/Block2Game1Score.js"></script>
+
+	<!-- Game 2 Block 2 -->
+	<script src="src/block2/game2/levels/Game2Welcome.js"></script>
+	<script src="src/block2/game2/levels/Game2Level1.js"></script>
+
 </head>
 <body>
 <script>
@@ -94,6 +102,7 @@
 	game.state.add('Boot', TuxGame.Boot);
 	game.state.add('Preloader', TuxGame.Preloader);
 	game.state.add('MainMenu', TuxGame.MainMenu);
+	// Block 2 Game 1
 	game.state.add('Block2Welcome', TuxGame.Block2Welcome);
 	game.state.add('Block2Game1', TuxGame.Block2Game1);
 	game.state.add('Block2Game1L2', TuxGame.Block2Game1L2);
@@ -108,6 +117,9 @@
 	game.state.add('Block2Game1L19', TuxGame.Block2Game1L19);
 	game.state.add('Block2Game1L21', TuxGame.Block2Game1L21);
 	game.state.add('Block2Game1Score', TuxGame.Block2Game1Score);
+	// Block 2 Game 2
+	game.state.add('Block2Game2Welcome', TuxGame.Block2Game2Welcome);
+	game.state.add('Block2Game2L1', TuxGame.Block2Game2L1);
 	// start the Boot state
 	game.state.start('Boot');
 })();

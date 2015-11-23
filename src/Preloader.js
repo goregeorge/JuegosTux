@@ -19,6 +19,7 @@ TuxGame.Preloader.prototype = {
     this.load.image('welcome-bg', 'img/block2/welcome/background.png');
     this.load.image('welcome-boat', 'img/block2/welcome/boat.png');
     this.load.image('welcome-male-tux', 'img/block2/welcome/male-tux.png?v=1');
+    this.load.audio('welcome-block2-game1','img/block2/game1/welcome-game1.mp3');
     // Block 2 game 1
     this.load.image('background', 'img/background.png');
     this.load.image('sea-bg', 'img/block2/game1/sea-bg.png');
@@ -45,29 +46,36 @@ TuxGame.Preloader.prototype = {
     this.load.image('number8', 'img/block2/game1/number_8.png?v=1');
     this.load.image('number9', 'img/block2/game1/number_9.png?v=1');
 
-    this.load.image('number0,5', 'img/block2/game1/number_0,5.png?v=1');
-    this.load.image('number1,5', 'img/block2/game1/number_1,5.png?v=1');
-    this.load.image('number2,5', 'img/block2/game1/number_2,5.png?v=1');
-    this.load.image('number3,5', 'img/block2/game1/number_3,5.png?v=1');
-    this.load.image('number4,5', 'img/block2/game1/number_4,5.png?v=1');
-    this.load.image('number5,5', 'img/block2/game1/number_5,5.png?v=1');
-    this.load.image('number6,5', 'img/block2/game1/number_6,5.png?v=1');
-    this.load.image('number7,5', 'img/block2/game1/number_7,5.png?v=1');
-    this.load.image('number7,5', 'img/block2/game1/number_7,5.png?v=1');
-    this.load.image('number8,5', 'img/block2/game1/number_8,5.png?v=1');
+    this.load.image('number0,5', 'img/block2/game1/number_0,5.png?v=2');
+    this.load.image('number1,5', 'img/block2/game1/number_1,5.png?v=2');
+    this.load.image('number2,5', 'img/block2/game1/number_2,5.png?v=2');
+    this.load.image('number3,5', 'img/block2/game1/number_3,5.png?v=2');
+    this.load.image('number4,5', 'img/block2/game1/number_4,5.png?v=2');
+    this.load.image('number5,5', 'img/block2/game1/number_5,5.png?v=2');
+    this.load.image('number6,5', 'img/block2/game1/number_6,5.png?v=2');
+    this.load.image('number7,5', 'img/block2/game1/number_7,5.png?v=2');
+    this.load.image('number7,5', 'img/block2/game1/number_7,5.png?v=2');
+    this.load.image('number8,5', 'img/block2/game1/number_8,5.png?v=2');
     this.load.image('numberDot', 'img/block2/game1/number_dot.jpg');
-    // Hooks
-    this.load.image('fishHook', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook0', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook1', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook2', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook3', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook4', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook5', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook6', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook7', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook8', 'img/block2/game1/fish_hook.png?vc');
-    this.load.image('fishHook9', 'img/block2/game1/fish_hook.png?vc');
+
+    this.load.image('number2,2', 'img/block2/game1/number_2,2.png?v=2');
+    this.load.image('number2,4', 'img/block2/game1/number_2,4.png?v=2');
+    this.load.image('number2,6', 'img/block2/game1/number_2,6.png?v=2');
+    this.load.image('number2,8', 'img/block2/game1/number_2,8.png?v=2');
+    this.load.image('number3,2', 'img/block2/game1/number_3,2.png?v=2');
+    this.load.image('number3,4', 'img/block2/game1/number_3,4.png?v=2');
+    this.load.image('number3,6', 'img/block2/game1/number_3,6.png?v=2');
+    this.load.image('number3,8', 'img/block2/game1/number_3,8.png?v=2');
+    
+    this.load.image('number6,2', 'img/block2/game1/number_6,2.png?v=2');
+    this.load.image('number6,4', 'img/block2/game1/number_6,4.png?v=2');
+    this.load.image('number6,6', 'img/block2/game1/number_6,6.png?v=2');
+    this.load.image('number6,8', 'img/block2/game1/number_6,8.png?v=2');
+    this.load.image('number7,2', 'img/block2/game1/number_7,2.png?v=2');
+    this.load.image('number7,4', 'img/block2/game1/number_7,4.png?v=2');
+    this.load.image('number7,6', 'img/block2/game1/number_7,6.png?v=2');
+    this.load.image('number7,8', 'img/block2/game1/number_7,8.png?v=2');
+
     this.load.image('line', 'img/block2/game1/line.png?v=1');
 
     // Other Assets
@@ -82,6 +90,22 @@ TuxGame.Preloader.prototype = {
 
     // load spritesheets
     this.load.image('button-start', 'img/block2/game1/button_green_over.png?v=2');
+
+    // Block 2 game 2
+    this.load.image('welcome-male-tux-brush', 'img/block2/game2/male-tux-brush.png?v=1');
+    this.load.image('sea-bg-2',   'img/block2/game2/fondo3.png?v=2');
+    this.load.image('fish_body',  'img/block2/game2/fish_body.png?v=2');
+    this.load.image('square_blue','img/block2/game2/square_blue.png?v=2');
+    this.load.image('square_green','img/block2/game2/square_green.png?v=2');
+    this.load.image('square_orange','img/block2/game2/square_orange.png?v=2');
+    this.load.image('square_pistache','img/block2/game2/square_pistache.png?v=2');
+    this.load.image('square_purple','img/block2/game2/square_purple.png?v=2');
+    this.load.image('square_teal','img/block2/game2/square_teal.png?v=2');
+    this.load.image('square_violet','img/block2/game2/square_violet.png?v=2');
+    this.load.image('square_white','img/block2/game2/square_white.png?v=2');
+    this.load.image('square_yellow','img/block2/game2/square_yellow.png?v=2');
+    this.load.image('palette','img/block2/game2/palette.png?v=2');
+    this.load.image('block2-game2-next','img/block2/game2/next.png?v=2');
   },
   create: function(){
     // start the MainMenu state

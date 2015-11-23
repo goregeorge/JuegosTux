@@ -19,6 +19,8 @@ TuxGame.Block2Welcome.prototype = {
     this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this.add.button(280, 460, 'button-start', this.goGame1, this, 1, 0, 2);
     this.add.text(390, 495, "Jugar Ahora", this._fontStyle2);
+
+    this.add.audio('welcome-block2-game1').play();
   },
   goGame1: function(){
     this.state.start('Block2Game1');
