@@ -24,7 +24,7 @@ TuxGame.Block3Game2_Q4 = function(game){
 	this._audios = ['q4o1', 'q4o2', 'q4o3'];
 	this._audio = null;
 
-	this._questions = ['1/4 + 0/4 - 1/4 + 2/4', '2/6 + 4/12 - 0/12', '2/8 - 1/8 +1/4 + 2/16'];
+	this._questions = ['1/4 + 0/4 - 1/4 + 2/4', '2/6 + 1/3 - 0/4', '2/8 - 1/8 +1/4 + 2/16'];
 };
 
 TuxGame.Block3Game2_Q4.prototype = {

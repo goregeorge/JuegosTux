@@ -64,20 +64,20 @@ TuxGame.Preloader.prototype = {
 		/***************************************
 		* Audio
 		****************************************/
-		this.load.audio('intro', 'audio/introB3G2.mp3');
-		this.load.audio('q1o1', 'audio/q1o1.mp3');
-		this.load.audio('q1o2', 'audio/q1o2.mp3');
-		this.load.audio('q1o3', 'audio/q1o3.mp3');
-		this.load.audio('q2o1', 'audio/q2o1.mp3');
-		this.load.audio('q2o2', 'audio/q2o2.mp3');
-		this.load.audio('q2o3', 'audio/q2o3.mp3');
-		this.load.audio('q3o1', 'audio/q3o1.mp3');
-		this.load.audio('q3o2', 'audio/q3o2.mp3');
-		this.load.audio('q3o3', 'audio/q3o3.mp3');
-		this.load.audio('q4o1', 'audio/q4o1.mp3');
-		this.load.audio('q4o2', 'audio/q4o2.mp3');
-		this.load.audio('q4o3', 'audio/q4o3.mp3');
-
+		
+		this.load.audio('intro', 'img/block3/game2/audios/introB3G2.mp3');
+		this.load.audio('q1o1', 'img/block3/game2/audios/q1o1.mp3');
+		this.load.audio('q1o2', 'img/block3/game2/audios/q1o2.mp3');
+		this.load.audio('q1o3', 'img/block3/game2/audios/q1o3.mp3');
+		this.load.audio('q2o1', 'img/block3/game2/audios/q2o1.mp3');
+		this.load.audio('q2o2', 'img/block3/game2/audios/q2o2.mp3');
+		this.load.audio('q2o3', 'img/block3/game2/audios/q2o3.mp3');
+		this.load.audio('q3o1', 'img/block3/game2/audios/q3o1.mp3');
+		this.load.audio('q3o2', 'img/block3/game2/audios/q3o2.mp3');
+		this.load.audio('q3o3', 'img/block3/game2/audios/q3o3.mp3');
+		this.load.audio('q4o1', 'img/block3/game2/audios/q4o1.mp3');
+		this.load.audio('q4o2', 'img/block3/game2/audios/q4o2.mp3');
+		this.load.audio('q4o3', 'img/block3/game2/audios/q4o3.mp3');
 
 		//Other
 		//this.load.image("home", "img/block3/game2/home.png");
