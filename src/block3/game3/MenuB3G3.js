@@ -9,6 +9,7 @@ TuxGame.MenuB3G3.prototype = {
 		//this.add.sprite(-130, Candy.GAME_HEIGHT-514, 'monster-cover');
 		//this.add.sprite((Candy.GAME_WIDTH-395)/2, 60, 'title');
 		// add the button that will start the game
+
 		this._tuxMale = this.add.sprite(0, 0, "tux-male");
 		this._tuxMale.scale.setTo(0.5, 0.5);
 		this.add.button(TuxGame.GAME_WIDTH-500, TuxGame.GAME_HEIGHT-200, 

@@ -19,7 +19,6 @@ TuxGame.Preloader.prototype = {
 		****************************************/
 		//Panel
 		this.load.image('infoPanel', 'img/block3/game2/panel/infoPanel.png');
-		//this.load.image('progressPanel', 'img/block3/game2/panel/progressPanel.png');
 		this.load.image('progressPanel', 'img/block3/game2/panel/newPanel.png');
 		this.load.spritesheet('button-previous', 'img/block3/game2/panel/button-previous.png', 70, 70);
 		this.load.spritesheet('button-next', 'img/block3/game2/panel/button-next.png', 70, 70);
@@ -86,6 +85,12 @@ TuxGame.Preloader.prototype = {
 		this.stage.backgroundColor = '#B4D9E7';
 		this.load.image("bg", "img/block3/game2/bg.png");
 
+		this.load.image("bg-b3g3", "img/block3/game3/bg.png");
+
+		this.load.image("info-panel", "img/block3/game3/panel/infoPanel.jpg");
+		this.load.image('status-panel', 'img/block3/game3/panel/statusPanel.jpg');
+		this.load.spritesheet('button-ok', 'img/block3/game3/panel/button-ok.png', 100, 100);
+
 		//Other
 		this.load.spritesheet('button-home', 'img/block3/game2/button-home.png', 80, 80);
 
@@ -95,6 +100,7 @@ TuxGame.Preloader.prototype = {
 	create: function(){
 		// start the first question
 		//this.state.start("MenuB3G2");
-		this.state.start("MenuB3G2");
+		console.log("Ya sali del Preloader");
+		this.state.start("MenuB3G3");
 	}
 };

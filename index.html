@@ -3,7 +3,28 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Monster Wants Candy demo</title>
-	<style> body { margin: 0; background: #B4D9E7; } </style>
+
+	<!--Style-->
+	<style> 
+		body { 
+			margin: 0; background: #B4D9E7; 
+		}
+
+		/*
+		* Style for the input "THE TRICK"
+		*/
+		#input{
+			position: absolute;
+			top: 530px;
+			left: 465px;
+			border: solid 5px #c9c9c9;
+			font-size: 20px;
+			width: 90px;
+			height: 30px;
+		}
+	</style>
+
+	<!--Javascript files-->
 	<script src="src/phaser.min.js"></script>
 	<script src="src/Boot.js"></script>
 	<script src="src/Preloader.js"></script>
@@ -58,8 +79,11 @@
 
 
 			// start the Boot state
-			game.state.start('MenuB3G3');
+			game.state.start('Preloader');
 		})();
 	</script>
+
+	<!--This input is used in the Game3Block3, IT'S A TRICK-->
+	<input type="hidden" id="input" size="10">
 </body>
 </html>
