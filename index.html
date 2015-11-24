@@ -9,20 +9,36 @@
 	<script src="src/Preloader.js"></script>
 	<script src="src/MainMenu.js"></script>
 	<script src="src/Game.js"></script>
+	
+	<!--FIles to game 2 Block 3-->
+	<script src="js/block3/game2/Preloader.js"></script>
+	<script src="js/block3/game2/MenuB3G2.js"></script>
+	<script src="js/block3/game2/Block3Game2_Q1.js"></script>
+	<script src="js/block3/game2/Block3Game2_Q2.js"></script>
+	<script src="js/block3/game2/Block3Game2_Q3.js"></script>
+	<script src="js/block3/game2/Block3Game2_Q4.js"></script>
+	<script src="js/block3/game2/CongratulationsB3G2.js"></script>
+
+
 </head>
 <body>
-<script>
-(function() {
-	// initialize the framework
-	var game = new Phaser.Game(640, 960, Phaser.AUTO, 'game');
-	// add game states
-	game.state.add('Boot', Candy.Boot);
-	game.state.add('Preloader', Candy.Preloader);
-	game.state.add('MainMenu', Candy.MainMenu);
-	game.state.add('Game', Candy.Game);
-	// start the Boot state
-	game.state.start('Boot');
-})();
-</script>
+	<script>
+		(function() {
+			// initialize the framework
+			var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
+			// add game states
+			//game.state.add('Boot', TuxGame.Boot);
+			game.state.add('Preloader', TuxGame.Preloader);
+			game.state.add('MenuB3G2', TuxGame.MenuB3G2);
+			game.state.add('Block3Game2_Q1', TuxGame.Block3Game2_Q1);
+			game.state.add('Block3Game2_Q2', TuxGame.Block3Game2_Q2);
+			game.state.add('Block3Game2_Q3', TuxGame.Block3Game2_Q3);
+			game.state.add('Block3Game2_Q4', TuxGame.Block3Game2_Q4);
+			game.state.add('CongratulationsB3G2', TuxGame.CongratulationsB3G2);
+			
+			// start the Boot state
+			game.state.start('Preloader');
+		})();
+	</script>
 </body>
 </html>
