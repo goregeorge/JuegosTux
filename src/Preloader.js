@@ -9,32 +9,31 @@ TuxGame.Preloader.prototype = {
 	preload: function(){
 
 		/***************************************
-		* Menu
+		* Global
 		****************************************/
 		this.load.image("tux-male", "img/block3/game2/menu/male-tux.png");
 		this.load.spritesheet('button-start', 'img/block3/game2/menu/button-start.png', 400, 140);
+		this.load.image('tux', 'img/block3/game2/panel/tux.png');
+		this.load.image('sad-penguin', 'img/block3/game2/panel/sad-penguin.png');
+		this.load.image('happy-penguin', 'img/block3/game2/panel/happy-penguin.png');
+		this.load.spritesheet('button-home', 'img/block3/game2/button-home.png', 80, 80);
 
+		
+		/*<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>
+		* 					GAME 2
+		<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>*/
 		/***************************************
-		* Panel
+		* Panel and background
 		****************************************/
-		//Panel
 		this.load.image('infoPanel', 'img/block3/game2/panel/infoPanel.png');
 		this.load.image('progressPanel', 'img/block3/game2/panel/newPanel.png');
 		this.load.spritesheet('button-previous', 'img/block3/game2/panel/button-previous.png', 70, 70);
 		this.load.spritesheet('button-next', 'img/block3/game2/panel/button-next.png', 70, 70);
-		this.load.image('tux', 'img/block3/game2/panel/tux.png');
-		this.load.image('sad-penguin', 'img/block3/game2/panel/sad-penguin.png');
-		this.load.image('happy-penguin', 'img/block3/game2/panel/happy-penguin.png');
+		this.load.image("bg", "img/block3/game2/bg.png");
 
 		/***************************************
 		* Sprite's Boats
 		****************************************/
-		/*#######################################
-		##	nomenclature b-[t|c|s]-[fraction]
-		##	t = triangle
-		##	s = square
-		##	c = circle		
-		#######################################*/
 		this.load.spritesheet('b-c-1/1', 'img/block3/game2/Boats/Circulo/c1.1.png', 200, 150);
 		this.load.spritesheet('b-c-2/3', 'img/block3/game2/Boats/Circulo/c2.3.png', 200, 150);
 		this.load.spritesheet('b-c-3/6', 'img/block3/game2/Boats/Circulo/c3.6.png', 200, 150);
@@ -59,11 +58,9 @@ TuxGame.Preloader.prototype = {
 		this.load.spritesheet('b-t-4/6', 'img/block3/game2/Boats/Triangulo/t4.6.png', 200, 150);
 		this.load.spritesheet('b-t-6/18', 'img/block3/game2/Boats/Triangulo/t6.18.png', 200, 150);
 
-
 		/***************************************
-		* Audio
+		* Audios
 		****************************************/
-		
 		this.load.audio('intro', 'img/block3/game2/audios/introB3G2.mp3');
 		this.load.audio('q1o1', 'img/block3/game2/audios/q1o1.mp3');
 		this.load.audio('q1o2', 'img/block3/game2/audios/q1o2.mp3');
@@ -78,22 +75,38 @@ TuxGame.Preloader.prototype = {
 		this.load.audio('q4o2', 'img/block3/game2/audios/q4o2.mp3');
 		this.load.audio('q4o3', 'img/block3/game2/audios/q4o3.mp3');
 
-		//Other
-		//this.load.image("home", "img/block3/game2/home.png");
 
-		// set background color
-		this.stage.backgroundColor = '#B4D9E7';
-		this.load.image("bg", "img/block3/game2/bg.png");
 
-		this.load.image("bg-b3g3", "img/block3/game3/bg.png");
-
+		/*<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>
+		* 					GAME 3
+		<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>*/
+		/***************************************
+		* Panel and background
+		****************************************/
 		this.load.image("info-panel", "img/block3/game3/panel/infoPanel.jpg");
 		this.load.image('status-panel', 'img/block3/game3/panel/statusPanel.jpg');
 		this.load.spritesheet('button-ok', 'img/block3/game3/panel/button-ok.png', 100, 100);
+		this.load.image("bg-b3g3", "img/block3/game3/bg.png");
 
-		//Other
-		this.load.spritesheet('button-home', 'img/block3/game2/button-home.png', 80, 80);
-
+		/***************************************
+		* Items
+		****************************************/
+		this.load.image("1-coin", "image/block3/game3/items/1coin.png");
+		this.load.image("3-coins", "image/block3/game3/items/3coins.png");
+		this.load.image("4-coins", "image/block3/game3/items/4coins.png");
+		this.load.image("6-coins", "image/block3/game3/items/6coins.png");
+		this.load.image("8.1-coins", "image/block3/game3/items/8.1coins.png");
+		this.load.image("8.2-coins", "image/block3/game3/items/8.2coins.png");
+		this.load.image("1-banana", "image/block3/game3/items/1banana.png");
+		this.load.image("2-banana", "image/block3/game3/items/2bananas.png");
+		this.load.image("3-banana", "image/block3/game3/items/3bananas.png");
+		this.load.image("4-banana", "image/block3/game3/items/4bananas.png");
+		this.load.image("5-banana", "image/block3/game3/items/5bananas.png");
+		this.load.image("1-coconut", "image/block3/game3/items/1coconut.png");
+		this.load.image("2-coconuts", "image/block3/game3/items/2coconuts.png");
+		this.load.image("3-coconuts", "image/block3/game3/items/3coconuts.png");
+		this.load.image("5-coconuts", "image/block3/game3/items/5coconuts.png");
+		this.load.image("weight-100gr", "image/block3/game3/items/weight-100gr.png");
 
 	},
 
