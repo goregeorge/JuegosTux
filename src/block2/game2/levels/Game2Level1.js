@@ -13,6 +13,8 @@ TuxGame.Block2Game2L1.prototype = {
     // display background
     this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle2 = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+    this._fontStyle3 = { font: "30px Arial", fill: "#00ff00", stroke: "#333", strokeThickness: 5, align: "center" };
+
     this.add.sprite(0, 0, 'sea-bg-2');
     fish1 = this.add.sprite(200, 100, 'fish_body');
     fish1.scale.setTo(0.6, 0.6);
@@ -48,7 +50,8 @@ TuxGame.Block2Game2L1.prototype = {
     this.instructionText = this.add.text(200, 360, "Colorea de color verde \n 1/2 del cuerpo del pez ", this._fontStyle);
 
     this.add.sprite(0, 0, 'point');
-    this.add.text(50, 10, "Nivel " + name, this._fontStyle2);
+    this.add.text(50, 10, "Nivel " + name, this._fontStyle3);
+    this.add.sprite(260, -80, 'score-half');
     goods = this.add.sprite(300, 10, 'good-s');
     goods.scale.setTo(0.7, 0.7);
     wrongs = this.add.sprite(420, 10, 'wrong-s');
