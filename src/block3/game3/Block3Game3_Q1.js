@@ -19,7 +19,7 @@ TuxGame.Block3Game3_Q1.prototype = {
 	create : function(){
 		input.setAttribute("type", "number");
 		//Background
-		this._background = this.add.sprite(0, 0, 'bg');
+		this._background = this.add.sprite(0, 0, 'bg-b3g3');
 
 		//Button Home
 		this.add.button(0, 0, 'button-home', this.backToHome, this, 1, 0, 2);
@@ -30,10 +30,11 @@ TuxGame.Block3Game3_Q1.prototype = {
 
 		//Items
 		//this.add.sprite(205, 180, 'banana-5').scale.setTo(0.08);
-		//this.add.sprite(205, 180, 'coins-6');
+		this.add.sprite(225, 170, '6-coins').scale.setTo(0.08);
+		this.add.sprite(455, 170, 'weight-100gr').scale.setTo(0.05);
 
 		//Button Ok
-		this._buttonOk = this.add.button(570, 510, 'button-ok', this.validateResponse, this, 1, 0, 2);
+		this._buttonOk = this.add.button(580, 510, 'button-ok', this.validateResponse, this, 1, 0, 2);
 		this._buttonOk.scale.setTo(.7, .7);
 		this.add.button(10, 515, 'button-previous', this.backToHome, this, 1, 0 , 2);
 		this.add.button(70, 515, 'button-next', this.goToNextLevel, this, 1, 0 , 2);
