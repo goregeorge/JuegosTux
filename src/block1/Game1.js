@@ -101,6 +101,7 @@ TuxGame.Block1Game1.prototype = {
 	  	return array;
 	},
 	setPossibleAnswers: function() {
+        home_button.events.onInputDown.add(this.quitGame, this);
 		var possibleChoices = [level1[quiz].answer1, level1[quiz].answer2, level1[quiz].answer3];
 		this.shuffle(possibleChoices);
 	    option1 = this.add.text(515, 150, '', {  font:'bold 40pt French Script MT', fill: '#000000' });
@@ -159,5 +160,8 @@ TuxGame.Block1Game1.prototype = {
 		boat2.events.onInputDown.removeAll();
 		boat3.events.onInputDown.removeAll();
 		this.setPossibleAnswers();
-	}
+	},
+    quitGame: function(){
+        location.reload();
+    }
 };
