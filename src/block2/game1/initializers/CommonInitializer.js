@@ -16,7 +16,7 @@ CommonInitializer.prototype = {
     context.physics.startSystem(Phaser.Physics.ARCADE);
     // display background
     context.add.sprite(0, 0, 'sea-bg');
-    context._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+    context._fontStyle = { font: "38px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     context._fontStyle2 = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     context._fontStyle3 = { font: "30px Arial", fill: "#00ff00", stroke: "#333", strokeThickness: 5, align: "center" };
 

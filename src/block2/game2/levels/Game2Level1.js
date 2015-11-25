@@ -17,11 +17,33 @@ TuxGame.Block2Game2L1.prototype = {
     fish1 = this.add.sprite(200, 100, 'fish_body');
     fish1.scale.setTo(0.6, 0.6);
 
-    white = this.add.sprite(264, 150, 'square_white');
-    white.scale.setTo(0.5, 0.5);
+    white12 = this.add.sprite(266, 150, 'square_white12');
+    white12.scale.setTo(0.5, 0.5);
 
+    white121 = this.add.sprite(339, 150, 'square_white12');
+    white121.scale.setTo(0.5, 0.5);
+
+    // Palette
     palette = this.add.sprite(20, 340, 'palette');
     palette.scale.setTo(0.4, 0.4);
+
+    green = this.add.sprite(19, 340, 'square_green14');
+    green.scale.setTo(0.35, 0.35);
+
+    orange = this.add.sprite(73, 340, 'square_orange14');
+    orange.scale.setTo(0.35, 0.35);
+
+    pink = this.add.sprite(127, 340, 'square_pink14');
+    pink.scale.setTo(0.35, 0.35);
+
+    purple = this.add.sprite(19, 395, 'square_purple14');
+    purple.scale.setTo(0.35, 0.35);
+
+    yellow = this.add.sprite(73, 395, 'square_yellow14');
+    yellow.scale.setTo(0.35, 0.35);
+
+    red = this.add.sprite(127, 395, 'square_red14');
+    red.scale.setTo(0.35, 0.35);
 
     this.instructionText = this.add.text(200, 360, "Colorea de color verde \n 1/2 del cuerpo del pez ", this._fontStyle);
 

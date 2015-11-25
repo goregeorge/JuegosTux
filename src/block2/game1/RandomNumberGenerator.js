@@ -124,9 +124,14 @@ RandomNumberGenerator.prototype = {
       answer = randomNumber1 + randomNumber2 - randomNumber3;
     }
 
+    // return [
+    //   (randomNumber1 + " + " + randomNumber2 + " - " + randomNumber3),
+    //   answer,
+    // ];
+
     return [
-      (randomNumber1 + " + " + randomNumber2 + " - " + randomNumber3),
-      answer,
+      ("9 + 2 - 6.5"),
+      4.5,
     ];
   },
   _round: function(number, numberToRound) {
