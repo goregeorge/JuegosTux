@@ -1,22 +1,34 @@
-var message;
 var instruction;
 var scoreText;
 var reaction = 0;
 var score = 30;
-var number1, number2, number3;
-var image, image2, image3;
-var operations = ["25+17", "125+5+10", "38+10", "22-10+2-3", "18-3-6+2", "34+4-8", "45-15+10", "8+2-3+6-1", "10+8-3+9-2", "17+3-5-2+1", "19+0+10-1", "33+2+3-28", "22+10", "17+2+5-14", "1+15-2", "40+5-30", "45+5-25-5", "60-30-15", "50-25-15", "24-14+5"];
-var results = ["42", "140", "48", "11", "11", "30", "40", "12", "22", "14", "28", "10", "32", "10", "14", "15", "20", "15", "10", "15"];
-// Between 0 and 2
-var randomNumber1 = Math.floor((Math.random() * 20));
-// Another number between 0 and 2
-var randomNumber2 = Math.floor((Math.random() * 3));
-// Between 1 and 2
-var randomNumber3 = Math.floor((Math.random() * 2) + 1);
-var rightAnswer = results[randomNumber1];
-var wrongAnswer1 = Math.floor((Math.random() * 100) + 1);
-var wrongAnswer2 = Math.floor((Math.random() * 100) + 1);
-var possibleAnswers = [rightAnswer, wrongAnswer1, wrongAnswer2];
+var option1, option2, option3;
+var level1 = [
+    {"op": "25+17", "answer1": 39, "answer2": 42, "answer3": 41, "rightAnswer": 25+17},
+    {"op": "125+5+10", "answer1": 95, "answer2": 145, "answer3": 140, "rightAnswer": 125+5+10},
+    {"op": "38+10", "answer1": 48, "answer2": 58, "answer3": 47, "rightAnswer": 38+10},
+    {"op": "22-10+2-3", "answer1": 7, "answer2": 9, "answer3": 11, "rightAnswer": 22-10+2-3},
+    {"op": "18-3-6+2", "answer1": 11, "answer2": 9, "answer3": 7, "rightAnswer": 18-3-6+2},
+    {"op": "34+4-8", "answer1": 29, "answer2": 30, "answer3": 40, "rightAnswer": 34+4-8},
+    {"op": "45-15+10", "answer1": 45, "answer2": 38, "answer3": 40, "rightAnswer": 45-15+10},
+    {"op": "8+2-3+6-1", "answer1": 12, "answer2": 13, "answer3": 14, "rightAnswer": 8+2-3+6-1},
+    {"op": "10+8-3+9-2", "answer1": 25, "answer2": 22, "answer3": 30, "rightAnswer": 10+8-3+9-2},
+    {"op": "17+3-5-2+1", "answer1": 17, "answer2": 12, "answer3": 14, "rightAnswer": 17+3-5-2+1},
+    {"op": "19+0+10-1", "answer1": 19, "answer2": 28, "answer3": 29, "rightAnswer": 19+0+10-1},
+    {"op": "33+2+3-28", "answer1": 10, "answer2": 15, "answer3": 28, "rightAnswer": 33+2+3-28},
+    {"op": "22+10", "answer1": 30, "answer2": 32, "answer3": 31, "rightAnswer": 22+10},
+    {"op": "17+2+5-14", "answer1": 17, "answer2": 5, "answer3": 10, "rightAnswer": 17+2+5-14},
+    {"op": "1+15-2", "answer1": 9, "answer2": 14, "answer3": 12, "rightAnswer": 1+15-2},
+    {"op": "40+5-30", "answer1": 20, "answer2": 18, "answer3": 15, "rightAnswer": 40+5-30},
+    {"op": "45+5-25-5", "answer1": 19, "answer2": 20, "answer3": 22, "rightAnswer": 45+5-25-5},
+    {"op": "60-30-15", "answer1": 16, "answer2": 15, "answer3": 12, "rightAnswer": 60-30-15},
+    {"op": "50-25-15", "answer1": 9, "answer2": 10, "answer3": 11, "rightAnswer": 50-25-15},
+    {"op": "24-14+5", "answer1": 15, "answer2": 12, "answer3": 14, "rightAnswer": 24-14+5}
+];
+
+// We need a number between 0 and the array's length - 1. This is to select one
+// of the possible questions with their respective answers.
+var quiz = Math.floor((Math.random() * (level1.length - 1)));
 
 TuxGame.Block1Game1 = function(game){
 	// define needed variables for Candy.Game
@@ -69,45 +81,46 @@ TuxGame.Block1Game1.prototype = {
 
 		music.play();
 
-		message = this.add.text(50, 120, '', { font:'bold 40pt French Script MT', fill: '#000000' });
 	    scoreText = this.add.text(715, 0, '30', { font:'bold 40pt French Script MT', fill: '#000000' });
 	    instruction = this.add.text(200, 480, '', { font:'bold 50pt French Script MT', fill: '#000000' });
-	    instruction.text = operations[randomNumber1];
+	    instruction.text = level1[quiz].op;
 		this.setPossibleAnswers();
 	},
+	shuffle: function(array) {
+		var currentIndex = array.length, temporaryValue, randomIndex ;
+		// While there remain elements to shuffle...
+		while (0 !== currentIndex) {
+			// Pick a remaining element...
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+		    // And swap it with the current element.
+	    	temporaryValue = array[currentIndex];
+	    	array[currentIndex] = array[randomIndex];
+	    	array[randomIndex] = temporaryValue;
+	  	}
+	  	return array;
+	},
 	setPossibleAnswers: function() {
-	    number1 = this.add.text(515, 150, '', {  font:'bold 40pt French Script MT', fill: '#000000' });
-	    number1.text = possibleAnswers[randomNumber2];
-	    number2 = this.add.text(695, 180, '', {  font:'bold 40pt French Script MT', fill: '#000000'  });
-	    //Check if the first number is the true answer
-	    if (number1.text == possibleAnswers[0]) {
-	        number2.text = possibleAnswers[randomNumber3];
-	    } else {
-	    	//The second number becomes the true answer
-	        number2.text = possibleAnswers[0];
-	    }
-	    number3 = this.add.text(720, 320, '', {  font:'bold 40pt French Script MT', fill: '#000000'  });
-	    if (number1.text == possibleAnswers[0] || number2.text == possibleAnswers[0]) {
-	        if (number1.text == possibleAnswers[1] || number2.text == possibleAnswers[1]) {
-	            number3.text = possibleAnswers[2];
-	        } else {
-	            number3.text = possibleAnswers[1];
-	        }
-	    } else {
-	        number3.text = possibleAnswers[0];
-	    }
+		var possibleChoices = [level1[quiz].answer1, level1[quiz].answer2, level1[quiz].answer3];
+		this.shuffle(possibleChoices);
+	    option1 = this.add.text(515, 150, '', {  font:'bold 40pt French Script MT', fill: '#000000' });
+	    option1.text = possibleChoices[0];
+	    option2 = this.add.text(695, 180, '', {  font:'bold 40pt French Script MT', fill: '#000000'  });
+	    option2.text = possibleChoices[1];
+	    option3 = this.add.text(720, 320, '', {  font:'bold 40pt French Script MT', fill: '#000000'  });
+	    option3.text = possibleChoices[2];
 	    //Add the events to the boats according to which number has the true answer
-	    if (number1.text == possibleAnswers[0]) {
+	    if (option1.text == level1[quiz].rightAnswer) {
 	        boat1.events.onInputDown.add(this.increaseScore, this);
 	        boat2.events.onInputDown.add(this.decreaseScore, this);
 	        boat3.events.onInputDown.add(this.decreaseScore, this);
 	    }
-	    if (number2.text == possibleAnswers[0]) {
+	    if (option2.text == level1[quiz].rightAnswer) {
 	        boat1.events.onInputDown.add(this.decreaseScore, this);
 	        boat2.events.onInputDown.add(this.increaseScore, this);
 	        boat3.events.onInputDown.add(this.decreaseScore, this);
 	    }
-	    if (number3.text == possibleAnswers[0]) {
+	    if (option3.text == level1[quiz].rightAnswer) {
 	        boat1.events.onInputDown.add(this.decreaseScore, this);
 	        boat2.events.onInputDown.add(this.decreaseScore, this);
 	        boat3.events.onInputDown.add(this.increaseScore, this);
@@ -137,20 +150,11 @@ TuxGame.Block1Game1.prototype = {
 	    scoreText.text = score;
 	},
 	changeQuestion: function(){
-		// Between 0 and 2
-		randomNumber1 = Math.floor((Math.random() * 20));
-		// Another number between 0 and 2
-		randomNumber2 = Math.floor((Math.random() * 3));
-		// Between 1 and 2
-		randomNumber3 = Math.floor((Math.random() * 2) + 1);
-		rightAnswer = results[randomNumber1];
-		wrongAnswer1 = Math.floor((Math.random() * 100) + 1);
-		wrongAnswer2 = Math.floor((Math.random() * 100) + 1);
-		possibleAnswers = [rightAnswer, wrongAnswer1, wrongAnswer2];
-		instruction.text = operations[randomNumber1];
-		number1.text = "";
-		number2.text = "";
-		number3.text = "";
+		quiz = Math.floor((Math.random() * (level1.length - 1)));
+		instruction.text = level1[quiz].op;
+		option1.text = "";
+		option2.text = "";
+		option3.text = "";
 		boat1.events.onInputDown.removeAll();
 		boat2.events.onInputDown.removeAll();
 		boat3.events.onInputDown.removeAll();
