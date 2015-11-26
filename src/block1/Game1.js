@@ -25,6 +25,45 @@ var level1 = [
     {"op": "50-25-15", "answer1": 9, "answer2": 10, "answer3": 11, "rightAnswer": 50-25-15},
     {"op": "24-14+5", "answer1": 15, "answer2": 12, "answer3": 14, "rightAnswer": 24-14+5}
 ];
+var level2 = [
+    {"op": "17.50+12", "answer1": 29.50, "answer2": 29, "answer3": 28.50, "rightAnswer": 17.50+12},
+    {"op": "10.50+5.50", "answer1": 16, "answer2": 15, "answer3": 15.50, "rightAnswer": 10.50+5.50},
+    {"op": "2.50+3.50", "answer1": 6, "answer2": 5.50, "answer3": 7, "rightAnswer": 2.50+3.50},
+    {"op": "4.25+18.50", "answer1": 22.75, "answer2": 23, "answer3": 23.75, "rightAnswer": 4.25+18.50},
+    {"op": "19.50+17.25+2.50", "answer1": 39.25, "answer2": 39, "answer3": 38.25, "rightAnswer": 19.50+17.25+2.50},
+    {"op": "5.75+2.50-0.50", "answer1": 8.75, "answer2": 7.75, "answer3": 9.75, "rightAnswer": 5.75+2.50-0.50},
+    {"op": "4.50+1.50-2.75", "answer1": 8.75, "answer2": 7.75, "answer3": 6.75, "rightAnswer": 4.50+1.50-2.75},
+    {"op": "35.90+5.60", "answer1": 41.50, "answer2": 40.60, "answer3": 40.90, "rightAnswer": 35.90+5.60},
+    {"op": "17.60+3.30", "answer1": 20.90, "answer2": 19.90, "answer3": 18.90, "rightAnswer": 17.60+3.30},
+    {"op": "20.50+25.25+3.25", "answer1": 49, "answer2": 40.25, "answer3": 48.50, "rightAnswer": 20.50+25.25+3.25},
+    {"op": "10.75+4.25", "answer1": 15, "answer2": 14.75, "answer3": 15.25, "rightAnswer": 10.75+4.25},
+    {"op": "34.50+15.50", "answer1": 50, "answer2": 49.50, "answer3": 50.50, "rightAnswer": 34.50+15.50},
+    {"op": "165.60+35.30", "answer1": 200.90, "answer2": 195.60, "answer3": 2001.60, "rightAnswer": 165.60+35.30},
+    {"op": "18.50+5.25+2.25", "answer1": 26, "answer2": 27.25, "answer3": 26.25, "rightAnswer": 18.50+5.25+2.25},
+    {"op": "14.80+4.90+3.30", "answer1": 22.80, "answer2": 10.30, "answer3": 23, "rightAnswer": 14.80+4.90+3.30},
+    {"op": "7*(8)+2.50", "answer1": 57.50, "answer2": 58.50, "answer3": 56.50, "rightAnswer": 7*(8)+2.50},
+    {"op": "5*(9)-7.50+2.50", "answer1": 12.50, "answer2": 13, "answer3": 12.90, "rightAnswer": 5*(9)-7.50+2.50},
+    {"op": "7*(7)+17.50+7.25", "answer1": 73.50, "answer2": 73.75, "answer3": 72.50, "rightAnswer": 7*(7)+17.50+7.25},
+    {"op": "3*(2)+8*(2)+6.50", "answer1": 27.50, "answer2": 28.50, "answer3": 29, "rightAnswer": 3*(2)+8*(2)+6.50},
+    {"op": "5*(5)+2.50+3*(2.50+2.50)", "answer1": 40.50, "answer2": 42.50, "answer3": 15.90, "rightAnswer": 5*(5)+2.50+3*(2.50+2.50)}
+];
+var level3 = [
+    {"op": "10*(0.50)+2.75", "answer1": 13.50, "answer2": 13.25, "answer3": 12.75, "rightAnswer": 10*(0.50)+2.75},
+    {"op": "18*(0.25)+2.50+3.75", "answer1": 10.75, "answer2": 11.50, "answer3": 18.25, "rightAnswer": 18*(0.25)+2.50+3.75},
+    {"op": "16*(0.50)+10*(0.25)+2", "answer1": 11.50, "answer2": 12.50, "answer3": 13, "rightAnswer": 16*(0.50)+10*(0.25)+2},
+    {"op": "30*(0.50)+18*(0.50)-3", "answer1": 20.50, "answer2": 21, "answer3": 22.50, "rightAnswer": 30*(0.50)+18*(0.50)-3},
+    {"op": "60*(0.25)+2.50+3.25", "answer1": 19.50, "answer2": 20.75, "answer3": 20.25, "rightAnswer": 60*(0.25)+2.50+3.25},
+    {"op": "40*(0.25)+12*(0.25)-3", "answer1": 9.50, "answer2": 10, "answer3": 10.25, "rightAnswer": 40*(0.25)+12*(0.25)-3},
+    {"op": "20*(0.75)-4*(0.25)", "answer1": 13.50, "answer2": 14, "answer3": 14.75, "rightAnswer": 20*(0.75)-4*(0.25)},
+    {"op": "40*(0.50)-10*(0.25)-4*(0.25)", "answer1": 15.25, "answer2": 16.50, "answer3": 16, "rightAnswer": 40*(0.50)-10*(0.25)-4*(0.25)},
+    {"op": "75*(0.75)+10*(0.25)-10*(0.50)", "answer1": 52.50, "answer2": 53.75, "answer3": 53.50, "rightAnswer": 75*(0.75)+10*(0.25)-10*(0.50)},
+    {"op": "25*(0.50)+12.50-2.50", "answer1": 23.50, "answer2": 22.50, "answer3": 20.50, "rightAnswer": 25*(0.50)+12.50-2.50},
+    {"op": "2.75+10*(.25)", "answer1": 4.50, "answer2": 5.50, "answer3": 5.25, "rightAnswer": 2.75+10*(.25)},
+    {"op": "10*(0.50)-3.50", "answer1": 2, "answer2": 1.50, "answer3": 1.75, "rightAnswer": 10*(0.50)-3.50},
+    {"op": "60*(0.25)-12", "answer1": 3, "answer2": 4, "answer3": 12.25, "rightAnswer": 60*(0.25)-12},
+    {"op": "10*(.20)+3-2.50", "answer1": 2.50, "answer2": 3.25, "answer3": 10.70, "rightAnswer": 10*(.20)+3-2.50},
+    {"op": "8*(0.25)+40*(0.25)", "answer1": 12, "answer2": 12.50, "answer3": 48.50, "rightAnswer": 8*(0.25)+40*(0.25)}
+];
 
 // We need a number between 0 and the array's length - 1. This is to select one
 // of the possible questions with their respective answers.
