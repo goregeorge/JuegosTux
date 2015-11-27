@@ -6,7 +6,6 @@ var sadFace = null;
 
 TuxGame.Block3Game2_Q1 = function(game){
 	// define needed variables for Candy.Game
-
 	this._background = null;
 	this._boat1 = null;
 	this._boat2 = null;

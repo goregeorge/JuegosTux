@@ -36,8 +36,8 @@ TuxGame.Block3Game3_Q1.prototype = {
 		//Button Ok
 		this._buttonOk = this.add.button(580, 510, 'button-ok', this.validateResponse, this, 1, 0, 2);
 		this._buttonOk.scale.setTo(.7, .7);
-		this.add.button(10, 515, 'button-previous', this.backToHome, this, 1, 0 , 2);
-		this.add.button(70, 515, 'button-next', this.goToNextLevel, this, 1, 0 , 2);
+		
+		this.add.button(70, 515, 'button-next-b3g2', this.goToNextLevel, this, 1, 0 , 2);
 
 		this.add.sprite(TuxGame.GAME_WIDTH-130, TuxGame.GAME_HEIGHT-95, 'tux');
 
