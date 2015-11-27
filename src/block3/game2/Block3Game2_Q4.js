@@ -54,11 +54,6 @@ TuxGame.Block3Game2_Q4.prototype = {
 		this._boat3 = this.add.button(500, 240, this._boats[this._questionOption-1][2],
 			this._correctBoat[this._questionOption-1][2], this, 1, 0, 2);
 
-		/*
-		* Buton to previous and next level
-		*/
-		this.add.button(TuxGame.GAME_WIDTH-110, TuxGame.GAME_HEIGHT-105, 'button-next-b3g2', this.goToNextLevel, this, 1, 0 , 2);
-
 		this._boat1.inputEnabled = true;
 		this._boat2.inputEnabled = true;
 		this._boat3.inputEnabled = true;
@@ -135,14 +130,6 @@ TuxGame.Block3Game2_Q4.prototype = {
 	backToHome: function(){
 		this.state.start("MenuB3G2");
 		fails = 0;
-		this._audio.stop();
-	},
-
-	/*
-	* Redirect to next level
-	*/
-	goToNextLevel: function(){
-		this.state.start("Block3Game2_Q4");
 		this._audio.stop();
 	}
 }

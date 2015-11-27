@@ -13,8 +13,8 @@ TuxGame.MenuB3G3.prototype = {
 
 		this._tuxMale = this.add.sprite(0, 0, "tux-male");
 		this._tuxMale.scale.setTo(0.5, 0.5);
-		this.add.button(TuxGame.GAME_WIDTH-500, TuxGame.GAME_HEIGHT-200, 
-			'button-start', this.startGame, this, 1, 0, 2);
+		this.add.button(TuxGame.GAME_WIDTH/2-200, TuxGame.GAME_HEIGHT-200, 
+			'button-start-b3', this.startGame, this, 1, 0, 2);
 
 		this.add.text(TuxGame.GAME_WIDTH/2-50, 50, "Aqui la instrucción \n[PENDIENTE]", { fill: '#0101DF', font: "45px Arial", stroke: "#333", strokeThickness: 3  });
 

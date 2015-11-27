@@ -12,7 +12,8 @@ TuxGame.Preloader.prototype = {
 		* Global
 		****************************************/
 		this.load.image("tux-male", "img/block3/game2/menu/male-tux.png");
-		this.load.spritesheet('button-start', 'img/block3/game2/menu/button-start.png', 400, 140);
+		this.load.spritesheet('button-start-b3', 'img/block3/game2/menu/button-start.png', 400, 140);
+		this.load.spritesheet('button-continue-b3', 'img/block3/game2/menu/button-continue.png', 400, 140);
 		this.load.image('tux', 'img/block3/game2/panel/tux.png');
 		this.load.image('sad-penguin', 'img/block3/game2/panel/sad-penguin.png');
 		this.load.image('happy-penguin', 'img/block3/game2/panel/happy-penguin.png');
