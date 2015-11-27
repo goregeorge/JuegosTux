@@ -30,14 +30,14 @@ TuxGame.Block3Game2_Q3 = function(game){
 TuxGame.Block3Game2_Q3.prototype = {
 	create: function(){
 		//Background
-		this._background = this.add.sprite(0, 0, 'bg');
+		this._background = this.add.sprite(0, 0, 'bg-b3g2');
 
 		//Button Home
 		this.add.button(0, 0, 'button-home', this.backToHome, this, 1, 0, 2);
 		this.add.text(2, 75, 'menú', { fill: '#fff', font: "30px Arial", stroke: "#000", strokeThickness: 5 });
 
 		//panels
-		this._infoPanel = this.add.sprite(0, 500,'infoPanel');
+		this._infoPanel = this.add.sprite(0, 460, 'infoPanel');
 		this._progressPanel = this.add.sprite(640, 0, 'progressPanel');
 
 		this.getRandomOption();
@@ -57,31 +57,32 @@ TuxGame.Block3Game2_Q3.prototype = {
 		/*
 		* Buton to previous and next level
 		*/
-		this.add.button(10, 515, 'button-previous', this.goToPreviousLevel, this, 1, 0 , 2);
-		this.add.button(70, 515, 'button-next', this.goToNextLevel, this, 1, 0 , 2);
+		this.add.button(TuxGame.GAME_WIDTH-110, TuxGame.GAME_HEIGHT-105, 'button-next-b3g2', this.goToNextLevel, this, 1, 0 , 2);
 
 		this._boat1.inputEnabled = true;
 		this._boat2.inputEnabled = true;
 		this._boat3.inputEnabled = true;
 		
-		this._question = this.add.text(150, TuxGame.GAME_HEIGHT-(82.5), 
+		this._question = this.add.text(150, TuxGame.GAME_HEIGHT-(95), 
 			'Elige el barco cuya bandera representa \n' + this._questions[this._questionOption-1], 
-			{ fill: '#000', font:"25px Verdana"});
+			{ fill: '#000', font:"25px Verdana", stroke: "#fff", strokeThickness: 3  });
 
-		this.add.text(TuxGame.GAME_WIDTH-125, 50, 'Nivel: 3', { fill: '#0101DF' });
-		this.add.text(TuxGame.GAME_WIDTH-150, 15, 'Aciertos: ' + status, 
+		/*
+		* The status panel
+		*/
+		this.add.text(TuxGame.GAME_WIDTH-125, 15, 'Nivel: 3', { fill: '#0101DF' });
+		this.add.sprite(TuxGame.GAME_WIDTH-110, 50, "correct-b3g2").scale.setTo(0.5,0.5);
+		this.add.text(TuxGame.GAME_WIDTH-65, 50, status, 
+			{ fill: '#0101DF', font: '25px Verdana', stroke: "#fff", strokeThickness: 2  });
+		//Heart
+		this.add.sprite(TuxGame.GAME_WIDTH-110, 90, "heart");
+		this.add.text(TuxGame.GAME_WIDTH-65, 90, 3-fails, 
 			{ fill: '#0101DF', font: '25px Verdana', stroke: "#fff", strokeThickness: 2  });
 
-		this._tuxAvatar = this.add.sprite(TuxGame.GAME_WIDTH-130, TuxGame.GAME_HEIGHT-95, 'tux');
+		this._tuxAvatar = this.add.sprite(30, 480, 'tux').scale.setTo(1.1,1.1);
 
 		this._audio = this.add.audio(this._audios[this._questionOption-1]);
 		this._audio.play();
-		
-		/*
-		this._boat1.events.onInputDown.add(this._correctBoat[this._questionOption-1][0], this);
-		this._boat2.events.onInputDown.add(this._correctBoat[this._questionOption-1][1], this);
-		this._boat3.events.onInputDown.add(this._correctBoat[this._questionOption-1][2], this);
-		*/
 		
 	},
 
@@ -98,13 +99,14 @@ TuxGame.Block3Game2_Q3.prototype = {
 	*/
 	youFail: function(){
 		//sadFace = this.add.sprite((TuxGame.GAME_WIDTH/2)-170, (TuxGame.GAME_HEIGHT/2)-210, 'sadFace');
-		sadFace = this.add.sprite(TuxGame.GAME_WIDTH-120, TuxGame.GAME_HEIGHT-210, 'sad-penguin');
+		sadFace = this.add.sprite(40, TuxGame.GAME_HEIGHT-220, 'sad-penguin');
 		fails++;
 		console.log("Total fails: " + fails);
 		var that = this;
+		this._audio.stop();
 		setTimeout(function(){ 
 			sadFace.destroy();
-			if (fails > 3) {
+			if (fails > 2) {
 				status = 0;
 				fails = 0;
 				console.log("RESTART!! Status: " + status + ", Fails: " + fails);
@@ -120,10 +122,11 @@ TuxGame.Block3Game2_Q3.prototype = {
 	*/
 	youWin: function(){
 		//happyFace = this.add.sprite((TuxGame.GAME_WIDTH/2)-170, (TuxGame.GAME_HEIGHT/2)-210, 'happyFace');
-		happyFace = this.add.sprite(TuxGame.GAME_WIDTH-120, TuxGame.GAME_HEIGHT-210, 'happy-penguin');
+		happyFace = this.add.sprite(40, TuxGame.GAME_HEIGHT-220, 'happy-penguin');
 		status++;
 		console.log("Status: " + status + "/8");
 		var that = this;
+		this._audio.stop();
 		setTimeout(function(){ 
 			happyFace.destroy();
 			that.state.start("Block3Game2_Q4");
@@ -132,13 +135,8 @@ TuxGame.Block3Game2_Q3.prototype = {
 
 	backToHome: function(){
 		this.state.start("MenuB3G2");
-	},
-
-	/*
-	* Redirect to previous level
-	*/
-	goToPreviousLevel: function(){
-		this.state.start("Block3Game2_Q2");
+		fails = 0;
+		this._audio.stop();
 	},
 
 	/*
@@ -146,5 +144,6 @@ TuxGame.Block3Game2_Q3.prototype = {
 	*/
 	goToNextLevel: function(){
 		this.state.start("Block3Game2_Q4");
+		this._audio.stop();
 	}
 }

@@ -17,6 +17,8 @@ TuxGame.Preloader.prototype = {
 		this.load.image('sad-penguin', 'img/block3/game2/panel/sad-penguin.png');
 		this.load.image('happy-penguin', 'img/block3/game2/panel/happy-penguin.png');
 		this.load.spritesheet('button-home', 'img/block3/game2/button-home.png', 80, 80);
+		this.load.image('heart', 'img/block3/game2/panel/heart.png');
+		this.load.image('bg-menu-B3G2', 'img/block3/game2/menu/bg-MenuB3G2.jpg');
 
 		
 		/*<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>
@@ -26,10 +28,11 @@ TuxGame.Preloader.prototype = {
 		* Panel and background
 		****************************************/
 		this.load.image('infoPanel', 'img/block3/game2/panel/infoPanel.png');
-		this.load.image('progressPanel', 'img/block3/game2/panel/newPanel.png');
+		this.load.image('progressPanel', 'img/block3/game2/panel/progressPanel.png');
 		this.load.spritesheet('button-previous', 'img/block3/game2/panel/button-previous.png', 70, 70);
-		this.load.spritesheet('button-next', 'img/block3/game2/panel/button-next.png', 70, 70);
-		this.load.image("bg", "img/block3/game2/bg.png");
+		this.load.spritesheet('button-next-b3g2', 'img/block3/game2/panel/button-next.png', 70, 70);
+		this.load.image("bg-b3g2", "img/block3/game2/bg.png");
+		this.load.image("correct-b3g2", "img/block3/game2/panel/correct.png");
 
 		/***************************************
 		* Sprite's Boats
@@ -111,9 +114,6 @@ TuxGame.Preloader.prototype = {
 	},
 
 	create: function(){
-		// start the first question
-		//this.state.start("MenuB3G2");
-		console.log("Ya sali del Preloader");
-		this.state.start("MenuB3G3");
+		this.state.start("MenuB3G2");
 	}
 };

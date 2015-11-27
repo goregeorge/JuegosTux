@@ -3,6 +3,7 @@ TuxGame.MenuB3G3 = function(game){
 };
 TuxGame.MenuB3G3.prototype = {
 	create: function(){
+		this.stage.backgroundColor = '#B4D9E7';
 		input.setAttribute("type", "hidden");
 		// display images
 		//this.add.sprite(0, 0, '../img/bg');

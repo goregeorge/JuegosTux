@@ -4,7 +4,7 @@ TuxGame.CongratulationsB3G2 = function(game){
 
 TuxGame.CongratulationsB3G2.prototype = {
 	create: function(){
-		this._background = this.add.sprite(0, 0, 'bg');
+		this.add.sprite(0, 0, 'bg-menu-B3G2');
 		this.add.text(140, 50, "Felicidades", { fill: '#0101DF', font: "100px Arial", stroke: "#333", strokeThickness: 5 });
 		this.add.text(50, 300, "Superaste las fracciones", { fill: '#00FF40', font: "65px Arial", stroke: "#333", strokeThickness: 3 });
 
