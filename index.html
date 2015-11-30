@@ -25,6 +25,10 @@
 	<script src="src/MainMenu.js"></script>
 	<script src="src/block2/Welcome.js"></script>
 
+	<!-- Block 1-->
+	<!-- Block 1 Game 1 -->
+	<script src="src/block1/Game1.js"></script>
+
 	<!-- Block 2-->
 
 	<!-- Block 2 Game 1 Engine-->
@@ -129,6 +133,11 @@
 	game.state.add('Boot', TuxGame.Boot);
 	game.state.add('Preloader', TuxGame.Preloader);
 	game.state.add('MainMenu', TuxGame.MainMenu);
+
+	/*#########################################################
+	* States in the Game 1 block 1
+	#########################################################*/
+	game.state.add('Block1Game1', TuxGame.Block1Game1);
 
 	/*#########################################################
 	* States in the Game 1 block 2
