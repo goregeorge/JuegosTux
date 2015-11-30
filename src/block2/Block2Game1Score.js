@@ -33,7 +33,7 @@ TuxGame.Block2Game1Score.prototype = {
     this.add.text(370, 495, "Continuar", this._fontStyle);
   },
   goGame1: function(){
-    this.state.start('Block2Game2Welcome');
+    this.state.start('MenuB3G2');
   },
   update: function(){
   }

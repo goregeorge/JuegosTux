@@ -3,23 +3,40 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Tuxs Games</title>
-	<style> body { margin: 0; background: #B4D9E7; } </style>
+	<style> 
+		body { margin: 0; background: #B4D9E7; } 
+
+		/*
+		* Style for the input "THE TRICK"
+		*/
+		#input{
+			position: absolute;
+			top: 530px;
+			left: 465px;
+			border: solid 5px #c9c9c9;
+			font-size: 20px;
+			width: 90px;
+			height: 30px;
+		}
+	</style>
 	<script src="src/phaser-2.4.4.min.js"></script>
 	<script src="src/Boot.js"></script>
 	<script src="src/Preloader.js"></script>
 	<script src="src/MainMenu.js"></script>
 	<script src="src/block2/Welcome.js"></script>
 
-	<!-- Juego 1 Engine-->
+	<!-- Block 2-->
+
+	<!-- Block 2 Game 1 Engine-->
 	<script src="src/block2/game1/Game1Engine.js"></script>
 	<script src="src/block2/game1/RandomNumberGenerator.js"></script>
 
-	<!-- Initializers -->
+	<!-- Initializers Blok 2 Game 1 -->
 	<script src="src/block2/game1/initializers/CommonInitializer.js"></script>
 	<script src="src/block2/game1/initializers/NormalInitializer.js"></script>
 	<script src="src/block2/game1/initializers/TimeInitializer.js"></script>
 
-	<!-- Displayers -->
+	<!-- Displayers Blok 2 Game 1-->
 	<script src="src/block2/game1/displayers/CommonInfoDisplayer.js"></script>
 	<script src="src/block2/game1/displayers/FishesDisplayer.js"></script>
 	<script src="src/block2/game1/displayers/IntegersDisplayer.js"></script>
@@ -31,7 +48,7 @@
 	<script src="src/block2/game1/displayers/TimeDisplayer.js"></script>
 	<script src="src/block2/game1/displayers/TimeLevelDisplayer.js"></script>
 
-	<!-- Number Generator -->
+	<!-- Number Generator Blok 2 Game 1 -->
 	<script src="src/block2/game1/number-generators/NaturalNumber.js"></script>
 	<script src="src/block2/game1/number-generators/TwoIntegersSum.js"></script>
 	<script src="src/block2/game1/number-generators/TwoIntegersDiff.js"></script>
@@ -44,9 +61,9 @@
 	<script src="src/block2/game1/number-generators/Operation68.js"></script>
 	<script src="src/block2/game1/number-generators/Operation24.js"></script>
 
-	<!-- Factory -->
+	<!-- Factory Blok 2 Game 1-->
 	<script src="src/block2/game1/factories/LevelFactory.js"></script>
-	<!-- Level Template -->
+	<!-- Level Template Blok 2 Game 1-->
 	<script src="src/block2/game1/strategies/LevelTemplate.js"></script>
 
 	<!-- Sólo Arrastra  Nivel 1-->
@@ -92,6 +109,16 @@
 	<script src="src/block2/game2/levels/Game2Welcome.js"></script>
 	<script src="src/block2/game2/levels/Game2Level1.js"></script>
 
+	<!-- Block 3-->
+
+	<!--FIles to game 2 Block 3-->
+	<script src="src/block3/game2/MenuB3G2.js"></script>
+	<script src="src/block3/game2/Block3Game2_Q1.js"></script>
+	<script src="src/block3/game2/Block3Game2_Q2.js"></script>
+	<script src="src/block3/game2/Block3Game2_Q3.js"></script>
+	<script src="src/block3/game2/Block3Game2_Q4.js"></script>
+	<script src="src/block3/game2/CongratulationsB3G2.js"></script>
+
 </head>
 <body>
 <script>
@@ -102,7 +129,10 @@
 	game.state.add('Boot', TuxGame.Boot);
 	game.state.add('Preloader', TuxGame.Preloader);
 	game.state.add('MainMenu', TuxGame.MainMenu);
-	// Block 2 Game 1
+
+	/*#########################################################
+	* States in the Game 1 block 2
+	#########################################################*/
 	game.state.add('Block2Welcome', TuxGame.Block2Welcome);
 	game.state.add('Block2Game1', TuxGame.Block2Game1);
 	game.state.add('Block2Game1L2', TuxGame.Block2Game1L2);
@@ -117,12 +147,21 @@
 	game.state.add('Block2Game1L19', TuxGame.Block2Game1L19);
 	game.state.add('Block2Game1L21', TuxGame.Block2Game1L21);
 	game.state.add('Block2Game1Score', TuxGame.Block2Game1Score);
-	// Block 2 Game 2
-	game.state.add('Block2Game2Welcome', TuxGame.Block2Game2Welcome);
-	game.state.add('Block2Game2L1', TuxGame.Block2Game2L1);
+
+	/*#########################################################
+	* States in the Game 2 block 3
+	#########################################################*/
+	game.state.add('MenuB3G2', TuxGame.MenuB3G2);
+	game.state.add('Block3Game2_Q1', TuxGame.Block3Game2_Q1);
+	game.state.add('Block3Game2_Q2', TuxGame.Block3Game2_Q2);
+	game.state.add('Block3Game2_Q3', TuxGame.Block3Game2_Q3);
+	game.state.add('Block3Game2_Q4', TuxGame.Block3Game2_Q4);
+	game.state.add('CongratulationsB3G2', TuxGame.CongratulationsB3G2);
+	
 	// start the Boot state
 	game.state.start('Boot');
 })();
 </script>
+	<input type="hidden" id="input" size="10">
 </body>
 </html>

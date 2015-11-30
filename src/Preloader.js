@@ -1,7 +1,10 @@
 TuxGame.Preloader = function(game){
   // define width and height of the game
-  TuxGame.GAME_WIDTH = 640;
-  TuxGame.GAME_HEIGHT = 960;
+  // TuxGame.GAME_WIDTH = 640;
+  // TuxGame.GAME_HEIGHT = 960;
+
+  TuxGame.GAME_WIDTH = 800;
+  TuxGame.GAME_HEIGHT = 600;
 };
 TuxGame.Preloader.prototype = {
   preload: function(){
@@ -9,9 +12,8 @@ TuxGame.Preloader.prototype = {
     this.stage.backgroundColor = '#B4D9E7';
     this.preloadBar = this.add.sprite((TuxGame.GAME_WIDTH-311)/2, (TuxGame.GAME_HEIGHT-27)/2, 'preloaderBar');
     this.load.setPreloadSprite(this.preloadBar);
-    //Commons
     this.load.bitmapFont('desyrel', 'src/commons/desyrel.png', 'src/commons/desyrel.xml');
-    // Loading Images
+
     /**************************************
     * Block 2
     ***************************************/
@@ -20,6 +22,10 @@ TuxGame.Preloader.prototype = {
     this.load.image('welcome-boat', 'img/block2/welcome/boat.png');
     this.load.image('welcome-male-tux', 'img/block2/welcome/male-tux.png?v=1');
     this.load.audio('welcome-block2-game1','img/block2/game1/welcome-game1.mp3');
+
+    /**************************************
+    * Block 2 Game 1
+    ***************************************/
     // Block 2 game 1
     this.load.image('background', 'img/background.png');
     this.load.image('sea-bg', 'img/block2/game1/sea-bg.png');
@@ -91,30 +97,79 @@ TuxGame.Preloader.prototype = {
     // load spritesheets
     this.load.image('button-start', 'img/block2/game1/button_green_over.png?v=2');
 
-    // Block 2 game 2
-    this.load.image('welcome-male-tux-brush', 'img/block2/game2/male-tux-brush.png?v=1');
-    this.load.image('sea-bg-2',   'img/block2/game2/fondo3.png?v=2');
-    this.load.image('fish_body',  'img/block2/game2/fish_body.png?v=2');
-    this.load.image('square_blue','img/block2/game2/square_blue.png?v=2');
-    this.load.image('square_green','img/block2/game2/square_green.png?v=2');
-    this.load.image('square_orange','img/block2/game2/square_orange.png?v=2');
-    this.load.image('square_pistache','img/block2/game2/square_pistache.png?v=2');
-    this.load.image('square_purple','img/block2/game2/square_purple.png?v=2');
-    this.load.image('square_teal','img/block2/game2/square_teal.png?v=2');
-    this.load.image('square_violet','img/block2/game2/square_violet.png?v=2');
-    this.load.image('square_white','img/block2/game2/square_white.png?v=2');
-    this.load.image('square_white12','img/block2/game2/square_white_12.png?v=2');
-    this.load.image('square_yellow','img/block2/game2/square_yellow.png?v=2');
-    this.load.image('palette','img/block2/game2/palette.png?v=2');
-    // 1 / 4
-    this.load.image('square_green14','img/block2/game2/square_green_1_4.png?v=2');
-    this.load.image('square_orange14','img/block2/game2/square_orange_1_4.png?v=2');
-    this.load.image('square_pink14','img/block2/game2/square_pink_1_4.png?v=2');
-    this.load.image('square_purple14','img/block2/game2/square_purple_1_4.png?v=2');
-    this.load.image('square_red14','img/block2/game2/square_red_1_4.png?v=2');
-    this.load.image('square_yellow14','img/block2/game2/square_yellow_1_4.png?v=2');
+    /**************************************
+    * Block 3
+    ***************************************/
+    /**************************************
+    * Block 3 Globals
+    ***************************************/
+    this.load.image("tux-male", "img/block3/game2/menu/male-tux.png");
+    this.load.spritesheet('button-start-b3', 'img/block3/game2/menu/button-start.png', 400, 140);
+    this.load.spritesheet('button-continue-b3', 'img/block3/game2/menu/button-continue.png', 400, 140);
+    this.load.image('tux', 'img/block3/game2/panel/tux.png');
+    this.load.image('sad-penguin', 'img/block3/game2/panel/sad-penguin.png');
+    this.load.image('happy-penguin', 'img/block3/game2/panel/happy-penguin.png');
+    this.load.spritesheet('button-home', 'img/block3/game2/button-home.png', 80, 80);
+    this.load.image('heart', 'img/block3/game2/panel/heart.png');
+    this.load.image('bg-menu-B3G2', 'img/block3/game2/menu/bg-MenuB3G2.jpg');
 
-    this.load.image('block2-game2-next','img/block2/game2/next.png?v=2');
+    /**************************************
+    * Block 3 Game 2
+    ***************************************/
+    /***************************************
+    * Panel and background
+    ****************************************/
+    this.load.image('infoPanel', 'img/block3/game2/panel/infoPanel.png');
+    this.load.image('progressPanel', 'img/block3/game2/panel/progressPanel.png');
+    this.load.spritesheet('button-previous', 'img/block3/game2/panel/button-previous.png', 70, 70);
+    this.load.spritesheet('button-next-b3g2', 'img/block3/game2/panel/button-next.png', 70, 70);
+    this.load.image("bg-b3g2", "img/block3/game2/bg.png");
+    this.load.image("correct-b3g2", "img/block3/game2/panel/correct.png");
+
+    /***************************************
+    * Sprite's Boats
+    ****************************************/
+    this.load.spritesheet('b-c-1/1', 'img/block3/game2/Boats/Circulo/c1.1.png', 200, 150);
+    this.load.spritesheet('b-c-2/3', 'img/block3/game2/Boats/Circulo/c2.3.png', 200, 150);
+    this.load.spritesheet('b-c-3/6', 'img/block3/game2/Boats/Circulo/c3.6.png', 200, 150);
+    this.load.spritesheet('b-c-3/8', 'img/block3/game2/Boats/Circulo/c3.8.png', 200, 150);
+    this.load.spritesheet('b-c-5/6', 'img/block3/game2/Boats/Circulo/c5.6.png', 200, 150);
+    this.load.spritesheet('b-c-6/12', 'img/block3/game2/Boats/Circulo/c6.12.png', 200, 150);
+
+    this.load.spritesheet('b-s-1/1', 'img/block3/game2/Boats/Cuadrado/s1.1.png', 200, 150);
+    this.load.spritesheet('b-s-1/2', 'img/block3/game2/Boats/Cuadrado/s1.2.png', 200, 150);
+    this.load.spritesheet('b-s-1/4', 'img/block3/game2/Boats/Cuadrado/s1.4.png', 200, 150);
+    this.load.spritesheet('b-s-2/8', 'img/block3/game2/Boats/Cuadrado/s2.8.png', 200, 150);
+    this.load.spritesheet('b-s-3/8', 'img/block3/game2/Boats/Cuadrado/s3.8.png', 200, 150);
+    this.load.spritesheet('b-s-4/8', 'img/block3/game2/Boats/Cuadrado/s4.8.png', 200, 150);
+
+    this.load.spritesheet('b-t-1/2', 'img/block3/game2/Boats/Triangulo/t1.2.png', 200, 150);
+    this.load.spritesheet('b-t-1/3', 'img/block3/game2/Boats/Triangulo/t1.3.png', 200, 150);
+    this.load.spritesheet('b-t-1/9', 'img/block3/game2/Boats/Triangulo/t1.9.png', 200, 150);
+    this.load.spritesheet('b-t-2/2', 'img/block3/game2/Boats/Triangulo/t2.2.png', 200, 150);
+    this.load.spritesheet('b-t-2/3', 'img/block3/game2/Boats/Triangulo/t2.3.png', 200, 150);
+    this.load.spritesheet('b-t-3/4', 'img/block3/game2/Boats/Triangulo/t3.4.png', 200, 150);
+    this.load.spritesheet('b-t-3/9', 'img/block3/game2/Boats/Triangulo/t3.9.png', 200, 150);
+    this.load.spritesheet('b-t-4/6', 'img/block3/game2/Boats/Triangulo/t4.6.png', 200, 150);
+    this.load.spritesheet('b-t-6/18', 'img/block3/game2/Boats/Triangulo/t6.18.png', 200, 150);
+
+    /***************************************
+    * Audios
+    ****************************************/
+    this.load.audio('intro', 'img/block3/game2/audios/introB3G2.mp3');
+    this.load.audio('q1o1', 'img/block3/game2/audios/q1o1.mp3');
+    this.load.audio('q1o2', 'img/block3/game2/audios/q1o2.mp3');
+    this.load.audio('q1o3', 'img/block3/game2/audios/q1o3.mp3');
+    this.load.audio('q2o1', 'img/block3/game2/audios/q2o1.mp3');
+    this.load.audio('q2o2', 'img/block3/game2/audios/q2o2.mp3');
+    this.load.audio('q2o3', 'img/block3/game2/audios/q2o3.mp3');
+    this.load.audio('q3o1', 'img/block3/game2/audios/q3o1.mp3');
+    this.load.audio('q3o2', 'img/block3/game2/audios/q3o2.mp3');
+    this.load.audio('q3o3', 'img/block3/game2/audios/q3o3.mp3');
+    this.load.audio('q4o1', 'img/block3/game2/audios/q4o1.mp3');
+    this.load.audio('q4o2', 'img/block3/game2/audios/q4o2.mp3');
+    this.load.audio('q4o3', 'img/block3/game2/audios/q4o3.mp3');
+
   },
   create: function(){
     // start the MainMenu state
