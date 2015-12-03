@@ -13,7 +13,7 @@ BackgroundB3G3.prototype = {
 	},
 
 	displayPanelStatus : function(gameContext, level){
-		gameContext.add.sprite(640, 0, 'progress-panel');
+		gameContext.add.sprite(640, 0, 'progress-panel-b3g3');
 		gameContext.add.text(TuxGame.GAME_WIDTH-125, 15, level, { fill: 'white' });
 
 		gameContext.add.sprite(TuxGame.GAME_WIDTH-110, 90, "heart");
@@ -26,12 +26,12 @@ BackgroundB3G3.prototype = {
 	},
 
 	displayPanelQuestion : function(gameContext, question){
-		gameContext.add.sprite(0, 460, 'info-panel');
+		gameContext.add.sprite(0, 460, 'info-panel-b3g3');
 
 		//Button Ok
 		this._buttonOk = gameContext.add.button(590, TuxGame.GAME_HEIGHT-105, 'button-ok', gameContext.validateResponse, gameContext, 1, 0, 2);
 		this._buttonOk.scale.setTo(.7, .7);
-		gameContext.add.button(TuxGame.GAME_WIDTH-110, TuxGame.GAME_HEIGHT-105, 'button-next', gameContext.goToNextLevel, gameContext, 1, 0 , 2);
+		gameContext.add.button(TuxGame.GAME_WIDTH-110, TuxGame.GAME_HEIGHT-105, 'button-next-b3g2', gameContext.goToNextLevel, gameContext, 1, 0 , 2);
 
 		gameContext.add.sprite(30, 480, 'tux').scale.setTo(1.1, 1.1);
 		gameContext.add.text(150, TuxGame.GAME_HEIGHT-(95), question,
