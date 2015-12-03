@@ -12,25 +12,35 @@ BackgroundB3G3.prototype = {
 		gameContext.add.text(2, 75, 'menú', { fill: '#fff', font: "30px Arial", stroke: "#000", strokeThickness: 5 });
 	},
 
-	displayPanelStatus : function(gameContext){
-		gameContext.add.sprite(640, 0, 'status-panel');
-		gameContext.add.text(TuxGame.GAME_WIDTH-125, 50, 'Nivel: 1', { fill: 'white' });
-		gameContext.add.text(TuxGame.GAME_WIDTH-150, 15, 'Aciertos: ' + status, 
-			{ fill: '#fff', font: '25px Verdana', stroke: "#000", strokeThickness: 3  });
+	displayPanelStatus : function(gameContext, level){
+		gameContext.add.sprite(640, 0, 'progress-panel');
+		gameContext.add.text(TuxGame.GAME_WIDTH-125, 15, level, { fill: 'white' });
+
+		gameContext.add.sprite(TuxGame.GAME_WIDTH-110, 90, "heart");
+		gameContext.add.text(TuxGame.GAME_WIDTH-65, 90, 3-failsB3G3, 
+			{ fill: '#fff', font: '25px Verdana', stroke: "#000", strokeThickness: 2  });
+
+		gameContext.add.sprite(TuxGame.GAME_WIDTH-110, 50, "correct-b3g2").scale.setTo(0.5,0.5);
+		gameContext.add.text(TuxGame.GAME_WIDTH-65, 50, correctsB3G3, 
+			{ fill: '#fff', font: '25px Verdana', stroke: "#000", strokeThickness: 2  });
 	},
 
-	displayPanelQuestion : function(gameContext){
-		gameContext.add.sprite(0, 500, 'info-panel');
+	displayPanelQuestion : function(gameContext, question){
+		gameContext.add.sprite(0, 460, 'info-panel');
 
 		//Button Ok
-		this._buttonOk = gameContext.add.button(570, 510, 'button-ok', gameContext.validateResponse, gameContext, 1, 0, 2);
+		this._buttonOk = gameContext.add.button(590, TuxGame.GAME_HEIGHT-105, 'button-ok', gameContext.validateResponse, gameContext, 1, 0, 2);
 		this._buttonOk.scale.setTo(.7, .7);
-		gameContext.add.button(70, 515, 'button-next', gameContext.goToNextLevel, gameContext, 1, 0 , 2);
+		gameContext.add.button(TuxGame.GAME_WIDTH-110, TuxGame.GAME_HEIGHT-105, 'button-next', gameContext.goToNextLevel, gameContext, 1, 0 , 2);
 
-		gameContext.add.sprite(TuxGame.GAME_WIDTH-130, TuxGame.GAME_HEIGHT-95, 'tux');
-		gameContext.add.text(150, TuxGame.GAME_HEIGHT-(82.5), 
-			'A cuantos gramos equivalen \n20 kilogramos de cocos? \n', 
+		gameContext.add.sprite(30, 480, 'tux').scale.setTo(1.1, 1.1);
+		gameContext.add.text(150, TuxGame.GAME_HEIGHT-(95), question,
 			{ fill: '#fff', font:"20px Verdana", stroke: "#000", strokeThickness: 3});
+	},
+
+	displayItmesOnBalance : function(gameContext, item1, item2){
+		gameContext.add.sprite(200, 180, item1).scale.setTo(0.2, 0.2);
+		gameContext.add.sprite(420, 180, item2).scale.setTo(0.2, 0.2);
 	}
 
 }
