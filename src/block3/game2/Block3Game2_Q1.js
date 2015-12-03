@@ -80,10 +80,12 @@ TuxGame.Block3Game2_Q1.prototype = {
 		* The status panel
 		*/
 		this.add.text(TuxGame.GAME_WIDTH-125, 15, 'Nivel: 1', { fill: '#0101DF' });
+
+		//Correct and value
 		this.add.sprite(TuxGame.GAME_WIDTH-110, 50, "correct-b3g2").scale.setTo(0.5,0.5);
 		this.add.text(TuxGame.GAME_WIDTH-65, 50, status, 
 			{ fill: '#0101DF', font: '25px Verdana', stroke: "#fff", strokeThickness: 2  });
-		//Heart
+		//Heart and value
 		this.add.sprite(TuxGame.GAME_WIDTH-110, 90, "heart");
 		this.add.text(TuxGame.GAME_WIDTH-65, 90, 3-fails, 
 			{ fill: '#0101DF', font: '25px Verdana', stroke: "#fff", strokeThickness: 2  });
