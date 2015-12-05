@@ -13,7 +13,7 @@ RandomGenerateB3G3.prototype ={
 		}while( rounds_available[this.random_round-1] == false);
 
 		//This is for test purpose, delete the line below
-		rounds_available[this.random_round-1] = false;
+		//rounds_available[this.random_round-1] = false;
 
 		return this.random_round;
 	},
