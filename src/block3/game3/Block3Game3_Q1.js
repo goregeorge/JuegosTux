@@ -29,7 +29,7 @@ TuxGame.Block3Game3_Q1.prototype = {
 		this.backgroundB3G3.displayButtonHome(this);
 		this.backgroundB3G3.displayPanelStatus(this, level);
 		this.backgroundB3G3.displayPanelQuestion(this, question);
-		this.backgroundB3G3.displayItmesOnBalance(this, "2-bananas", "2-bananas");
+		this.backgroundB3G3.displayItmesOnBalance(this, "2-bananas", "weight-b3g3");
 
 	},
 

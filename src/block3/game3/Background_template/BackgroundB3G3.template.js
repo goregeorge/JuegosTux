@@ -39,8 +39,8 @@ BackgroundB3G3.prototype = {
 	},
 
 	displayItmesOnBalance : function(gameContext, item1, item2){
-		gameContext.add.sprite(200, 180, item1).scale.setTo(0.2, 0.2);
-		gameContext.add.sprite(420, 180, item2).scale.setTo(0.2, 0.2);
+		gameContext.add.sprite(205, 185, item1);
+		gameContext.add.sprite(435, 170.1, item2);
 	}
 
 }
