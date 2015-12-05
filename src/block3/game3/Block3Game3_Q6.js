@@ -1,28 +1,16 @@
-
-var correctsB3G3 = 0;
-var failsB3G3 = 0;
-
-var approving_minimum = 3;
-
-var rounds_available = [true, true, true, true, true, true];
-
-window.onload = function() {
-	var input = document.getElementById("input");
-};
-
-TuxGame.Block3Game3_Q1 = function(game){
+TuxGame.Block3Game3_Q6 = function(game){
 	this.backgroundB3G3 = new BackgroundB3G3();
 	this.randomGenerateB3G3 = new RandomGenerateB3G3();
 	this.validatorResponseB3G3 = new ValidatorResponseB3G3();
 	this.answer = 0.3;
 };
 
-TuxGame.Block3Game3_Q1.prototype = {
+TuxGame.Block3Game3_Q6.prototype = {
 	create : function(){
 		input.setAttribute("type", "number");
 
 		//Define the level and question
-		var level = "Ronda 1";
+		var level = "Ronda 6";
 		var question = "¿Cuántos kilogramos pesan \nlos dos platanos?";
 
 		this.backgroundB3G3.displayBackground(this);

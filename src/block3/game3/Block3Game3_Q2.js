@@ -1,6 +1,9 @@
 
 TuxGame.Block3Game3_Q2 = function(game){
 	this.backgroundB3G3 = new BackgroundB3G3();
+	this.randomGenerateB3G3 = new RandomGenerateB3G3();
+	this.validatorResponseB3G3 = new ValidatorResponseB3G3();
+	this.answer = 0.3;
 };
 
 TuxGame.Block3Game3_Q2.prototype = {
@@ -8,7 +11,7 @@ TuxGame.Block3Game3_Q2.prototype = {
 		input.setAttribute("type", "number");
 
 		//Define the level and question
-		var level = "Nivel 2";
+		var level = "Ronda 2";
 		var question = "¿Cuántos gramos pesa \nel telescopio?";
 
 		this.backgroundB3G3.displayBackground(this);
@@ -24,8 +27,7 @@ TuxGame.Block3Game3_Q2.prototype = {
 	},
 
 	validateResponse : function(){
-		var element = document.getElementById("input");
-		alert(element.value);
+		this.validatorResponseB3G3.validateResponse(this);
 	},
 
 	/*
@@ -39,6 +41,6 @@ TuxGame.Block3Game3_Q2.prototype = {
 	* Redirect to next level
 	*/
 	goToNextLevel: function(){
-		this.state.start("Block3Game2_Q2");
+		console.log("Pasaste al siguiente nivel");
 	}
 }
