@@ -4,7 +4,7 @@ RandomGenerateB3G3 = function(){
 
 RandomGenerateB3G3.prototype ={
 	
-	getRandomState : function(rounds_available){
+	getRandomNumber : function(rounds_available){
 		/*
 		* Get a random state without repeat
 		*/
@@ -16,5 +16,13 @@ RandomGenerateB3G3.prototype ={
 		rounds_available[this.random_round-1] = false;
 
 		return this.random_round;
+	},
+
+	getNextState : function(rounds_available){
+		var random_round = this.getRandomNumber(rounds_available);
+		console.log(random_round);
+		var nameState = "Block3Game3_Q" + random_round;
+		console.log(nameState);
+		return nameState;
 	}
 }

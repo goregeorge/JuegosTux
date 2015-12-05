@@ -13,6 +13,7 @@ window.onload = function() {
 TuxGame.Block3Game3_Q1 = function(game){
 	this.backgroundB3G3 = new BackgroundB3G3();
 	this.randomGenerateB3G3 = new RandomGenerateB3G3();
+	this.validatorResponseB3G3 = new ValidatorResponseB3G3();
 	this.answer = 0.3;
 };
 
@@ -37,6 +38,8 @@ TuxGame.Block3Game3_Q1.prototype = {
 	},
 
 	validateResponse : function(){
+		this.validatorResponseB3G3.validateResponse(this);
+		/*
 		var entry = document.getElementById("input").value;
 
 		if ( entry == this.answer ) {
@@ -45,16 +48,15 @@ TuxGame.Block3Game3_Q1.prototype = {
 			if ( correctsB3G3 >= 6 ) {
 				this.goToNextLevel();
 			}else{
-				random_round = this.randomGenerateB3G3.getRandomState(rounds_available);
-				console.log("next round: " + random_round);
-				/*
-				random_round = this.getRandomState();
-				console.log("next round: " + random_round);
-				*/
+				//random_round = this.randomGenerateB3G3.getRandomState(rounds_available);
+				var nextState = this.randomGenerateB3G3.getNextState(rounds_available);
+				console.log("Next state: " + nextState);
+				this.state.start(nextState);
 			}
 		}else{
 			alert("Fallaste");
 		}
+		*/
 	},
 
 	/*
