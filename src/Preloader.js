@@ -95,26 +95,25 @@ TuxGame.Preloader.prototype = {
 		/***************************************
 		* Items
 		****************************************/
-		/*
-		this.load.image("1-coin", "img/block3/game3/items/1coin.png");
-		this.load.image("3-coins", "img/block3/game3/items/3coins.png");
-		this.load.image("4-coins", "img/block3/game3/items/4coins.png");
-		this.load.image("6-coins", "img/block3/game3/items/6coins.png");
-		this.load.image("8.1-coins", "img/block3/game3/items/8.1coins.png");
-		this.load.image("8.2-coins", "img/block3/game3/items/8.2coins.png");
-		this.load.image("1-banana", "img/block3/game3/items/1banana.png");
-		*/
-		this.load.image("2-bananas", "img/block3/game3/items/2bananas.png");
-		/*
-		this.load.image("3-banana", "img/block3/game3/items/3bananas.png");
-		this.load.image("4-banana", "img/block3/game3/items/4bananas.png");
-		this.load.image("5-banana", "img/block3/game3/items/5bananas.png");
-		*/
+		this.load.image("2-bananas-b3", "img/block3/game3/items/2bananas.png");
+		this.load.image("1-telescope-b3", "img/block3/game3/items/1telescope.png");
+		this.load.image("5-coconuts-b3", "img/block3/game3/items/5coconuts.png");
+		this.load.image("1-bottle-b3", "img/block3/game3/items/1bottle.png");
+		this.load.image("5-coins-b3", "img/block3/game3/items/5coins.png");
+		this.load.image("3-coins-b3", "img/block3/game3/items/3coins.png");
+
+		this.load.image("300gr-b3", "img/block3/game3/items/weight-300gr.png");
+		this.load.image("4kg-b3", "img/block3/game3/items/weight-4kg.png");
+		this.load.image("0.5kg-b3", "img/block3/game3/items/weight-0.5kg.png");
+		this.load.image("8000gr-b3", "img/block3/game3/items/weight-8000gr.png");
+		this.load.image("2gr-b3", "img/block3/game3/items/weight-2gr.png");
+		this.load.image("2500mg-b3", "img/block3/game3/items/weight-2500mg.png");
+		/* Estas no se utilizan por el momento
 		this.load.image("1-coconut", "img/block3/game3/items/1coconut.png");
 		this.load.image("2-coconuts", "img/block3/game3/items/2coconuts.png");
 		this.load.image("3-coconuts", "img/block3/game3/items/3coconuts.png");
-		this.load.image("5-coconuts", "img/block3/game3/items/5coconuts.png");
 		this.load.image("weight-b3g3", "img/block3/game3/items/weight.png");
+		*/
 
 	},
 
