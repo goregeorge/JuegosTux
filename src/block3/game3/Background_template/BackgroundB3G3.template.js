@@ -5,6 +5,7 @@ BackgroundB3G3 = function(){
 BackgroundB3G3.prototype = {
 	displayBackground : function(context){
 		context.add.sprite(0, 0, 'bg-b3g3');
+		context.add.sprite(190, 220, 'balance-b3').scale.setTo(0.6, 0.6);
 	},
 
 	displayButtonHome : function(context){
@@ -26,6 +27,7 @@ BackgroundB3G3.prototype = {
 	},
 
 	displayPanelQuestion : function(context, question){
+		input.value = "";
 		context.add.sprite(0, 460, 'info-panel-b3g3');
 
 		context.add.button(TuxGame.GAME_WIDTH-110, TuxGame.GAME_HEIGHT-105, 'button-next-b3g2', context.goToNextLevel, context, 1, 0 , 2);

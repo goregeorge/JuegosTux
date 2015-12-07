@@ -4,6 +4,8 @@ TuxGame.MenuB3G3 = function(game){
 
 TuxGame.MenuB3G3.prototype = {
 	create: function(){
+		correctsB3G3 = 0;
+		console.log("valor: " + correctsB3G3);
 		input.setAttribute("type", "hidden");
 		// add the button that will start the game
 		this._tuxMale = this.add.sprite(0, 0, "tux-male");

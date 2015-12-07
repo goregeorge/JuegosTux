@@ -90,7 +90,8 @@ TuxGame.Preloader.prototype = {
 		this.load.image("info-panel-b3g3", "img/block3/game3/panel/infoPanel.jpg");
 		this.load.image('progress-panel-b3g3', 'img/block3/game3/panel/progressPanel.jpg');
 		this.load.spritesheet('button-ok', 'img/block3/game3/panel/button-ok.png', 100, 100);
-		this.load.image("bg-b3g3", "img/block3/game3/bg.png");
+		this.load.image("bg-b3g3", "img/block3/game3/bg.jpg");
+		this.load.image("balance-b3", "img/block3/game3/balance.png");
 
 		/***************************************
 		* Items
@@ -98,7 +99,7 @@ TuxGame.Preloader.prototype = {
 		this.load.image("2-bananas-b3", "img/block3/game3/items/2bananas.png");
 		this.load.image("1-telescope-b3", "img/block3/game3/items/1telescope.png");
 		this.load.image("5-coconuts-b3", "img/block3/game3/items/5coconuts.png");
-		this.load.image("1-bottle-b3", "img/block3/game3/items/1bottle.png");
+		this.load.image("1-bottle-b3", "img/block3/game3/items/11bottle.png");
 		this.load.image("5-coins-b3", "img/block3/game3/items/5coins.png");
 		this.load.image("3-coins-b3", "img/block3/game3/items/3coins.png");
 

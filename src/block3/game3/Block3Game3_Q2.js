@@ -3,7 +3,7 @@ TuxGame.Block3Game3_Q2 = function(game){
 	this.backgroundB3G3 = new BackgroundB3G3();
 	this.randomGenerateB3G3 = new RandomGenerateB3G3();
 	this.validatorResponseB3G3 = new ValidatorResponseB3G3();
-	this.answer = 400;
+	this.answer = 4000;
 	this.round = null;
 	this.buttonOK = null;
 };

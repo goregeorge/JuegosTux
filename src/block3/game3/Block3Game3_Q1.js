@@ -1,4 +1,4 @@
-
+var fails_by_round_B3G3 = 0;
 var correctsB3G3 = 0;
 var failsB3G3 = 0;
 
