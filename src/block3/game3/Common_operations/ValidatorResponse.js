@@ -52,6 +52,8 @@ ValidatorResponseB3G3.prototype = {
 
 		if ( failsB3G3 >= 3 ) {
 			failsB3G3 = 0;
+			console.log("Aqui el blur");
+			context.backgroundB3G3.displayBackgroundBlur(context, this.sad_penguin);
 			setTimeout(function(){
 				context.state.start("MenuB3G3");
 			}, 2000);

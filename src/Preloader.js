@@ -92,6 +92,9 @@ TuxGame.Preloader.prototype = {
 		this.load.spritesheet('button-ok', 'img/block3/game3/panel/button-ok.png', 100, 100);
 		this.load.image("bg-b3g3", "img/block3/game3/bg.jpg");
 		this.load.image("balance-b3", "img/block3/game3/balance.png");
+		this.load.image("you-fail-b3g3", "img/block3/game3/sad-penguin-fail-b3.png");
+		this.load.script('filterX', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/BlurX.js');
+    		this.load.script('filterY', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/BlurY.js');
 
 		/***************************************
 		* Items

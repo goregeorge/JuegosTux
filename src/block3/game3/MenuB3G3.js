@@ -9,6 +9,7 @@ TuxGame.MenuB3G3.prototype = {
 		var failsB3G3 = 0;
 		console.log("valor: " + correctsB3G3);
 		input.setAttribute("type", "hidden");
+
 		// add the button that will start the game
 		this._tuxMale = this.add.sprite(0, 0, "tux-male");
 		this._tuxMale.scale.setTo(0.5, 0.5);
@@ -16,6 +17,8 @@ TuxGame.MenuB3G3.prototype = {
 			'button-start-b3', this.startGame, this, 1, 0, 2);
 		var instruction = "Introduce en la casilla \nla cantidad en \nkg, g o mg que pesan \nlos objetos en la \nbascula, según se \nte pida";
 		this.add.text(TuxGame.GAME_WIDTH/2-60, 50, instruction, { fill: '#0101DF', font: "45px Arial", stroke: "#333", strokeThickness: 3  });
+
+		//this.add.sprite(180, 50, "you-fail-b3g3").scale.setTo(0.7, 0.7);
 
 	},
 
