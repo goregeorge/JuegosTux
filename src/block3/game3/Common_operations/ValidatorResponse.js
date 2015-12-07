@@ -39,23 +39,25 @@ ValidatorResponseB3G3.prototype = {
 
 		context.backgroundB3G3.displayPanelStatus(context, context.round);
 		
-		fails_by_round_B3G3++;
 		console.log(" fails_by_round_B3G3: " + fails_by_round_B3G3);
 		if ( fails_by_round_B3G3 >= 2 ) {
-			var nextState = context.randomGenerateB3G3.getNextState(rounds_available);
-			context.state.start(nextState);
+			setTimeout(function(){
+				var nextState = context.randomGenerateB3G3.getNextState(rounds_available);
+				context.state.start(nextState);
+			}, 2000);
 		}
 
 		//En algún momento este debe de ser 0
-		fails_by_round_B3G3 = 0
+		//fails_by_round_B3G3 = 0
 
 		if ( failsB3G3 >= 3 ) {
 			failsB3G3 = 0;
 			setTimeout(function(){
-				context.state.start("Block3Game3_Q1");
+				context.state.start("MenuB3G3");
 			}, 2000);
 			
 		}
+		input.value = "";
 	},
 	
 	takeADecision : function(context){
@@ -66,6 +68,7 @@ ValidatorResponseB3G3.prototype = {
 			this.youWin(context);
 		}else{
 			failsB3G3++;
+			fails_by_round_B3G3++;
 			this.youFail(context);
 		}
 	}
