@@ -103,16 +103,24 @@ TuxGame.Preloader.prototype = {
     this.load.image('square_teal','img/block2/game2/square_teal.png?v=2');
     this.load.image('square_violet','img/block2/game2/square_violet.png?v=2');
     this.load.image('square_white','img/block2/game2/square_white.png?v=2');
-    this.load.image('square_white12','img/block2/game2/square_white_12.png?v=2');
+    this.load.image('square_white_12','img/block2/game2/square_white_12.png?v=2');
     this.load.image('square_yellow','img/block2/game2/square_yellow.png?v=2');
     this.load.image('palette','img/block2/game2/palette.png?v=2');
+    // 1 / 2
+    this.load.image('square_green_12','img/block2/game2/square_green_12.png?v=2');
+    this.load.image('square_orange_12','img/block2/game2/square_orange_12.png?v=2');
+    this.load.image('square_pink_12','img/block2/game2/square_pink_12.png?v=2');
+    this.load.image('square_purple_12','img/block2/game2/square_purple_12.png?v=2');
+    this.load.image('square_red_12','img/block2/game2/square_red_12.png?v=2');
+    this.load.image('square_yellow_12','img/block2/game2/square_yellow_12.png?v=2');
+
     // 1 / 4
-    this.load.image('square_green14','img/block2/game2/square_green_1_4.png?v=2');
-    this.load.image('square_orange14','img/block2/game2/square_orange_1_4.png?v=2');
-    this.load.image('square_pink14','img/block2/game2/square_pink_1_4.png?v=2');
-    this.load.image('square_purple14','img/block2/game2/square_purple_1_4.png?v=2');
-    this.load.image('square_red14','img/block2/game2/square_red_1_4.png?v=2');
-    this.load.image('square_yellow14','img/block2/game2/square_yellow_1_4.png?v=2');
+    this.load.image('square_green_14','img/block2/game2/square_green_1_4.png?v=2');
+    this.load.image('square_orange_14','img/block2/game2/square_orange_1_4.png?v=2');
+    this.load.image('square_pink_14','img/block2/game2/square_pink_1_4.png?v=2');
+    this.load.image('square_purple_14','img/block2/game2/square_purple_1_4.png?v=2');
+    this.load.image('square_red_14','img/block2/game2/square_red_1_4.png?v=2');
+    this.load.image('square_yellow_14','img/block2/game2/square_yellow_1_4.png?v=2');
 
     this.load.image('block2-game2-next','img/block2/game2/next.png?v=2');
   },
