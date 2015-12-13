@@ -134,18 +134,18 @@ TuxGame.Preloader.prototype = {
     this.load.image('square_yellow_16','img/block2/game2/square_yellow_1_6.png?v=2');
 
     // 1 / 8
-    this.load.image('square_white_18','img/block2/game2/square_white_1_8.png?v=2');
-    this.load.image('square_green_18','img/block2/game2/square_green_1_8.png?v=2');
-    this.load.image('square_orange_18','img/block2/game2/square_orange_1_8.png?v=2');
-    this.load.image('square_pink_18','img/block2/game2/square_pink_1_8.png?v=2');
-    this.load.image('square_purple_18','img/block2/game2/square_purple_1_8.png?v=2');
-    this.load.image('square_red_18','img/block2/game2/square_red_1_8.png?v=2');
-    this.load.image('square_yellow_18','img/block2/game2/square_yellow_1_8.png?v=2');
+    this.load.image('square_white_18','img/block2/game2/square_white_1_8.png?v=3');
+    this.load.image('square_green_18','img/block2/game2/square_green_1_8.png?v=4');
+    this.load.image('square_orange_18','img/block2/game2/square_orange_1_8.png?v=3');
+    this.load.image('square_pink_18','img/block2/game2/square_pink_1_8.png?v=3');
+    this.load.image('square_purple_18','img/block2/game2/square_purple_1_8.png?v=3');
+    this.load.image('square_red_18','img/block2/game2/square_red_1_8.png?v=3');
+    this.load.image('square_yellow_18','img/block2/game2/square_yellow_1_8.png?v=3');
 
     this.load.image('block2-game2-next','img/block2/game2/next.png?v=2');
   },
   create: function(){
     // start the MainMenu state
-    this.state.start('Block2Game2L3');
+    this.state.start('Block2Game2L6');
   }
 };
