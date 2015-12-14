@@ -90,6 +90,7 @@ TuxGame.Preloader.prototype = {
 
     // load spritesheets
     this.load.image('button-start', 'img/block2/game1/button_green_over.png?v=2');
+    this.load.image('b2g2-welcome', 'img/block2/game2/welcome-bg.png?v=2');
 
     // Block 2 game 2
     this.load.image('welcome-male-tux-brush', 'img/block2/game2/male-tux-brush.png?v=1');
@@ -146,6 +147,6 @@ TuxGame.Preloader.prototype = {
   },
   create: function(){
     // start the MainMenu state
-    this.state.start('Block2Game2L8');
+    this.state.start('Block2Game2Welcome');
   }
 };
