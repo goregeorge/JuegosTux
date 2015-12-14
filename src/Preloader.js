@@ -146,6 +146,6 @@ TuxGame.Preloader.prototype = {
   },
   create: function(){
     // start the MainMenu state
-    this.state.start('Block2Game2L6');
+    this.state.start('Block2Game2L8');
   }
 };
