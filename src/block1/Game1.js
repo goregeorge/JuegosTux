@@ -169,33 +169,33 @@ TuxGame.Block1Game1.prototype = {
 	    option3.text = possibleChoices[2];
 	    //Add the events to the boats according to which number has the true answer
 	    if (option1.text == quizArray[quiz].rightAnswer) {
-	        boat1.events.onInputDown.add(this.correctAnswer, this);
+	        boat1.events.onInputDown.add(this.destroyBoat, this);
 	        boat1.events.onInputDown.add(this.increaseScore, this);
 	        boat2.events.onInputDown.add(this.decreaseScore, this);
 	        boat3.events.onInputDown.add(this.decreaseScore, this);
-	        bubble1.events.onInputDown.add(this.correctAnswer, {boat: boat1});
+	        bubble1.events.onInputDown.add(this.destroyBoat, {boat: boat1});
 	        bubble1.events.onInputDown.add(this.increaseScore, {boat: boat1});
 	        bubble2.events.onInputDown.add(this.decreaseScore, this);
 	        bubble3.events.onInputDown.add(this.decreaseScore, this);
 	    }
 	    if (option2.text == quizArray[quiz].rightAnswer) {
 	        boat1.events.onInputDown.add(this.decreaseScore, this);
-	        boat2.events.onInputDown.add(this.correctAnswer, this);
+	        boat2.events.onInputDown.add(this.destroyBoat, this);
 	        boat2.events.onInputDown.add(this.increaseScore, this);
 	        boat3.events.onInputDown.add(this.decreaseScore, this);
 	        bubble1.events.onInputDown.add(this.decreaseScore, this);
-	        bubble2.events.onInputDown.add(this.correctAnswer, {boat: boat2});
+	        bubble2.events.onInputDown.add(this.destroyBoat, {boat: boat2});
 	        bubble2.events.onInputDown.add(this.increaseScore, {boat: boat2});
 	        bubble3.events.onInputDown.add(this.decreaseScore, this);
 	    }
 	    if (option3.text == quizArray[quiz].rightAnswer) {
 	        boat1.events.onInputDown.add(this.decreaseScore, this);
 	        boat2.events.onInputDown.add(this.decreaseScore, this);
-	        boat3.events.onInputDown.add(this.correctAnswer, this);
+	        boat3.events.onInputDown.add(this.destroyBoat, this);
 	        boat3.events.onInputDown.add(this.increaseScore, this);
 	        bubble1.events.onInputDown.add(this.decreaseScore, this);
 	        bubble2.events.onInputDown.add(this.decreaseScore, this);
-	        bubble3.events.onInputDown.add(this.correctAnswer, {boat: boat3});
+	        bubble3.events.onInputDown.add(this.destroyBoat, {boat: boat3});
 	        bubble3.events.onInputDown.add(this.increaseScore, {boat: boat3});
 	    }
 	},
@@ -263,6 +263,9 @@ TuxGame.Block1Game1.prototype = {
 		boat1.events.onInputDown.removeAll();
 		boat2.events.onInputDown.removeAll();
 		boat3.events.onInputDown.removeAll();
+        boat1.loadTexture('pirate_boat', 0);
+        boat2.loadTexture('pirate_boat2', 0);
+        boat3.loadTexture('pirate_boat3', 0);
 		bubble1.events.onInputDown.removeAll();
 		bubble2.events.onInputDown.removeAll();
 		bubble3.events.onInputDown.removeAll();
@@ -286,6 +289,17 @@ TuxGame.Block1Game1.prototype = {
 			}
 		}
 	},
+    destroyBoat: function (boat) {
+        if (boat == boat1) {
+            boat.loadTexture('destroyed_boat', 0);
+        }
+        if (boat == boat2) {
+            boat.loadTexture('destroyed_boat2', 0);
+        }
+        if (boat == boat3) {
+            boat.loadTexture('destroyed_boat3', 0);
+        }
+    },
 	correctAnswer: function(sprite){
 		sprite.visible = false;
 	},
