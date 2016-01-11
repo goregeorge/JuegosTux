@@ -61,7 +61,7 @@ BackgroundB3G3.prototype = {
 
 	displayPanelStatus : function(context, round){
 		this.panelStatus = context.add.sprite(640, 0, 'progress-panel-b3g3');
-		this.round = context.add.text(TuxGame.GAME_WIDTH-125, 15, "Ronda " + round, { fill: 'white' });
+		this.round = context.add.text(TuxGame.GAME_WIDTH-125, 15, "Nivel " + round, { fill: 'white' });
 
 		this.imageFails = context.add.sprite(TuxGame.GAME_WIDTH-110, 90, "heart");
 		this.textFails = context.add.text(TuxGame.GAME_WIDTH-65, 90, 3-failsB3G3, 

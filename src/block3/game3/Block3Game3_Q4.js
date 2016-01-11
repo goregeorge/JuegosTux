@@ -12,7 +12,7 @@ TuxGame.Block3Game3_Q4.prototype = {
 		input.setAttribute("type", "number");
 
 		//Define the level and question
-		this.round = 4;
+		this.round = 1;
 		var question = "¿Cuántos kilogramos pesa \nla botella?";
 
 		this.backgroundB3G3.displayBackground(this);

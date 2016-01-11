@@ -21,6 +21,7 @@ ValidatorResponseB3G3.prototype = {
 
 		setTimeout(function(){
 			if ( correctsB3G3 >= 3 ) {
+				failsB3G3 = 0;
 				context.goToNextLevel();
 			}else{
 				var nextState = context.randomGenerateB3G3.getNextState(rounds_available);

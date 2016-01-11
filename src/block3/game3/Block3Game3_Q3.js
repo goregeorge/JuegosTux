@@ -12,7 +12,7 @@ TuxGame.Block3Game3_Q3.prototype = {
 		input.setAttribute("type", "number");
 
 		//Define the level and question
-		this.round = 3;
+		this.round = 1;
 		var question = "¿Cuántos gramos pesan \nlos cinco cocos?";
 
 		this.backgroundB3G3.displayBackground(this);

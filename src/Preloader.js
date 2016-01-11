@@ -112,10 +112,10 @@ TuxGame.Preloader.prototype = {
 		this.load.image("8000gr-b3", "img/block3/game3/items/weight-8000gr.png");
 		this.load.image("2gr-b3", "img/block3/game3/items/weight-2gr.png");
 		this.load.image("2500mg-b3", "img/block3/game3/items/weight-2500mg.png");
+		this.load.image("3-coconuts-b3", "img/block3/game3/items/3coconuts.png");
 		/* Estas no se utilizan por el momento
 		this.load.image("1-coconut", "img/block3/game3/items/1coconut.png");
 		this.load.image("2-coconuts", "img/block3/game3/items/2coconuts.png");
-		this.load.image("3-coconuts", "img/block3/game3/items/3coconuts.png");
 		this.load.image("weight-b3g3", "img/block3/game3/items/weight.png");
 		*/
 
