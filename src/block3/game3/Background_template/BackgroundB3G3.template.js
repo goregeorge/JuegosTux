@@ -64,7 +64,26 @@ BackgroundB3G3.prototype = {
 		this.round = context.add.text(TuxGame.GAME_WIDTH-125, 15, "Nivel " + round, { fill: 'white' });
 
 		this.imageFails = context.add.sprite(TuxGame.GAME_WIDTH-110, 90, "heart");
-		this.textFails = context.add.text(TuxGame.GAME_WIDTH-65, 90, 3-failsB3G3, 
+		if ( level2_3fail ) {
+			this.textFails = context.add.text(TuxGame.GAME_WIDTH-65, 90, 4-failsB3G3, 
+			{ fill: '#fff', font: '25px Verdana', stroke: "#000", strokeThickness: 2  });	
+		}else{
+			this.textFails = context.add.text(TuxGame.GAME_WIDTH-65, 90, 3-failsB3G3, 
+			{ fill: '#fff', font: '25px Verdana', stroke: "#000", strokeThickness: 2  });
+		}
+
+		this.imageCorrects = context.add.sprite(TuxGame.GAME_WIDTH-110, 50, "correct-b3g2");
+		this.imageCorrects.scale.setTo(0.5,0.5);
+		this.textCorrects = context.add.text(TuxGame.GAME_WIDTH-65, 50, correctsB3G3, 
+			{ fill: '#fff', font: '25px Verdana', stroke: "#000", strokeThickness: 2  });
+	},
+
+	displayPanelStatusLevel2 : function(context, round){
+		this.panelStatus = context.add.sprite(640, 0, 'progress-panel-b3g3');
+		this.round = context.add.text(TuxGame.GAME_WIDTH-125, 15, "Nivel " + round, { fill: 'white' });
+
+		this.imageFails = context.add.sprite(TuxGame.GAME_WIDTH-110, 90, "heart");
+		this.textFails = context.add.text(TuxGame.GAME_WIDTH-65, 90, 4-failsB3G3, 
 			{ fill: '#fff', font: '25px Verdana', stroke: "#000", strokeThickness: 2  });
 
 		this.imageCorrects = context.add.sprite(TuxGame.GAME_WIDTH-110, 50, "correct-b3g2");

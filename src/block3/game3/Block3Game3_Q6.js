@@ -12,12 +12,12 @@ TuxGame.Block3Game3_Q6.prototype = {
 		input.setAttribute("type", "number");
 
 		//Define the level and question
-		this.round = 1;
+		this.round = 6;
 		var question = "¿Cuántos gramos pesan \nlos tres monedas?";
 
 		this.backgroundB3G3.displayBackground(this);
 		this.backgroundB3G3.displayButtonHome(this);
-		this.backgroundB3G3.displayPanelStatus(this, this.round);
+		this.backgroundB3G3.displayPanelStatus(this, 1);
 		this.backgroundB3G3.displayPanelQuestion(this, question);
 		this.backgroundB3G3.displayItmesOnBalance(this, "3-coins-b3", "2500mg-b3");
 		//this.buttonOk = this.add.button(590, TuxGame.GAME_HEIGHT-105, 'button-ok', this.validateResponse, this, 1, 0, 2);
@@ -40,6 +40,6 @@ TuxGame.Block3Game3_Q6.prototype = {
 	* Redirect to next level
 	*/
 	goToNextLevel: function(){
-		this.state.start("Block3Game3_Q7");
+		console.log("Pasaste al siguiente nivel");
 	}
 }

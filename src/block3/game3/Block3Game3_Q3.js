@@ -12,12 +12,12 @@ TuxGame.Block3Game3_Q3.prototype = {
 		input.setAttribute("type", "number");
 
 		//Define the level and question
-		this.round = 1;
+		this.round = 3;
 		var question = "¿Cuántos gramos pesan \nlos cinco cocos?";
 
 		this.backgroundB3G3.displayBackground(this);
 		this.backgroundB3G3.displayButtonHome(this);
-		this.backgroundB3G3.displayPanelStatus(this, this.round);
+		this.backgroundB3G3.displayPanelStatus(this, 1);
 		this.backgroundB3G3.displayPanelQuestion(this, question);
 		this.backgroundB3G3.displayItmesOnBalance(this, "5-coconuts-b3", "0.5kg-b3");
 		//this.buttonOk = this.add.button(590, TuxGame.GAME_HEIGHT-105, 'button-ok', this.validateResponse, this, 1, 0, 2);

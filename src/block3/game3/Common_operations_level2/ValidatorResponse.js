@@ -1,22 +1,17 @@
-ValidatorResponseB3G3 = function(){
+ValidatorResponseB3G3_L2 = function(){
 	this.happy_penguin = null;
 	this.sad_penguin = null;
 };
 
-ValidatorResponseB3G3.prototype = {
+ValidatorResponseB3G3_L2.prototype = {
 	
-	validateResponse : function(context){
+	validateResponseL2 : function(context){
 		this.takeADecision(context);
 	},
 
 	youWin : function(context){
 		this.happy_penguin = context.add.sprite(40, TuxGame.GAME_HEIGHT-220, 'happy-penguin');
 		var happy_penguin_temp = this.happy_penguin;
-
-		if ( level2_3fail ) {
-			console.log("Fallo en el nivel 2, y en el 1 ya tienes " + level2_1fail_goods + "buenas");
-			level2_1fail_goods++;
-		}
 
 		setTimeout(function(){
 			happy_penguin_temp.destroy();
@@ -25,16 +20,13 @@ ValidatorResponseB3G3.prototype = {
 		rounds_available[context.round-1] = false;
 
 		setTimeout(function(){
-			if ( correctsB3G3 >= 3) {
-				failsB3G3 = 0; //Reiniciar fallas
-				correctsB3G3 = 0; //reiniciar correctas
-				fails_by_round_B3G3 = 0;
-				context.state.start("Block3Game3_Q7");
+			if ( correctsB3G3 >= 3 ) {
+				failsB3G3 = 0;
+				console.log("YA GANASTE!!!!!!");
+				input.setAttribute("type", "hidden");
+				context.state.start("CongratulationsB3G3");
 				//context.goToNextLevel();
-			}else if(level2_3fail >= 2){
-				console.log("level2_3fail = " + level2_3fail);
-				context.state.start("Block3Game3_Q7");
-			}else {
+			}else{
 				var nextState = context.randomGenerateB3G3.getNextState(rounds_available);
 				context.state.start(nextState);
 			}
@@ -49,28 +41,49 @@ ValidatorResponseB3G3.prototype = {
 			sad_penguin_temp.destroy();
 		}, 2000);
 
-		context.backgroundB3G3.displayPanelStatus(context, context.round);
+		context.backgroundB3G3.displayPanelStatusLevel2(context, context.round);
 		
+		console.log("failsB3G3: " + failsB3G3);
+		console.log("level2_3fail: " + level2_3fail);
+
+		if ( failsB3G3 >= 3 && level2_3fail == false) {
+			level2_3fail = true;
+			setTimeout(function(){
+				console.log("mandarlo al nivel 1");
+				context.state.start("Block3Game3_Q1");
+			}, 2000);
+		}
+
 		console.log(" fails_by_round_B3G3: " + fails_by_round_B3G3);
+
+		/*
 		if ( fails_by_round_B3G3 >= 2 ) {
 			setTimeout(function(){
 				var nextState = context.randomGenerateB3G3.getNextState(rounds_available);
 				context.state.start(nextState);
 			}, 2000);
 		}
+		*/
 
 		//En algún momento este debe de ser 0
 		//fails_by_round_B3G3 = 0
 
+		/*
 		if ( failsB3G3 >= 3 ) {
-			failsB3G3 = 0;
-			console.log("Aqui el blur");
-			context.backgroundB3G3.displayBackgroundBlur(context, this.sad_penguin);
-			setTimeout(function(){
-				context.state.start("MenuB3G3");
-			}, 2000);
+			
+			if (level2_3fail) {
+				failsB3G3 = 0;
+				console.log("Aqui el blur");
+				context.backgroundB3G3.displayBackgroundBlur(context, this.sad_penguin);
+				setTimeout(function(){
+					context.state.start("MenuB3G3");
+				}, 2000);
+			}else{
+				context.state.start("Block3Game3_Q1");
+			}
 			
 		}
+		*/
 		input.value = "";
 	},
 	

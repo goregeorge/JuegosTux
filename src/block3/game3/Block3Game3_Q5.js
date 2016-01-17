@@ -12,12 +12,12 @@ TuxGame.Block3Game3_Q5.prototype = {
 		input.setAttribute("type", "number");
 
 		//Define the level and question
-		this.round = 1;
+		this.round = 5;
 		var question = "¿Cuántos miligramos pesan \nlas cinco monedas?";
 
 		this.backgroundB3G3.displayBackground(this);
 		this.backgroundB3G3.displayButtonHome(this);
-		this.backgroundB3G3.displayPanelStatus(this, this.round);
+		this.backgroundB3G3.displayPanelStatus(this, 1);
 		this.backgroundB3G3.displayPanelQuestion(this, question);
 		this.backgroundB3G3.displayItmesOnBalance(this, "5-coins-b3", "2gr-b3");
 		//this.buttonOk = this.add.button(590, TuxGame.GAME_HEIGHT-105, 'button-ok', this.validateResponse, this, 1, 0, 2);

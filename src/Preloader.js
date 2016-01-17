@@ -105,6 +105,12 @@ TuxGame.Preloader.prototype = {
 		this.load.image("1-bottle-b3", "img/block3/game3/items/11bottle.png");
 		this.load.image("5-coins-b3", "img/block3/game3/items/5coins.png");
 		this.load.image("3-coins-b3", "img/block3/game3/items/3coins.png");
+		this.load.image("3-coconuts-b3", "img/block3/game3/items/3coconuts.png");
+		this.load.image("2-coins-b3", "img/block3/game3/items/2coins.png");
+		this.load.image("3-bottles-b3", "img/block3/game3/items/3bottles.png");
+		this.load.image("2-telescopes-b3", "img/block3/game3/items/2telescopes.png");
+		this.load.image("5-bananas-b3", "img/block3/game3/items/5bananas.png");
+		this.load.image("5-coconuts-b3", "img/block3/game3/items/5coconuts.png");
 
 		this.load.image("300gr-b3", "img/block3/game3/items/weight-300gr.png");
 		this.load.image("4kg-b3", "img/block3/game3/items/weight-4kg.png");
@@ -112,12 +118,13 @@ TuxGame.Preloader.prototype = {
 		this.load.image("8000gr-b3", "img/block3/game3/items/weight-8000gr.png");
 		this.load.image("2gr-b3", "img/block3/game3/items/weight-2gr.png");
 		this.load.image("2500mg-b3", "img/block3/game3/items/weight-2500mg.png");
-		this.load.image("3-coconuts-b3", "img/block3/game3/items/3coconuts.png");
-		/* Estas no se utilizan por el momento
-		this.load.image("1-coconut", "img/block3/game3/items/1coconut.png");
-		this.load.image("2-coconuts", "img/block3/game3/items/2coconuts.png");
-		this.load.image("weight-b3g3", "img/block3/game3/items/weight.png");
-		*/
+
+		this.load.image("weight-lv7-b3", "img/block3/game3/items/2kgy150gr.png");
+		this.load.image("weight-lv8-b3", "img/block3/game3/items/2500mgy3gr.png");
+		this.load.image("weight-lv9-b3", "img/block3/game3/items/2500gry3kg.png");
+		this.load.image("weight-lv10-b3", "img/block3/game3/items/0.2kgy500gry0.3kg.png");
+		this.load.image("weight-lv11-b3", "img/block3/game3/items/2000gry2.4kgy250gr.png");
+		this.load.image("weight-lv12-b3", "img/block3/game3/items/0.2kgy2.5kgy1000gr.png");
 
 	},
 

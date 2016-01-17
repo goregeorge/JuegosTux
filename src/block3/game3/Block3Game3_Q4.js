@@ -12,12 +12,12 @@ TuxGame.Block3Game3_Q4.prototype = {
 		input.setAttribute("type", "number");
 
 		//Define the level and question
-		this.round = 1;
+		this.round = 4;
 		var question = "¿Cuántos kilogramos pesa \nla botella?";
 
 		this.backgroundB3G3.displayBackground(this);
 		this.backgroundB3G3.displayButtonHome(this);
-		this.backgroundB3G3.displayPanelStatus(this, this.round);
+		this.backgroundB3G3.displayPanelStatus(this, 1);
 		this.backgroundB3G3.displayPanelQuestion(this, question);
 		this.backgroundB3G3.displayItmesOnBalance(this, "1-bottle-b3", "8000gr-b3");
 		//this.buttonOk = this.add.button(590, TuxGame.GAME_HEIGHT-105, 'button-ok', this.validateResponse, this, 1, 0, 2);
