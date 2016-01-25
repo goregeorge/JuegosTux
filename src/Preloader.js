@@ -96,6 +96,8 @@ TuxGame.Preloader.prototype = {
 		this.load.script('filterX', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/BlurX.js');
     		this.load.script('filterY', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/BlurY.js');
 
+    		this.load.image('backgroundMenu-b3g3', 'img/block3/game3/menu/bg.png');
+
 		/***************************************
 		* Items
 		****************************************/
@@ -129,6 +131,7 @@ TuxGame.Preloader.prototype = {
 	},
 
 	create: function(){
-		this.state.start("MenuB3G3");
+		this.state.start("CongratulationsB3G3");
+		//this.state.start("MenuB3G3");
 	}
 };
