@@ -72,6 +72,7 @@ TuxGame.Block2Game2L1.prototype = {
     next.scale.setTo(0.4, 0.4);
   },
   changeColor: function (btn) {
+    this.add.audio('bubble').play();
     // Getting Old positions
     posX = btn.x;
     posY = btn.y;
@@ -91,26 +92,32 @@ TuxGame.Block2Game2L1.prototype = {
   },
   selectGreen : function () {
     currentColor = "green";
+    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   selectOrange : function () {
     currentColor = "orange";
+    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   selectPink : function () {
     currentColor = "pink";
+    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   selectPurple : function () {
     currentColor = "purple";
+    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   selectYellow : function () {
     currentColor = "yellow";
+    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   selectRed : function () {
     currentColor = "red";
+    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   verifyAnswer : function (btn) {
@@ -121,7 +128,9 @@ TuxGame.Block2Game2L1.prototype = {
       setTimeout(function () {
         wrong.destroy(true);
       }, 1200);
+      this.add.audio('incorrect').play();
     } else {
+      this.add.audio('correct').play();
       this.add.sprite(300, 100, 'happy');
       TuxGame._correct += 1;
       var that = this;
