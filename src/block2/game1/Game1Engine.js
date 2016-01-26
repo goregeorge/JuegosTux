@@ -27,6 +27,7 @@ Game1Engine.timeOver = function () {
   wrong = this.add.sprite(300, 100, 'wrong');
   TuxGame._incorrect += 1;
   that = this;
+  this.add.audio('bubble').play();
   setTimeout(function () {
     console.log(that.gameEngine.levelName);
     that.state.start(that.gameEngine.levelName);
@@ -56,6 +57,7 @@ Game1Engine.prototype = {
        if (context.numberSprites.hasOwnProperty(key)) {
           isOverlapped = this.checkOverlap(currentSprite, numberSprites[key]);
           if (isOverlapped) {
+            context.add.audio('incorrect').play();
             TuxGame._incorrect += 1;
             wrongsText.setText(TuxGame._incorrect);
             wrong = context.add.sprite(300, 100, 'wrong');
@@ -77,6 +79,7 @@ Game1Engine.prototype = {
       var that   = context;
       var engine = this;
       TuxGame._correct += 1;
+      context.add.audio('correct').play();
       setTimeout(function () {
         console.log(engine.nextLevelName);
         that.state.start(engine.nextLevelName);
@@ -90,6 +93,7 @@ Game1Engine.prototype = {
           isOverlapped = this.checkOverlap(currentSprite, numberSprites[key]);
           if (isOverlapped) {
             TuxGame._incorrect += 1;
+            context.add.audio('incorrect').play();
             wrongsText.setText(TuxGame._incorrect);
             wrong = context.add.sprite(300, 100, 'wrong');
             setTimeout(function () {
@@ -126,6 +130,7 @@ Game1Engine.prototype = {
   timeOver: function (context) {
     wrong = context.add.sprite(300, 100, 'wrong');
     TuxGame._incorrect += 1;
+    context.add.audio('incorrect').play();
     var that   = context;
     var engine = this;
     setTimeout(function () {

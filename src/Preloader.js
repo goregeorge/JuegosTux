@@ -158,6 +158,6 @@ TuxGame.Preloader.prototype = {
   create: function(){
     // start the MainMenu state
     this.add.audio('loop').loopFull(1);
-    this.state.start('Block2Game2Welcome');
+    this.state.start('Block2Welcome');
   }
 };
