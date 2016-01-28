@@ -78,9 +78,11 @@ ValidatorResponseB3G3.prototype = {
 		var entry = document.getElementById("input").value;
 		
 		if ( entry == context.answer ) {
+			context.add.audio('correct').play();
 			correctsB3G3++;
 			this.youWin(context);
 		}else{
+			context.add.audio('incorrect').play();
 			failsB3G3++;
 			fails_by_round_B3G3++;
 			this.youFail(context);

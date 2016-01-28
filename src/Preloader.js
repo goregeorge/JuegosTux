@@ -128,10 +128,16 @@ TuxGame.Preloader.prototype = {
 		this.load.image("weight-lv11-b3", "img/block3/game3/items/2000gry2.4kgy250gr.png");
 		this.load.image("weight-lv12-b3", "img/block3/game3/items/0.2kgy2.5kgy1000gr.png");
 
+		/***************************************
+		* Sound
+		****************************************/
+		this.load.audio('correct', 'img/commons/correct.mp3');
+		this.load.audio('incorrect', 'img/commons/incorrect.mp3');
+		this.load.audio('loop', 'img/commons/loop.mp3');
+
 	},
 
 	create: function(){
-		this.state.start("CongratulationsB3G3");
-		//this.state.start("MenuB3G3");
+		this.state.start("MenuB3G3");
 	}
 };

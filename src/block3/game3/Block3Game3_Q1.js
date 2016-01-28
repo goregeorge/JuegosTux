@@ -40,6 +40,7 @@ TuxGame.Block3Game3_Q1.prototype = {
 	},
 
 	create : function(){
+		this.add.audio('loop').loopFull(1);
 		input.setAttribute("type", "number");
 
 		if (level2_3fail == false) {
