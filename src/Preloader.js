@@ -138,6 +138,6 @@ TuxGame.Preloader.prototype = {
 	},
 
 	create: function(){
-		this.state.start("MenuB3G3");
+		this.state.start("MenuB3G2");
 	}
 };
