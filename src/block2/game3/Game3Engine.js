@@ -1,4 +1,4 @@
-Game1Engine = function(strategies, levelName, nextLevelName, name){
+Game3Engine = function(strategies, levelName, nextLevelName, name){
   this.strategy = LevelFactory.create(strategies);
   this.nextLevelName = nextLevelName;
   this.levelName = levelName;
@@ -6,7 +6,7 @@ Game1Engine = function(strategies, levelName, nextLevelName, name){
   this.numberGenerator = new RandomNumberGenerator();
 };
 
-Game1Engine.update = function () {
+Game3Engine.update = function () {
     this.minutes = Math.floor(this.game.time.events.duration / 60000) % 60;
     this.seconds = Math.floor(this.game.time.events.duration / 1000) % 60;
     this.milliseconds = Math.floor(this.game.time.events.duration) % 100;
@@ -23,7 +23,7 @@ Game1Engine.update = function () {
     this.timer.setText(this.seconds + " segundos");
 };
 
-Game1Engine.timeOver = function () {
+Game3Engine.timeOver = function () {
   wrong = this.add.sprite(300, 100, 'wrong');
   TuxGame._incorrect += 1;
   that = this;
@@ -34,7 +34,7 @@ Game1Engine.timeOver = function () {
   }, 1200);
 };
 
-Game1Engine.prototype = {
+Game3Engine.prototype = {
   init: function (context) {
     this.strategy.init(context);
   },

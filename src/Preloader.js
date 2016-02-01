@@ -128,6 +128,7 @@ TuxGame.Preloader.prototype = {
 
     // load spritesheets
     this.load.image('button-start', 'img/block2/game1/button_green_over.png?v=2');
+    this.load.image('b2g2-welcome', 'img/block2/game2/welcome-bg.png?v=2');
 
     /**************************************
     * Block 3
@@ -202,9 +203,73 @@ TuxGame.Preloader.prototype = {
     this.load.audio('q4o2', 'img/block3/game2/audios/q4o2.mp3');
     this.load.audio('q4o3', 'img/block3/game2/audios/q4o3.mp3');
 
+    // Block 2 game 2
+    // Sounds
+    this.load.audio('correct','img/commons/correct.mp3');
+    this.load.audio('incorrect','img/commons/incorrect.mp3');
+    this.load.audio('bubble','img/commons/bubble.mp3');
+    this.load.audio('loop','img/commons/loop.mp3');
+    
+    // Images
+    this.load.image('welcome-male-tux-brush', 'img/block2/game2/male-tux-brush.png?v=1');
+    this.load.image('sea-bg-2',   'img/block2/game2/fondo3.png?v=2');
+    this.load.image('fish_body',  'img/block2/game2/fish_body.png?v=2');
+    this.load.image('square_blue','img/block2/game2/square_blue.png?v=2');
+    this.load.image('square_green','img/block2/game2/square_green.png?v=2');
+    this.load.image('square_orange','img/block2/game2/square_orange.png?v=2');
+    this.load.image('square_pistache','img/block2/game2/square_pistache.png?v=2');
+    this.load.image('square_purple','img/block2/game2/square_purple.png?v=2');
+    this.load.image('square_teal','img/block2/game2/square_teal.png?v=2');
+    this.load.image('square_violet','img/block2/game2/square_violet.png?v=2');
+    this.load.image('square_white','img/block2/game2/square_white.png?v=2');
+    this.load.image('square_white_12','img/block2/game2/square_white_12.png?v=2');
+    this.load.image('square_yellow','img/block2/game2/square_yellow.png?v=2');
+    this.load.image('palette','img/block2/game2/palette.png?v=2');
+    // 1 / 2
+    this.load.image('square_white_12','img/block2/game2/square_white_12.png?v=2');
+    this.load.image('square_green_12','img/block2/game2/square_green_12.png?v=2');
+    this.load.image('square_orange_12','img/block2/game2/square_orange_12.png?v=2');
+    this.load.image('square_pink_12','img/block2/game2/square_pink_12.png?v=2');
+    this.load.image('square_purple_12','img/block2/game2/square_purple_12.png?v=2');
+    this.load.image('square_red_12','img/block2/game2/square_red_12.png?v=2');
+    this.load.image('square_yellow_12','img/block2/game2/square_yellow_12.png?v=2');
+
+    // 1 / 4
+    this.load.image('square_white_14','img/block2/game2/square_white_1_4.png?v=2');
+    this.load.image('square_green_14','img/block2/game2/square_green_1_4.png?v=2');
+    this.load.image('square_orange_14','img/block2/game2/square_orange_1_4.png?v=2');
+    this.load.image('square_pink_14','img/block2/game2/square_pink_1_4.png?v=2');
+    this.load.image('square_purple_14','img/block2/game2/square_purple_1_4.png?v=2');
+    this.load.image('square_red_14','img/block2/game2/square_red_1_4.png?v=2');
+    this.load.image('square_yellow_14','img/block2/game2/square_yellow_1_4.png?v=2');
+
+    // 1 / 6
+    this.load.image('square_white_16','img/block2/game2/square_white_1_6.png?v=2');
+    this.load.image('square_green_16','img/block2/game2/square_green_1_6.png?v=2');
+    this.load.image('square_orange_16','img/block2/game2/square_orange_1_6.png?v=2');
+    this.load.image('square_pink_16','img/block2/game2/square_pink_1_6.png?v=2');
+    this.load.image('square_purple_16','img/block2/game2/square_purple_1_6.png?v=2');
+    this.load.image('square_red_16','img/block2/game2/square_red_1_6.png?v=2');
+    this.load.image('square_yellow_16','img/block2/game2/square_yellow_1_6.png?v=2');
+
+    // 1 / 8
+    this.load.image('square_white_18','img/block2/game2/square_white_1_8.png?v=3');
+    this.load.image('square_green_18','img/block2/game2/square_green_1_8.png?v=4');
+    this.load.image('square_orange_18','img/block2/game2/square_orange_1_8.png?v=3');
+    this.load.image('square_pink_18','img/block2/game2/square_pink_1_8.png?v=3');
+    this.load.image('square_purple_18','img/block2/game2/square_purple_1_8.png?v=3');
+    this.load.image('square_red_18','img/block2/game2/square_red_1_8.png?v=3');
+    this.load.image('square_yellow_18','img/block2/game2/square_yellow_1_8.png?v=3');
+
+    this.load.image('block2-game2-next','img/block2/game2/next.png?v=2');
+    // Block 2 game 3
+    this.load.image('sea-bg-3',   'img/block2/game3/fondo3.png?v=2');
+    this.load.image('fish-body-2',  'img/block2/game3/fish_body2.jpg?v=2');
+    this.load.image('b2g3-welcome',  'img/block2/game3/welcome-2.png?v=2');
   },
   create: function(){
     // start the MainMenu state
-    this.state.start('Block1Game1');
+    this.add.audio('loop').loopFull(1);
+    this.state.start('Block2Game3Welcome');
   }
 };

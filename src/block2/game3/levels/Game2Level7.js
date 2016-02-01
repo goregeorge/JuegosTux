@@ -1,11 +1,9 @@
-TuxGame.Block2Game2L1 = function(game){
+TuxGame.Block2Game2L7 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
 };
-TuxGame.Block2Game2L1.prototype = {
+TuxGame.Block2Game2L7.prototype = {
   create: function(){
-    TuxGame._incorrect = 0;
-    TuxGame._correct = 0;
     currentColor = "green";
     colors = {
       green:  0,
@@ -16,23 +14,46 @@ TuxGame.Block2Game2L1.prototype = {
       red:    0,
     }
 
-    name = 1;
+    name = 7;
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
     // display background
-    this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+    this._fontStyle = { font: "34px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle2 = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle3 = { font: "30px Arial", fill: "#00ff00", stroke: "#333", strokeThickness: 5, align: "center" };
 
     this.add.sprite(0, 0, 'sea-bg-2');
-    fish1 = this.add.sprite(200, 100, 'fish_body');
+    fish1 = this.add.sprite(10, 100, 'fish_body');
     fish1.scale.setTo(0.6, 0.6);
 
-    half1 = this.add.button(266, 150, 'square_white_12', this.changeColor, this);
-    half1.scale.setTo(0.5, 0.5);
+    fish2 = this.add.sprite(400, 100, 'fish_body');
+    fish2.scale.setTo(0.6, 0.6);
 
-    half2 = this.add.button(339, 150, 'square_white_12', this.changeColor, this);
-    half2.scale.setTo(0.5, 0.5);
+    sixth1 = this.add.button(76, 150, 'square_white_16', this.changeColor, this);
+    sixth2 = this.add.button(149, 150, 'square_white_16', this.changeColor, this);
+    sixth3 = this.add.button(76, 199, 'square_white_16', this.changeColor, this);
+    sixth4 = this.add.button(149, 199, 'square_white_16', this.changeColor, this);
+    sixth5 = this.add.button(76, 247, 'square_white_16', this.changeColor, this);
+    sixth6 = this.add.button(149, 247, 'square_white_16', this.changeColor, this);
+    sixth7 = this.add.button(466, 150, 'square_white_16', this.changeColor, this);
+    sixth8 = this.add.button(539, 150, 'square_white_16', this.changeColor, this);
+    sixth9 = this.add.button(466, 199, 'square_white_16', this.changeColor, this);
+    sixth10 = this.add.button(539, 199, 'square_white_16', this.changeColor, this);
+    sixth11 = this.add.button(466, 247, 'square_white_16', this.changeColor, this);
+    sixth12 = this.add.button(539, 247, 'square_white_16', this.changeColor, this);
+
+    sixth1.scale.setTo(0.5, 0.5);
+    sixth2.scale.setTo(0.5, 0.5);
+    sixth3.scale.setTo(0.5, 0.5);
+    sixth4.scale.setTo(0.5, 0.5);
+    sixth5.scale.setTo(0.5, 0.5);
+    sixth6.scale.setTo(0.5, 0.5);
+    sixth7.scale.setTo(0.5, 0.5);
+    sixth8.scale.setTo(0.5, 0.5);
+    sixth9.scale.setTo(0.5, 0.5);
+    sixth10.scale.setTo(0.5, 0.5);
+    sixth11.scale.setTo(0.5, 0.5);
+    sixth12.scale.setTo(0.5, 0.5);
 
     // Palette
     palette = this.add.sprite(20, 340, 'palette');
@@ -56,7 +77,7 @@ TuxGame.Block2Game2L1.prototype = {
     red = this.add.button(127, 395, 'square_red_14', this.selectRed, this);
     red.scale.setTo(0.35, 0.35);
 
-    this.instructionText = this.add.text(200, 360, "Coloréa de verde \n 1/2 del cuerpo del pez ", this._fontStyle);
+    this.instructionText = this.add.text(200, 360, "Coloréa: 3/6 de morado, \n 1/2 de rosa y \n 10/10 de amarillo.", this._fontStyle);
 
     this.add.sprite(0, 0, 'point');
     this.add.text(50, 10, "Nivel " + name, this._fontStyle3);
@@ -70,16 +91,48 @@ TuxGame.Block2Game2L1.prototype = {
 
     next = this.add.button(650, 340, 'block2-game2-next', this.verifyAnswer, this);
     next.scale.setTo(0.4, 0.4);
+
+    // Timer
+    clock  = this.add.sprite(550, 8, 'clock');
+    clock.scale.setTo(0.8, 0.8);
+    this.timer = this.game.add.bitmapText(600, 10, 'desyrel', 'Tiempo', 30);
+    this.milliseconds = 0;
+    this.seconds = 0;
+    this.minutes = 0;
+    this.time.events.add(Phaser.Timer.SECOND * 20, this.timeOver, this);
+  },
+  update: function () {
+    this.minutes = Math.floor(this.game.time.events.duration / 60000) % 60;
+    this.seconds = Math.floor(this.game.time.events.duration / 1000) % 60;
+    this.milliseconds = Math.floor(this.game.time.events.duration) % 100;
+    //If any of the digits becomes a single digit number, pad it with a zero
+    if (this.milliseconds < 10)
+        this.milliseconds = '0' + this.milliseconds;
+ 
+    if (this.seconds < 10)
+        this.seconds = '0' + this.seconds;
+ 
+    if (this.minutes < 10)
+        this.minutes = '0' + this.minutes;
+ 
+    this.timer.setText(this.seconds + " segundos");
+  },
+  timeOver : function () {
+    wrong = this.add.sprite(300, 100, 'wrong');
+    TuxGame._incorrect += 1;
+    that = this;
+    setTimeout(function () {
+      that.state.start('Block2Game2L1');
+    }, 1200);
   },
   changeColor: function (btn) {
-    this.add.audio('bubble').play();
     // Getting Old positions
     posX = btn.x;
     posY = btn.y;
     // Getting Color of Current pressed button
     oldColor = btn.key.split('_')[1];
     // Creating Name of new sprite
-    sprite = "square_"+currentColor+"_12";
+    sprite = "square_"+currentColor+"_16";
 
     colors[oldColor]     -= 1;
     colors[currentColor] += 1;
@@ -92,50 +145,42 @@ TuxGame.Block2Game2L1.prototype = {
   },
   selectGreen : function () {
     currentColor = "green";
-    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   selectOrange : function () {
     currentColor = "orange";
-    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   selectPink : function () {
     currentColor = "pink";
-    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   selectPurple : function () {
     currentColor = "purple";
-    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   selectYellow : function () {
     currentColor = "yellow";
-    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   selectRed : function () {
     currentColor = "red";
-    this.add.audio('bubble').play();
     console.log(currentColor);
   },
   verifyAnswer : function (btn) {
-    if (colors['green'] != 1) {
+    if (!(colors['purple'] == 3 && colors['pink'] == 3 && colors['yellow'] == 6)) {
       TuxGame._incorrect += 1;
       wrongsText.setText(TuxGame._incorrect);
       wrong = this.add.sprite(300, 100, 'wrong');
       setTimeout(function () {
         wrong.destroy(true);
       }, 1200);
-      this.add.audio('incorrect').play();
     } else {
-      this.add.audio('correct').play();
       this.add.sprite(300, 100, 'happy');
       TuxGame._correct += 1;
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game2L2');
+        that.state.start('Block2Game2L8');
       }, 1200);
     }
   }
