@@ -153,11 +153,12 @@ TuxGame.Preloader.prototype = {
     this.load.image('block2-game2-next','img/block2/game2/next.png?v=2');
     // Block 2 game 3
     this.load.image('sea-bg-3',   'img/block2/game3/fondo3.png?v=2');
-    this.load.image('fish_body',  'img/block2/game3/fish_body2.png?v=2');
+    this.load.image('fish-body-2',  'img/block2/game3/fish_body2.jpg?v=2');
+    this.load.image('b2g3-welcome',  'img/block2/game3/welcome-2.png?v=2');
   },
   create: function(){
     // start the MainMenu state
     this.add.audio('loop').loopFull(1);
-    this.state.start('Block2Welcome');
+    this.state.start('Block2Game3Welcome');
   }
 };

@@ -10,7 +10,7 @@
 	<script src="src/MainMenu.js"></script>
 	<script src="src/block2/Welcome.js"></script>
 
-	<!-- Juego 1 Engine-->
+	<!-- Game 1 Engine-->
 	<script src="src/block2/game1/Game1Engine.js"></script>
 	<script src="src/block2/game1/RandomNumberGenerator.js"></script>
 
@@ -99,6 +99,13 @@
 	<script src="src/block2/game2/levels/Game2Level7.js"></script>
 	<script src="src/block2/game2/levels/Game2Level8.js"></script>
 	<script src="src/block2/game2/levels/Game2Score.js"></script>
+	<!-- Game 2 Block 3 -->
+	<!-- Welcome Block 3 -->
+	<script src="src/block2/game3/levels/Game3Welcome.js"></script>
+	<!-- Block 3 Game 3 Engine -->
+	<script src="src/block2/game3/Game3Engine.js"></script>
+	<!-- Welcome Block 3 Levels -->
+	<script src="src/block2/game3/levels/Game3Level1.js"></script>
 
 </head>
 <body>
@@ -136,6 +143,9 @@
 	game.state.add('Block2Game2L7', TuxGame.Block2Game2L7);
 	game.state.add('Block2Game2L8', TuxGame.Block2Game2L8);
 	game.state.add('Block2Game2Score', TuxGame.Block2Game2Score);
+	// Block 2 Game 3
+	game.state.add('Block2Game3Welcome', TuxGame.Block2Game3Welcome);
+	game.state.add('Block2Game3L1', TuxGame.Block2Game3L1);
 	// start the Boot state
 	game.state.start('Boot');
 })();

@@ -1,8 +1,8 @@
-TuxGame.Block2Game2L1 = function(game){
+TuxGame.Block2Game3L1 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
 };
-TuxGame.Block2Game2L1.prototype = {
+TuxGame.Block2Game3L1.prototype = {
   create: function(){
     TuxGame._incorrect = 0;
     TuxGame._correct = 0;
@@ -24,8 +24,8 @@ TuxGame.Block2Game2L1.prototype = {
     this._fontStyle2 = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle3 = { font: "30px Arial", fill: "#00ff00", stroke: "#333", strokeThickness: 5, align: "center" };
 
-    this.add.sprite(0, 0, 'sea-bg-2');
-    fish1 = this.add.sprite(200, 100, 'fish_body');
+    this.add.sprite(0, 0, 'sea-bg-3');
+    fish1 = this.add.sprite(200, 100, 'fish-body-2');
     fish1.scale.setTo(0.6, 0.6);
 
     half1 = this.add.button(266, 150, 'square_white_12', this.changeColor, this);
