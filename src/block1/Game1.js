@@ -1,12 +1,13 @@
-var message;
-var instruction;
-var scoreText;
+var b1g1_message;
+var b1g1_instruction;
+var b1g1_scoreText;
 var reaction = 0;
 var score = 30;
 var goodCounter = 0;
 var wrongCounter = 0;
-var option1, option2, option3;
-var level1 = [
+var b1g1_option1, b1g1_option2, b1g1_option3;
+var BULLET_SPEED = 800; 
+var b1g1_level1 = [
     {"op": "25+17", "answer1": 39, "answer2": 42, "answer3": 41, "rightAnswer": 25+17},
     {"op": "125+5+10", "answer1": 95, "answer2": 145, "answer3": 140, "rightAnswer": 125+5+10},
     {"op": "38+10", "answer1": 48, "answer2": 58, "answer3": 47, "rightAnswer": 38+10},
@@ -28,7 +29,7 @@ var level1 = [
     {"op": "50-25-15", "answer1": 9, "answer2": 10, "answer3": 11, "rightAnswer": 50-25-15},
     {"op": "24-14+5", "answer1": 15, "answer2": 12, "answer3": 14, "rightAnswer": 24-14+5}
 ];
-var level2 = [
+var b1g1_level2 = [
     {"op": "17.50+12", "answer1": 29.50, "answer2": 29, "answer3": 28.50, "rightAnswer": 29.50},
     {"op": "10.50+5.50", "answer1": 16, "answer2": 15, "answer3": 15.50, "rightAnswer": 16},
     {"op": "2.50+3.50", "answer1": 6, "answer2": 5.50, "answer3": 7, "rightAnswer": 6},
@@ -50,7 +51,7 @@ var level2 = [
     {"op": "3×2+8×2+6.50", "answer1": 27.50, "answer2": 28.50, "answer3": 29, "rightAnswer": 28.50},
     {"op": "5×5+2.50+3×2.50+2.50", "answer1": 40.50, "answer2": 42.50, "answer3": 15.90, "rightAnswer": 42.50}
 ];
-var level3 = [
+var b1g1_level3 = [
     {"op": "10×0.50+2.75", "answer1": 8.50, "answer2": 7.25, "answer3": 7.75, "rightAnswer": 7.75},
     {"op": "18×0.25+2.50+3.75", "answer1": 10.75, "answer2": 11.50, "answer3": 18.25, "rightAnswer": 10.75},
     {"op": "16×0.50+10×0.25+2", "answer1": 11.50, "answer2": 12.50, "answer3": 13, "rightAnswer": 12.50},
@@ -69,7 +70,7 @@ var level3 = [
 ];
 // We need a number between 0 and the array's length - 1. This is to select one
 // of the possible questions with their respective answers.
-var quiz = Math.floor((Math.random() * (level1.length - 1)));
+var quiz = Math.floor((Math.random() * (b1g1_level1.length - 1)));
 
 TuxGame.Block1Game1 = function(game){
 	// define needed variables for Candy.Game
@@ -84,62 +85,67 @@ TuxGame.Block1Game1 = function(game){
 };
 TuxGame.Block1Game1.prototype = {
 	create: function(){
-		this.add.sprite(0, 0, 'beach-bg');
-		home_button = this.add.sprite(0, 0, 'home_button');
-		home_button.scale.setTo(0.07, 0.07);
-		sprite = this.add.sprite(180, 280, 'avatar');
-		sprite.scale.setTo(0.20, 0.20);
-		ball = this.add.sprite(410, 390, 'cannon_ball');
-		ball.scale.setTo(0.30, 0.30);
-		sprite = this.add.sprite(300, 340, 'cannon');
-		sprite.scale.setTo(0.30, 0.30);
-		sprite = this.add.sprite(20, 50, 'expressions_bubble');
-		sprite.scale.setTo(0.30, 0.30);
-		bubble3 = this.add.sprite(680, 16, 'coins');
-		bubble3.scale.setTo(0.08, 0.08);
-		boat1 = this.add.sprite(450, 230, 'pirate_boat');
-		boat1.scale.setTo(0.60, 0.60);
-		boat2 = this.add.sprite(600, 270, 'pirate_boat2');
-		boat2.scale.setTo(0.55, 0.55);
-		boat3 = this.add.sprite(610, 370, 'pirate_boat3');
-		boat3.scale.setTo(0.80, 0.80);
-		bubble1 = this.add.sprite(480, 150, 'bubble1');
-		bubble1.scale.setTo(0.15, 0.15);
-		bubble2 = this.add.sprite(650, 180, 'bubble2');
-		bubble2.scale.setTo(0.15, 0.15);
-		bubble3 = this.add.sprite(690, 320, 'bubble3');
-		bubble3.scale.setTo(0.15, 0.15);
-		opr_bg = this.add.sprite(50, 450, 'opr_bg');
-		opr_bg.scale.setTo(0.40, 0.30);
-		retro = this.add.sprite(450, 480, 'retro');
-		retro.scale.setTo(0.50, 0.40);
+		this.physics.startSystem(Phaser.Physics.ARCADE);
+		this.add.sprite(0, 0, 'b1g1-beach-bg');
+		b1g1_home_button = this.add.sprite(0, 0, 'b1g1-home_button');
+		b1g1_home_button.scale.setTo(0.07, 0.07);
+		b1g1_sprite = this.add.sprite(180, 280, 'b1g1-avatar');
+		b1g1_sprite.scale.setTo(0.20, 0.20);
+		b1g1_cannon = this.add.sprite(300, 340, 'b1g1-cannon');
+		b1g1_cannon.scale.setTo(0.30, 0.30);
+		b1g1_sprite = this.add.sprite(20, 50, 'b1g1-expressions_bubble');
+		b1g1_sprite.scale.setTo(0.30, 0.30);
+		b1g1_sprite = this.add.sprite(680, 16, 'b1g1-coins');
+		b1g1_sprite.scale.setTo(0.08, 0.08);
+		b1g1_boat1 = this.add.sprite(400, 250, 'b1g1-pirate_boat');
+		b1g1_boat1.scale.setTo(0.60, 0.60);
+		b1g1_boat2 = this.add.sprite(590, 270, 'b1g1-pirate_boat2');
+		b1g1_boat2.scale.setTo(0.55, 0.55);
+		b1g1_boat3 = this.add.sprite(600, 380, 'b1g1-pirate_boat3');
+		b1g1_boat3.scale.setTo(0.75, 0.75);
+		b1g1_bubble1 = this.add.sprite(430, 170, 'b1g1-bubble1');
+		b1g1_bubble1.scale.setTo(0.18, 0.15);
+		b1g1_bubble2 = this.add.sprite(620, 190, 'b1g1-bubble2');
+		b1g1_bubble2.scale.setTo(0.18, 0.15);
+		b1g1_bubble3 = this.add.sprite(660, 320, 'b1g1-bubble3');
+		b1g1_bubble3.scale.setTo(0.18, 0.15);
+		b1g1_opr_bg = this.add.sprite(50, 450, 'b1g1-opr_bg');
+		b1g1_opr_bg.scale.setTo(0.40, 0.30);
+		b1g1_retro = this.add.sprite(450, 480, 'b1g1-retro');
+		b1g1_retro.scale.setTo(0.50, 0.40);
 
-		home_button.inputEnabled = true;
-		boat1.inputEnabled = true;
-	    boat2.inputEnabled = true;
-	    boat3.inputEnabled = true;
-		bubble1.inputEnabled = true;
-	    bubble2.inputEnabled = true;
-	    bubble3.inputEnabled = true;
+		b1g1_home_button.inputEnabled = true;
+		b1g1_boat1.inputEnabled = true;
+	    b1g1_boat2.inputEnabled = true;
+	    b1g1_boat3.inputEnabled = true;
+		b1g1_bubble1.inputEnabled = true;
+	    b1g1_bubble2.inputEnabled = true;
+	    b1g1_bubble3.inputEnabled = true;
 
-		intro = this.add.audio('intro');
-		incorrect = this.add.audio('incorrect');
-		next_level = this.add.audio('next_level');
-		game_over = this.add.audio('game_over');
-		game_win = this.add.audio('game_win');
-		game_end = this.add.audio('game_finale');
+		b1g1_intro = this.add.audio('b1g1-intro');
+		b1g1_correct = this.add.audio('correct');
+		b1g1_incorrect = this.add.audio('b1g1-incorrect');
+		b1g1_next_level = this.add.audio('b1g1-next_level');
+		b1g1_game_over = this.add.audio('b1g1-game_over');
+		b1g1_game_win = this.add.audio('b1g1-game_win');
+		b1g1_game_end = this.add.audio('b1g1-game_finale');
 
-		intro.play();
+		b1g1_intro.play();
 
-		message = this.add.text(50, 120, '', { font:'bold 40pt French Script MT', fill: '#000000' });
-	    scoreText = this.add.text(715, 0, '30', { font:'bold 40pt French Script MT', fill: '#000000' });
-	    retroText = this.add.text(480, 500, '', { font:'bold 40pt French Script MT', fill: '#ff0800' });
-	    instruction = this.add.text(150, 510, '', { font:'bold 40pt French Script MT', fill: '#4665b8' });
-	    instruction.text = level1[quiz].op + " =";
-		this.setPossibleAnswers(level1);
+		b1g1_message = this.add.text(50, 120, '', { font:'bold 40pt French Script MT', fill: '#000000' });
+	    b1g1_scoreText = this.add.text(715, 0, '30', { font:'bold 40pt French Script MT', fill: '#000000' });
+	    b1g1_retroText = this.add.text(480, 500, '', { font:'bold 40pt French Script MT', fill: '#ff0800' });
+	    b1g1_instruction = this.add.text(150, 510, '', { font:'bold 40pt French Script MT', fill: '#4665b8' });
+	    b1g1_instruction.text = b1g1_level1[quiz].op + " =";
+		this.setPossibleAnswers(b1g1_level1);
 
-	    ball.enableBody = true;
-	    ball.physicsBodyType = Phaser.Physics.ARCADE;
+	    b1g1_balls = this.add.group();
+	    b1g1_balls.enableBody = true;
+	    b1g1_balls.physicsBodyType = Phaser.Physics.ARCADE;
+
+	    b1g1_balls.createMultiple(50, 'b1g1-cannon_ball');
+	    b1g1_balls.setAll('checkWorldBounds', true);
+	    b1g1_balls.setAll('outOfBoundsKill', true);
 	},
 	shuffle: function(array) {
 		var currentIndex = array.length, temporaryValue, randomIndex ;
@@ -156,79 +162,80 @@ TuxGame.Block1Game1.prototype = {
 	  	return array;
 	},
 	setPossibleAnswers: function(quizArray) {
-        home_button.events.onInputDown.add(this.quitGame, this);
+        b1g1_home_button.events.onInputDown.add(this.quitGame, this);
 	    var possibleChoices = [quizArray[quiz].answer1, quizArray[quiz].answer2, quizArray[quiz].answer3];
-	    retroText.text = quizArray[quiz].rightAnswer;
-	    retroText.visible = false;
+	    b1g1_retroText.text = quizArray[quiz].rightAnswer;
+	    b1g1_retroText.visible = false;
 		this.shuffle(possibleChoices);
-	    option1 = this.add.text(515, 150, '', {  font:'bold 40pt French Script MT', fill: '#000000' });
-	    option1.text = possibleChoices[0];
-	    option2 = this.add.text(680, 180, '', {  font:'bold 40pt French Script MT', fill: '#000000'  });
-	    option2.text = possibleChoices[1];
-	    option3 = this.add.text(720, 320, '', {  font:'bold 40pt French Script MT', fill: '#000000'  });
-	    option3.text = possibleChoices[2];
+	    b1g1_option1 = this.add.text(465, 170, '', {  font:'bold 40pt French Script MT', fill: '#000000' });
+	    b1g1_option1.text = possibleChoices[0];
+	    b1g1_option2 = this.add.text(650, 195, '', {  font:'bold 40pt French Script MT', fill: '#000000'  });
+	    b1g1_option2.text = possibleChoices[1];
+	    b1g1_option3 = this.add.text(690, 325, '', {  font:'bold 40pt French Script MT', fill: '#000000'  });
+	    b1g1_option3.text = possibleChoices[2];
 	    //Add the events to the boats according to which number has the true answer
-	    if (option1.text == quizArray[quiz].rightAnswer) {
-	        boat1.events.onInputDown.add(this.correctAnswer, this);
-	        boat1.events.onInputDown.add(this.increaseScore, this);
-	        boat2.events.onInputDown.add(this.decreaseScore, this);
-	        boat3.events.onInputDown.add(this.decreaseScore, this);
-	        bubble1.events.onInputDown.add(this.correctAnswer, {boat: boat1});
-	        bubble1.events.onInputDown.add(this.increaseScore, {boat: boat1});
-	        bubble2.events.onInputDown.add(this.decreaseScore, this);
-	        bubble3.events.onInputDown.add(this.decreaseScore, this);
+	    if (b1g1_option1.text == quizArray[quiz].rightAnswer) {
+	        b1g1_boat1.events.onInputDown.add(this.destroyBoat, this);
+	        b1g1_boat1.events.onInputDown.add(this.increaseScore, this);
+	        b1g1_boat2.events.onInputDown.add(this.decreaseScore, this);
+	        b1g1_boat3.events.onInputDown.add(this.decreaseScore, this);
+	        b1g1_bubble1.events.onInputDown.add(function() { this.destroyBoat(b1g1_boat1); }, this);
+	        b1g1_bubble1.events.onInputDown.add(function() { this.increaseScore(b1g1_boat1); }, this);
+	        b1g1_bubble2.events.onInputDown.add(this.decreaseScore, this);
+	        b1g1_bubble3.events.onInputDown.add(this.decreaseScore, this);
 	    }
-	    if (option2.text == quizArray[quiz].rightAnswer) {
-	        boat1.events.onInputDown.add(this.decreaseScore, this);
-	        boat2.events.onInputDown.add(this.correctAnswer, this);
-	        boat2.events.onInputDown.add(this.increaseScore, this);
-	        boat3.events.onInputDown.add(this.decreaseScore, this);
-	        bubble1.events.onInputDown.add(this.decreaseScore, this);
-	        bubble2.events.onInputDown.add(this.correctAnswer, {boat: boat2});
-	        bubble2.events.onInputDown.add(this.increaseScore, {boat: boat2});
-	        bubble3.events.onInputDown.add(this.decreaseScore, this);
+	    if (b1g1_option2.text == quizArray[quiz].rightAnswer) {
+	        b1g1_boat1.events.onInputDown.add(this.decreaseScore, this);
+	        b1g1_boat2.events.onInputDown.add(this.destroyBoat, this);
+	        b1g1_boat2.events.onInputDown.add(this.increaseScore, this);
+	        b1g1_boat3.events.onInputDown.add(this.decreaseScore, this);
+	        b1g1_bubble1.events.onInputDown.add(this.decreaseScore, this);
+	        b1g1_bubble2.events.onInputDown.add(function() { this.destroyBoat(b1g1_boat2); }, this);
+	        b1g1_bubble2.events.onInputDown.add(function() { this.increaseScore(b1g1_boat2); }, this);
+	        b1g1_bubble3.events.onInputDown.add(this.decreaseScore, this);
 	    }
-	    if (option3.text == quizArray[quiz].rightAnswer) {
-	        boat1.events.onInputDown.add(this.decreaseScore, this);
-	        boat2.events.onInputDown.add(this.decreaseScore, this);
-	        boat3.events.onInputDown.add(this.correctAnswer, this);
-	        boat3.events.onInputDown.add(this.increaseScore, this);
-	        bubble1.events.onInputDown.add(this.decreaseScore, this);
-	        bubble2.events.onInputDown.add(this.decreaseScore, this);
-	        bubble3.events.onInputDown.add(this.correctAnswer, {boat: boat3});
-	        bubble3.events.onInputDown.add(this.increaseScore, {boat: boat3});
+	    if (b1g1_option3.text == quizArray[quiz].rightAnswer) {
+	        b1g1_boat1.events.onInputDown.add(this.decreaseScore, this);
+	        b1g1_boat2.events.onInputDown.add(this.decreaseScore, this);
+	        b1g1_boat3.events.onInputDown.add(this.destroyBoat, this);
+	        b1g1_boat3.events.onInputDown.add(this.increaseScore, this);
+	        b1g1_bubble1.events.onInputDown.add(this.decreaseScore, this);
+	        b1g1_bubble2.events.onInputDown.add(this.decreaseScore, this);
+	        b1g1_bubble3.events.onInputDown.add(function() { this.destroyBoat(b1g1_boat3); }, this);
+	        b1g1_bubble3.events.onInputDown.add(function() { this.increaseScore(b1g1_boat3); }, this);
 	    }
 	},
 	increaseScore: function(boat) {
 		if(reaction == 0)
-			reaction = this.add.sprite(100, 90, 'happy_penguin_face');
+			reaction = this.add.sprite(100, 90, 'b1g1-happy_penguin_face');
 		else{
-			reaction.loadTexture('happy_penguin_face', 0, false);
+			reaction.loadTexture('b1g1-happy_penguin_face', 0, false);
 		}
-		//this.physics.arcade.moveToPointer(ball, 300);
 		reaction.scale.setTo(1.70, 1.70);
 	    score+=10;
-	    scoreText.text = score;
-	    retroText.text = "";
+	    b1g1_scoreText.text = score;
+	    b1g1_retroText.text = "";
 	    goodCounter += 1;
+	    b1g1_correct.play();
 	    if(goodCounter == 8 || goodCounter == 16){
-	    	next_level.play();
-	    	opr_bg.scale.setTo(0.60, 0.30);
-	    	opr_bg.x = -10;
-	    	retro.x = 570;
-	    	retroText.x = 600;
+	    	b1g1_next_level.play();
+	    	wrongCounter = 0;
+	    	b1g1_opr_bg.scale.setTo(0.60, 0.30);
+	    	b1g1_opr_bg.x = -10;
+	    	b1g1_retro.x = 580;
+	    	b1g1_retroText.x = 600;
 			this.time.events.add(2000, function() {
 			  	this.changeQuestion(boat);
 			}, this);
 	    }
 	    else{
 	    	if(goodCounter == 24){
-	    		game_end.play();
-				this.add.sprite(0, 0, 'congrats');
-	    		var that = this;
-          setTimeout(function(){
-              that.state.start('Block2Welcome');
-          }, 5000);
+
+	    		b1g1_game_end.play();
+				this.add.sprite(0, 0, 'b1g1-congrats');
+	    		setTimeout(function(){
+					this.state.start('Block1Game2');
+	    		}, 5000);
 	    	}
 	    	else{
 			    this.time.events.add(2000, function() {
@@ -239,73 +246,100 @@ TuxGame.Block1Game1.prototype = {
 	},
 	decreaseScore: function() {
 		if(reaction == 0)
-			reaction = this.add.sprite(100, 90, 'sad_penguin_face');
+			reaction = this.add.sprite(100, 90, 'b1g1-sad_penguin_face');
 		else{
-			reaction.loadTexture('sad_penguin_face', 0, false);
+			reaction.loadTexture('b1g1-sad_penguin_face', 0, false);
 		}
 		reaction.scale.setTo(1.70, 1.70);
 		if(score >= 10)
 	    	score-=10;
-	    scoreText.text = score;
-	    retroText.visible = true;
-	    wrongCounter += 1;
-		if(wrongCounter == 3 && goodCounter <=8){
+		    b1g1_scoreText.text = score;
+		    b1g1_retroText.visible = true;
+		    wrongCounter += 1;
+		if(wrongCounter == 3){
+			//Commenting the next line allows testing without gaming over
 			this.gameOver();
 		}
 		else{
-			incorrect.play();
+			b1g1_incorrect.play();
 		}
 	},
 	changeQuestion: function(boat){
 		boat.visible = true;
-		option1.text = "";
-		option2.text = "";
-		option3.text = "";
-		boat1.events.onInputDown.removeAll();
-		boat2.events.onInputDown.removeAll();
-		boat3.events.onInputDown.removeAll();
-		bubble1.events.onInputDown.removeAll();
-		bubble2.events.onInputDown.removeAll();
-		bubble3.events.onInputDown.removeAll();
+		b1g1_option1.text = "";
+		b1g1_option2.text = "";
+		b1g1_option3.text = "";
+		b1g1_boat1.events.onInputDown.removeAll();
+		b1g1_boat2.events.onInputDown.removeAll();
+		b1g1_boat3.events.onInputDown.removeAll();
+		b1g1_bubble1.events.onInputDown.removeAll();
+		b1g1_bubble2.events.onInputDown.removeAll();
+		b1g1_bubble3.events.onInputDown.removeAll();
+		b1g1_boat1.loadTexture('b1g1-pirate_boat', 0);
+        b1g1_boat2.loadTexture('b1g1-pirate_boat2', 0);
+        b1g1_boat3.loadTexture('b1g1-pirate_boat3', 0);
 		if(goodCounter <8){
-			quiz = Math.floor((Math.random() * (level1.length - 1)));
-			instruction.text = level1[quiz].op;
-			this.setPossibleAnswers(level1);
+			quiz = Math.floor((Math.random() * (b1g1_level1.length - 1)));
+			b1g1_instruction.text = b1g1_level1[quiz].op;
+			this.setPossibleAnswers(b1g1_level1);
 		}
 		else{
 			if(goodCounter <16){
-				quiz = Math.floor((Math.random() * (level2.length - 1)));
-				instruction.text = level2[quiz].op;
-				this.setPossibleAnswers(level2);
+				quiz = Math.floor((Math.random() * (b1g1_level2.length - 1)));
+				b1g1_instruction.text = b1g1_level2[quiz].op;
+				this.setPossibleAnswers(b1g1_level2);
 			}
 			else{
 				if(goodCounter <= 24){
-					quiz = Math.floor((Math.random() * (level3.length - 1)));
-					instruction.text = level3[quiz].op;
-					this.setPossibleAnswers(level3);
+					quiz = Math.floor((Math.random() * (b1g1_level3.length - 1)));
+					b1g1_instruction.text = b1g1_level3[quiz].op;
+					this.setPossibleAnswers(b1g1_level3);
 				}
 			}
 		}
 	},
-	correctAnswer: function(sprite){
-		sprite.visible = false;
-	},
+	destroyBoat: function (boat) {
+		//Destroy the boats when necessary
+		var b1g1_ball = b1g1_balls.getTop();
+        b1g1_ball.reset(410, 390);
+        this.physics.arcade.moveToPointer(b1g1_ball, 500);
+        if (boat == b1g1_boat1) {
+	    	setTimeout(function(){
+        		b1g1_ball.kill();
+            	boat.loadTexture('b1g1-destroyed_boat', 0);
+	    	}, 250);
+        }
+        if (boat == b1g1_boat2) {
+        	setTimeout(function(){
+        		b1g1_ball.kill();
+            	boat.loadTexture('b1g1-destroyed_boat2', 0);
+	    	}, 500);
+        }
+        if (boat == b1g1_boat3) {
+        	setTimeout(function(){
+        		b1g1_ball.kill();
+            	boat.loadTexture('b1g1-destroyed_boat3', 0);
+	    	}, 500);
+        }
+        setTimeout(function(){
+	    	}, 1000);
+    },
 	gameOver: function(){
-		game_over.play();
-		boat1.destroy();
-		boat2.destroy();
-		boat3.destroy();
-		bubble1.destroy();
-		bubble2.destroy();
-		bubble3.destroy();
-		option1.destroy();
-		option2.destroy();
-		option3.destroy();
+		b1g1_game_over.play();
+		b1g1_boat1.destroy();
+		b1g1_boat2.destroy();
+		b1g1_boat3.destroy();
+		b1g1_bubble1.destroy();
+		b1g1_bubble2.destroy();
+		b1g1_bubble3.destroy();
+		b1g1_option1.destroy();
+		b1g1_option2.destroy();
+		b1g1_option3.destroy();
 	    setTimeout(function(){
-	    	location.reload();
+	    	this.state.start("Block1Game1");
 	    }, 5000);
 	},
     quitGame: function(){
-        location.reload();
+	    this.state.start("Block1Game1");
     }
 };
