@@ -40,9 +40,9 @@ CommonInitializer.prototype = {
 
     // Display Instructions
     if (context.operation === '') {
-      context.instructionText = context.add.text(100, 320, "Arrastra el pez de color "+ context.fishToChoice +"\nal número " + context.numberToChoice, context._fontStyle);
+      context.instructionText = context.add.text(130, 420, "Arrastra el pez de color "+ context.fishToChoice +"\nal número " + context.numberToChoice, context._fontStyle);
     } else {
-      context.instructionText = context.add.text(80, 330, "Arrastra el pez de color "+ context.fishToChoice +"\nal resultado de esta operación " + context.operation, context._fontStyle);
+      context.instructionText = context.add.text(80, 430, "Arrastra el pez de color "+ context.fishToChoice +"\nal resultado de esta operación " + context.operation, context._fontStyle);
     }
     
     // Events

@@ -74,8 +74,8 @@ TuxGame.Preloader.prototype = {
     * Block 2 Game 1
     ***************************************/
     // Block 2 game 1
-    this.load.image('background', 'img/background.png');
-    this.load.image('sea-bg', 'img/block2/game1/sea-bg.png');
+    this.load.image('background', 'img/background.png?2');
+    this.load.image('sea-bg', 'img/block2/game1/sea-bg.png?2');
     this.load.image('fish9', 'img/block2/game1/fish9.png?2');
     this.load.image('fish4', 'img/block2/game1/fish4.png?3');
     this.load.image('fish5', 'img/block2/game1/fish5.png?4');
@@ -335,6 +335,6 @@ TuxGame.Preloader.prototype = {
   create: function(){
     // start the MainMenu state
     this.add.audio('loop').loopFull(1);
-    this.state.start('Block2Game2Welcome');
+    this.state.start('Block2Welcome');
   }
 };
