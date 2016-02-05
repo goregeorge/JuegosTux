@@ -11,6 +11,14 @@ TuxGame.Preloader.prototype = {
     this.load.setPreloadSprite(this.preloadBar);
     this.load.bitmapFont('desyrel', 'src/commons/desyrel.png', 'src/commons/desyrel.xml');
 
+    /***************************************
+    * Main Menu
+    ****************************************/
+    this.load.image("bg-main-menu", "img/menu/map.png?1");
+    this.load.image("bg-main-menu2", "img/menu/map2.jpg?1");
+    this.load.image("level-main-menu", "img/menu/level.png?2");
+    this.load.image("level-main-menu2", "img/menu/level2.png?3");
+
     /**************************************
     * Block 1
     ***************************************/
@@ -335,6 +343,6 @@ TuxGame.Preloader.prototype = {
   create: function(){
     // start the MainMenu state
     this.add.audio('loop').loopFull(1);
-    this.state.start('Block2Welcome');
+    this.state.start('MainMenu');
   }
 };
