@@ -56,28 +56,28 @@ TuxGame.Block2Game2L7.prototype = {
     sixth12.scale.setTo(0.5, 0.5);
 
     // Palette
-    palette = this.add.sprite(20, 340, 'palette');
+    palette = this.add.sprite(20, 420, 'palette');
     palette.scale.setTo(0.4, 0.4);
 
-    green = this.add.button(19, 340, 'square_green_14', this.selectGreen, this);
+    green = this.add.button(19, 420, 'square_green_14', this.selectGreen, this);
     green.scale.setTo(0.35, 0.35);
 
-    orange = this.add.button(73, 340, 'square_orange_14', this.selectOrange, this);
+    orange = this.add.button(73, 420, 'square_orange_14', this.selectOrange, this);
     orange.scale.setTo(0.35, 0.35);
 
-    pink = this.add.button(127, 340, 'square_pink_14', this.selectPink, this);
+    pink = this.add.button(127, 420, 'square_pink_14', this.selectPink, this);
     pink.scale.setTo(0.35, 0.35);
 
-    purple = this.add.button(19, 395, 'square_purple_14', this.selectPurple, this);
+    purple = this.add.button(19, 475, 'square_purple_14', this.selectPurple, this);
     purple.scale.setTo(0.35, 0.35);
 
-    yellow = this.add.button(73, 395, 'square_yellow_14', this.selectYellow, this);
+    yellow = this.add.button(73, 475, 'square_yellow_14', this.selectYellow, this);
     yellow.scale.setTo(0.35, 0.35);
 
-    red = this.add.button(127, 395, 'square_red_14', this.selectRed, this);
+    red = this.add.button(127, 475, 'square_red_14', this.selectRed, this);
     red.scale.setTo(0.35, 0.35);
 
-    this.instructionText = this.add.text(200, 360, "Coloréa: 3/6 de morado, \n 1/2 de rosa y \n 10/10 de amarillo.", this._fontStyle);
+    this.instructionText = this.add.text(200, 420, "Coloréa: 3/6 de morado, \n 1/2 de rosa y \n 10/10 de amarillo.", this._fontStyle);
 
     this.add.sprite(0, 0, 'point');
     this.add.text(50, 10, "Nivel " + name, this._fontStyle3);
@@ -89,7 +89,7 @@ TuxGame.Block2Game2L7.prototype = {
     this.add.text(370, 10, TuxGame._correct, this._fontStyle2);
     wrongsText = this.add.text(480, 10, TuxGame._incorrect, this._fontStyle2);
 
-    next = this.add.button(650, 340, 'block2-game2-next', this.verifyAnswer, this);
+    next = this.add.button(650, 420, 'block2-game2-next', this.verifyAnswer, this);
     next.scale.setTo(0.4, 0.4);
 
     // Timer
