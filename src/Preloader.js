@@ -157,7 +157,7 @@ TuxGame.Preloader.prototype = {
     
     // Images
     this.load.image('welcome-male-tux-brush', 'img/block2/game2/male-tux-brush.png?v=1');
-    this.load.image('sea-bg-2',   'img/block2/game2/fondo3.png?v=2');
+    this.load.image('sea-bg-2',   'img/block2/game2/fondo3.png?v=3');
     this.load.image('fish_body',  'img/block2/game2/fish_body.png?v=2');
     this.load.image('square_blue','img/block2/game2/square_blue.png?v=2');
     this.load.image('square_green','img/block2/game2/square_green.png?v=2');
@@ -335,6 +335,6 @@ TuxGame.Preloader.prototype = {
   create: function(){
     // start the MainMenu state
     this.add.audio('loop').loopFull(1);
-    this.state.start('MenuB3G2');
+    this.state.start('Block2Game2Welcome');
   }
 };
