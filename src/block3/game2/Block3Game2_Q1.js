@@ -80,18 +80,20 @@ TuxGame.Block3Game2_Q1.prototype = {
 		* The status panel
 		*/
 		this.add.text(TuxGame.GAME_WIDTH-125, 15, 'Nivel: 1', { fill: '#0101DF' });
+
+		//Correct and value
 		this.add.sprite(TuxGame.GAME_WIDTH-110, 50, "correct-b3g2").scale.setTo(0.5,0.5);
 		this.add.text(TuxGame.GAME_WIDTH-65, 50, status, 
 			{ fill: '#0101DF', font: '25px Verdana', stroke: "#fff", strokeThickness: 2  });
-		//Heart
+		//Heart and value
 		this.add.sprite(TuxGame.GAME_WIDTH-110, 90, "heart");
 		this.add.text(TuxGame.GAME_WIDTH-65, 90, 3-fails, 
 			{ fill: '#0101DF', font: '25px Verdana', stroke: "#fff", strokeThickness: 2  });
 
 		this._tuxAvatar = this.add.sprite(30, 480, 'tux').scale.setTo(1.1,1.1);
 		
-		this._audio = this.add.audio(this._audios[this._questionOption-1]);
-		this._audio.play();
+		//this._audio = this.add.audio(this._audios[this._questionOption-1]);
+		//this._audio.play();
 		
 
 		/*
@@ -114,12 +116,13 @@ TuxGame.Block3Game2_Q1.prototype = {
 	* Function that show a sad face if you choose the boat incorrect
 	*/
 	youFail: function(){
+		this.add.audio('incorrect').play();
 		//sadFace = this.add.sprite((TuxGame.GAME_WIDTH/2)-170, (TuxGame.GAME_HEIGHT/2)-210, 'sadFace');
 		sadFace = this.add.sprite(40, TuxGame.GAME_HEIGHT-220, 'sad-penguin');
 		fails++;
 		console.log("Total fails: " + fails);
 		var that = this;
-		this._audio.stop();
+		//this._audio.stop();
 		setTimeout(function(){ 
 			sadFace.destroy();
 			if (fails > 2) {
@@ -137,12 +140,13 @@ TuxGame.Block3Game2_Q1.prototype = {
 	* Function that show a happy face if you choose the boat correct
 	*/
 	youWin: function(){
+		this.add.audio('correct').play();
 		//happyFace = this.add.sprite((TuxGame.GAME_WIDTH/2)-170, (TuxGame.GAME_HEIGHT/2)-210, 'happyFace');
 		happyFace = this.add.sprite(40, TuxGame.GAME_HEIGHT-220, 'happy-penguin');
 		status++;
 		console.log("Status: " + status + "/8");
 		var that = this;
-		this._audio.stop();
+		//this._audio.stop();
 		setTimeout(function(){ 
 			happyFace.destroy();
 			that.state.start("Block3Game2_Q2");
@@ -155,7 +159,7 @@ TuxGame.Block3Game2_Q1.prototype = {
 	backToHome: function(){
 		this.state.start("MenuB3G2");
 		fails = 0;
-		this._audio.stop();
+		//this._audio.stop();
 	},
 
 	/*
@@ -163,6 +167,6 @@ TuxGame.Block3Game2_Q1.prototype = {
 	*/
 	goToNextLevel: function(){
 		this.state.start("Block3Game2_Q2");
-		this._audio.stop();
+		//this._audio.stop();
 	}
 }

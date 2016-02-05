@@ -11,7 +11,7 @@
 		*/
 		#input{
 			position: absolute;
-			top: 530px;
+			top: 510px;
 			left: 465px;
 			border: solid 5px #c9c9c9;
 			font-size: 20px;
@@ -25,14 +25,14 @@
 	<script src="src/MainMenu.js"></script>
 	<script src="src/block2/Welcome.js"></script>
 
-	<!-- Block 1-->
-	<!-- Block 1 Game 1 -->
+	<!--<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>
+	 					BLOCK 1 - GAME 1
+	<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>-->
 	<script src="src/block1/Game1.js"></script>
 
-	<!-- Block 2-->
-
-	<!-- Block 2 Game 1 Engine-->
-	<!-- Game 1 Engine-->
+	<!--<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>
+	 					BLOCK 2 - GAME 1
+	<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>-->
 	<script src="src/block2/game1/Game1Engine.js"></script>
 	<script src="src/block2/game1/RandomNumberGenerator.js"></script>
 
@@ -110,7 +110,9 @@
 	<!-- Block2Game1Score -->
 	<script src="src/block2/Block2Game1Score.js"></script>
 
-	<!-- Game 2 Block 2 -->
+	<!--<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>
+	 					BLOCK 2 - GAME 2
+	<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>-->
 	<script src="src/block2/game2/levels/Game2Welcome.js"></script>
 	<script src="src/block2/game2/levels/Game2Level1.js"></script>
 	<script src="src/block2/game2/levels/Game2Level2.js"></script>
@@ -121,23 +123,42 @@
 	<script src="src/block2/game2/levels/Game2Level7.js"></script>
 	<script src="src/block2/game2/levels/Game2Level8.js"></script>
 	<script src="src/block2/game2/levels/Game2Score.js"></script>
-	<!-- Game 2 Block 3 -->
-	<!-- Welcome Block 3 -->
-	<script src="src/block2/game3/levels/Game3Welcome.js"></script>
-	<!-- Block 3 Game 3 Engine -->
-	<script src="src/block2/game3/Game3Engine.js"></script>
-	<!-- Welcome Block 3 Levels -->
-	<script src="src/block2/game3/levels/Game3Level1.js"></script>
 
 	<!-- Block 3-->
-
-	<!--FIles to game 2 Block 3-->
+	<!--<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>
+	 					BLOCK 3 - GAME 2
+	<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>-->
 	<script src="src/block3/game2/MenuB3G2.js"></script>
 	<script src="src/block3/game2/Block3Game2_Q1.js"></script>
 	<script src="src/block3/game2/Block3Game2_Q2.js"></script>
 	<script src="src/block3/game2/Block3Game2_Q3.js"></script>
 	<script src="src/block3/game2/Block3Game2_Q4.js"></script>
 	<script src="src/block3/game2/CongratulationsB3G2.js"></script>
+
+	<!--<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>
+	 					BLOCK 3 - GAME 3
+	<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>-->
+	<!--common  B3G3-->
+	<script src="src/block3/game3/Background_template/BackgroundB3G3.template.js"></script>
+	<script src="src/block3/game3/Common_operations/RandomStateGenerator.js"></script>
+	<script src="src/block3/game3/Common_operations/ValidatorResponse.js"></script>
+	<script src="src/block3/game3/Common_operations_level2/RandomStateGenerator.js"></script>
+	<script src="src/block3/game3/Common_operations_level2/ValidatorResponse.js"></script>
+	<!--levels-->
+	<script src="src/block3/game3/MenuB3G3.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q1.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q2.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q3.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q4.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q5.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q6.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q7.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q8.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q9.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q10.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q11.js"></script>
+	<script src="src/block3/game3/Block3Game3_Q12.js"></script>
+	<script src="src/block3/game3/CongratulationsB3G3.js"></script>
 
 </head>
 <body>
@@ -151,12 +172,12 @@
 	game.state.add('MainMenu', TuxGame.MainMenu);
 
 	/*#########################################################
-	* States in the Game 1 block 1
+	* States in the Block 1 Game 1
 	#########################################################*/
 	game.state.add('Block1Game1', TuxGame.Block1Game1);
 
 	/*#########################################################
-	* States in the Game 1 block 2
+	* States in the Block 2 Game 1
 	#########################################################*/
 	game.state.add('Block2Welcome', TuxGame.Block2Welcome);
 	game.state.add('Block2Game1', TuxGame.Block2Game1);
@@ -174,16 +195,8 @@
 	game.state.add('Block2Game1Score', TuxGame.Block2Game1Score);
 
 	/*#########################################################
-	* States in the Game 2 block 3
-	#########################################################*/
-	game.state.add('MenuB3G2', TuxGame.MenuB3G2);
-	game.state.add('Block3Game2_Q1', TuxGame.Block3Game2_Q1);
-	game.state.add('Block3Game2_Q2', TuxGame.Block3Game2_Q2);
-	game.state.add('Block3Game2_Q3', TuxGame.Block3Game2_Q3);
-	game.state.add('Block3Game2_Q4', TuxGame.Block3Game2_Q4);
-	game.state.add('CongratulationsB3G2', TuxGame.CongratulationsB3G2);
-	
-	// Block 2 Game 2
+	* States in the Block 2 Game 2
+ 	#########################################################*/
 	game.state.add('Block2Game2Welcome', TuxGame.Block2Game2Welcome);
 	game.state.add('Block2Game2L1', TuxGame.Block2Game2L1);
 	game.state.add('Block2Game2L2', TuxGame.Block2Game2L2);
@@ -194,13 +207,42 @@
 	game.state.add('Block2Game2L7', TuxGame.Block2Game2L7);
 	game.state.add('Block2Game2L8', TuxGame.Block2Game2L8);
 	game.state.add('Block2Game2Score', TuxGame.Block2Game2Score);
-	// Block 2 Game 3
-	game.state.add('Block2Game3Welcome', TuxGame.Block2Game3Welcome);
-	game.state.add('Block2Game3L1', TuxGame.Block2Game3L1);
+
+	/*#########################################################
+	* States in the Block 3 Game 2
+ 	#########################################################*/
+	game.state.add('MenuB3G2', TuxGame.MenuB3G2);
+	game.state.add('Block3Game2_Q1', TuxGame.Block3Game2_Q1);
+	game.state.add('Block3Game2_Q2', TuxGame.Block3Game2_Q2);
+	game.state.add('Block3Game2_Q3', TuxGame.Block3Game2_Q3);
+	game.state.add('Block3Game2_Q4', TuxGame.Block3Game2_Q4);
+	game.state.add('CongratulationsB3G2', TuxGame.CongratulationsB3G2);
+
+	/*#########################################################
+	* States in the Block 3 Game 2
+	#########################################################*/
+	game.state.add('MenuB3G3', TuxGame.MenuB3G3);
+	game.state.add('Block3Game3_Q1', TuxGame.Block3Game3_Q1);
+	game.state.add('Block3Game3_Q2', TuxGame.Block3Game3_Q2);
+	game.state.add('Block3Game3_Q3', TuxGame.Block3Game3_Q3);
+	game.state.add('Block3Game3_Q4', TuxGame.Block3Game3_Q4);
+	game.state.add('Block3Game3_Q5', TuxGame.Block3Game3_Q5);
+	game.state.add('Block3Game3_Q6', TuxGame.Block3Game3_Q6);
+	game.state.add('Block3Game3_Q7', TuxGame.Block3Game3_Q7);
+	game.state.add('Block3Game3_Q8', TuxGame.Block3Game3_Q8);
+	game.state.add('Block3Game3_Q9', TuxGame.Block3Game3_Q9);
+	game.state.add('Block3Game3_Q10', TuxGame.Block3Game3_Q10);
+	game.state.add('Block3Game3_Q11', TuxGame.Block3Game3_Q11);
+	game.state.add('Block3Game3_Q12', TuxGame.Block3Game3_Q12);
+	game.state.add('CongratulationsB3G3', TuxGame.CongratulationsB3G3);
+
 	// start the Boot state
 	game.state.start('Boot');
 })();
 </script>
-	<input type="hidden" id="input" size="10">
+</head>
+<body>
+	<!--This input is used in the Game3Block3, IT'S A TRICK-->
+	<input type="hidden" id="input" size="10" min="1" max="5">
 </body>
 </html>
