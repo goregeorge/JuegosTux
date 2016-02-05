@@ -29,7 +29,7 @@ TuxGame.Block2Game2Score.prototype = {
     this.add.text(370, 495, "Continuar", this._fontStyle);
   },
   goGame1: function(){
-    this.state.start('Block2Game2Welcome');
+    this.state.start('MainMenu');
   },
   update: function(){
   }

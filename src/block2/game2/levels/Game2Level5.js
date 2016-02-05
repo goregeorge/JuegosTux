@@ -68,8 +68,9 @@ TuxGame.Block2Game2L5.prototype = {
 
     this.instructionText = this.add.text(200, 420, "Coloréa: 4/8 de morado, \n 3/8 de verde y \n 1/8 de rojo.", this._fontStyle);
 
-    this.add.sprite(0, 0, 'point');
-    this.add.text(50, 10, "Nivel " + name, this._fontStyle3);
+    this.add.button(0, 0, 'button-home', TuxGame.goToHome, this, 1, 0, 2);
+    this.add.sprite(70, 0, 'point');
+    this.add.text(120, 10, "Nivel " + name, this._fontStyle3);
     this.add.sprite(260, -80, 'score-half');
     goods = this.add.sprite(300, 10, 'good-s');
     goods.scale.setTo(0.7, 0.7);

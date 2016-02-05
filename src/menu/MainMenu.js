@@ -1,5 +1,10 @@
 TuxGame.MainMenu = function(game){
 };
+
+TuxGame.goToHome = function () {
+  this.state.start('MainMenu');
+}
+
 TuxGame.MainMenu.prototype = {
   create: function(){
     // Ultra Mega Super Hyper quick fix for collading game 1 and game 2 of block1
@@ -69,5 +74,5 @@ TuxGame.MainMenu.prototype = {
   },
   goGame2Block3: function(){
     this.state.start('MenuB3G3');
-  },
+  }
 };
