@@ -87,7 +87,7 @@ TuxGame.Block1Game1.prototype = {
 	create: function(){
 		this.physics.startSystem(Phaser.Physics.ARCADE);
 		this.add.sprite(0, 0, 'b1g1-beach-bg');
-		b1g1_home_button = this.add.sprite(0, 0, 'b1g1-home_button');
+    b1g1_home_button = this.add.button(0, 0, 'b1g1-home_button', this.goMainMenu, this, 1, 0, 2);
 		b1g1_home_button.scale.setTo(0.07, 0.07);
 		b1g1_sprite = this.add.sprite(180, 280, 'b1g1-avatar');
 		b1g1_sprite.scale.setTo(0.20, 0.20);
@@ -233,9 +233,10 @@ TuxGame.Block1Game1.prototype = {
 
 	    		b1g1_game_end.play();
 				this.add.sprite(0, 0, 'b1g1-congrats');
+        that = this;
 	    		setTimeout(function(){
-					this.state.start('Block1Game2');
-	    		}, 5000);
+					 that.state.start('MainMenu');
+	    		}, 4000);
 	    	}
 	    	else{
 			    this.time.events.add(2000, function() {
@@ -335,11 +336,15 @@ TuxGame.Block1Game1.prototype = {
 		b1g1_option1.destroy();
 		b1g1_option2.destroy();
 		b1g1_option3.destroy();
+    that = this;
 	    setTimeout(function(){
-	    	this.state.start("Block1Game1");
+	    	that.state.start("Block1Game1");
 	    }, 5000);
 	},
     quitGame: function(){
 	    this.state.start("Block1Game1");
-    }
+    },
+    goMainMenu: function(){
+      this.state.start('MainMenu');
+  },
 };
