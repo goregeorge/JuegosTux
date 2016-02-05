@@ -4,6 +4,9 @@ TuxGame.MainMenu.prototype = {
   create: function(){
     // Ultra Mega Super Hyper quick fix for collading game 1 and game 2 of block1
     goodCounter = 0;
+    
+    // Another Ultra Mega Super Hyper quick fix for fucking Input, Phaser sucks in this aspect
+    input.setAttribute("type", "hidden");
 
     this.physics.startSystem(Phaser.Physics.ARCADE);
     this.physics.arcade.gravity.y = 200;

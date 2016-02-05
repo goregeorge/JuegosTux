@@ -33,7 +33,7 @@ TuxGame.Block3Game3_Q8.prototype = {
 	* Function to back to home
 	*/
 	backToHome: function(){
-		this.state.start("MenuB3G3");
+		this.state.start("MainMenu");
 	},
 
 	/*
