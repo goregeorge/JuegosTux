@@ -346,5 +346,5 @@ TuxGame.Block1Game1.prototype = {
     },
     goMainMenu: function(){
       this.state.start('MainMenu');
-  },
+  }
 };

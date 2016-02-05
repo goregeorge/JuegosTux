@@ -2,6 +2,9 @@ TuxGame.MainMenu = function(game){
 };
 TuxGame.MainMenu.prototype = {
   create: function(){
+    // Ultra Mega Super Hyper quick fix for collading game 1 and game 2 of block1
+    goodCounter = 0;
+
     this.physics.startSystem(Phaser.Physics.ARCADE);
     this.physics.arcade.gravity.y = 200;
     this._fontStyle2 = { font: "35px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };

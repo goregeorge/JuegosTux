@@ -72,7 +72,7 @@ TuxGame.Block1Game2.prototype = {
 		this.add.sprite(0, 0, 'b1g2-galleon-bg');
         b1g2_bg = this.add.sprite(200, -10, 'b1g2-bg');
         b1g2_bg.scale.setTo(0.50, 0.50);
-		home_button = this.add.sprite(0, 0, 'b1g1-home_button');
+    home_button = this.add.button(0, 0, 'b1g1-home_button', this.goMainMenu, this, 1, 0, 2);
 		home_button.scale.setTo(0.07, 0.07);
 		b1g2_table = this.add.sprite(285, 220, 'b1g2-table');
 		b1g2_table.scale.setTo(0.55, 0.80);
@@ -175,9 +175,10 @@ TuxGame.Block1Game2.prototype = {
 	    }
 	    else{
 	    	if(goodCounter == 24){
-	    		setTimeout(function(){
-					this.state.start('Block1Game2');
-	    		}, 5000);
+          that = this;
+          setTimeout(function(){
+					 that.state.start('MainMenu');
+	    		}, 4000);
 	    	}
 	    	else{
 	    		this.time.events.add(1500, function() {
@@ -264,5 +265,8 @@ TuxGame.Block1Game2.prototype = {
     },
 	quitGame: function(){
 		this.state.start('Block1Game2');
-    }
+    },
+    goMainMenu: function(){
+      this.state.start('MainMenu');
+  }
 };
