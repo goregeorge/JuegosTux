@@ -5,7 +5,7 @@
 	<title>Tuxs Games</title>
 	<style> 
 		body { margin: 0; background: #B4D9E7; } 
-
+		canvas {   display : block;   margin : auto;}
 		/*
 		* Style for the input "THE TRICK"
 		*/
@@ -170,7 +170,7 @@
 <script>
 (function() {
 	// initialize the framework
-	var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
+	game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
 	// add game states
 	game.state.add('Boot', TuxGame.Boot);
 	game.state.add('Preloader', TuxGame.Preloader);
