@@ -10,13 +10,19 @@
 		* Style for the input "THE TRICK"
 		*/
 		#input{
-			position: absolute;
-			top: 510px;
-			left: 465px;
+			position: relative;
+			top: 490px;
+			left: 700%;
 			border: solid 5px #c9c9c9;
 			font-size: 20px;
 			width: 90px;
 			height: 30px;
+		}
+		#canvas-wrap { 
+			position:relative 
+		}
+		#overlay     { 
+			position:absolute; top:20px; left:30px; 
 		}
 	</style>
 	<script src="src/phaser-2.4.4.min.js"></script>
@@ -252,7 +258,11 @@
 </script>
 </head>
 <body>
-	<!--This input is used in the Game3Block3, IT'S A TRICK-->
-	<input type="hidden" id="input" size="10" min="1" max="5">
+	<div id="canvas-wrap">
+		<div id="overlay">
+			<!--This input is used in the Game3Block3, IT'S A TRICK-->
+			<input type="hidden" id="input" size="10" min="1" max="5">	
+		</div>
+	</div>
 </body>
 </html>
