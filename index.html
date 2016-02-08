@@ -15,12 +15,18 @@
 		*/
 		#input{
 			position: absolute;
-			top: 510px;
-			left: 465px;
+			top: 490px;
+			left: 525px;
 			border: solid 5px #c9c9c9;
 			font-size: 20px;
 			width: 90px;
 			height: 30px;
+		}
+		#canvas-wrap { 
+			position:relative 
+		}
+		#overlay     { 
+			position:absolute; top:20px; left:30px; 
 		}
 	</style>
 
@@ -116,8 +122,12 @@
 			game.state.start('Preloader');
 		})();
 	</script>
-
-	<!--This input is used in the Game3Block3, IT'S A TRICK-->
-	<input type="hidden" id="input" size="10" min="1" max="5">
+	
+	<div id="canvas-wrap">
+		<div id="overlay">
+			<!--This input is used in the Game3Block3, IT'S A TRICK-->
+			<input type="hidden" id="input" size="10" min="1" max="5">	
+		</div>
+	</div>
 </body>
 </html>

@@ -14,7 +14,7 @@ BackgroundB3G3 = function(){
 	this.item1 = null;
 	this.item2 = null;
 	this.round = null;
-	this.arrow = null;
+	//this.arrow = null;
 	this.textMenuHome = null;
 };
 
@@ -47,7 +47,7 @@ BackgroundB3G3.prototype = {
 		this.textQuestion.filters = [blurX, blurY];
 		this.tuxAvatar.filters = [blurX, blurY];
 		this.round.filters = [blurX, blurY];
-		this.arrow.filters = [blurX, blurY];
+		//this.arrow.filters = [blurX, blurY];
 		this.textMenuHome.filters = [blurX, blurY];
 		avatar.filters = [blurX, blurY];
 		this.item1.destroy();
@@ -96,10 +96,10 @@ BackgroundB3G3.prototype = {
 		input.value = "";
 		this.panelInfo = context.add.sprite(0, 460, 'info-panel-b3g3');
 
-		this.buttonOk = context.add.button(590, TuxGame.GAME_HEIGHT-105, 'button-ok', context.validateResponse, context, 1, 0, 2);
+		this.buttonOk = context.add.button(690, TuxGame.GAME_HEIGHT-105, 'button-ok', context.validateResponse, context, 1, 0, 2);
 		this.buttonOk.scale.setTo(.7, .7);
 
-		this.arrow = context.add.button(TuxGame.GAME_WIDTH-110, TuxGame.GAME_HEIGHT-105, 'button-next-b3g2', context.goToNextLevel, context, 1, 0 , 2);
+		//this.arrow = context.add.button(TuxGame.GAME_WIDTH-110, TuxGame.GAME_HEIGHT-105, 'button-next-b3g2', context.goToNextLevel, context, 1, 0 , 2);
 
 		this.tuxAvatar = context.add.sprite(30, 480, 'tux');
 		this.tuxAvatar.scale.setTo(1.1, 1.1);
