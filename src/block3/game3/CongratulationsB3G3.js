@@ -5,8 +5,6 @@ TuxGame.CongratulationsB3G3 = function(game){
 
 TuxGame.CongratulationsB3G3.prototype = {
 	create: function(){
-		input.setAttribute("type", "hidden");
-
 		sprite = this.add.sprite(0, 0, 'backgroundMenu-b3g3');
 
 		var fails_by_round_B3G3 = 0;

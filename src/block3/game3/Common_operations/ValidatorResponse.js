@@ -75,7 +75,9 @@ ValidatorResponseB3G3.prototype = {
 	},
 	
 	takeADecision : function(context){
-		var entry = document.getElementById("input").value;
+		//var entry = document.getElementById("input").value;
+		var value = prompt("Please enter your name");
+		var entry = parseFloat(value);
 		
 		if ( entry == context.answer ) {
 			context.add.audio('correct').play();

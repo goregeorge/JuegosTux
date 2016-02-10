@@ -40,8 +40,6 @@ TuxGame.Block3Game3_Q1.prototype = {
 	},
 
 	create : function(){
-		input.setAttribute("type", "number");
-
 		if (level2_3fail == false) {
 			this.initValues();
 		}

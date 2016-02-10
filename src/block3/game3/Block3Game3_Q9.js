@@ -9,8 +9,7 @@ TuxGame.Block3Game3_Q9 = function(game){
 
 TuxGame.Block3Game3_Q9.prototype = {
 	create : function(){
-		input.setAttribute("type", "number");
-
+		
 		//Define the level and question
 		this.round = 9;
 		var question = "¿Cuántos kilogramos pesan \nlos tres botellas?";

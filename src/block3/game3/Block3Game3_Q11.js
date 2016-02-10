@@ -9,8 +9,7 @@ TuxGame.Block3Game3_Q11 = function(game){
 
 TuxGame.Block3Game3_Q11.prototype = {
 	create : function(){
-		input.setAttribute("type", "number");
-
+		
 		//Define the level and question
 		this.round = 11;
 		var question = "¿Cuántos kilogramos pesan \nlos dos telescopios?";

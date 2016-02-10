@@ -9,8 +9,7 @@ TuxGame.Block3Game3_Q10 = function(game){
 
 TuxGame.Block3Game3_Q10.prototype = {
 	create : function(){
-		input.setAttribute("type", "number");
-
+		
 		//Define the level and question
 		this.round = 10;
 		var question = "¿Cuántos gramos pesan \nlos cinco platanos?";

@@ -11,7 +11,6 @@ TuxGame.MainMenu.prototype = {
     goodCounter = 0;
     
     // Another Ultra Mega Super Hyper quick fix for fucking Input, Phaser sucks in this aspect
-    input.setAttribute("type", "hidden");
 
     this.physics.startSystem(Phaser.Physics.ARCADE);
     this.physics.arcade.gravity.y = 200;

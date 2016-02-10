@@ -4,15 +4,10 @@ TuxGame.MenuB3G3 = function(game){
 
 TuxGame.MenuB3G3.prototype = {
 	create: function(){
-		this.game.canvas.id = "lol";
-		var canvas_game = document.getElementById("lol");
-		document.getElementById("canvas-wrap").appendChild(canvas_game);
-
 		var fails_by_round_B3G3 = 0;
 		var correctsB3G3 = 0;
 		var failsB3G3 = 0;
 		console.log("valor: " + correctsB3G3);
-		input.setAttribute("type", "hidden");
 
 		// add the button that will start the game
 		this.add.sprite(0, 0, 'backgroundMenu-b3g3');
