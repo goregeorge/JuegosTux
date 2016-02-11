@@ -93,11 +93,8 @@ BackgroundB3G3.prototype = {
 	},
 
 	displayPanelQuestion : function(context, question){
-		input.value = "";
 		this.panelInfo = context.add.sprite(0, 460, 'info-panel-b3g3');
-
-		this.buttonOk = context.add.button(690, TuxGame.GAME_HEIGHT-105, 'button-ok', context.validateResponse, context, 1, 0, 2);
-		this.buttonOk.scale.setTo(.7, .7);
+		this.buttonOk = context.add.button(480, TuxGame.GAME_HEIGHT-120, 'button-ok', context.validateResponse, context, 1, 0, 2);
 
 		//this.arrow = context.add.button(TuxGame.GAME_WIDTH-110, TuxGame.GAME_HEIGHT-105, 'button-next-b3g2', context.goToNextLevel, context, 1, 0 , 2);
 

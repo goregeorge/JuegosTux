@@ -9,8 +9,7 @@ TuxGame.Block3Game3_Q6 = function(game){
 
 TuxGame.Block3Game3_Q6.prototype = {
 	create : function(){
-		input.setAttribute("type", "number");
-
+		
 		//Define the level and question
 		this.round = 6;
 		var question = "¿Cuántos gramos pesan \nlos tres monedas?";
@@ -33,7 +32,7 @@ TuxGame.Block3Game3_Q6.prototype = {
 	* Function to back to home
 	*/
 	backToHome: function(){
-		this.state.start("MenuB3G3");
+		this.state.start("MainMenu");
 	},
 
 	/*

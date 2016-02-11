@@ -10,8 +10,7 @@ TuxGame.Block3Game3_Q2 = function(game){
 
 TuxGame.Block3Game3_Q2.prototype = {
 	create : function(){
-		input.setAttribute("type", "number");
-
+		
 		//Define the level and question
 		this.round = 2;
 		var question = "¿Cuántos gramos pesa \nel telescopio?";
@@ -34,7 +33,7 @@ TuxGame.Block3Game3_Q2.prototype = {
 	* Function to back to home
 	*/
 	backToHome: function(){
-		this.state.start("MenuB3G3");
+		this.state.start("MainMenu");
 	},
 
 	/*

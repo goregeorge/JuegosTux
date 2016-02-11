@@ -9,8 +9,7 @@ TuxGame.Block3Game3_Q8 = function(game){
 
 TuxGame.Block3Game3_Q8.prototype = {
 	create : function(){
-		input.setAttribute("type", "number");
-
+		
 		//Define the level and question
 		this.round = 8;
 		var question = "¿Cuántos miligramos pesan \nlas dos monedas?";
@@ -33,7 +32,7 @@ TuxGame.Block3Game3_Q8.prototype = {
 	* Function to back to home
 	*/
 	backToHome: function(){
-		this.state.start("MenuB3G3");
+		this.state.start("MainMenu");
 	},
 
 	/*

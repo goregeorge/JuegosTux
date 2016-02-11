@@ -12,7 +12,6 @@ TuxGame.MenuB3G3.prototype = {
 		var correctsB3G3 = 0;
 		var failsB3G3 = 0;
 		console.log("valor: " + correctsB3G3);
-		input.setAttribute("type", "hidden");
 
 		// add the button that will start the game
 		this.add.sprite(0, 0, 'backgroundMenu-b3g3');

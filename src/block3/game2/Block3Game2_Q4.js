@@ -130,8 +130,6 @@ TuxGame.Block3Game2_Q4.prototype = {
 	},
 
 	backToHome: function(){
-		this.state.start("MenuB3G2");
-		fails = 0;
-		//this._audio.stop();
+		this.state.start("MainMenu");
 	}
 }

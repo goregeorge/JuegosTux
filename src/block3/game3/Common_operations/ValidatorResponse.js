@@ -71,11 +71,24 @@ ValidatorResponseB3G3.prototype = {
 			}, 2000);
 			
 		}
-		input.value = "";
+	},
+
+	isANumber : function(string){
+		return !isNaN(parseFloat(string)) && isFinite(string);
 	},
 	
 	takeADecision : function(context){
-		var entry = document.getElementById("input").value;
+		var value = prompt("Ingresa ĺa respuesta:");
+		if (value === null ) {
+			return;
+		}
+
+		if ( this.isANumber(value) ) {
+			var entry = parseFloat(value);
+		}else{
+			return;
+		}
+
 		
 		if ( entry == context.answer ) {
 			context.add.audio('correct').play();
