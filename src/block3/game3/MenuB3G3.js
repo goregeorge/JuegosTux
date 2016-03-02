@@ -16,8 +16,8 @@ TuxGame.MenuB3G3.prototype = {
 		this._tuxMale.scale.setTo(0.5, 0.5);
 		this.add.button(TuxGame.GAME_WIDTH-500, TuxGame.GAME_HEIGHT-150, 
 			'button-start-b3', this.startGame, this, 1, 0, 2);
-		var instruction = "Introduce en la casilla la cantidad en \nkilogramosg, gramos o miligramos \n\tque pesan los objetos \n\ten" + 
-		"la báscula, según se \n\tte pida.";
+		var instruction = "Introduce en la casilla la cantidad en \nkilogramos, gramos o miligramos \n\tque pesan los objetos \n\ten" + 
+		" la báscula, según se \n\tte pida.";
 		
 		this.add.text(20, 20, instruction, { tabs: [292], fill: '#0101DF', font: "45px Arial", stroke: "#fff", strokeThickness: 5  });
 
