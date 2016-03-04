@@ -12,6 +12,8 @@ TuxGame.MainMenu.prototype = {
     TuxGame.G2B1_LOOP.stop();
     TuxGame.G1B2_LOOP.stop();
     TuxGame.G2B2_LOOP.stop();
+    TuxGame.G1B3_LOOP.stop();
+    TuxGame.G2B3_LOOP.stop();
 
     // Add LOOP AUDIO
     TuxGame.MAIN_LOOP_SONG.loopFull(1);

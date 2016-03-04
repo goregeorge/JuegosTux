@@ -4,7 +4,8 @@ TuxGame.MenuB3G3 = function(game){
 
 TuxGame.MenuB3G3.prototype = {
 	create: function(){
-
+		TuxGame.MAIN_LOOP_SONG.stop();
+    TuxGame.G2B3_LOOP.loopFull(1);
 		var fails_by_round_B3G3 = 0;
 		var correctsB3G3 = 0;
 		var failsB3G3 = 0;

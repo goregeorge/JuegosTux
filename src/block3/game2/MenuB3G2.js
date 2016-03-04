@@ -4,6 +4,8 @@ TuxGame.MenuB3G2 = function(game){
 };
 TuxGame.MenuB3G2.prototype = {
 	create: function(){
+		TuxGame.MAIN_LOOP_SONG.stop();
+    TuxGame.G1B3_LOOP.loopFull(1);
 		this.stage.backgroundColor = '#B4D9E7';
 		status = 0;
 		// display images
