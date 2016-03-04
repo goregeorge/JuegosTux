@@ -2,6 +2,8 @@ TuxGame.Block2Game2Welcome = function(game){
 };
 TuxGame.Block2Game2Welcome.prototype = {
   create: function(){
+    TuxGame.MAIN_LOOP_SONG.stop();
+    TuxGame.G2B2_LOOP.loopFull(1);
     var sprite;
     this.physics.startSystem(Phaser.Physics.ARCADE);
     this.physics.arcade.gravity.y = 200;

@@ -17,6 +17,8 @@ TuxGame.Preloader.prototype = {
     ****************************************/
     this.load.audio('g1b1-loop','img/commons/g1b1-loop.mp3');
     this.load.audio('g2b1-loop','img/commons/g2b1-loop.mp3');
+    this.load.audio('g1b2-loop','img/commons/g1b2-loop.mp3');
+    this.load.audio('g2b2-loop','img/commons/g2b2-loop.mp3');
 
     /***************************************
     * Main Menu
@@ -352,6 +354,8 @@ TuxGame.Preloader.prototype = {
     TuxGame.MAIN_LOOP_SONG = this.add.audio('loop');
     TuxGame.G1B1_LOOP = this.add.audio('g1b1-loop');
     TuxGame.G2B1_LOOP = this.add.audio('g2b1-loop');
+    TuxGame.G1B2_LOOP = this.add.audio('g1b2-loop');
+    TuxGame.G2B2_LOOP = this.add.audio('g2b2-loop');
 
     this.state.start('MainMenu');
   }
