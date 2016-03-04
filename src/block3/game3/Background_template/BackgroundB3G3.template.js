@@ -94,19 +94,20 @@ BackgroundB3G3.prototype = {
 
 	displayPanelQuestion : function(context, question){
 		this.panelInfo = context.add.sprite(0, 460, 'info-panel-b3g3');
-		this.buttonOk = context.add.button(480, TuxGame.GAME_HEIGHT-120, 'button-ok', context.validateResponse, context, 1, 0, 2);
+		this.buttonOk = context.add.button(580, TuxGame.GAME_HEIGHT-118, 'button-ok', context.validateResponse, context, 1, 0, 2).scale.setTo(0.9,0.9);
 
 		//this.arrow = context.add.button(TuxGame.GAME_WIDTH-110, TuxGame.GAME_HEIGHT-105, 'button-next-b3g2', context.goToNextLevel, context, 1, 0 , 2);
 
 		this.tuxAvatar = context.add.sprite(30, 480, 'tux');
 		this.tuxAvatar.scale.setTo(1.1, 1.1);
-		this.textQuestion = context.add.text(150, TuxGame.GAME_HEIGHT-(95), question,
-			{ fill: '#fff', font:"20px Verdana", stroke: "#000", strokeThickness: 3});
+		this.textQuestion = context.add.text(150, TuxGame.GAME_HEIGHT-(114), question,
+			{ fill: '#fff', font:"28px Verdana", stroke: "#000", strokeThickness: 3});
 	},
 
-	displayItmesOnBalance : function(context, item1, item2){
+	displayItmesOnBalance : function(context, item1, item2, value_axisY){
+		var axisY = value_axisY || 170;
 		this.item1 = context.add.sprite(205, 185, item1);
-		this.item2 = context.add.sprite(435, 170.1, item2);
-	}
+		this.item2 = context.add.sprite(435, axisY, item2);
+	},
 
 }

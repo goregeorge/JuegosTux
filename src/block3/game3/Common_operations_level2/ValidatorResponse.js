@@ -23,7 +23,7 @@ ValidatorResponseB3G3_L2.prototype = {
 			if ( correctsB3G3 >= 3 ) {
 				failsB3G3 = 0;
 				console.log("YA GANASTE!!!!!!");
-				input.setAttribute("type", "hidden");
+				//input.setAttribute("type", "hidden");
 				context.state.start("CongratulationsB3G3");
 				//context.goToNextLevel();
 			}else{
@@ -84,7 +84,7 @@ ValidatorResponseB3G3_L2.prototype = {
 			
 		}
 		*/
-		input.value = "";
+		//input.value = "";
 	},
 	
 	isANumber : function(string){

@@ -18,7 +18,7 @@ TuxGame.Block3Game3_Q7.prototype = {
 		this.backgroundB3G3.displayButtonHome(this);
 		this.backgroundB3G3.displayPanelStatusLevel2(this, 2);
 		this.backgroundB3G3.displayPanelQuestion(this, question);
-		this.backgroundB3G3.displayItmesOnBalance(this, "3-coconuts-b3", "weight-lv7-b3");
+		this.backgroundB3G3.displayItmesOnBalance(this, "3-coconuts-b3", "weight-lv7-b3", 93);
 		//this.buttonOk = this.add.button(590, TuxGame.GAME_HEIGHT-105, 'button-ok', this.validateResponse, this, 1, 0, 2);
 		//this.buttonOk.scale.setTo(.7, .7);
 
