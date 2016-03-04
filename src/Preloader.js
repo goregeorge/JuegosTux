@@ -2,6 +2,7 @@ TuxGame.Preloader = function(game){
 
   TuxGame.GAME_WIDTH = 800;
   TuxGame.GAME_HEIGHT = 600;
+  TuxGame.MAIN_LOOP_SONG;
 };
 TuxGame.Preloader.prototype = {
   preload: function(){
@@ -342,7 +343,8 @@ TuxGame.Preloader.prototype = {
   },
   create: function(){
     // start the MainMenu state
-    this.add.audio('loop').loopFull(1);
+    TuxGame.MAIN_LOOP_SONG = this.add.audio('loop');
+    TuxGame.MAIN_LOOP_SONG.loopFull(1)
     this.state.start('MainMenu');
   }
 };
