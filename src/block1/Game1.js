@@ -86,7 +86,7 @@ TuxGame.Block1Game1 = function(game){
 TuxGame.Block1Game1.prototype = {
 	create: function(){
     TuxGame.MAIN_LOOP_SONG.stop();
-    // console.log(TuxGame.MAIN_LOOP_SONG.stop());
+    TuxGame.G1B1_LOOP.loopFull(1);
 		this.physics.startSystem(Phaser.Physics.ARCADE);
 		this.add.sprite(0, 0, 'b1g1-beach-bg');
     b1g1_home_button = this.add.button(0, 0, 'b1g1-home_button', this.goMainMenu, this, 1, 0, 2);

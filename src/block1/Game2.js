@@ -68,6 +68,8 @@ TuxGame.Block1Game2 = function(game){
 };
 TuxGame.Block1Game2.prototype = {
 	create: function(){
+    TuxGame.MAIN_LOOP_SONG.stop();
+    TuxGame.G2B1_LOOP.loopFull(1);
 		this.physics.startSystem(Phaser.Physics.ARCADE);
 		this.add.sprite(0, 0, 'b1g2-galleon-bg');
         b1g2_bg = this.add.sprite(200, -10, 'b1g2-bg');

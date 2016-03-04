@@ -7,6 +7,13 @@ TuxGame.goToHome = function () {
 
 TuxGame.MainMenu.prototype = {
   create: function(){
+    // Stop ALL Audios
+    TuxGame.G1B1_LOOP.stop();
+    TuxGame.G2B1_LOOP.stop();
+
+    // Add LOOP AUDIO
+    TuxGame.MAIN_LOOP_SONG.loopFull(1);
+
     // Ultra Mega Super Hyper quick fix for collading game 1 and game 2 of block1
     goodCounter = 0;
     

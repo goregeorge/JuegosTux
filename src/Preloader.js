@@ -13,6 +13,12 @@ TuxGame.Preloader.prototype = {
     this.load.bitmapFont('desyrel', 'src/commons/desyrel.png', 'src/commons/desyrel.xml');
 
     /***************************************
+    * Sounds
+    ****************************************/
+    this.load.audio('g1b1-loop','img/commons/g1b1-loop.mp3');
+    this.load.audio('g2b1-loop','img/commons/g2b1-loop.mp3');
+
+    /***************************************
     * Main Menu
     ****************************************/
     this.load.image("bg-main-menu", "img/menu/map.png?1");
@@ -344,7 +350,9 @@ TuxGame.Preloader.prototype = {
   create: function(){
     // start the MainMenu state
     TuxGame.MAIN_LOOP_SONG = this.add.audio('loop');
-    TuxGame.MAIN_LOOP_SONG.loopFull(1)
+    TuxGame.G1B1_LOOP = this.add.audio('g1b1-loop');
+    TuxGame.G2B1_LOOP = this.add.audio('g2b1-loop');
+
     this.state.start('MainMenu');
   }
 };
