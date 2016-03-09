@@ -11,7 +11,6 @@ TuxGame.Preloader.prototype = {
     this.preloadBar = this.add.sprite((TuxGame.GAME_WIDTH-311)/2, (TuxGame.GAME_HEIGHT-27)/2, 'preloaderBar');
     this.load.setPreloadSprite(this.preloadBar);
     this.load.bitmapFont('desyrel', 'src/commons/desyrel.png', 'src/commons/desyrel.xml');
-
     /***************************************
     * Sounds
     ****************************************/
@@ -361,6 +360,6 @@ TuxGame.Preloader.prototype = {
     TuxGame.G1B3_LOOP = this.add.audio('g1b3-loop');
     TuxGame.G2B3_LOOP = this.add.audio('g2b3-loop');
 
-    this.state.start('MainMenu');
+    this.state.start('Welcome');
   }
 };
