@@ -21,7 +21,7 @@ TuxGame.Welcome.prototype = {
     // Bloque 1
     this.add.text(20, 130, "Esta serie de juegos fueron elaborados durante el servicio social", this._fontStyle3);
     this.add.text(20, 180, "en el proyecto \"Juega, Aprende y Divierte con Linux\" y tienen", this._fontStyle3);
-    this.add.text(20, 230, "como propósito ayudar a los niños de tercero de primaria en su ", this._fontStyle3);
+    this.add.text(20, 230, "como propósito ayudar a los niños de cuarto de primaria en su ", this._fontStyle3);
     this.add.text(20, 280, "aprendizaje de las matemáticas.", this._fontStyle3);
     //  y tienen como propósito   
     goButton = this.add.button(100, 360, 'level-main-menu2', this.goToMainMenu, this, 1, 0, 2);
