@@ -37,6 +37,7 @@ TuxGame.Preloader.prototype = {
     ***************************************/
     this.load.image('b1g1-beach-bg', 'img/block1/game1/b1g1beach-bg.png');
     this.load.image('b1g1-congrats', 'img/block1/game1/b1g1congrats.png');
+    this.load.image('b1g1-menu', 'img/block1/game1/b1g1menu.png');
     this.load.image('b1g1-home_button', 'img/block1/game1/b1g1home_button.png');
     this.load.image('b1g1-avatar', 'img/block1/game1/b1g1avatar.png');
     this.load.image('b1g1-cannon', 'img/block1/game1/b1g1cannon.png');
@@ -78,6 +79,7 @@ TuxGame.Preloader.prototype = {
     this.load.image('b1g2-thumbs_down', 'img/block1/game2/b1g2thumbs_down.png');
     this.load.image('b1g2-thumbs_up', 'img/block1/game2/b1g2thumbs_up.png');
     this.load.image('b1g2-bg', 'img/block1/game2/b1g2bg.png');
+    this.load.image('b1g2-menu', 'img/block1/game2/b1g2menu.png');
 
     /**************************************
     * Block 2

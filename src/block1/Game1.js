@@ -124,7 +124,7 @@ TuxGame.Block1Game1.prototype = {
 	    b1g1_bubble2.inputEnabled = true;
 	    b1g1_bubble3.inputEnabled = true;
 
-		b1g1_intro = this.add.audio('b1g1-intro');
+		// b1g1_intro = this.add.audio('b1g1-intro');
 		b1g1_correct = this.add.audio('correct');
 		b1g1_incorrect = this.add.audio('b1g1-incorrect');
 		b1g1_next_level = this.add.audio('b1g1-next_level');
@@ -132,7 +132,7 @@ TuxGame.Block1Game1.prototype = {
 		b1g1_game_win = this.add.audio('b1g1-game_win');
 		b1g1_game_end = this.add.audio('b1g1-game_finale');
 
-		b1g1_intro.play();
+		// b1g1_intro.play();
 
 		b1g1_message = this.add.text(50, 120, '', { font:'bold 40pt French Script MT', fill: '#000000' });
 	    b1g1_scoreText = this.add.text(715, 0, '30', { font:'bold 40pt French Script MT', fill: '#000000' });

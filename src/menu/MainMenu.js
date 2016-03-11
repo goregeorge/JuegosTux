@@ -68,10 +68,10 @@ TuxGame.MainMenu.prototype = {
     
   },
   goGame1Block1: function(){
-    this.state.start('Block1Game1');
+    this.state.start('MenuB1G1');
   },
   goGame2Block1: function(){
-    this.state.start('Block1Game2');
+    this.state.start('MenuB1G2');
   },
   goGame1Block2: function(){
     this.state.start('Block2Welcome');
