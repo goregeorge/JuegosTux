@@ -327,9 +327,8 @@ TuxGame.Block1Game1.prototype = {
         setTimeout(function(){
 	    	}, 1000);
     },
-	gameOver: function(){
-		b1g1_game_over.play();
-		b1g1_boat1.destroy();
+    resetElements: function(){
+    	b1g1_boat1.destroy();
 		b1g1_boat2.destroy();
 		b1g1_boat3.destroy();
 		b1g1_bubble1.destroy();
@@ -342,6 +341,10 @@ TuxGame.Block1Game1.prototype = {
 		score = 30;
 		goodCounter = 0;
 		wrongCounter = 0;
+    },
+	gameOver: function(){
+		b1g1_game_over.play();
+		this.resetElements();
     that = this;
 	    setTimeout(function(){
 	    	that.state.start("Block1Game1");
@@ -351,6 +354,7 @@ TuxGame.Block1Game1.prototype = {
 	    this.state.start("Block1Game1");
     },
     goMainMenu: function(){
-      this.state.start('MainMenu');
+    	this.resetElements();
+      	this.state.start('MainMenu');
   }
 };
