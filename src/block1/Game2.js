@@ -30,7 +30,7 @@ var b1g2_level2 = [
     {"op": "Si la jarra contiene un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "3/1", "answer2": "3/4", "answer3": "1/12", "numberOfCups":12, "liters":1, "rightAnswer": "1/12"},
     {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/6", "answer2": "2/3", "answer3": "1/3", "numberOfCups":3, "liters":2, "rightAnswer": "2/3"},
     {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/2", "answer2": "2/1", "answer3": "1", "numberOfCups":2, "liters":2, "rightAnswer": "1"},
-    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/2", "answer2": "2/8", "answer3": "2/4", "numberOfCups":4, "liters":2, "rightAnswer": "1/2"},
+    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/2", "answer2": "2/8", "answer3": "3/4", "numberOfCups":4, "liters":2, "rightAnswer": "1/2"},
     {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "2/5", "answer2": "3/5", "answer3": "1/5", "numberOfCups":5, "liters":2, "rightAnswer": "2/5"},
     {"op": "Si las 3 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/6", "answer2": "1/2", "answer3": "3/6", "numberOfCups":6, "liters":3, "rightAnswer": "1/2"}
 ];
@@ -76,28 +76,28 @@ TuxGame.Block1Game2.prototype = {
     TuxGame.G2B1_LOOP.loopFull(1);
 		this.physics.startSystem(Phaser.Physics.ARCADE);
 		this.add.sprite(0, 0, 'b1g2-galleon-bg');
-        b1g2_bg = this.add.sprite(200, -30, 'b1g2-bg');
-        b1g2_bg.scale.setTo(0.53, 0.50);
+        b1g2_bg = this.add.sprite(200, -5, 'b1g2-bg');
+        b1g2_bg.scale.setTo(0.312, 0.30);
     home_button = this.add.button(0, 0, 'b1g1-home_button', this.goMainMenu, this, 1, 0, 2);
 		home_button.scale.setTo(0.07, 0.07);
-		b1g2_table = this.add.sprite(285, 220, 'b1g2-table');
-		b1g2_table.scale.setTo(0.55, 0.80);
-		b1g2_octopus = this.add.sprite(0, 200, 'b1g2-octopus');
-		b1g2_octopus.scale.setTo(0.30, 0.30);
+		b1g2_table = this.add.sprite(295, 240, 'b1g2-table');
+		b1g2_table.scale.setTo(0.50, 0.50);
+		b1g2_octopus = this.add.sprite(5, 200, 'b1g2-octopus');
+		b1g2_octopus.scale.setTo(0.50, 0.50);
 		for (var i = 0; i < liters; i++) {
 			jugs[i] = this.add.sprite(jugXPos, 160, 'b1g2-jar');
-			jugs[i].scale.setTo(0.15, 0.15);
+			jugs[i].scale.setTo(0.50, 0.50);
 			jugXPos += 75;
 		}
 		//b1g2_barrel = this.add.sprite(620, 240, 'b1g2-barrel');
 		//b1g2_barrel.scale.setTo(0.10, 0.10);
 		for (var i = 0; i < numberOfCups; i++) {
             cups[i] = this.add.sprite(cupXPos, cupYPos, 'b1g2-cup');
-    		cups[i].scale.setTo(0.25, 0.25);
+    		cups[i].scale.setTo(0.50, 0.50);
             cupXPos += 70;
             if(i == 5){
             	cupXPos = 320;
-            	cupYPos = 240;
+            	cupYPos = 230;
             }
         }
 		b1g2_buttons = this.add.group();
@@ -261,16 +261,16 @@ TuxGame.Block1Game2.prototype = {
 		jugYPos = 160;
 		for (var i = 0; i < liters; i++) {
 			jugs[i] = this.add.sprite(jugXPos, jugYPos, 'b1g2-jar');
-			jugs[i].scale.setTo(0.15, 0.15);
+			jugs[i].scale.setTo(0.50, 0.50);
 			jugXPos += 75;
 			if(i == 2){
 				jugXPos = 120;
-				jugYPos = 190;
+				jugYPos = 180;
 			}
 		}
         for (var i = 0; i < numberOfCups; i++) {
             cups[i] = this.add.sprite(cupXPos, cupYPos, 'b1g2-cup');
-    		cups[i].scale.setTo(0.25, 0.25);
+    		cups[i].scale.setTo(0.50, 0.50);
             cupXPos += 70;
             if(i == 5){
             	cupXPos = 320;
