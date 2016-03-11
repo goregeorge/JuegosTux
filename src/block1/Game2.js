@@ -1,6 +1,10 @@
 var b1g2_message;
 var b1g2_instruction;
 var b1g2_scoreText;
+var b1g2_levelText;
+var b1g2_goodCounterText;
+var b1g2_heartsText;
+var b1g2_levelStatus = 1;
 var score = 30;
 var goodCounter = 0;
 var wrongCounter = 0;
@@ -47,9 +51,9 @@ var b1g2_level3 = [
 ];
 // We need a number between 0 and the array's length - 1. This is to select one
 // of the possible questions with their respective answers.
-var quiz = Math.floor((Math.random() * (b1g2_level1.length - 1)));
-var numberOfCups = b1g2_level1[quiz].numberOfCups;
-var liters = b1g2_level1[quiz].liters;
+var b1g2_quiz = Math.floor((Math.random() * (b1g2_level1.length - 1)));
+var numberOfCups = b1g2_level1[b1g2_quiz].numberOfCups;
+var liters = b1g2_level1[b1g2_quiz].liters;
 var cupXPos = 405;
 var cupYPos = 210;
 var jugYPos = 190;
@@ -107,18 +111,27 @@ TuxGame.Block1Game2.prototype = {
 		b1g2_reaction = this.add.sprite(150, 200, 'b1g2-thumbs_up');
 		b1g2_reaction.scale.setTo(0.50, 0.50);
 		b1g2_reaction.visible = false;
+		b1g2_correct = this.add.sprite(100, 40, "b1g2-correct").scale.setTo(0.5,0.5);
+		b1g2_heart = this.add.sprite(105, 75, "b1g2-heart").scale.setTo(0.8, 0.8);
 
 		home_button.inputEnabled = true;
 		b1g2_button1.inputEnabled = true;
 		b1g2_button2.inputEnabled = true;
 		b1g2_button3.inputEnabled = true;
 
-		//intro = this.add.audio('intro');
+		b1g1_correct = this.add.audio('correct');
+		b1g1_incorrect = this.add.audio('b1g1-incorrect');
+		b1g1_next_level = this.add.audio('b1g1-next_level');
+		// b1g1_game_over = this.add.audio('b1g1-game_over');
+		// b1g1_game_win = this.add.audio('b1g1-game_win');
+		// b1g1_game_end = this.add.audio('b1g1-game_finale');
 
-		//intro.play();
 		b1g2_message = this.add.text(50, 120, '', { font:'bold 40pt Times New Roman', fill: '#000000' });
 	    b1g2_instruction = this.add.text(320, 50, '', { font:'bold 20pt Times New Roman', fill: '#000000' });
-	    b1g2_instruction.text = b1g2_level1[quiz].op;
+	    b1g2_instruction.text = b1g2_level1[b1g2_quiz].op;
+	    b1g2_levelText = this.add.text(100, 10, ('Nivel ' + b1g2_levelStatus), { font:'bold 25px Verdana', fill: '#4665b8' });
+	    b1g2_goodCounterText = this.add.text(160, 40, goodCounter, { font:'bold 25px Verdana', fill: '#4665b8' });
+	    b1g2_heartsText = this.add.text(160, 70, 3-wrongCounter, { font:'bold 25px Verdana', fill: '#4665b8' });
 		this.setPossibleAnswers(b1g2_level1);
 	},
 	shuffle: function(array) {
@@ -135,10 +148,10 @@ TuxGame.Block1Game2.prototype = {
 	  	}
 	  	return array;
 	},
-	setPossibleAnswers: function(quizArray) {
+	setPossibleAnswers: function(b1g2_quizArray) {
         home_button.events.onInputDown.add(this.quitGame, this);
-	    var possibleChoices = [quizArray[quiz].answer1, quizArray[quiz].answer2, quizArray[quiz].answer3];
-	    //retroText.text = quizArray[quiz].rightAnswer;
+	    var possibleChoices = [b1g2_quizArray[b1g2_quiz].answer1, b1g2_quizArray[b1g2_quiz].answer2, b1g2_quizArray[b1g2_quiz].answer3];
+	    //retroText.text = b1g2_quizArray[b1g2_quiz].rightAnswer;
 	    //retroText.visible = false;
 		this.shuffle(possibleChoices);
 	    b1g2_option1 = this.add.text(160, 480, '', {  font:'bold 35pt Times New Roman', fill: '#000000' });
@@ -148,17 +161,17 @@ TuxGame.Block1Game2.prototype = {
 	    b1g2_option3 = this.add.text(560, 480, '', {  font:'bold 35pt Times New Roman', fill: '#000000'  });
 	    b1g2_option3.text = possibleChoices[2];
 	    //Add the events to the buttons according to which number has the true answer
-	    if (b1g2_option1.text == quizArray[quiz].rightAnswer) {
+	    if (b1g2_option1.text == b1g2_quizArray[b1g2_quiz].rightAnswer) {
 	        b1g2_button1.events.onInputDown.add(this.increaseScore, this);
 	        b1g2_button3.events.onInputDown.add(this.decreaseScore, this);
 	        b1g2_button2.events.onInputDown.add(this.decreaseScore, this);
 	    }
-	    if (b1g2_option2.text == quizArray[quiz].rightAnswer) {
+	    if (b1g2_option2.text == b1g2_quizArray[b1g2_quiz].rightAnswer) {
 	        b1g2_button1.events.onInputDown.add(this.decreaseScore, this);
 	        b1g2_button2.events.onInputDown.add(this.increaseScore, this);
 	        b1g2_button3.events.onInputDown.add(this.decreaseScore, this);
 	    }
-	    if (b1g2_option3.text == quizArray[quiz].rightAnswer) {
+	    if (b1g2_option3.text == b1g2_quizArray[b1g2_quiz].rightAnswer) {
 	        b1g2_button1.events.onInputDown.add(this.decreaseScore, this);
 	        b1g2_button2.events.onInputDown.add(this.decreaseScore, this);
 	        b1g2_button3.events.onInputDown.add(this.increaseScore, this);
@@ -168,7 +181,12 @@ TuxGame.Block1Game2.prototype = {
 		b1g2_reaction.loadTexture('b1g2-thumbs_up', 0, false);
 	    b1g2_reaction.visible = true;
 	    goodCounter += 1;
+	    b1g2_goodCounterText.text = goodCounter;
+	    b1g1_correct.play();
 	    if(goodCounter == 8 || goodCounter == 16){
+	    	b1g1_next_level.play();
+	    	b1g2_levelStatus += 1;
+	    	b1g2_levelText.text = 'Nivel ' + b1g2_levelStatus;
 	    	wrongCounter = 0;
 	    	this.time.events.add(1500, function() {
 	    		b1g2_reaction.visible = false;
@@ -194,9 +212,15 @@ TuxGame.Block1Game2.prototype = {
 		b1g2_reaction.loadTexture('b1g2-thumbs_down', 0, false);
 	    b1g2_reaction.visible = true;
 	    wrongCounter += 1;
+	    b1g2_heartsText.text -= 1;
+	    this.time.events.add(1500, function() {
+			b1g2_reaction.visible = false;
+	    }, this);
 		if(wrongCounter == 3){
 			//Commenting the next line allows testing without gaming over
 			this.gameOver();
+		} else {
+			b1g1_incorrect.play();
 		}
 	},
 	changeQuestion: function(){
@@ -227,10 +251,10 @@ TuxGame.Block1Game2.prototype = {
 		}
 		
 	},
-	resetSprites: function(quizArray){
-		quiz = Math.floor((Math.random() * (quizArray.length - 1)));
-		numberOfCups = quizArray[quiz].numberOfCups;
-		liters = quizArray[quiz].liters;
+	resetSprites: function(b1g2_quizArray){
+		b1g2_quiz = Math.floor((Math.random() * (b1g2_quizArray.length - 1)));
+		numberOfCups = b1g2_quizArray[b1g2_quiz].numberOfCups;
+		liters = b1g2_quizArray[b1g2_quiz].liters;
         cupXPos = 405;
         cupYPos = 210;
 		jugXPos = 350;
@@ -253,22 +277,42 @@ TuxGame.Block1Game2.prototype = {
             	cupYPos = 240;
             }
         }
-        b1g2_instruction.text = quizArray[quiz].op;
-		this.setPossibleAnswers(quizArray);
+        b1g2_instruction.text = b1g2_quizArray[b1g2_quiz].op;
+		this.setPossibleAnswers(b1g2_quizArray);
 	},
-	gameOver: function(){
+	resetElements: function(){
 		b1g2_button1.destroy();
 		b1g2_button2.destroy();
 		b1g2_button3.destroy();
 		b1g2_option1.destroy();
 	    b1g2_option2.destroy();
 	    b1g2_option3.destroy();
-		this.state.start('Block1Game2');
+	    b1g2_levelStatus = 1;
+		score = 30;
+		goodCounter = 0;
+		wrongCounter = 0;
+		cupXPos = 405;
+		cupYPos = 210;
+		jugYPos = 190;
+		for (var i = 0; i < jugs.length; i++) {
+			jugs[i].destroy();
+		}
+        for (var i = 0; i < cups.length; i++) {
+            cups[i].destroy();
+        }
+	},
+	gameOver: function(){
+		this.resetElements();
+		that = this;
+	    setTimeout(function(){
+	    	that.state.start("Block1Game2");
+	    }, 5000);
     },
 	quitGame: function(){
 		this.state.start('Block1Game2');
     },
     goMainMenu: function(){
-      this.state.start('MainMenu');
+    	this.resetElements();
+      	this.state.start('MainMenu');
   }
 };

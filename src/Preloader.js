@@ -57,6 +57,8 @@ TuxGame.Preloader.prototype = {
     this.load.image('b1g1-sad_penguin_face', 'img/block1/game1/b1g1sad_penguin_face.png');
     this.load.image('b1g1-opr_bg', 'img/block1/game1/b1g1opr_bg.png');
     this.load.image('b1g1-retro', 'img/block1/game1/b1g1retro.png');
+    this.load.image('b1g1-correct', 'img/block1/game1/b1g1correct.png');
+    this.load.image('b1g1-heart', 'img/block1/game1/b1g1heart.png');
     
     // load sounds
     this.load.audio('b1g1-intro', ['sound/block1/game1/mp3/b1g1intro.mp3', 'sound/block1/game1/ogg/b1g1intro.ogg']);
@@ -80,6 +82,8 @@ TuxGame.Preloader.prototype = {
     this.load.image('b1g2-thumbs_up', 'img/block1/game2/b1g2thumbs_up.png');
     this.load.image('b1g2-bg', 'img/block1/game2/b1g2bg.png');
     this.load.image('b1g2-menu', 'img/block1/game2/b1g2menu.png');
+    this.load.image('b1g2-correct', 'img/block1/game2/b1g2correct.png');
+    this.load.image('b1g2-heart', 'img/block1/game2/b1g2heart.png');
 
     /**************************************
     * Block 2
