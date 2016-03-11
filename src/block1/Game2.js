@@ -28,35 +28,35 @@ var b1g2_level2 = [
     {"op": "Si la jarra contiene un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/10", "answer2": "1/11", "answer3": "1/12", "numberOfCups":10, "liters":1, "rightAnswer": "1/10"},
     {"op": "Si la jarra contiene un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/11", "answer2": "2/12", "answer3": "2/11", "numberOfCups":11, "liters":1, "rightAnswer": "1/11"},
     {"op": "Si la jarra contiene un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "3/1", "answer2": "3/4", "answer3": "1/12", "numberOfCups":12, "liters":1, "rightAnswer": "1/12"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/6", "answer2": "2/3", "answer3": "1/3", "numberOfCups":3, "liters":2, "rightAnswer": "2/3"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/2", "answer2": "2/1", "answer3": "1", "numberOfCups":2, "liters":2, "rightAnswer": "1"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/2", "answer2": "2/8", "answer3": "2/4", "numberOfCups":4, "liters":2, "rightAnswer": "1/2"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "2/5", "answer2": "3/5", "answer3": "1/5", "numberOfCups":5, "liters":2, "rightAnswer": "2/5"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/6", "answer2": "1/2", "answer3": "3/6", "numberOfCups":6, "liters":3, "rightAnswer": "1/2"}
+    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/6", "answer2": "2/3", "answer3": "1/3", "numberOfCups":3, "liters":2, "rightAnswer": "2/3"},
+    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/2", "answer2": "2/1", "answer3": "1", "numberOfCups":2, "liters":2, "rightAnswer": "1"},
+    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/2", "answer2": "2/8", "answer3": "2/4", "numberOfCups":4, "liters":2, "rightAnswer": "1/2"},
+    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "2/5", "answer2": "3/5", "answer3": "1/5", "numberOfCups":5, "liters":2, "rightAnswer": "2/5"},
+    {"op": "Si las 3 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/6", "answer2": "1/2", "answer3": "3/6", "numberOfCups":6, "liters":3, "rightAnswer": "1/2"}
 ];
 var b1g2_level3 = [
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.5", "answer2": "1/4", "answer3": "0.20", "numberOfCups":8, "liters":2, "rightAnswer": "1/4"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.25", "answer2": "1/10", "answer3": "1/5", "numberOfCups":10, "liters":2, "rightAnswer": "1/5"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.33", "answer2": "1/12", "answer3": "1/6", "numberOfCups":12, "liters":2, "rightAnswer": "1/6"},
+    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.5", "answer2": "1/4", "answer3": "0.20", "numberOfCups":8, "liters":2, "rightAnswer": "1/4"},
+    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.25", "answer2": "1/10", "answer3": "1/5", "numberOfCups":10, "liters":2, "rightAnswer": "1/5"},
+    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.33", "answer2": "1/12", "answer3": "1/6", "numberOfCups":12, "liters":2, "rightAnswer": "1/6"},
     {"op": "Si la jarra contiene un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/3", "answer2": "0.5", "answer3": "1/5", "numberOfCups":2, "liters":1, "rightAnswer": "0.5"},
     {"op": "Si la jarra contiene un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "3", "answer2": "2/3", "answer3": "0.33", "numberOfCups":3, "liters":1, "rightAnswer": "0.33"},
     {"op": "Si la jarra contiene un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.25", "answer2": "1/2", "answer3": "1/8", "numberOfCups":4, "liters":1, "rightAnswer": "0.25"},
     {"op": "Si la jarra contiene un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/2", "answer2": "1/8", "answer3": "0.20", "numberOfCups":5, "liters":1, "rightAnswer": "0.20"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.5", "answer2": "0.25", "answer3": "0.75", "numberOfCups":4, "liters":2, "rightAnswer": "0.5"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.4", "answer2": "0.20", "answer3": "0.25", "numberOfCups":5, "liters":2, "rightAnswer": "0.4"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.5", "answer2": "0.75", "answer3": "0.40", "numberOfCups":4, "liters":3, "rightAnswer": "0.75"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "2.5", "answer2": "4.5", "answer3": "0.5", "numberOfCups":2, "liters":5, "rightAnswer": "2.5"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1.25", "answer2": "4.5", "answer3": "0.5", "numberOfCups":4, "liters":5, "rightAnswer": "1.25"},
-    {"op": "Si las jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.4", "answer2": "0.5", "answer3": "0.25", "numberOfCups":10, "liters":5, "rightAnswer": "0.5"}
+    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.5", "answer2": "0.25", "answer3": "0.75", "numberOfCups":4, "liters":2, "rightAnswer": "0.5"},
+    {"op": "Si las 2 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.4", "answer2": "0.20", "answer3": "0.25", "numberOfCups":5, "liters":2, "rightAnswer": "0.4"},
+    {"op": "Si las 3 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.5", "answer2": "0.75", "answer3": "0.40", "numberOfCups":4, "liters":3, "rightAnswer": "0.75"},
+    {"op": "Si las 5 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "2.5", "answer2": "4.5", "answer3": "0.5", "numberOfCups":2, "liters":5, "rightAnswer": "2.5"},
+    {"op": "Si las 5 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1.25", "answer2": "4.5", "answer3": "0.5", "numberOfCups":4, "liters":5, "rightAnswer": "1.25"},
+    {"op": "Si las 5 jarras contienen un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "0.4", "answer2": "0.5", "answer3": "0.25", "numberOfCups":10, "liters":5, "rightAnswer": "0.5"}
 ];
 // We need a number between 0 and the array's length - 1. This is to select one
 // of the possible questions with their respective answers.
 var b1g2_quiz = Math.floor((Math.random() * (b1g2_level1.length - 1)));
 var numberOfCups = b1g2_level1[b1g2_quiz].numberOfCups;
 var liters = b1g2_level1[b1g2_quiz].liters;
-var cupXPos = 405;
+var cupXPos = 320;
 var cupYPos = 210;
-var jugYPos = 190;
+var jugXPos = 90;
 var cups = [];
 var jugs = [];
 TuxGame.Block1Game2 = function(game){
@@ -76,27 +76,27 @@ TuxGame.Block1Game2.prototype = {
     TuxGame.G2B1_LOOP.loopFull(1);
 		this.physics.startSystem(Phaser.Physics.ARCADE);
 		this.add.sprite(0, 0, 'b1g2-galleon-bg');
-        b1g2_bg = this.add.sprite(200, -10, 'b1g2-bg');
-        b1g2_bg.scale.setTo(0.50, 0.50);
+        b1g2_bg = this.add.sprite(200, -30, 'b1g2-bg');
+        b1g2_bg.scale.setTo(0.53, 0.50);
     home_button = this.add.button(0, 0, 'b1g1-home_button', this.goMainMenu, this, 1, 0, 2);
 		home_button.scale.setTo(0.07, 0.07);
 		b1g2_table = this.add.sprite(285, 220, 'b1g2-table');
 		b1g2_table.scale.setTo(0.55, 0.80);
-		b1g2_octopus = this.add.sprite(120, 220, 'b1g2-octopus');
+		b1g2_octopus = this.add.sprite(0, 200, 'b1g2-octopus');
 		b1g2_octopus.scale.setTo(0.30, 0.30);
 		for (var i = 0; i < liters; i++) {
-			jugs[i] = this.add.sprite(350, jugYPos, 'b1g2-jar');
+			jugs[i] = this.add.sprite(jugXPos, 160, 'b1g2-jar');
 			jugs[i].scale.setTo(0.15, 0.15);
-			jugYPos += 30;
+			jugXPos += 75;
 		}
 		//b1g2_barrel = this.add.sprite(620, 240, 'b1g2-barrel');
 		//b1g2_barrel.scale.setTo(0.10, 0.10);
 		for (var i = 0; i < numberOfCups; i++) {
             cups[i] = this.add.sprite(cupXPos, cupYPos, 'b1g2-cup');
     		cups[i].scale.setTo(0.25, 0.25);
-            cupXPos += 55;
+            cupXPos += 70;
             if(i == 5){
-            	cupXPos = 405;
+            	cupXPos = 320;
             	cupYPos = 240;
             }
         }
@@ -108,7 +108,7 @@ TuxGame.Block1Game2.prototype = {
 		b1g2_button2.scale.setTo(0.40, 0.40);
         b1g2_button3 = b1g2_buttons.create(536, 450, 'b1g2-button');
 		b1g2_button3.scale.setTo(0.40, 0.40);
-		b1g2_reaction = this.add.sprite(150, 200, 'b1g2-thumbs_up');
+		b1g2_reaction = this.add.sprite(0, 260, 'b1g2-thumbs_up');
 		b1g2_reaction.scale.setTo(0.50, 0.50);
 		b1g2_reaction.visible = false;
 		b1g2_correct = this.add.sprite(100, 40, "b1g2-correct").scale.setTo(0.5,0.5);
@@ -127,7 +127,7 @@ TuxGame.Block1Game2.prototype = {
 		// b1g1_game_end = this.add.audio('b1g1-game_finale');
 
 		b1g2_message = this.add.text(50, 120, '', { font:'bold 40pt Times New Roman', fill: '#000000' });
-	    b1g2_instruction = this.add.text(320, 50, '', { font:'bold 20pt Times New Roman', fill: '#000000' });
+	    b1g2_instruction = this.add.text(320, 30, '', { font:'bold 20pt Times New Roman', fill: '#000000' });
 	    b1g2_instruction.text = b1g2_level1[b1g2_quiz].op;
 	    b1g2_levelText = this.add.text(100, 10, ('Nivel ' + b1g2_levelStatus), { font:'bold 25px Verdana', fill: '#4665b8' });
 	    b1g2_goodCounterText = this.add.text(160, 40, goodCounter, { font:'bold 25px Verdana', fill: '#4665b8' });
@@ -255,25 +255,25 @@ TuxGame.Block1Game2.prototype = {
 		b1g2_quiz = Math.floor((Math.random() * (b1g2_quizArray.length - 1)));
 		numberOfCups = b1g2_quizArray[b1g2_quiz].numberOfCups;
 		liters = b1g2_quizArray[b1g2_quiz].liters;
-        cupXPos = 405;
+        cupXPos = 320;
         cupYPos = 210;
-		jugXPos = 350;
-		jugYPos = 190;
+		jugXPos = 90;
+		jugYPos = 160;
 		for (var i = 0; i < liters; i++) {
 			jugs[i] = this.add.sprite(jugXPos, jugYPos, 'b1g2-jar');
 			jugs[i].scale.setTo(0.15, 0.15);
-			jugYPos += 20;
+			jugXPos += 75;
 			if(i == 2){
-				jugXPos = 290;
+				jugXPos = 120;
 				jugYPos = 190;
 			}
 		}
         for (var i = 0; i < numberOfCups; i++) {
             cups[i] = this.add.sprite(cupXPos, cupYPos, 'b1g2-cup');
     		cups[i].scale.setTo(0.25, 0.25);
-            cupXPos += 55;
+            cupXPos += 70;
             if(i == 5){
-            	cupXPos = 405;
+            	cupXPos = 320;
             	cupYPos = 240;
             }
         }
@@ -291,9 +291,9 @@ TuxGame.Block1Game2.prototype = {
 		score = 30;
 		goodCounter = 0;
 		wrongCounter = 0;
-		cupXPos = 405;
+		cupXPos = 320;
 		cupYPos = 210;
-		jugYPos = 190;
+		jugYPos = 160;
 		for (var i = 0; i < jugs.length; i++) {
 			jugs[i].destroy();
 		}
