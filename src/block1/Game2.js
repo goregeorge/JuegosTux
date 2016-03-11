@@ -188,6 +188,7 @@ TuxGame.Block1Game2.prototype = {
 	    	b1g2_levelStatus += 1;
 	    	b1g2_levelText.text = 'Nivel ' + b1g2_levelStatus;
 	    	wrongCounter = 0;
+	    	b1g2_heartsText.text = 3;
 	    	this.time.events.add(1500, function() {
 	    		b1g2_reaction.visible = false;
 				this.changeQuestion();
@@ -300,6 +301,10 @@ TuxGame.Block1Game2.prototype = {
         for (var i = 0; i < cups.length; i++) {
             cups[i].destroy();
         }
+        numberOfCups = b1g2_level1[b1g2_quiz].numberOfCups;
+		liters = b1g2_level1[b1g2_quiz].liters;
+		cups = [];
+		jugs = [];
 	},
 	gameOver: function(){
 		this.resetElements();

@@ -234,6 +234,7 @@ TuxGame.Block1Game1.prototype = {
 	    	b1g1_levelStatus += 1;
 	    	b1g1_levelText.text = 'Nivel ' + b1g1_levelStatus;
 	    	wrongCounter = 0;
+	    	b1g1_heartsText.text = 3;
 	    	b1g1_opr_bg.scale.setTo(0.60, 0.30);
 	    	b1g1_opr_bg.x = -10;
 	    	b1g1_retro.x = 580;
