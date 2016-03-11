@@ -338,6 +338,10 @@ TuxGame.Block1Game1.prototype = {
 		b1g1_option1.destroy();
 		b1g1_option2.destroy();
 		b1g1_option3.destroy();
+		reaction = 0;
+		score = 30;
+		goodCounter = 0;
+		wrongCounter = 0;
     that = this;
 	    setTimeout(function(){
 	    	that.state.start("Block1Game1");
