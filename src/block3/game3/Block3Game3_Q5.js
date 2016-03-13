@@ -11,7 +11,7 @@ TuxGame.Block3Game3_Q5.prototype = {
 	create : function(){
 		
 		//Define the level and question
-		this.round = 5;
+		this.round = 1;
 		var question = "¿Cuántos miligramos pesan \nlas cinco monedas?";
 
 		this.backgroundB3G3.displayBackground(this);

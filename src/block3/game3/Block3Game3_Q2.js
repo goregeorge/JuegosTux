@@ -12,7 +12,7 @@ TuxGame.Block3Game3_Q2.prototype = {
 	create : function(){
 		
 		//Define the level and question
-		this.round = 2;
+		this.round = 1;
 		var question = "¿Cuántos gramos pesa \nel telescopio?";
 
 		this.backgroundB3G3.displayBackground(this);
