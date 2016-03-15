@@ -6,6 +6,7 @@ TuxGame.Block2Game2L2.prototype = {
   create: function(){
     currentColor = "green";
     colors = {
+      white:  0,
       green:  0,
       orange: 0,
       pink:   0,
@@ -39,6 +40,9 @@ TuxGame.Block2Game2L2.prototype = {
     // Palette
     palette = this.add.sprite(20, 420, 'palette');
     palette.scale.setTo(0.4, 0.4);
+
+    white = this.add.button(73, 368, 'square_white_14', this.selectWhite, this);
+    white.scale.setTo(0.35, 0.35);
 
     green = this.add.button(19, 420, 'square_green_14', this.selectGreen, this);
     green.scale.setTo(0.35, 0.35);
@@ -157,7 +161,14 @@ TuxGame.Block2Game2L2.prototype = {
     this.add.audio('bubble').play();
     console.log(currentColor);
   },
+  selectWhite : function () {
+    currentColor = "white";
+    this.add.audio('bubble').play();
+    console.log(currentColor);
+  },
   verifyAnswer : function (btn) {
+    console.log("whites:",colors['white']);
+    console.log(colors);
     if (colors['red'] != 3) {
       TuxGame._incorrect += 1;
       wrongsText.setText(TuxGame._incorrect);
