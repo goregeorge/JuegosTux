@@ -15,7 +15,7 @@ TuxGame.Block2Game2Score.prototype = {
 
     this.add.text(80, 35, "Resultados", this._fontStyle2);
     point = this.add.sprite(25, 85, 'point');
-    levelText = this.add.text(80, 100, "8 Niveles Completados", this._fontStyle2);
+    levelText = this.add.text(80, 100, "10 Niveles Completados", this._fontStyle2);
 
     goods = this.add.sprite(40, 155, 'good-s');
     goods.scale.setTo(0.7, 0.7);

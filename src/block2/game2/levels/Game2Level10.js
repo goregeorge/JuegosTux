@@ -1,8 +1,8 @@
-TuxGame.Block2Game2L8 = function(game){
+TuxGame.Block2Game2L10 = function(game){
   // define needed variables for Candy.Game
   this.game = game;
 };
-TuxGame.Block2Game2L8.prototype = {
+TuxGame.Block2Game2L10.prototype = {
   create: function(){
     currentColor = "green";
     colors = {
@@ -14,7 +14,7 @@ TuxGame.Block2Game2L8.prototype = {
       red:    0,
     }
 
-    name = 8;
+    name = 10;
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
     // display background
@@ -29,31 +29,39 @@ TuxGame.Block2Game2L8.prototype = {
     fish2 = this.add.sprite(400, 100, 'fish_body');
     fish2.scale.setTo(0.6, 0.6);
 
-    sixth1 = this.add.button(76, 150, 'square_white_16', this.changeColor, this);
-    sixth2 = this.add.button(149, 150, 'square_white_16', this.changeColor, this);
-    sixth3 = this.add.button(76, 199, 'square_white_16', this.changeColor, this);
-    sixth4 = this.add.button(149, 199, 'square_white_16', this.changeColor, this);
-    sixth5 = this.add.button(76, 247, 'square_white_16', this.changeColor, this);
-    sixth6 = this.add.button(149, 247, 'square_white_16', this.changeColor, this);
-    sixth7 = this.add.button(466, 150, 'square_white_16', this.changeColor, this);
-    sixth8 = this.add.button(539, 150, 'square_white_16', this.changeColor, this);
-    sixth9 = this.add.button(466, 199, 'square_white_16', this.changeColor, this);
-    sixth10 = this.add.button(539, 199, 'square_white_16', this.changeColor, this);
-    sixth11 = this.add.button(466, 247, 'square_white_16', this.changeColor, this);
-    sixth12 = this.add.button(539, 247, 'square_white_16', this.changeColor, this);
+    eighth1 = this.add.button(76, 150, 'square_white_18', this.changeColor, this);
+    eighth2 = this.add.button(115, 150, 'square_white_18', this.changeColor, this);
+    eighth3 = this.add.button(154, 150, 'square_white_18', this.changeColor, this);
+    eighth4 = this.add.button(192, 150, 'square_white_18', this.changeColor, this);
+    eighth5 = this.add.button(76, 227, 'square_white_18', this.changeColor, this);
+    eighth6 = this.add.button(115, 227, 'square_white_18', this.changeColor, this);
+    eighth7 = this.add.button(154, 227, 'square_white_18', this.changeColor, this);
+    eighth8 = this.add.button(192, 227, 'square_white_18', this.changeColor, this);
+    eighth9 = this.add.button(466, 150, 'square_white_18', this.changeColor, this);
+    eighth10 = this.add.button(505, 150, 'square_white_18', this.changeColor, this);
+    eighth11 = this.add.button(544, 150, 'square_white_18', this.changeColor, this);
+    eighth12 = this.add.button(582, 150, 'square_white_18', this.changeColor, this);
+    eighth13 = this.add.button(466, 227, 'square_white_18', this.changeColor, this);
+    eighth14 = this.add.button(505, 227, 'square_white_18', this.changeColor, this);
+    eighth15 = this.add.button(544, 227, 'square_white_18', this.changeColor, this);
+    eighth16 = this.add.button(582, 227, 'square_white_18', this.changeColor, this);
 
-    sixth1.scale.setTo(0.5, 0.5);
-    sixth2.scale.setTo(0.5, 0.5);
-    sixth3.scale.setTo(0.5, 0.5);
-    sixth4.scale.setTo(0.5, 0.5);
-    sixth5.scale.setTo(0.5, 0.5);
-    sixth6.scale.setTo(0.5, 0.5);
-    sixth7.scale.setTo(0.5, 0.5);
-    sixth8.scale.setTo(0.5, 0.5);
-    sixth9.scale.setTo(0.5, 0.5);
-    sixth10.scale.setTo(0.5, 0.5);
-    sixth11.scale.setTo(0.5, 0.5);
-    sixth12.scale.setTo(0.5, 0.5);
+    eighth1.scale.setTo(0.5, 0.5);
+    eighth2.scale.setTo(0.5, 0.5);
+    eighth3.scale.setTo(0.5, 0.5);
+    eighth4.scale.setTo(0.5, 0.5);
+    eighth5.scale.setTo(0.5, 0.5);
+    eighth6.scale.setTo(0.5, 0.5);
+    eighth7.scale.setTo(0.5, 0.5);
+    eighth8.scale.setTo(0.5, 0.5);
+    eighth9.scale.setTo(0.5, 0.5);
+    eighth10.scale.setTo(0.5, 0.5);
+    eighth11.scale.setTo(0.5, 0.5);
+    eighth12.scale.setTo(0.5, 0.5);
+    eighth13.scale.setTo(0.5, 0.5);
+    eighth14.scale.setTo(0.5, 0.5);
+    eighth15.scale.setTo(0.5, 0.5);
+    eighth16.scale.setTo(0.5, 0.5);
 
     // Palette
     palette = this.add.sprite(20, 420, 'palette');
@@ -80,7 +88,7 @@ TuxGame.Block2Game2L8.prototype = {
     red = this.add.button(127, 475, 'square_red_14', this.selectRed, this);
     red.scale.setTo(0.35, 0.35);
 
-    this.instructionText = this.add.text(200, 410, "Coloréa los rectángulos blancos:\n 3/6 de rojo, \n 1/2 de verde y \n 10/10 de naranja.", this._fontStyle);
+    this.instructionText = this.add.text(200, 410, "Coloréa los rectángulos blancos:\n  21/24 de verde, \n 16/32 de rojo y \n 25/40 de amarillo.", this._fontStyle);
 
     this.add.button(0, 0, 'button-home', TuxGame.goToHome, this, 1, 0, 2);
     this.add.sprite(70, 0, 'point');
@@ -103,7 +111,7 @@ TuxGame.Block2Game2L8.prototype = {
     this.milliseconds = 0;
     this.seconds = 0;
     this.minutes = 0;
-    this.time.events.add(Phaser.Timer.SECOND * 20, this.timeOver, this);
+    this.time.events.add(Phaser.Timer.SECOND * 30, this.timeOver, this);
   },
   update: function () {
     this.minutes = Math.floor(this.game.time.events.duration / 60000) % 60;
@@ -122,10 +130,10 @@ TuxGame.Block2Game2L8.prototype = {
     this.timer.setText(this.seconds + " segundos");
   },
   timeOver : function () {
+    this.add.audio('incorrect').play();
     wrong = this.add.sprite(300, 100, 'wrong');
     TuxGame._incorrect += 1;
     that = this;
-    this.add.audio('incorrect').play();
     setTimeout(function () {
       that.state.start('Block2Game2L1');
     }, 1200);
@@ -138,7 +146,7 @@ TuxGame.Block2Game2L8.prototype = {
     // Getting Color of Current pressed button
     oldColor = btn.key.split('_')[1];
     // Creating Name of new sprite
-    sprite = "square_"+currentColor+"_16";
+    sprite = "square_"+currentColor+"_18";
 
     colors[oldColor]     -= 1;
     colors[currentColor] += 1;
@@ -185,7 +193,7 @@ TuxGame.Block2Game2L8.prototype = {
     console.log(currentColor);
   },
   verifyAnswer : function (btn) {
-    if (!(colors['red'] == 3 && colors['green'] == 3 && colors['orange'] == 6)) {
+    if (!(colors['green'] == 7 && colors['red'] == 4 && colors['yellow'] == 5)) {
       TuxGame._incorrect += 1;
       wrongsText.setText(TuxGame._incorrect);
       wrong = this.add.sprite(300, 100, 'wrong');
@@ -199,7 +207,7 @@ TuxGame.Block2Game2L8.prototype = {
       TuxGame._correct += 1;
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game2L9');
+        that.state.start('Block2Game2Score');
       }, 1200);
     }
   }
