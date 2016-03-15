@@ -1,9 +1,11 @@
-TuxGame.Block2Game2L2 = function(game){
+TuxGame.Block2Game2L1A = function(game){
   // define needed variables for Candy.Game
   this.game = game;
 };
-TuxGame.Block2Game2L2.prototype = {
+TuxGame.Block2Game2L1A.prototype = {
   create: function(){
+    TuxGame._incorrect = 0;
+    TuxGame._correct = 0;
     currentColor = "green";
     colors = {
       white:  0,
@@ -15,7 +17,7 @@ TuxGame.Block2Game2L2.prototype = {
       red:    0,
     }
 
-    name = 2;
+    name = 1;
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
     // display background
@@ -27,15 +29,11 @@ TuxGame.Block2Game2L2.prototype = {
     fish1 = this.add.sprite(200, 100, 'fish_body');
     fish1.scale.setTo(0.6, 0.6);
 
-    quarter1 = this.add.button(266, 150, 'square_white_14', this.changeColor, this);
-    quarter2 = this.add.button(339, 150, 'square_white_14', this.changeColor, this);
-    quarter3 = this.add.button(266, 223, 'square_white_14', this.changeColor, this);
-    quarter4 = this.add.button(339, 223, 'square_white_14', this.changeColor, this);
+    half1 = this.add.button(266, 150, 'square_white_12', this.changeColor, this);
+    half1.scale.setTo(0.5, 0.5);
 
-    quarter1.scale.setTo(0.5, 0.5);
-    quarter2.scale.setTo(0.5, 0.5);
-    quarter3.scale.setTo(0.5, 0.5);
-    quarter4.scale.setTo(0.5, 0.5);
+    half2 = this.add.button(339, 150, 'square_white_12', this.changeColor, this);
+    half2.scale.setTo(0.5, 0.5);
 
     // Palette
     palette = this.add.sprite(20, 420, 'palette');
@@ -62,7 +60,7 @@ TuxGame.Block2Game2L2.prototype = {
     red = this.add.button(127, 475, 'square_red_14', this.selectRed, this);
     red.scale.setTo(0.35, 0.35);
 
-    this.instructionText = this.add.text(200, 440, "Coloréa de rojo 3/4 del \n rectángulo blanco pez ", this._fontStyle);
+    this.instructionText = this.add.text(200, 440, "Coloréa de verde 1/2 del \n rectángulo blanco del pez ", this._fontStyle);
 
     this.add.button(0, 0, 'button-home', TuxGame.goToHome, this, 1, 0, 2);
     this.add.sprite(70, 0, 'point');
@@ -77,40 +75,6 @@ TuxGame.Block2Game2L2.prototype = {
 
     next = this.add.button(650, 420, 'block2-game2-next', this.verifyAnswer, this);
     next.scale.setTo(0.4, 0.4);
-
-    // Timer
-    clock  = this.add.sprite(550, 8, 'clock');
-    clock.scale.setTo(0.8, 0.8);
-    this.timer = this.game.add.bitmapText(600, 10, 'desyrel', 'Tiempo', 30);
-    this.milliseconds = 0;
-    this.seconds = 0;
-    this.minutes = 0;
-    this.time.events.add(Phaser.Timer.SECOND * 20, this.timeOver, this);
-  },
-  update: function () {
-    this.minutes = Math.floor(this.game.time.events.duration / 60000) % 60;
-    this.seconds = Math.floor(this.game.time.events.duration / 1000) % 60;
-    this.milliseconds = Math.floor(this.game.time.events.duration) % 100;
-    //If any of the digits becomes a single digit number, pad it with a zero
-    if (this.milliseconds < 10)
-        this.milliseconds = '0' + this.milliseconds;
- 
-    if (this.seconds < 10)
-        this.seconds = '0' + this.seconds;
- 
-    if (this.minutes < 10)
-        this.minutes = '0' + this.minutes;
- 
-    this.timer.setText(this.seconds + " segundos");
-  },
-  timeOver : function () {
-    wrong = this.add.sprite(300, 100, 'wrong');
-    TuxGame._incorrect += 1;
-    that = this;
-    this.add.audio('incorrect').play();
-    setTimeout(function () {
-      that.state.start('Block2Game2L1');
-    }, 1200);
   },
   changeColor: function (btn) {
     this.add.audio('bubble').play();
@@ -120,7 +84,7 @@ TuxGame.Block2Game2L2.prototype = {
     // Getting Color of Current pressed button
     oldColor = btn.key.split('_')[1];
     // Creating Name of new sprite
-    sprite = "square_"+currentColor+"_14";
+    sprite = "square_"+currentColor+"_12";
 
     colors[oldColor]     -= 1;
     colors[currentColor] += 1;
@@ -167,9 +131,7 @@ TuxGame.Block2Game2L2.prototype = {
     console.log(currentColor);
   },
   verifyAnswer : function (btn) {
-    console.log("whites:",colors['white']);
-    console.log(colors);
-    if (colors['red'] != 3) {
+    if (colors['green'] != 1 && colors['white'] != 1) {
       TuxGame._incorrect += 1;
       wrongsText.setText(TuxGame._incorrect);
       wrong = this.add.sprite(300, 100, 'wrong');
@@ -183,9 +145,8 @@ TuxGame.Block2Game2L2.prototype = {
       TuxGame._correct += 1;
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game2L3');
+        that.state.start('Block2Game2L2A');
       }, 1200);
     }
   }
-
 };

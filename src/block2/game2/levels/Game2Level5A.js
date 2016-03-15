@@ -1,8 +1,8 @@
-TuxGame.Block2Game2L5 = function(game){
+TuxGame.Block2Game2L5A = function(game){
   // define needed variables for Candy.Game
   this.game = game;
 };
-TuxGame.Block2Game2L5.prototype = {
+TuxGame.Block2Game2L5A.prototype = {
   create: function(){
     currentColor = "green";
     colors = {
@@ -188,7 +188,7 @@ TuxGame.Block2Game2L5.prototype = {
       TuxGame._correct += 1;
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game2L6');
+        that.state.start('Block2Game2L6A');
       }, 1200);
     }
   }

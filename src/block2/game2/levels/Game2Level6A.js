@@ -1,8 +1,8 @@
-TuxGame.Block2Game2L4 = function(game){
+TuxGame.Block2Game2L6A = function(game){
   // define needed variables for Candy.Game
   this.game = game;
 };
-TuxGame.Block2Game2L4.prototype = {
+TuxGame.Block2Game2L6A.prototype = {
   create: function(){
     currentColor = "green";
     colors = {
@@ -14,35 +14,38 @@ TuxGame.Block2Game2L4.prototype = {
       red:    0,
     }
 
-    name = 4;
+    name = 6;
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
     // display background
-    this._fontStyle = { font: "35px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+    this._fontStyle = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle2 = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle3 = { font: "30px Arial", fill: "#00ff00", stroke: "#333", strokeThickness: 5, align: "center" };
 
     this.add.sprite(0, 0, 'sea-bg-2');
-    fish1 = this.add.sprite(200, 100, 'fish_body');
+    fish1 = this.add.sprite(10, 100, 'fish_body');
     fish1.scale.setTo(0.6, 0.6);
 
-    eighth1 = this.add.button(266, 150, 'square_white_18', this.changeColor, this);
-    eighth2 = this.add.button(305, 150, 'square_white_18', this.changeColor, this);
-    eighth3 = this.add.button(344, 150, 'square_white_18', this.changeColor, this);
-    eighth4 = this.add.button(382, 150, 'square_white_18', this.changeColor, this);
-    eighth5 = this.add.button(266, 227, 'square_white_18', this.changeColor, this);
-    eighth6 = this.add.button(305, 227, 'square_white_18', this.changeColor, this);
-    eighth7 = this.add.button(344, 227, 'square_white_18', this.changeColor, this);
-    eighth8 = this.add.button(382, 227, 'square_white_18', this.changeColor, this);
+    fish2 = this.add.sprite(400, 100, 'fish_body');
+    fish2.scale.setTo(0.6, 0.6);
 
-    eighth1.scale.setTo(0.5, 0.5);
-    eighth2.scale.setTo(0.5, 0.5);
-    eighth3.scale.setTo(0.5, 0.5);
-    eighth4.scale.setTo(0.5, 0.5);
-    eighth5.scale.setTo(0.5, 0.5);
-    eighth6.scale.setTo(0.5, 0.5);
-    eighth7.scale.setTo(0.5, 0.5);
-    eighth8.scale.setTo(0.5, 0.5);
+    quarter1 = this.add.button(76, 150, 'square_white_14', this.changeColor, this);
+    quarter2 = this.add.button(149, 150, 'square_white_14', this.changeColor, this);
+    quarter3 = this.add.button(76, 223, 'square_white_14', this.changeColor, this);
+    quarter4 = this.add.button(149, 223, 'square_white_14', this.changeColor, this);
+    quarter5 = this.add.button(466, 150, 'square_white_14', this.changeColor, this);
+    quarter6 = this.add.button(539, 150, 'square_white_14', this.changeColor, this);
+    quarter7 = this.add.button(466, 223, 'square_white_14', this.changeColor, this);
+    quarter8 = this.add.button(539, 223, 'square_white_14', this.changeColor, this);
+
+    quarter1.scale.setTo(0.5, 0.5);
+    quarter2.scale.setTo(0.5, 0.5);
+    quarter3.scale.setTo(0.5, 0.5);
+    quarter4.scale.setTo(0.5, 0.5);
+    quarter5.scale.setTo(0.5, 0.5);
+    quarter6.scale.setTo(0.5, 0.5);
+    quarter7.scale.setTo(0.5, 0.5);
+    quarter8.scale.setTo(0.5, 0.5);
 
     // Palette
     palette = this.add.sprite(20, 420, 'palette');
@@ -50,7 +53,7 @@ TuxGame.Block2Game2L4.prototype = {
 
     white = this.add.button(73, 368, 'square_white_14', this.selectWhite, this);
     white.scale.setTo(0.35, 0.35);
-
+    
     green = this.add.button(19, 420, 'square_green_14', this.selectGreen, this);
     green.scale.setTo(0.35, 0.35);
 
@@ -69,7 +72,7 @@ TuxGame.Block2Game2L4.prototype = {
     red = this.add.button(127, 475, 'square_red_14', this.selectRed, this);
     red.scale.setTo(0.35, 0.35);
 
-    this.instructionText = this.add.text(200, 440, "Coloréa de amarillo 5/8 del \n rectángulo blanco del pez ", this._fontStyle);
+    this.instructionText = this.add.text(200, 410, "Coloréa los rectángulos blancos:\n 5/4 de amarillo, \n 2/8 de verde y \n 2/4 de rosa.", this._fontStyle);
 
     this.add.button(0, 0, 'button-home', TuxGame.goToHome, this, 1, 0, 2);
     this.add.sprite(70, 0, 'point');
@@ -127,7 +130,7 @@ TuxGame.Block2Game2L4.prototype = {
     // Getting Color of Current pressed button
     oldColor = btn.key.split('_')[1];
     // Creating Name of new sprite
-    sprite = "square_"+currentColor+"_18";
+    sprite = "square_"+currentColor+"_14";
 
     colors[oldColor]     -= 1;
     colors[currentColor] += 1;
@@ -174,7 +177,7 @@ TuxGame.Block2Game2L4.prototype = {
     console.log(currentColor);
   },
   verifyAnswer : function (btn) {
-    if (colors['yellow'] != 5) {
+    if (!(colors['yellow'] == 5 && colors['green'] == 1 && colors['pink'] == 2)) {
       TuxGame._incorrect += 1;
       wrongsText.setText(TuxGame._incorrect);
       wrong = this.add.sprite(300, 100, 'wrong');
@@ -188,7 +191,7 @@ TuxGame.Block2Game2L4.prototype = {
       TuxGame._correct += 1;
       var that = this;
       setTimeout(function () {
-        that.state.start('Block2Game2L5');
+        that.state.start('Block2Game2L7A');
       }, 1200);
     }
   }
