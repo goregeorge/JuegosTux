@@ -366,6 +366,6 @@ TuxGame.Preloader.prototype = {
     TuxGame.G1B3_LOOP = this.add.audio('g1b3-loop');
     TuxGame.G2B3_LOOP = this.add.audio('g2b3-loop');
 
-    this.state.start('Welcome');
+    this.state.start('Block2Game2L8');
   }
 };

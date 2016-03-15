@@ -18,7 +18,7 @@ TuxGame.Block2Game2L8.prototype = {
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
     // display background
-    this._fontStyle = { font: "34px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+    this._fontStyle = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle2 = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle3 = { font: "30px Arial", fill: "#00ff00", stroke: "#333", strokeThickness: 5, align: "center" };
 
@@ -85,7 +85,7 @@ TuxGame.Block2Game2L8.prototype = {
     red = this.add.button(127, 475, 'square_red_14', this.selectRed, this);
     red.scale.setTo(0.35, 0.35);
 
-    this.instructionText = this.add.text(200, 420, "Coloréa: 21/24 de verde, \n 16/32 de rojo y \n 25/40 de amarillo.", this._fontStyle);
+    this.instructionText = this.add.text(200, 410, "Coloréa los rectángulos blancos:\n  21/24 de verde, \n 16/32 de rojo y \n 25/40 de amarillo.", this._fontStyle);
 
     this.add.button(0, 0, 'button-home', TuxGame.goToHome, this, 1, 0, 2);
     this.add.sprite(70, 0, 'point');

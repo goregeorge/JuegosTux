@@ -20,7 +20,7 @@ TuxGame.Block2Game2L1.prototype = {
     // start the physics engine
     this.physics.startSystem(Phaser.Physics.ARCADE);
     // display background
-    this._fontStyle = { font: "40px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
+    this._fontStyle = { font: "35px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle2 = { font: "30px Arial", fill: "#FFCC00", stroke: "#333", strokeThickness: 5, align: "center" };
     this._fontStyle3 = { font: "30px Arial", fill: "#00ff00", stroke: "#333", strokeThickness: 5, align: "center" };
 
@@ -56,7 +56,7 @@ TuxGame.Block2Game2L1.prototype = {
     red = this.add.button(127, 475, 'square_red_14', this.selectRed, this);
     red.scale.setTo(0.35, 0.35);
 
-    this.instructionText = this.add.text(200, 440, "Coloréa de verde \n 1/2 del cuerpo del pez ", this._fontStyle);
+    this.instructionText = this.add.text(200, 440, "Coloréa de verde 1/2 del \n rectángulo blanco del pez ", this._fontStyle);
 
     this.add.button(0, 0, 'button-home', TuxGame.goToHome, this, 1, 0, 2);
     this.add.sprite(70, 0, 'point');
