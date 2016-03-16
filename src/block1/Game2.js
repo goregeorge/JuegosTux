@@ -1,3 +1,4 @@
+// Se declaran las siguientes variables para colocar texto en el área de juego
 var b1g2_message;
 var b1g2_instruction;
 var b1g2_scoreText;
@@ -5,10 +6,13 @@ var b1g2_levelText;
 var b1g2_goodCounterText;
 var b1g2_heartsText;
 var b1g2_levelStatus = 1;
+// Estas son para el conteo de aciertos y de errores
 var score = 30;
 var goodCounter = 0;
 var wrongCounter = 0;
+// Posibles respuestas que se le presentan al usuario
 var b1g2_option1, b1g2_option2, b1g2_option3;
+// Se definen los siguientes arreglos para el conjunto de preguntas y respuestas de cada nivel
 var b1g2_level1 = [
     {"op": "Si la jarra contiene un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "1/2", "answer2": "1/4", "answer3": "1/3", "numberOfCups":2, "liters":1, "rightAnswer": "1/2"},
     {"op": "Si la jarra contiene un litro,\n ¿Cuánto debe contener cada vaso?", "answer1": "3/4", "answer2": "1/3", "answer3": "2/3", "numberOfCups":3, "liters":1, "rightAnswer": "1/3"},
@@ -72,9 +76,11 @@ TuxGame.Block1Game2 = function(game){
 };
 TuxGame.Block1Game2.prototype = {
 	create: function(){
+		// Se detiene la musica de fondo del menu y empieza la del juego
     TuxGame.MAIN_LOOP_SONG.stop();
     TuxGame.G2B1_LOOP.loopFull(1);
 		this.physics.startSystem(Phaser.Physics.ARCADE);
+		// Aquí se cargan los sprites
 		this.add.sprite(0, 0, 'b1g2-galleon-bg');
         b1g2_bg = this.add.sprite(200, -5, 'b1g2-bg');
         b1g2_bg.scale.setTo(0.312, 0.30);
@@ -91,6 +97,7 @@ TuxGame.Block1Game2.prototype = {
 		}
 		//b1g2_barrel = this.add.sprite(620, 240, 'b1g2-barrel');
 		//b1g2_barrel.scale.setTo(0.10, 0.10);
+		// Se usa un arreglo para formar un conjunto de vasos y de jarras
 		for (var i = 0; i < numberOfCups; i++) {
             cups[i] = this.add.sprite(cupXPos, cupYPos, 'b1g2-cup');
     		cups[i].scale.setTo(0.50, 0.50);
@@ -113,27 +120,31 @@ TuxGame.Block1Game2.prototype = {
 		b1g2_reaction.visible = false;
 		b1g2_correct = this.add.sprite(100, 40, "b1g2-correct").scale.setTo(0.5,0.5);
 		b1g2_heart = this.add.sprite(105, 75, "b1g2-heart").scale.setTo(0.8, 0.8);
-
+		// Los botones responderán a eventos y realizarán alguna acción cuando se les de clic
 		home_button.inputEnabled = true;
 		b1g2_button1.inputEnabled = true;
 		b1g2_button2.inputEnabled = true;
 		b1g2_button3.inputEnabled = true;
 
+		// Se cargan los sonidos
 		b1g1_correct = this.add.audio('correct');
 		b1g1_incorrect = this.add.audio('b1g1-incorrect');
 		b1g1_next_level = this.add.audio('b1g1-next_level');
-		// b1g1_game_over = this.add.audio('b1g1-game_over');
-		// b1g1_game_win = this.add.audio('b1g1-game_win');
-		// b1g1_game_end = this.add.audio('b1g1-game_finale');
+		// b1g2_game_over = this.add.audio('b1g1-game_over');
+		// b1g2_game_win = this.add.audio('b1g1-game_win');
+		// b1g2_game_end = this.add.audio('b1g1-game_finale');
 
+		// Se establecen la fuente, el color y la posición de los mensajes
 		b1g2_message = this.add.text(50, 120, '', { font:'bold 40pt Times New Roman', fill: '#000000' });
 	    b1g2_instruction = this.add.text(320, 30, '', { font:'bold 20pt Times New Roman', fill: '#000000' });
 	    b1g2_instruction.text = b1g2_level1[b1g2_quiz].op;
 	    b1g2_levelText = this.add.text(100, 10, ('Nivel ' + b1g2_levelStatus), { font:'bold 25px Verdana', fill: '#4665b8' });
 	    b1g2_goodCounterText = this.add.text(160, 40, goodCounter, { font:'bold 25px Verdana', fill: '#4665b8' });
 	    b1g2_heartsText = this.add.text(160, 70, 3-wrongCounter, { font:'bold 25px Verdana', fill: '#4665b8' });
+	    // Se coloca la pregunta con sus posibles respuestas
 		this.setPossibleAnswers(b1g2_level1);
 	},
+	// Esta funcion es para alterar el orden de los elementos del  arreglo que se le pase
 	shuffle: function(array) {
 		var currentIndex = array.length, temporaryValue, randomIndex ;
 		// While there remain elements to shuffle...
@@ -153,6 +164,9 @@ TuxGame.Block1Game2.prototype = {
 	    var possibleChoices = [b1g2_quizArray[b1g2_quiz].answer1, b1g2_quizArray[b1g2_quiz].answer2, b1g2_quizArray[b1g2_quiz].answer3];
 	    //retroText.text = b1g2_quizArray[b1g2_quiz].rightAnswer;
 	    //retroText.visible = false;
+	    // La siguiente línea solo se usa para propósitos de desarrollo
+	    // console.log(b1g2_quizArray[b1g2_quiz].rightAnswer);
+	    // Se altera el orden de las posibles opciones
 		this.shuffle(possibleChoices);
 	    b1g2_option1 = this.add.text(160, 480, '', {  font:'bold 35pt Times New Roman', fill: '#000000' });
 	    b1g2_option1.text = possibleChoices[0];
@@ -178,17 +192,27 @@ TuxGame.Block1Game2.prototype = {
 	    }
 	},
 	increaseScore: function() {
+		// Se añade la cara del pulgar arriba
 		b1g2_reaction.loadTexture('b1g2-thumbs_up', 0, false);
 	    b1g2_reaction.visible = true;
+	    // Se incrementa el contador
 	    goodCounter += 1;
+	    // ... y se muestra en pantalla
 	    b1g2_goodCounterText.text = goodCounter;
+	    // Se reproduce el sonido de respuesta correcta
 	    b1g1_correct.play();
+	    // Se verifica si ya tiene los aciertos necesarios para el cambio de nivel
 	    if(goodCounter == 8 || goodCounter == 16){
+	    	// Se reproduce el sonido de cambio de nivel
 	    	b1g1_next_level.play();
 	    	b1g2_levelStatus += 1;
 	    	b1g2_levelText.text = 'Nivel ' + b1g2_levelStatus;
+	    	// La siguiente línea solo se usa para propósitos de desarrollo
+	    	// console.log("Next Level");
+	    	// Se reinicia el contador de malas
 	    	wrongCounter = 0;
 	    	b1g2_heartsText.text = 3;
+	    	// Se cambia de pregunta
 	    	this.time.events.add(1500, function() {
 	    		b1g2_reaction.visible = false;
 				this.changeQuestion();
@@ -196,7 +220,9 @@ TuxGame.Block1Game2.prototype = {
 	    }
 	    else{
 	    	if(goodCounter == 24){
+	    		// Se llega al fin de juego y se muestra un mensaje de felicitacion
           that = this;
+          // Y se regresa al menú principal
           setTimeout(function(){
 					 that.state.start('MainMenu');
 	    		}, 4000);
@@ -210,6 +236,7 @@ TuxGame.Block1Game2.prototype = {
 	    }
 	},
 	decreaseScore: function() {
+		// Se añade la cara del pulgar abajo
 		b1g2_reaction.loadTexture('b1g2-thumbs_down', 0, false);
 	    b1g2_reaction.visible = true;
 	    wrongCounter += 1;
@@ -217,14 +244,17 @@ TuxGame.Block1Game2.prototype = {
 	    this.time.events.add(1500, function() {
 			b1g2_reaction.visible = false;
 	    }, this);
+	    // Se verifica si ya se ha fallado tres veces en cuyo caso se termina el juego
 		if(wrongCounter == 3){
 			//Commenting the next line allows testing without gaming over
 			this.gameOver();
 		} else {
+			// Se reproduce el sonido de respuesta errónea
 			b1g1_incorrect.play();
 		}
 	},
 	changeQuestion: function(){
+		// Se preparan los sprites y los textos para el cambio de preguntas y de opciones
 		b1g2_option1.text = "";
 		b1g2_option2.text = "";
 		b1g2_option3.text = "";
@@ -237,13 +267,16 @@ TuxGame.Block1Game2.prototype = {
 		b1g2_button1.events.onInputDown.removeAll();
 		b1g2_button2.events.onInputDown.removeAll();
 		b1g2_button3.events.onInputDown.removeAll();
+		// Si se tienen menos de ocho aciertos se usan las preguntas del nivel uno
 		if(goodCounter <8){
 			this.resetSprites(b1g2_level1);
 		}
 		else{
+			// Nivel 2
 			if(goodCounter <16){
 				this.resetSprites(b1g2_level2);
 			}
+			// Nivel 3
 			else{
 				if(goodCounter <= 24){
 					this.resetSprites(b1g2_level3);
@@ -253,6 +286,7 @@ TuxGame.Block1Game2.prototype = {
 		
 	},
 	resetSprites: function(b1g2_quizArray){
+		// Se reinician las posiciones para colocar las jarras y los vasos
 		b1g2_quiz = Math.floor((Math.random() * (b1g2_quizArray.length - 1)));
 		numberOfCups = b1g2_quizArray[b1g2_quiz].numberOfCups;
 		liters = b1g2_quizArray[b1g2_quiz].liters;
@@ -282,6 +316,7 @@ TuxGame.Block1Game2.prototype = {
 		this.setPossibleAnswers(b1g2_quizArray);
 	},
 	resetElements: function(){
+		// Se destruyen los sprites y se reestablecen los contadores así como las posiciones de inicio
 		b1g2_button1.destroy();
 		b1g2_button2.destroy();
 		b1g2_button3.destroy();
@@ -306,6 +341,7 @@ TuxGame.Block1Game2.prototype = {
 		cups = [];
 		jugs = [];
 	},
+	// Se reproduce el sonido de Game Over y se resetean los elementos
 	gameOver: function(){
 		this.resetElements();
 		that = this;
@@ -313,6 +349,7 @@ TuxGame.Block1Game2.prototype = {
 	    	that.state.start("Block1Game2");
 	    }, 5000);
     },
+    // Esta función se usa si el usuario desea terminar el juego y regresar el menú principal
 	quitGame: function(){
 		this.state.start('Block1Game2');
     },

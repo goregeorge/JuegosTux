@@ -1,3 +1,4 @@
+// Se declaran las siguientes variables para colocar texto en el área de juego
 var b1g1_message;
 var b1g1_instruction;
 var b1g1_scoreText;
@@ -6,11 +7,15 @@ var b1g1_goodCounterText;
 var b1g1_heartsText;
 var b1g1_levelStatus = 1;
 var reaction = 0;
+// Estas son para el conteo de aciertos y de errores
 var score = 30;
 var goodCounter = 0;
 var wrongCounter = 0;
+// Posibles respuestas que se le presentan al usuario
 var b1g1_option1, b1g1_option2, b1g1_option3;
-var BULLET_SPEED = 800; 
+// Esta se usa para la velocidad de la bala de cañon
+var BULLET_SPEED = 800;
+// Se definen los siguientes arreglos para el conjunto de preguntas y respuestas de cada nivel
 var b1g1_level1 = [
     {"op": "25+17", "answer1": 39, "answer2": 42, "answer3": 41, "rightAnswer": 25+17},
     {"op": "125+5+10", "answer1": 95, "answer2": 145, "answer3": 140, "rightAnswer": 125+5+10},
@@ -89,9 +94,12 @@ TuxGame.Block1Game1 = function(game){
 };
 TuxGame.Block1Game1.prototype = {
 	create: function(){
+		// Se detiene la musica de fondo del menu y empieza la del juego
     TuxGame.MAIN_LOOP_SONG.stop();
     TuxGame.G1B1_LOOP.loopFull(1);
+    // Se usa para el movimiento de la bala
 		this.physics.startSystem(Phaser.Physics.ARCADE);
+		// Aquí se cargan los sprites
 		this.add.sprite(0, 0, 'b1g1-beach-bg');
     b1g1_home_button = this.add.button(0, 0, 'b1g1-home_button', this.goMainMenu, this, 1, 0, 2);
 		b1g1_home_button.scale.setTo(0.07, 0.07);
@@ -121,7 +129,7 @@ TuxGame.Block1Game1.prototype = {
 		b1g1_retro.scale.setTo(0.50, 0.40);
 		b1g1_correct = this.add.sprite(700, 540, "b1g1-correct").scale.setTo(0.5,0.5);
 		b1g1_heart = this.add.sprite(705, 575, "b1g1-heart").scale.setTo(0.8, 0.8);
-
+		// Los botones responderán a eventos y realizarán alguna acción cuando de les de clic
 		b1g1_home_button.inputEnabled = true;
 		b1g1_boat1.inputEnabled = true;
 	    b1g1_boat2.inputEnabled = true;
@@ -130,6 +138,7 @@ TuxGame.Block1Game1.prototype = {
 	    b1g1_bubble2.inputEnabled = true;
 	    b1g1_bubble3.inputEnabled = true;
 
+		// Se cargan los sonidos
 		// b1g1_intro = this.add.audio('b1g1-intro');
 		b1g1_correct = this.add.audio('correct');
 		b1g1_incorrect = this.add.audio('b1g1-incorrect');
@@ -140,6 +149,7 @@ TuxGame.Block1Game1.prototype = {
 
 		// b1g1_intro.play();
 
+		// Se establecen la fuente, el color y la posición de los mensajes
 		b1g1_message = this.add.text(50, 120, '', { font:'bold 40pt French Script MT', fill: '#000000' });
 	    b1g1_scoreText = this.add.text(715, 0, '30', { font:'bold 40pt French Script MT', fill: '#000000' });
 	    b1g1_retroText = this.add.text(480, 500, '', { font:'bold 40pt French Script MT', fill: '#ff0800' });
@@ -148,6 +158,7 @@ TuxGame.Block1Game1.prototype = {
 	    b1g1_levelText = this.add.text(700, 510, ('Nivel ' + b1g1_levelStatus), { font:'bold 25px Verdana', fill: '#4665b8' });
 	    b1g1_goodCounterText = this.add.text(760, 540, goodCounter, { font:'bold 25px Verdana', fill: '#4665b8' });
 	    b1g1_heartsText = this.add.text(760, 570, 3-wrongCounter, { font:'bold 25px Verdana', fill: '#4665b8' });
+	    // Se coloca la pregunta con sus posibles respuestas
 		this.setPossibleAnswers(b1g1_level1);
 
 	    b1g1_balls = this.add.group();
@@ -158,6 +169,7 @@ TuxGame.Block1Game1.prototype = {
 	    b1g1_balls.setAll('checkWorldBounds', true);
 	    b1g1_balls.setAll('outOfBoundsKill', true);
 	},
+	// Esta funcion es para alterar el orden de los elementos del  arreglo que se le pase
 	shuffle: function(array) {
 		var currentIndex = array.length, temporaryValue, randomIndex ;
 		// While there remain elements to shuffle...
@@ -177,7 +189,11 @@ TuxGame.Block1Game1.prototype = {
 	    var possibleChoices = [b1g1_quizArray[b1g1_quiz].answer1, b1g1_quizArray[b1g1_quiz].answer2, b1g1_quizArray[b1g1_quiz].answer3];
 	    b1g1_retroText.text = b1g1_quizArray[b1g1_quiz].rightAnswer;
 	    b1g1_retroText.visible = false;
+	    // La siguiente línea solo se usa para propósitos de desarrollo
+	    // console.log(b1g1_quizArray[b1g1_quiz].rightAnswer);
+	    // Se altera el orden de las posibles opciones
 		this.shuffle(possibleChoices);
+		// Se establecen las posibles respuestas
 	    b1g1_option1 = this.add.text(465, 170, '', {  font:'bold 40pt French Script MT', fill: '#000000' });
 	    b1g1_option1.text = possibleChoices[0];
 	    b1g1_option2 = this.add.text(650, 195, '', {  font:'bold 40pt French Script MT', fill: '#000000'  });
@@ -217,38 +233,50 @@ TuxGame.Block1Game1.prototype = {
 	    }
 	},
 	increaseScore: function(boat) {
+		// Se añade la cara del pinguino feliz
 		if(reaction == 0)
 			reaction = this.add.sprite(100, 90, 'b1g1-happy_penguin_face');
 		else{
 			reaction.loadTexture('b1g1-happy_penguin_face', 0, false);
 		}
 		reaction.scale.setTo(1.70, 1.70);
+		// Se incrementa el contador
 	    score+=10;
+	    // ... y se muestra en pantalla
 	    b1g1_scoreText.text = score;
 	    b1g1_retroText.text = "";
+	    // Se modifica el contador de aciertos
 	    goodCounter += 1;
 	    b1g1_goodCounterText.text = goodCounter;
+	    // Se reproduce el sonido de respuesta correcta
 	    b1g1_correct.play();
+	    // Se verifica si ya tiene los aciertos necesarios para el cambio de nivel
 	    if(goodCounter == 8 || goodCounter == 16){
+	    	// Se reproduce el sonido de cambio de nivel
 	    	b1g1_next_level.play();
 	    	b1g1_levelStatus += 1;
 	    	b1g1_levelText.text = 'Nivel ' + b1g1_levelStatus;
+	    	// La siguiente línea solo se usa para propósitos de desarrollo
+	    	// console.log("Next Level");
+	    	// Se reinicia el contador de malas
 	    	wrongCounter = 0;
 	    	b1g1_heartsText.text = 3;
 	    	b1g1_opr_bg.scale.setTo(0.60, 0.30);
 	    	b1g1_opr_bg.x = -10;
 	    	b1g1_retro.x = 580;
 	    	b1g1_retroText.x = 600;
+	    	// Se cambia de pregunta después de dos segundos
 			this.time.events.add(2000, function() {
 			  	this.changeQuestion(boat);
 			}, this);
 	    }
 	    else{
 	    	if(goodCounter == 24){
-
+	    		// Se llega al fin de juego y se muestra un mensaje de felicitacion
 	    		b1g1_game_end.play();
 				this.add.sprite(0, 0, 'b1g1-congrats');
         that = this;
+        		// Y se regresa al menú principal
 	    		setTimeout(function(){
 					 that.state.start('MainMenu');
 	    		}, 4000);
@@ -261,27 +289,32 @@ TuxGame.Block1Game1.prototype = {
 	    }
 	},
 	decreaseScore: function() {
+		// Se añade la cara del pingüino triste
 		if(reaction == 0)
 			reaction = this.add.sprite(100, 90, 'b1g1-sad_penguin_face');
 		else{
 			reaction.loadTexture('b1g1-sad_penguin_face', 0, false);
 		}
 		reaction.scale.setTo(1.70, 1.70);
+		// Se verifica si el contador ya llegó a cero
 		if(score >= 10)
 	    	score-=10;
 		    b1g1_scoreText.text = score;
 		    b1g1_heartsText.text -= 1;
 		    b1g1_retroText.visible = true;
 		    wrongCounter += 1;
+	    // Se verifica si ya se ha fallado tres veces en cuyo caso se termina el juego
 		if(wrongCounter == 3){
 			//Commenting the next line allows testing without gaming over
 			this.gameOver();
 		}
 		else{
+			// Se reproduce el sonido de respuesta errónea
 			b1g1_incorrect.play();
 		}
 	},
 	changeQuestion: function(boat){
+		// Se preparan los sprites y los textos para el cambio de preguntas y de opciones
 		boat.visible = true;
 		b1g1_option1.text = "";
 		b1g1_option2.text = "";
@@ -295,18 +328,21 @@ TuxGame.Block1Game1.prototype = {
 		b1g1_boat1.loadTexture('b1g1-pirate_boat', 0);
         b1g1_boat2.loadTexture('b1g1-pirate_boat2', 0);
         b1g1_boat3.loadTexture('b1g1-pirate_boat3', 0);
+        // Si se tienen menos de ocho aciertos se usan las preguntas del nivel uno
 		if(goodCounter <8){
 			b1g1_quiz = Math.floor((Math.random() * (b1g1_level1.length - 1)));
 			b1g1_instruction.text = b1g1_level1[b1g1_quiz].op;
 			this.setPossibleAnswers(b1g1_level1);
 		}
 		else{
+			// Nivel 2
 			if(goodCounter <16){
 				b1g1_quiz = Math.floor((Math.random() * (b1g1_level2.length - 1)));
 				b1g1_instruction.text = b1g1_level2[b1g1_quiz].op;
 				this.setPossibleAnswers(b1g1_level2);
 			}
 			else{
+				// Nivel 3
 				if(goodCounter <= 24){
 					b1g1_quiz = Math.floor((Math.random() * (b1g1_level3.length - 1)));
 					b1g1_instruction.text = b1g1_level3[b1g1_quiz].op;
@@ -317,6 +353,8 @@ TuxGame.Block1Game1.prototype = {
 	},
 	destroyBoat: function (boat) {
 		//Destroy the boats when necessary
+		// Si se elige la respuesta correcta la bala se mueve y el sprite desaparece
+		// "destruyendo" el bote
 		var b1g1_ball = b1g1_balls.getTop();
         b1g1_ball.reset(410, 390);
         this.physics.arcade.moveToPointer(b1g1_ball, 500);
@@ -342,6 +380,7 @@ TuxGame.Block1Game1.prototype = {
 	    	}, 1000);
     },
     resetElements: function(){
+    	// Se destruyen los sprites y se reestablecen los contadores
     	b1g1_boat1.destroy();
 		b1g1_boat2.destroy();
 		b1g1_boat3.destroy();
@@ -357,6 +396,7 @@ TuxGame.Block1Game1.prototype = {
 		goodCounter = 0;
 		wrongCounter = 0;
     },
+    // Se reproduce el sonido de Game Over y se resetean los elementos
 	gameOver: function(){
 		b1g1_game_over.play();
 		this.resetElements();
@@ -365,6 +405,7 @@ TuxGame.Block1Game1.prototype = {
 	    	that.state.start("Block1Game1");
 	    }, 5000);
 	},
+	// Esta función se usa si el usuario desea terminar el juego y regresar el menú principal
     quitGame: function(){
 	    this.state.start("Block1Game1");
     },
