@@ -24,14 +24,14 @@ TuxGame.MenuB1G2.prototype = {
 		this.add.text(TuxGame.GAME_WIDTH/2-50, 100, "Ayúdame a repartir \nel refresco \n" + 
 			"seleccionando \nla respuesta correcta.", { fill: '#FFF', font: "45px Arial", stroke: "#000", strokeThickness: 6  });
 		// Se reproduce la música de fondo correspondiente al juego
-		// this._intro = this.add.audio('b1g1-intro');
-		// this._intro.play();
+		this._intro = this.add.audio('b1g2-intro');
+		this._intro.play();
 		
 	},
 	// Función que inicia el juego
 	startGame: function() {
 		// start the Game state
-		// this._intro.stop();
+		this._intro.stop();
 		this.state.start('Block1Game2');
 	}
 };

@@ -71,6 +71,7 @@ TuxGame.Preloader.prototype = {
     /**************************************
     * Block 1 Game 2
     ***************************************/
+    this.load.image('b1g2-congrats', 'img/block1/game2/b1g2congrats.png');
     this.load.image('b1g2-galleon-bg', 'img/block1/game2/b1g2galleon.png');
     this.load.image('b1g2-table', 'img/block1/game2/b1g2table.png');
     this.load.image('b1g2-octopus', 'img/block1/game2/b1g2octopus.png');
@@ -84,6 +85,11 @@ TuxGame.Preloader.prototype = {
     this.load.image('b1g2-menu', 'img/block1/game2/b1g2menu.png');
     this.load.image('b1g2-correct', 'img/block1/game2/b1g2correct.png');
     this.load.image('b1g2-heart', 'img/block1/game2/b1g2heart.png');
+
+    // load sounds
+    this.load.audio('b1g2-intro', ['sound/block1/game2/mp3/b1g2intro.mp3', 'sound/block1/game2/ogg/b1g2intro.ogg']);
+    this.load.audio('b1g2-game_over', ['sound/block1/game2/mp3/b1g2game_over.mp3', 'sound/block1/game2/ogg/b1g2game_over.ogg']);
+    this.load.audio('b1g2-game_win', ['sound/block1/game2/mp3/b1g2game_win.mp3', 'sound/block1/game2/ogg/b1g2game_win.ogg']);
 
     /**************************************
     * Block 2

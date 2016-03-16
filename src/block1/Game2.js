@@ -130,9 +130,8 @@ TuxGame.Block1Game2.prototype = {
 		b1g1_correct = this.add.audio('correct');
 		b1g1_incorrect = this.add.audio('b1g1-incorrect');
 		b1g1_next_level = this.add.audio('b1g1-next_level');
-		// b1g2_game_over = this.add.audio('b1g1-game_over');
-		// b1g2_game_win = this.add.audio('b1g1-game_win');
-		// b1g2_game_end = this.add.audio('b1g1-game_finale');
+		b1g2_game_over = this.add.audio('b1g2-game_over');
+		b1g2_game_win = this.add.audio('b1g2-game_win');
 
 		// Se establecen la fuente, el color y la posición de los mensajes
 		b1g2_message = this.add.text(50, 120, '', { font:'bold 40pt Times New Roman', fill: '#000000' });
@@ -221,6 +220,8 @@ TuxGame.Block1Game2.prototype = {
 	    else{
 	    	if(goodCounter == 24){
 	    		// Se llega al fin de juego y se muestra un mensaje de felicitacion
+	    		b1g2_game_win.play();
+	    		this.add.sprite(0, 0, 'b1g2-congrats');
           that = this;
           // Y se regresa al menú principal
           setTimeout(function(){
@@ -343,6 +344,7 @@ TuxGame.Block1Game2.prototype = {
 	},
 	// Se reproduce el sonido de Game Over y se resetean los elementos
 	gameOver: function(){
+		b1g2_game_over.play();
 		this.resetElements();
 		that = this;
 	    setTimeout(function(){
